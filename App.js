@@ -1,21 +1,35 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.marcka}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <ScrollView>
+        <Button
+  onPress={onPressLearnMore}
+  title="Learn More"
+  color="#841584"
+  accessibilityLabel="Learn more about this purple button"
+/>
+      </ScrollView>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  marcka: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// const styles = StyleSheet.create({
+//   scrollDay: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   }
+// });
+
+// const styles = StyleSheet.create({
+//   buttonDay: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'left',
+//     justifyContent: 'left',
+//   }
+// });
