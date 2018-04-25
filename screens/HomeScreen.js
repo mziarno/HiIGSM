@@ -3,13 +3,11 @@ import { View, Text, StyleSheet, Button} from 'react-native';
 import { StackNavigator, TabNavigator} from 'react-navigation';
 import MustSeeScreen from './MustSeeScreen';
 import TimetableScreen from './TimetableScreen';
-
-
+import Contact from './Contact';
 
 class HomeScreen extends Component {
     static navigationOptions = {
-        title: 'HiIGSM',
-       
+        title: 'HiIGSM',       
             headerStyle: {
               backgroundColor: '#1D3557',
             },
@@ -23,7 +21,7 @@ class HomeScreen extends Component {
             <View>
 
                 <Text> Hello </Text>    
-               {/* <Button onPress={()=>this.props.navigation.navigate('MustSeeScreen') }title='mustsee'/>             */}
+               {/* <Button onPress={()=>this.props.navigation.navigate('MustSeeScreen') }title='mustsee'/> */}
             </View>
         )
     }
@@ -34,7 +32,8 @@ const AppNavigator = StackNavigator({
     HomeScreen: {screen: HomeScreen},
       //Main: {screen: Main}
     MustSeeScreen: {screen: MustSeeScreen},
-    TimetableScreen: {screen: TimetableScreen}
+    TimetableScreen: {screen: TimetableScreen},
+    Contact: {screen: Contact}
      // Navigation: {screen:Navigation}         
 }
 

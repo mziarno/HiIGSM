@@ -5,22 +5,21 @@ import {Icon} from 'react-native-vector-icons';
 import HomeScreen from '../HiIGSM/screens/HomeScreen';
 import MustSeeScreen from '../HiIGSM/screens/MustSeeScreen';
 import TimeTable from '../HiIGSM/screens/TimetableScreen';
+import Contact from '../HiIGSM/screens/Contact';
 
-export default class App extends React.Component {
-
-
-  render() {
-    return ( 
-     
+export default class App extends React.Component { render() {
+    return (   
+         
       <AppDrawerNavigation/>
        );
   }
 }
 
 const AppDrawerNavigation = DrawerNavigator({
-  HomeScreen: {screen: HomeScreen},
+    HomeScreen: {screen: HomeScreen},
     MustSeeScreen: {screen: MustSeeScreen},
-    TimeTable: {screen: TimeTable}
+    TimeTable: {screen: TimeTable},
+    Contact: {screen: Contact}
 
 })
 

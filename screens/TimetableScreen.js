@@ -5,7 +5,6 @@ import { View, Text, StyleSheet} from 'react-native';
 class Timetable extends Component {
   static navigationOptions = {
     title: 'Timetable',
-   
         headerStyle: {
           backgroundColor: '#1D3557',
         },
