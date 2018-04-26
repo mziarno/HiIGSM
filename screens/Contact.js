@@ -18,7 +18,9 @@ class Contact extends Component{
       } 
       render(){
         return(
+            <ScrollView>
             <View style={styles.container}>
+            
             <StatusBar barStyle="light-content"/>
             <View style={styles.emailContainer}>
             <TouchableOpacity onPress={() => OpenAnything.Email('igsm2019@geoida.org')}>
@@ -28,14 +30,12 @@ class Contact extends Component{
 
             <View style={styles.peopleContainer}>
             <TouchableOpacity onPress={() => OpenAnything.Call('+48692095473')}>
-            {/* <View style={styles.people}> */}
             <Text style={styles.nameText}> Marcelina Ziarno </Text>
             <Text style={styles.numberText}> +48 692 095 473 </Text>
             <View style={styles.photoContainer}>
                 <Image
                 source={require('../assets/images/Marcka.png')}
                 style={{width: 70, height: 70, borderRadius:35} }/> 
-            {/* </View> */}
             </View>
             </TouchableOpacity>
             </View>
@@ -88,7 +88,11 @@ class Contact extends Component{
             </View>
             </TouchableOpacity>
             </View>
+            
             </View>
+            </ScrollView>
+            
+
         )
     }
 }
@@ -99,11 +103,12 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
+      width: '100%',
     },
     emailContainer:{
         backgroundColor: '#ECECEC',
         width: '90%',
-		height: 50,
+		height: '9%',
         position: 'relative',
         marginLeft: '5%',
         marginRight: '5%',
@@ -124,7 +129,7 @@ const styles = StyleSheet.create({
     },
     peopleContainer:{        
         width: '90%',
-		height: 80,
+		height: '16%',
         position: 'relative',
         marginLeft: '5%',
         marginRight: '5%',
@@ -166,10 +171,8 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
         marginLeft: 10,
         marginBottom:50,
-        //marginTop: 5,
     },
     photoContainer:{
-            //alignItems: 'flex-end',
             position: 'absolute',
             right: 30,
             marginTop:5,

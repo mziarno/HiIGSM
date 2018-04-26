@@ -7,7 +7,7 @@ import Contact from './Contact';
 
 class HomeScreen extends Component {
     static navigationOptions = {
-        title: 'HiIGSM',       
+        title: 'Hi! IGSM 2019',       
             headerStyle: {
               backgroundColor: '#1D3557',
             },
