@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import { View, Text, StyleSheet} from 'react-native';
 
 
-class MustSee extends Component {
+class Map extends Component {
   static navigationOptions = {
-    title: 'MustSee',
+    title: 'Map',
     headerStyle: {
       backgroundColor: '#1D3557'
     },
@@ -15,12 +15,13 @@ class MustSee extends Component {
   }
 
   render() {
-    return (
-      <View>
-        <Text> MustSee </Text>
-      </View>
-    )
-  }
+      return (
+        <View>  
+            <Text> Map </Text>
+        </View>
+        )
+    }
 }
 
-export default MustSee;
+
+export default Map;

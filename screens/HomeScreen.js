@@ -3,20 +3,27 @@ import { View, Text, StyleSheet, Button} from 'react-native';
 import { StackNavigator, TabNavigator} from 'react-navigation';
 import MustSeeScreen from './MustSeeScreen';
 import TimetableScreen from './TimetableScreen';
-
+import MapScreen from './Map';
 
 
 class HomeScreen extends Component {
     static navigationOptions = {
         title: 'HiIGSM',
        
-            headerStyle: {
-              backgroundColor: '#1D3557',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            } 
+        headerStyle: {
+            backgroundColor: '#1D3557',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+        },
+        headerRight: (
+            <Button
+              onPress={() => alert('This is a button!')}
+              title="Contact"
+              color="#000000"
+            />
+        ) 
       } 
     render(){
         return(
@@ -32,12 +39,9 @@ class HomeScreen extends Component {
 
 const AppNavigator = StackNavigator({
     HomeScreen: {screen: HomeScreen},
-      //Main: {screen: Main}
     MustSeeScreen: {screen: MustSeeScreen},
-    TimetableScreen: {screen: TimetableScreen}
-     // Navigation: {screen:Navigation}         
-}
-
-)
+    TimetableScreen: {screen: TimetableScreen},
+    MapScreen: {screen: MapScreen}        
+})
 
 export default AppNavigator;
