@@ -23,6 +23,7 @@ const AppDrawerNavigation = DrawerNavigator({
 
 })
 
+
 const styles = StyleSheet.create({
   marcka: {
     flex: 1,

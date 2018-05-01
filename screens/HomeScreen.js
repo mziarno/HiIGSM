@@ -30,11 +30,9 @@ class HomeScreen extends Component {
 
 const AppNavigator = StackNavigator({
     HomeScreen: {screen: HomeScreen},
-      //Main: {screen: Main}
     MustSeeScreen: {screen: MustSeeScreen},
     TimetableScreen: {screen: TimetableScreen},
-    Contact: {screen: Contact}
-     // Navigation: {screen:Navigation}         
+    Contact: {screen: Contact}     
 }
 
 )

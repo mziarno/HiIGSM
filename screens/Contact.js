@@ -34,7 +34,7 @@ class Contact extends Component{
             <Text style={styles.numberText}> +48 692 095 473 </Text>
             <View style={styles.photoContainer}>
                 <Image
-                source={require('../assets/images/Marcka.png')}
+                source={require('../assets/images/Marcka.jpg')}
                 style={{width: 70, height: 70, borderRadius:35} }/> 
             </View>
             </TouchableOpacity>
@@ -47,31 +47,31 @@ class Contact extends Component{
             <Text style={styles.numberText}> +48 514 893 673 </Text>
             <View style={styles.photoContainer}>
                 <Image
-                source={require('../assets/images/Marcka.png')}
+                source={require('../assets/images/Monix.jpg')}
                 style={{width: 70, height: 70, borderRadius:35} }/> 
             </View>
             </TouchableOpacity>
             </View>
           
             <View style={styles.peopleContainer}>
-            <TouchableOpacity onPress={() => OpenAnything.Call('+48692095473')}>
-            <Text style={styles.nameText}> Marcelina Ziarno </Text>
-            <Text style={styles.numberText}> +48 692 095 473 </Text>
+            <TouchableOpacity onPress={() => OpenAnything.Call('++48606289240')}>
+            <Text style={styles.nameText}> Alicja Konkol </Text>
+            <Text style={styles.numberText}> +48 606 289 240 </Text>
             <View style={styles.photoContainer}>
                 <Image
-                source={require('../assets/images/Marcka.png')}
+                source={require('../assets/images/Ala.jpg')}
                 style={{width: 70, height: 70, borderRadius:35} }/> 
             </View>
             </TouchableOpacity>
             </View>
             
             <View style={styles.peopleContainer}>
-            <TouchableOpacity onPress={() => OpenAnything.Call('+48692095473')}>
-            <Text style={styles.nameText}> Marcelina Ziarno </Text>
-            <Text style={styles.numberText}> +48 692 095 473 </Text>
+            <TouchableOpacity onPress={() => OpenAnything.Call('+48512139562')}>
+            <Text style={styles.nameText}> Asia Szymczak </Text>
+            <Text style={styles.numberText}> +48 512 139 562 </Text>
             <View style={styles.photoContainer}>
                 <Image
-                source={require('../assets/images/Marcka.png')}
+                source={require('../assets/images/Asia.png')}
                 style={{width: 70, height: 70, borderRadius:35} }/> 
             </View>
             </TouchableOpacity>
@@ -83,7 +83,7 @@ class Contact extends Component{
             <Text style={styles.numberText}> +48 692 095 473 </Text>
             <View style={styles.photoContainer}>
                 <Image
-                source={require('../assets/images/Marcka.png')}
+                source={require('../assets/images/Marcka.jpg')}
                 style={{width: 70, height: 70, borderRadius:35} }/> 
             </View>
             </TouchableOpacity>
@@ -100,15 +100,16 @@ class Contact extends Component{
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      //backgroundColor: '#fff',
       alignItems: 'center',
-      justifyContent: 'center',
+      //justifyContent: 'center',
       width: '100%',
+     // height: '80%',
     },
     emailContainer:{
         backgroundColor: '#ECECEC',
         width: '90%',
-		height: '9%',
+		height: 50,
         position: 'relative',
         marginLeft: '5%',
         marginRight: '5%',
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     },
     peopleContainer:{        
         width: '90%',
-		height: '16%',
+		height: 100,
         position: 'relative',
         marginLeft: '5%',
         marginRight: '5%',
