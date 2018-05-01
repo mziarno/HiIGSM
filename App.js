@@ -5,14 +5,12 @@ import {Icon} from 'react-native-vector-icons';
 import HomeScreen from './screens/HomeScreen';
 import MustSeeScreen from './screens/MustSeeScreen';
 import TimeTable from './screens/TimetableScreen';
+import Contact from './screens/Contact';
 import MapScreen from './screens/Map';
 
-export default class App extends React.Component {
-
-
-  render() {
-    return ( 
-     
+export default class App extends React.Component { render() {
+    return (   
+         
       <AppDrawerNavigation/>
        );
   }
@@ -22,7 +20,7 @@ const AppDrawerNavigation = DrawerNavigator({
   HomeScreen: {screen: HomeScreen},
   MustSeeScreen: {screen: MustSeeScreen},
   TimeTable: {screen: TimeTable},
-  Map: {screen: MapScreen}
+  MapScreen: {screen: MapScreen}
 
 })
 

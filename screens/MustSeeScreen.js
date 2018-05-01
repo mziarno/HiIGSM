@@ -10,15 +10,16 @@ class MustSee extends Component {
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
-      fontWeight: 'bold'
+      fontWeight: 'bold',
     }
   }
 
   render() {
     return (
       <View>
-        <Text> MustSee </Text>
-      </View>
+
+    <Text> MustSee </Text>
+    </View>
     )
   }
 }
