@@ -33,6 +33,7 @@ const AppNavigator = StackNavigator({
     MustSeeScreen: {screen: MustSeeScreen},
     TimetableScreen: {screen: TimetableScreen},
     Contact: {screen: Contact}     
+          
 }
 
 )

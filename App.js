@@ -2,10 +2,11 @@ import React from 'react';
 import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Platform, } from 'react-native';
 import { StackNavigator, DrawerNavigator, } from 'react-navigation';
 import {Icon} from 'react-native-vector-icons';
-import HomeScreen from '../HiIGSM/screens/HomeScreen';
-import MustSeeScreen from '../HiIGSM/screens/MustSeeScreen';
-import TimeTable from '../HiIGSM/screens/TimetableScreen';
-import Contact from '../HiIGSM/screens/Contact';
+import HomeScreen from './screens/HomeScreen';
+import MustSeeScreen from './screens/MustSeeScreen';
+import TimeTable from './screens/TimetableScreen';
+import Contact from './screens/Contact';
+import MapScreen from './screens/Map';
 
 export default class App extends React.Component { render() {
     return (   
@@ -16,10 +17,11 @@ export default class App extends React.Component { render() {
 }
 
 const AppDrawerNavigation = DrawerNavigator({
-    HomeScreen: {screen: HomeScreen},
-    MustSeeScreen: {screen: MustSeeScreen},
-    TimeTable: {screen: TimeTable},
-    Contact: {screen: Contact}
+  HomeScreen: {screen: HomeScreen},
+  MustSeeScreen: {screen: MustSeeScreen},
+  TimeTable: {screen: TimeTable},
+  MapScreen: {screen: MapScreen},
+  Contact: {screen: Contact}
 
 })
 

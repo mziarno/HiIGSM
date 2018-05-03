@@ -8,7 +8,7 @@ class MustSee extends Component {
   static navigationOptions = {
     title: 'MustSee',
     headerStyle: {
-      backgroundColor: '#1D3557',
+      backgroundColor: '#1D3557'
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
