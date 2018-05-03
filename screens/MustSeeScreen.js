@@ -1,8 +1,19 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet, ScrollView, Platform, CheckBox, TouchableOpacity, Image} from 'react-native';
-// import { CheckBox } from 'react-native-elements';
-// import { CheckBox } from 'react-native-check-box';
+import {View, 
+        Text, 
+        StyleSheet, 
+        ScrollView, 
+        Platform, 
+        TouchableOpacity, 
+        Image, 
+        FlatList,
+        StatusBar
+        } from 'react-native';
+import { CheckBox } from 'react-native-elements';
+import MapScreen from './Map';
 
+
+const items = ['Museums', 'Galleries', 'Monuments'];
 
 class MustSee extends Component {
   static navigationOptions = {
@@ -16,41 +27,50 @@ class MustSee extends Component {
     }
   }
 
-  constructor(){
-    super();
-    this.state={
-      check:false
-    }
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { checked: false };
+  // }
 
+  state = {
+    checked: [],
+  };
+
+  checkItem = item => {
+    const { checked } = this.state;
+
+    if (!checked.includes(item)) {
+      this.setState({ checked: [...checked, item] });
+    } else {
+      this.setState({ checked: checked.filter(a => a !== item) });
+    }
+  };
+  
   render() {
     return (
-      // <ScrollView>
       <View style={styles.container}>
-      <View style={styles.emailContainer}>
-      <Text style={styles.text}>Museum </Text>
-     {/* <CheckBox value={this.state.check}     
-    /> */}
-      </View>
-
-      <View style={styles.emailContainer}>
-      <Text style={styles.text}>Galleries </Text>
-      </View>
-
-      <View style={styles.emailContainer}>
-      <Text style={styles.text}>Monuments </Text>
-      </View>
-
-      {/* <View style={styles.emailContainer}>
-      <Text>Museum </Text>
-      </View>
-      <View style={styles.emailContainer}>
-      <Text>Museum </Text>
-      </View> */}
+      <StatusBar barStyle="light-content"/>
       <View>
-      
+        <FlatList
+          data={items}
+          extraData={this.state}
+          renderItem={({ item }) => (
+            <CheckBox
+              title={item}
+              onPress={() => this.checkItem(item)}
+              checked={this.state.checked.includes(item)}
+              containerStyle={styles.placesContainer}
+              textStyle={styles.text}
+              checkedColor='#4A4A4A'
+              uncheckedColor='#4A4A4A'
+            />
+          )}
+          />
+          </View>
+  
+      <View>
       <View style={styles.seeOnMapContainer}>
-      <TouchableOpacity>
+      <TouchableOpacity  onPress={()=>this.props.navigation.navigate('MapScreen') }title='map'>
       <View style={styles.icon}>
         <Image source={require('../assets/icons/map.png')} style={{width: 37, height: 37 }}/> 
       </View>
@@ -58,7 +78,6 @@ class MustSee extends Component {
       </TouchableOpacity>
       </View>
 
-      
       <View style={styles.seeListContainer}>
       <TouchableOpacity>
       <View style={styles.icon}>
@@ -70,7 +89,7 @@ class MustSee extends Component {
       
       </View>
       
-
+        
     </View>
    
 
@@ -84,21 +103,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    //alignItems: 'center',
-    //justifyContent: 'center',
     width: '100%',
     height:250,
     top: 10,
   },
-emailContainer:{
+placesContainer:{
   backgroundColor: '#fff',
   width: '90%',
   height: 70,
   position: 'relative',
   marginLeft: '5%',
   marginRight: '5%',
-  //marginTop:'5%',
-  marginBottom: 5,
   borderRadius: 5,
   justifyContent: 'center',
   ...Platform.select({
@@ -109,10 +124,9 @@ emailContainer:{
         shadowRadius: 3,
       },
       android: {
-        elevation: 15
+      elevation: 5
       },
     }),
-  //marginTop:10
 },
 seeOnMapContainer:{
   backgroundColor: '#fff',
@@ -120,7 +134,7 @@ seeOnMapContainer:{
   height: 70,
   position: 'absolute',
   marginRight: '5%',
-  marginBottom: 20,
+  marginTop: 5,
   borderRadius: 5,
   left: '5%',
   justifyContent: 'flex-end',
@@ -132,10 +146,9 @@ seeOnMapContainer:{
         shadowRadius: 3,
       },
       android: {
-        elevation: 15
+        elevation: 5
       },
     }),
-  //marginTop:10
 },
 seeListContainer:{
   backgroundColor: '#fff',
@@ -143,8 +156,7 @@ seeListContainer:{
   height: 70,
   position: 'absolute',
   marginLeft: '5%',
-  //marginRight: '5%',
- // marginBottom: 20,
+  marginTop: 5,
   borderRadius: 5,
   justifyContent: 'flex-end',
   right: '5%',
@@ -157,33 +169,28 @@ seeListContainer:{
         shadowRadius: 3,
       },
       android: {
-        elevation: 15
+        elevation: 5
       },
     }),
-  //marginTop:10
+  
 },
 text:{
   fontSize: 20,
   color: '#4A4A4A',
   fontWeight: 'bold',
   textAlignVertical: 'center',
-  marginLeft: 10,
-  //marginTop: 25,
+  marginLeft: 15,
+ 
 },
 text2:{
   fontSize: 17,
   color: '#4A4A4A',
-  //fontWeight: 'bold',
   textAlign: 'center',
-  //marginLeft: 10,
-  //justifyContent: 'flex-end',
-  //marginTop: 5,
   marginBottom: 5,
 },
 icon:{
   position: 'relative',
   alignItems: 'center'
-  //marginTop:5,
 }
 
 

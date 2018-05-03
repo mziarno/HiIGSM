@@ -16,9 +16,13 @@ class Map extends Component {
 
   render() {
       return (
-        <View>  
-            <Text> Map </Text>
+        
+        <View >
+        
+            <Text> E-mail: igsm2019@geoida.org </Text>
+            
         </View>
+
         )
     }
 }

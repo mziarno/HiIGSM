@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Platform, } from 'react-native';
-import { StackNavigator, DrawerNavigator, } from 'react-navigation';
+import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Platform,  } from 'react-native';
+import { StackNavigator, DrawerNavigator, TabNavigator} from 'react-navigation';
 import {Icon} from 'react-native-vector-icons';
 import HomeScreen from './screens/HomeScreen';
 import MustSeeScreen from './screens/MustSeeScreen';
@@ -16,13 +16,12 @@ export default class App extends React.Component { render() {
   }
 }
 
-const AppDrawerNavigation = DrawerNavigator({
+  const AppDrawerNavigation = DrawerNavigator({
   HomeScreen: {screen: HomeScreen},
   MustSeeScreen: {screen: MustSeeScreen},
   TimeTable: {screen: TimeTable},
   MapScreen: {screen: MapScreen},
   Contact: {screen: Contact}
-
 })
 
 

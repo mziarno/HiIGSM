@@ -4,13 +4,13 @@ import { View, Text, StyleSheet} from 'react-native';
 
 class Timetable extends Component {
   static navigationOptions = {
-    title: 'Timetable',
+    title: 'Timetable',       
         headerStyle: {
           backgroundColor: '#1D3557',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
-          fontWeight: 'bold',
+          fontWeight: 'bold'
         } 
   } 
 

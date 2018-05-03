@@ -1,5 +1,13 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet, Button, Image, ScrollView, FlatList, TouchableOpacity, Platform, StatusBar} from 'react-native';
+import { View, 
+        Text, 
+        StyleSheet, 
+        Button, 
+        Image, 
+        ScrollView, 
+        TouchableOpacity, 
+        Platform, 
+        StatusBar} from 'react-native';
 import Communications from 'react-native-communications';
 import * as OpenAnything from 'react-native-openanything';
 
@@ -54,7 +62,7 @@ class Contact extends Component{
             </View>
           
             <View style={styles.peopleContainer}>
-            <TouchableOpacity onPress={() => OpenAnything.Call('++48606289240')}>
+            <TouchableOpacity onPress={() => OpenAnything.Call('+48606289240')}>
             <Text style={styles.nameText}> Alicja Konkol </Text>
             <Text style={styles.numberText}> +48 606 289 240 </Text>
             <View style={styles.photoContainer}>
@@ -130,7 +138,7 @@ const styles = StyleSheet.create({
     },
     peopleContainer:{        
         width: '90%',
-		height: 100,
+		height: 80,
         position: 'relative',
         marginLeft: '5%',
         marginRight: '5%',

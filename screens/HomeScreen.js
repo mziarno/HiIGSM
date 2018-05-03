@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import { View, Text, StyleSheet, Button} from 'react-native';
-import { StackNavigator, TabNavigator} from 'react-navigation';
+import { StackNavigator} from 'react-navigation';
 import MustSeeScreen from './MustSeeScreen';
 import TimetableScreen from './TimetableScreen';
 import Contact from './Contact';
+import Map from './Map';
 
 class HomeScreen extends Component {
     static navigationOptions = {
@@ -32,7 +33,8 @@ const AppNavigator = StackNavigator({
     HomeScreen: {screen: HomeScreen},
     MustSeeScreen: {screen: MustSeeScreen},
     TimetableScreen: {screen: TimetableScreen},
-    Contact: {screen: Contact}     
+    Contact: {screen: Contact},
+    Map: {screen: Map}    
           
 }
 
