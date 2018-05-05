@@ -1,35 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Platform, } from 'react-native';
+import { StackNavigator, DrawerNavigator, } from 'react-navigation';
+import {Icon} from 'react-native-vector-icons';
+import HomeScreen from '../HiIGSM/screens/HomeScreen';
+import MustSeeScreen from '../HiIGSM/screens/MustSeeScreen';
+import TimeTable from '../HiIGSM/screens/TimetableScreen';
 
 export default class App extends React.Component {
+
+
   render() {
-    return (
-      <ScrollView>
-        <Button
-  onPress={onPressLearnMore}
-  title="Learn More"
-  color="#841584"
-  accessibilityLabel="Learn more about this purple button"
-/>
-      </ScrollView>
-    );
+    return ( 
+     
+      <AppDrawerNavigation/>
+       )
   }
 }
 
-// const styles = StyleSheet.create({
-//   scrollDay: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   }
-// });
+const AppDrawerNavigation = DrawerNavigator({
+  HomeScreen: {screen: HomeScreen},
+    MustSeeScreen: {screen: MustSeeScreen},
+    TimeTable: {screen: TimeTable}
 
-// const styles = StyleSheet.create({
-//   buttonDay: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'left',
-//     justifyContent: 'left',
-//   }
-// });
+})
+
+const styles = StyleSheet.create({
+  marcka: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})
