@@ -12,7 +12,7 @@ export default class App extends React.Component { render() {
     return (   
          
       <AppDrawerNavigation/>
-       )
+       );
   }
 }
 
@@ -32,4 +32,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-})
+});
