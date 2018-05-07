@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { View, Text, StyleSheet} from 'react-native';
 
 
+
 class Timetable extends Component {
   static navigationOptions = {
     title: 'Timetable',       
@@ -11,7 +12,7 @@ class Timetable extends Component {
         headerTintColor: '#fff',
         headerTitleStyle: {
           fontWeight: 'bold'
-        } 
+        }, 
   } 
 
   render() {
