@@ -8,7 +8,7 @@ import { View,
         TouchableOpacity, 
         Platform, 
         StatusBar} from 'react-native';
-import Communications from 'react-native-communications';
+//import Communications from 'react-native-communications';
 import * as OpenAnything from 'react-native-openanything';
 
 
