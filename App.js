@@ -13,7 +13,6 @@ import * as firebase from 'firebase';
 
 
 
-
 export default class App extends React.Component { 
   
   constructor(props){
@@ -22,7 +21,7 @@ export default class App extends React.Component {
       isLoadingComplete: false,
     };
 
-    if(!firebase.apps.length) { firebase.initializeApp(config); }
+    if(!firebase.apps.length) { firebase.initializeApp(ApiKeys.config); }
   }
   
   
@@ -61,8 +60,6 @@ const AppNavigator = StackNavigator({
  }
 
 );
-
-
 
 
 // const styles = StyleSheet.create({

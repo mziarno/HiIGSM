@@ -6,6 +6,8 @@ import TimetableScreen from './TimetableScreen';
 import Contact from './Contact';
 import MapScreen from './Map';
 
+
+
 class HomeScreen extends Component {
     static navigationOptions = {
             title: 'Hi! IGSM 2019',   
