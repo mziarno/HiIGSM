@@ -4,16 +4,6 @@ import MapView from 'react-native-maps';
 
 
 class Map extends Component {
-  static navigationOptions = {
-    title: 'Map',       
-        headerStyle: {
-          backgroundColor: '#1D3557'
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold'
-        } 
-  } 
 
   render() {
       return (

@@ -1,65 +1,75 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Platform, Icon } from 'react-native';
-import { StackNavigator, DrawerNavigator, TabNavigator} from 'react-navigation';
-import HomeScreen from './screens/HomeScreen';
-import MustSeeScreen from './screens/MustSeeScreen';
-import TimetableScreen from './screens/TimetableScreen';
-import Contact from './screens/Contact';
-import MapScreen from './screens/Map';
 import ApiKeys from './ApiKeys';
 import * as firebase from 'firebase';
 // import fontawesome from '@fortawesome/fontawesome'
 // import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { YellowBox } from 'react-native';
 
+YellowBox.ignoreWarnings([
+  'Warning: componentWillMount is deprecated',
+  'Warning: componentWillReceiveProps is deprecated',
+  'Warning: componentWillUpdate is deprecated',
+  'Module RCTImageLoader requires',
+]);
 
+import StackNav, { Drawer } from './config/router';
 
-export default class App extends React.Component { 
+class App extends Component{
+    render() {
+        return <StackNav/>;
+    }
+}
+
+export default App;
+
+// export default class App extends React.Component { 
   
-  constructor(props){
-    super(props);
-    this.state={
-      isLoadingComplete: false,
-    };
+//   constructor(props){
+//     super(props);
+//     this.state={
+//       isLoadingComplete: false,
+//     };
 
-    if(!firebase.apps.length) { firebase.initializeApp(ApiKeys.config); }
-  }
+//     if(!firebase.apps.length) { firebase.initializeApp(ApiKeys.config); }
+//   }
   
   
-  render() {
-    return (   
+//   render() {
+//     return (   
          
-      <AppNavigator/>
-       );
-  }
-}
+//       <AppNavigator/>
+//        );
+//   }
+// }
 
- const AppDrawerNavigation = DrawerNavigator({
-  HomeScreen: {screen: HomeScreen,
-    navigationOptions: {
-      title: 'Home',
-     //drawerIcon: <FontAwesome name="home" size={24} color="#4CAF50" />,
-    },},
-  MustSeeScreen: {screen: MustSeeScreen},
-  TimetableScreen: {screen: TimetableScreen},
-  MapScreen: {screen: MapScreen},
-  Contact: {screen: Contact},
-},
-{
+//  const AppDrawerNavigation = DrawerNavigator({
+//   HomeScreen: {screen: HomeScreen,
+//     navigationOptions: {
+//       title: 'Home',
+//      //drawerIcon: <FontAwesome name="home" size={24} color="#4CAF50" />,
+//     },},
+//   MustSeeScreen: {screen: MustSeeScreen},
+//   TimetableScreen: {screen: TimetableScreen},
+//   MapScreen: {screen: MapScreen},
+//   Contact: {screen: Contact},
+// },
+// {
 
-}
-);
+// }
+// );
 
 
-const AppNavigator = StackNavigator({
-  AppDrawerNavigation: {screen: AppDrawerNavigation},
-  HomeScreen: {screen: HomeScreen},
-  MustSeeScreen: {screen: MustSeeScreen},
-  TimetableScreen: {screen: TimetableScreen},
-  Contact: {screen: Contact},
-  Map: {screen: MapScreen},        
- }
+// const AppNavigator = StackNavigator({
+//   AppDrawerNavigation: {screen: AppDrawerNavigation},
+//   HomeScreen: {screen: HomeScreen},
+//   MustSeeScreen: {screen: MustSeeScreen},
+//   TimetableScreen: {screen: TimetableScreen},
+//   Contact: {screen: Contact},
+//   MapScreen: {screen: MapScreen},        
+//  }
 
-);
+// );
 
 
 // const styles = StyleSheet.create({

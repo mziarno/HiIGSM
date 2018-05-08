@@ -18,8 +18,7 @@ import MapScreen from './Map';
 const items = ['Museums', 'Galleries', 'Monuments'];
 
 class MustSee extends Component {
-  static navigationOptions = {}
-
+ 
   // constructor(props) {
   //   super(props);
   //   this.state = { checked: false };

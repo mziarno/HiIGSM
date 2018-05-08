@@ -9,18 +9,7 @@ import MapScreen from './Map';
 
 
 class HomeScreen extends Component {
-    static navigationOptions = {
-            title: 'Hi! IGSM 2019',   
-            headerStyle: {
-              backgroundColor: '#1D3557',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-            
-            
-      } 
+  
 
       
     render(){
