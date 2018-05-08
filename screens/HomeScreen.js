@@ -1,40 +1,20 @@
 import React, {Component} from 'react'
-import { View, Text, StyleSheet, Button} from 'react-native';
-import { StackNavigator, TabNavigator} from 'react-navigation';
+import {View, Text, StyleSheet, Button, TouchableOpacity, StatusBar} from 'react-native';
+import {StackNavigator, TabNavigator, DrawerNavigator} from 'react-navigation';
 import MustSeeScreen from './MustSeeScreen';
 import TimetableScreen from './TimetableScreen';
 import Contact from './Contact';
+import MapScreen from './Map';
 
-class HomeScreen extends Component {
-    static navigationOptions = {
-        title: 'Hi! IGSM 2019',       
-            headerStyle: {
-              backgroundColor: '#1D3557',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            } 
-      } 
+export default class HomeScreen extends Component {
+    
+    static navigationOptions = {} 
+        
     render(){
         return(
             <View>
-
-                <Text> Hello </Text>    
-               {/* <Button onPress={()=>this.props.navigation.navigate('MustSeeScreen') }title='mustsee'/> */}
+                <Text> Hello IGSM 2019 </Text>
             </View>
         )
     }
 }
-
-
-const AppNavigator = StackNavigator({
-    HomeScreen: {screen: HomeScreen},
-    MustSeeScreen: {screen: MustSeeScreen},
-    TimetableScreen: {screen: TimetableScreen},
-    Contact: {screen: Contact}         
-}
-
-)
-
-export default AppNavigator;

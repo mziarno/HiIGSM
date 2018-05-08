@@ -8,13 +8,13 @@ import * as OpenAnything from 'react-native-openanything';
 class Contact extends Component{
     static navigationOptions = {
         title: 'Contact With Organizators',       
-            headerStyle: {
-              backgroundColor: '#1D3557',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            } 
+        headerStyle: {
+          backgroundColor: '#1D3557'
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold'
+        } 
       } 
       render(){
         return(
@@ -54,9 +54,9 @@ class Contact extends Component{
             </View>
           
             <View style={styles.peopleContainer}>
-            <TouchableOpacity onPress={() => OpenAnything.Call('+48692095473')}>
-            <Text style={styles.nameText}> Marcelina Ziarno </Text>
-            <Text style={styles.numberText}> +48 692 095 473 </Text>
+            <TouchableOpacity onPress={() => OpenAnything.Call('+48606289240')}>
+            <Text style={styles.nameText}> Alicja Konkol </Text>
+            <Text style={styles.numberText}> +48 606 289 240 </Text>
             <View style={styles.photoContainer}>
                 <Image
                 source={require('../assets/images/Marcka.png')}

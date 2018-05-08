@@ -1,34 +1,26 @@
-import React from 'react';
-import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Platform, } from 'react-native';
-import { StackNavigator, DrawerNavigator, } from 'react-navigation';
-import {Icon} from 'react-native-vector-icons';
+import React, {Component} from 'react';
+
 import HomeScreen from './screens/HomeScreen';
 import MustSeeScreen from './screens/MustSeeScreen';
-import TimeTable from './screens/TimetableScreen';
+import TimetableScreen from './screens/TimetableScreen';
 import Contact from './screens/Contact';
 import MapScreen from './screens/Map';
+import { YellowBox } from 'react-native';
 
-export default class App extends React.Component { render() {
-    return (   
-         
-      <AppDrawerNavigation/>
-       );
-  }
+YellowBox.ignoreWarnings([
+  'Warning: componentWillMount is deprecated',
+  'Warning: componentWillReceiveProps is deprecated',
+  'Warning: componentWillUpdate is deprecated',
+  'Module RCTImageLoader requires',
+]);
+
+
+import {Drawer} from './config/router';
+
+class App extends Component{
+    render() {
+        return <Drawer/>;
+    }
 }
 
-const AppDrawerNavigation = DrawerNavigator({
-  HomeScreen: {screen: HomeScreen},
-  MustSeeScreen: {screen: MustSeeScreen},
-  TimeTable: {screen: TimeTable},
-  MapScreen: {screen: MapScreen}
-
-})
-
-const styles = StyleSheet.create({
-  marcka: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
