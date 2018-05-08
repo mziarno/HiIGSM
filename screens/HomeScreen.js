@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import { View, Text, StyleSheet, Button, TouchableOpacity, Icon} from 'react-native';
-import { StackNavigator} from 'react-navigation';
+import { View, Text, StyleSheet, Button, TouchableOpacity, Icon, StatusBar} from 'react-native';
+import {StackNavigator, TabNavigator, DrawerNavigator} from 'react-navigation';
 import MustSeeScreen from './MustSeeScreen';
 import TimetableScreen from './TimetableScreen';
 import Contact from './Contact';
@@ -26,9 +26,7 @@ class HomeScreen extends Component {
     render(){
         return(
             <View>
-
-                <Text> Hello </Text>    
-               {/* <Button onPress={()=>this.props.navigation.navigate('MustSeeScreen') }title='mustsee'/> */}
+                <Text> Hello IGSM 2019 </Text>
             </View>
         )
     }

@@ -18,16 +18,7 @@ import MapScreen from './Map';
 const items = ['Museums', 'Galleries', 'Monuments'];
 
 class MustSee extends Component {
-  static navigationOptions = {
-    title: 'MustSee',
-    headerStyle: {
-      backgroundColor: '#1D3557'
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    }
-  }
+  static navigationOptions = {}
 
   // constructor(props) {
   //   super(props);

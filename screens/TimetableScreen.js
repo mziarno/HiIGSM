@@ -16,14 +16,11 @@ class Timetable extends Component {
   } 
 
   render() {
-       return (
+    return (
       <View>
-
-    <Text> Timetable </Text>
-    </View>
-    )
-  }
+        <Text> Timetable </Text>
+      </View>
+  )}
 }
-
 
 export default Timetable;
