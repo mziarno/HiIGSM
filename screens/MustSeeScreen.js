@@ -13,6 +13,7 @@ import { CheckBox } from 'react-native-elements';
 import MapScreen from './Map';
 
 
+
 const items = ['Museums', 'Galleries', 'Monuments'];
 
 class MustSee extends Component {

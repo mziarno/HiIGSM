@@ -110,9 +110,7 @@ const styles = StyleSheet.create({
       flex: 1,
       //backgroundColor: '#fff',
       alignItems: 'center',
-      //justifyContent: 'center',
       width: '100%',
-     // height: '80%',
     },
     emailContainer:{
         backgroundColor: '#ECECEC',
