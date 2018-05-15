@@ -13,14 +13,18 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "firebase deploy"
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@firebase/database": "^0.3.1",
+    "@firebase/firestore": "^0.5.2",
     "expo": "^26.0.0",
     "firebase": "^4.13.1",
+    "firebase-init": "^1.3.2",
     "react": "16.3.0-alpha.1",
     "react-fontawesome": "^1.6.1",
     "react-native": "^0.54.0",
@@ -34,4 +38,5 @@
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^1.5.11"
   }
+ 
 }

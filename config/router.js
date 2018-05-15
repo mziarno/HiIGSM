@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, AppRegistry} from 'react';
 import {Image, Button, Text} from 'react-native';
 import {TabNavigator, StackNavigator, TabBarBottom, DrawerNavigator} from 'react-navigation';
 import {Icon} from 'react-native-elements';
@@ -157,19 +157,22 @@ const StackNav = StackNavigator({
              headerRight: (
                  <Icon name='phone' 
                  color='#ffffff' 
-                 style={{right: -20}}
+                 containerStyle={{marginRight:15}}
                  onPress={() => navigation.navigate('Contact') }title='contact'/>
                 
              ),
              headerLeft: <Icon 
              name='menu' 
              color='#ffffff'
+             containerStyle={{marginLeft:15}}
              onPress={() => navigation.navigate('DrawerToggle')}/>
          })
         })
 
 
 
+
+//AppRegistry.registerComponent('StackNav2', () => StackNav);
 
 //DrawerNavigator Screen
 

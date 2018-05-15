@@ -8,12 +8,16 @@ import { View,
         TouchableOpacity, 
         Platform, 
         StatusBar} from 'react-native';
+        import {Icon} from 'react-native-elements';
 import Communications from 'react-native-communications';
 import * as OpenAnything from 'react-native-openanything';
 
 
 
 class Contact extends Component{
+   
+
+
       render(){
         return(
             <ScrollView>

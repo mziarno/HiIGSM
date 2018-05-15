@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Platform, Icon } from 'react-native';
 import ApiKeys from './ApiKeys';
 import * as firebase from 'firebase';
-// import fontawesome from '@fortawesome/fontawesome'
-// import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { YellowBox } from 'react-native';
 
 YellowBox.ignoreWarnings([
@@ -15,33 +13,30 @@ YellowBox.ignoreWarnings([
 
 import StackNav, { Drawer } from './config/router';
 
-class App extends Component{
-    render() {
-        return <StackNav/>;
-    }
-}
+ class App extends Component{
 
-export default App;
+  componentWillMount(){
+        /* Create reference to messages in Firebase Database */
+        let messagesRef = ApiKeys.database().ref('messages').orderByKey().limitToLast(100);
+        messagesRef.on('child_added', snapshot => {
+          /* Update React state when message is added at Firebase Database */
+          let message = { text: snapshot.val(), id: snapshot.key };
+          this.setState({ messages: [message].concat(this.state.messages) });
+        })
+      }
+      addMessage(e){
+        e.preventDefault(); // <- prevent form submit from reloading the page
+        /* Send the message to Firebase */
+        ApiKeys.database().ref('messages').push( this.inputEl.value );
+        this.inputEl.value = ''; // <- clear the input
+      }
 
-// export default class App extends React.Component { 
-  
-//   constructor(props){
-//     super(props);
-//     this.state={
-//       isLoadingComplete: false,
-//     };
-
-//     if(!firebase.apps.length) { firebase.initializeApp(ApiKeys.config); }
-//   }
-  
-  
-//   render() {
-//     return (   
-         
-//       <AppNavigator/>
-//        );
-//   }
-// }
+   render() {
+      ApiKeys.database().ref('xd').push("hrrhr")
+    // this.addMessage.bind(this)
+       return <StackNav/>;
+   }
+ }
 
 //  const AppDrawerNavigation = DrawerNavigator({
 //   HomeScreen: {screen: HomeScreen,
@@ -50,7 +45,7 @@ export default App;
 //      //drawerIcon: <FontAwesome name="home" size={24} color="#4CAF50" />,
 //     },},
 //   MustSeeScreen: {screen: MustSeeScreen},
-//   TimetableScreen: {screen: TimetableScreen},
+//   TimetableS creen: {screen: TimetableScreen},
 //   MapScreen: {screen: MapScreen},
 //   Contact: {screen: Contact},
 // },
@@ -80,3 +75,4 @@ export default App;
 //     justifyContent: 'center',
 //   },
 // });
+export default App;

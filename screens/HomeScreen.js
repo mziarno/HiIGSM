@@ -5,14 +5,16 @@ import MustSeeScreen from './MustSeeScreen';
 import TimetableScreen from './TimetableScreen';
 import Contact from './Contact';
 import MapScreen from './Map';
+import * as firebase from 'firebase';
 
-
+require("firebase/database");
 
 class HomeScreen extends Component {
   
 
       
-    render(){
+    render(){      
+
         return(
             <View>
                 <Text> Hello IGSM 2019 </Text>
