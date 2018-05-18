@@ -6,20 +6,24 @@ import TimetableScreen from './TimetableScreen';
 import Contact from './Contact';
 import MapScreen from './Map';
 import * as firebase from 'firebase';
+import NavigationBtn from '../components/NavigationBtn';
 
 require("firebase/database");
 
 class HomeScreen extends Component {
-  
-
-      
+   
     render(){      
 
-        return(
+      
+            return (
+          
             <View>
-                <Text> Hello IGSM 2019 </Text>
-            </View>
-        )
+                  <NavigationBtn/>
+                <Text> HI IGSM </Text>
+              
+                </View>
+            )
+          
     }
 }
 

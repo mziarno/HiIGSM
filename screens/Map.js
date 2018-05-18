@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { View, Text, StyleSheet} from 'react-native';
 import MapView from 'react-native-maps';
-
+import NavigationBtn from '../components/NavigationBtn';
 
 class Map extends Component {
 
@@ -17,7 +17,7 @@ class Map extends Component {
               longitudeDelta: 0.1
             }}>            
           </MapView>
-
+  <NavigationBtn/>
         </View>
         );
     }

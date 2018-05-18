@@ -9,96 +9,33 @@ import TimetableScreen from '../screens/TimetableScreen';
 import Contact from '../screens/Contact';
 import MapScreen from '../screens/Map';
 
-// StackNavigatior Screen
+// DrawerNavigatior Screen
 const DrawerNav = DrawerNavigator({
     Home: {screen: HomeScreen,
         navigationOptions: {
             title: 'Hi! IGSM 2019'
         }},
-        // navigationOptions: ({navigation}) => ({
-        //     title: 'Hi IGSM 2019',
-        //     headerStyle: {
-        //         backgroundColor: '#1D3557'
-        //     },
-        //     headerTintColor: '#fff',
-        //     headerTitleStyle: {
-        //     fontWeight: 'bold'
-        //     },
-        //     headerRight: (
-        //         <Icon name='phone' color='#ffffff' onPress={() => 
-        //             navigation.navigate('MapScreen') }title='map'/>
-                
-        //     ),
-        //     headerLeft: <Icon name='menu' color='#ffffff' onPress={() => 
-        //         navigation.navigate('DrawerOpen')} marginLeft='80'/>
-        // })
-
+    
     MustSee: {
         screen: MustSeeScreen,
         navigationOptions: {
             title: 'Must See'
         }},
-        // navigationOptions: {
-        //     title: 'Must See',
-        //     headerStyle: {
-        //         backgroundColor: '#1D3557'
-        //     },
-        //     headerTintColor: '#fff',
-        //     headerTitleStyle: {
-        //     fontWeight: 'bold'
-        //     }
-        // }
-    
-
     Timetable: {
         screen: TimetableScreen,
         navigationOptions: {
             title: 'Timetable'
         }},
-        // navigationOptions: {
-        //     title: 'Timetable',
-        //     headerStyle: {
-        //         backgroundColor: '#1D3557'
-        //     },
-        //     headerTintColor: '#fff',
-        //     headerTitleStyle: {
-        //     fontWeight: 'bold'
-        //     },
-        // }
-
-
     MapScreen: {
         screen: MapScreen,
         navigationOptions: {
             title: 'Map'
         }},
-        // navigationOptions: {
-        //     title: 'Map',
-        //     headerStyle: {
-        //         backgroundColor: '#1D3557'
-        //     },
-        //     headerTintColor: '#fff',
-        //     headerTitleStyle: {
-        //     fontWeight: 'bold'
-        //     }
-        // }
-
     Contact: 
     {screen: Contact,
         navigationOptions: {
             title: 'Contact With Organizators'
-        }}
-        // navigationOptions: {
-        //     title: 'Contact To Organizators',
-        //     headerStyle: {
-        //         backgroundColor: '#1D3557'
-        //     },
-        //     headerTintColor: '#fff',
-        //     headerTitleStyle: {
-        //     fontWeight: 'bold'
-        //     }
-        // }
-    
+        }} 
 });
 
 // TabNavigator Screen
@@ -137,13 +74,30 @@ const DrawerNav = DrawerNavigator({
 //     }
 // );
 
+
+// StackNavigation Screen
 const StackNav = StackNavigator({
     DrawerNav: {screen: DrawerNav},
-    HomeScreen: {screen: HomeScreen},
-    MustSeeScreen: {screen: MustSeeScreen},
-    TimetableScreen: {screen: TimetableScreen},
-    Contact: {screen: Contact},
-    Map: {screen: MapScreen},
+    HomeScreen: {screen: HomeScreen,
+        navigationOptions: {
+            title: 'Hi! IGSM 2019'
+        }},
+    MustSeeScreen: {screen: MustSeeScreen,
+        navigationOptions: {
+            title: 'Must See'
+        }},
+    TimetableScreen: {screen: TimetableScreen,
+        navigationOptions: {
+            title: 'Timetable'
+        }},
+    Contact: {screen: Contact,
+        navigationOptions: {
+            title: 'Contact'
+        }},
+    Map: {screen: MapScreen,
+        navigationOptions: {
+            title: 'Map'
+        }},
 },{
     navigationOptions: ({navigation}) => ({
          headerStyle: {
@@ -168,43 +122,5 @@ const StackNav = StackNavigator({
              onPress={() => navigation.navigate('DrawerToggle')}/>
          })
         })
-
-
-
-
-//AppRegistry.registerComponent('StackNav2', () => StackNav);
-
-//DrawerNavigator Screen
-
-// export const Drawer = DrawerNavigator({
-//     // HiIGSM: {screen: Tabs,
-//     //     navigationOptions:{
-//     //         title: 'Nothing',
-//     //         headerMode: 'none'
-//     //     }},
-//     Home: {screen: HomeStack,
-//         navigationOptions: {
-//             title: 'Home'
-//         }},
-//     MustSee: {screen: MustSeeStack,
-//         navigationOptions: {
-//             title: 'Must See'
-//         }},
-//     Timetable: {screen: TimetableStack,
-//         navigationOptions: {
-//             title: 'Timetable'
-//         }},
-//     Map: {screen: MapStack,
-//         navigationOptions: {
-//             title: 'Map'
-//         }},
-//     Contact: {screen: ContactStack,
-//         navigationOptions: {
-//             title: 'Contact'
-//         }}
-
-// })
-
-
 
 export default StackNav

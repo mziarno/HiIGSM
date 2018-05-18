@@ -38,41 +38,4 @@ import StackNav, { Drawer } from './config/router';
    }
  }
 
-//  const AppDrawerNavigation = DrawerNavigator({
-//   HomeScreen: {screen: HomeScreen,
-//     navigationOptions: {
-//       title: 'Home',
-//      //drawerIcon: <FontAwesome name="home" size={24} color="#4CAF50" />,
-//     },},
-//   MustSeeScreen: {screen: MustSeeScreen},
-//   TimetableS creen: {screen: TimetableScreen},
-//   MapScreen: {screen: MapScreen},
-//   Contact: {screen: Contact},
-// },
-// {
-
-// }
-// );
-
-
-// const AppNavigator = StackNavigator({
-//   AppDrawerNavigation: {screen: AppDrawerNavigation},
-//   HomeScreen: {screen: HomeScreen},
-//   MustSeeScreen: {screen: MustSeeScreen},
-//   TimetableScreen: {screen: TimetableScreen},
-//   Contact: {screen: Contact},
-//   MapScreen: {screen: MapScreen},        
-//  }
-
-// );
-
-
-// const styles = StyleSheet.create({
-//   marcka: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
 export default App;
