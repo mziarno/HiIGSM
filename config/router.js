@@ -26,7 +26,7 @@ const DrawerNav = DrawerNavigator({
         navigationOptions: {
             title: 'Timetable'
         }},
-    MapScreen: {
+    Map: {
         screen: MapScreen,
         navigationOptions: {
             title: 'Map'
@@ -39,22 +39,22 @@ const DrawerNav = DrawerNavigator({
 });
 
 // TabNavigator Screen
-// export const Tabs = TabNavigator(
+// const Tabs = TabNavigator(
 //     {
-//     Home: {screen: HomeStack,
+//     Home: {screen: HomeScreen,
 //         navigationOptions: {
 //             title: 'Home Tab',
 //             tabBarIcon: 
 //             <Icon name='home' color='#ffffff'/>
 //         }
 //     },
-//     MustSee: {screen: MustSeeStack,
+//     MustSee: {screen: MustSeeScreen,
 //         navigationOptions: {
 //             tabBarIcon: 
 //             <Icon name='map' color='#ffffff'/>
 //         }
 //     },
-//     Timetable: {screen: TimetableStack,
+//     Timetable: {screen: TimetableScreen,
 //         navigationOptions: {
 //             tabBarIcon: 
 //             <Icon name='view-list' color='#ffffff'/>
@@ -90,32 +90,31 @@ const StackNav = StackNavigator({
         navigationOptions: {
             title: 'Timetable'
         }},
-    Contact: {screen: Contact,
+    ContactScreen: {screen: Contact,
         navigationOptions: {
             title: 'Contact'
         }},
-    Map: {screen: MapScreen,
+    MapScreen: {screen: MapScreen,
         navigationOptions: {
             title: 'Map'
         }},
 },{
     navigationOptions: ({navigation}) => ({
-         headerStyle: {
-                backgroundColor: '#1D3557'
-             },
+         headerStyle: 
+            {backgroundColor: '#1D3557'},
              headerTintColor: '#fff',
              margain: '20',
              headerTitleStyle: {
              fontWeight: 'bold'
              },
-             headerRight: (
+            headerRight: (
                  <Icon name='phone' 
                  color='#ffffff' 
                  containerStyle={{marginRight:15}}
                  onPress={() => navigation.navigate('Contact') }title='contact'/>
                 
              ),
-             headerLeft: <Icon 
+            headerLeft: <Icon 
              name='menu' 
              color='#ffffff'
              containerStyle={{marginLeft:15}}

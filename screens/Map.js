@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet} from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import NavigationBtn from '../components/NavigationBtn';
+import { View, Text, StyleSheet, Button, Image, ScrollView, TouchableOpacity, 
+  Platform, StatusBar,AppRegistry,Dimensions} from 'react-native';
+import MapView from 'react-native-maps';
+
+import nav_style from '../components/nav_style';
+
 
 const LATITUDE = 52.232222;
 const LONGITUDE = 21.008333;
@@ -11,41 +14,60 @@ const LONGITUDE_DELTA = 0.07;
 class Map extends Component {
 
   render() {
-      return (
+    return (
         
-        <View style={styles.container}>
-        <MapView 
+      <View style={styles.container}>
+         <MapView 
           style={styles.map}
           showsUserLocation={true}
           showsMyLocationButton={true}
-          showsScale={true}
+          showsScale={true}            
           showsCompass={true}
           showsPointsOfInterest={false}
           initialRegion={{
             latitude: 52.232222,
             longitude: 21.008333,
             latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}>
+            longitudeDelta: 0.0421}}>
           <MapView.Marker
             coordinate={{latitude: 52.220521, longitude: 21.010488}}
             title="Politechnika Warszawska">
           </MapView.Marker>
         </MapView>
+  
         <View style={{bottom: -190}}>
-            <NavigationBtn/>
-         </View>
+            
+            <View style={nav_style.HomeBtn}>
+              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Home')}>
+                  <Image
+                  source={require('../assets/icons/home.png')}
+                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
+                  title='Home'
+                  />
+                  </TouchableOpacity>
+            </View>
+
+            <View style={nav_style.MustSeeBtn}>
+              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Map')}>
+                  <Image
+                  source={require('../assets/icons/map.png')}
+                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
+                  />
+                  </TouchableOpacity>
+              </View>
+            <View style={nav_style.TimeTable}>
+              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Timetable')}>
+                  <Image
+                  source={require('../assets/icons/calendar.png')}
+                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
+                  />
+              </TouchableOpacity>
+            </View>
         </View>
-        
-      
-          
-        
-        
-        
-        
-     
-        );
-    }
+
+      </View>
+    );
+  }
 }
  
   

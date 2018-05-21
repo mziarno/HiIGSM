@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Platform, } from 'react-native';
-import NavigationBtn from '../components/NavigationBtn';
 
+import nav_style from '../components/nav_style';
 
 class Timetable extends Component { 
 
@@ -79,8 +79,34 @@ class Timetable extends Component {
      title="Monday 24.06"/> */}
 
      <View style={{top: 20}}>
-            <NavigationBtn/>
+            
+            <View style={nav_style.HomeBtn}>
+              <TouchableOpacity onPress={()=>this.propsnavigation.navigate('Home')}>
+                  <Image
+                  source={require('../assets/icons/home.png')}
+                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
+                  title='Home'
+                  />
+                  </TouchableOpacity>
             </View>
+
+            <View style={nav_style.MustSeeBtn}>
+              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Map')}>
+                  <Image
+                  source={require('../assets/icons/map.png')}
+                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
+                  />
+                  </TouchableOpacity>
+              </View>
+            <View style={nav_style.TimeTable}>
+              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Timetable')}>
+                  <Image
+                  source={require('../assets/icons/calendar.png')}
+                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
+                  />
+                  </TouchableOpacity>
+            </View>
+        </View>
  </View>
  )
 }
