@@ -81,7 +81,9 @@ class MustSee extends Component {
       </View>
       
       </View>
-      <NavigationBtn/>  
+      <View style={{top: 220}}>
+            <NavigationBtn/>
+            </View> 
         
     </View>
    

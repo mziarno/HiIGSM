@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Platform, } from 'react-native';
-
+import NavigationBtn from '../components/NavigationBtn';
 
 
 class Timetable extends Component { 
@@ -77,6 +77,10 @@ class Timetable extends Component {
      {/* <Button onPress={() => 
      this.props.navigation.navigate('Monday')} 
      title="Monday 24.06"/> */}
+
+     <View style={{top: 20}}>
+            <NavigationBtn/>
+            </View>
  </View>
  )
 }

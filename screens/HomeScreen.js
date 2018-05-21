@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { View, Text, StyleSheet, Button, TouchableOpacity, Icon, StatusBar} from 'react-native';
+import { View, Text, StyleSheet, Button, TouchableOpacity, Icon, StatusBar, Dimensions} from 'react-native';
 import {StackNavigator, TabNavigator, DrawerNavigator} from 'react-navigation';
 import MustSeeScreen from './MustSeeScreen';
 import TimetableScreen from './TimetableScreen';
@@ -18,10 +18,12 @@ class HomeScreen extends Component {
             return (
           
             <View>
-                  <NavigationBtn/>
-                <Text> HI IGSM </Text>
-              
-                </View>
+                  
+            <Text> HI IGSM </Text>
+            <View style={{top: 450}}>
+            <NavigationBtn/>
+            </View>
+            </View>
             )
           
     }

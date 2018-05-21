@@ -8,7 +8,8 @@ import { View,
         TouchableOpacity, 
         Platform, 
         StatusBar,
-        AppRegistry} from 'react-native';
+        AppRegistry,
+        Dimensions} from 'react-native';
 import {Icon, Overlay} from 'react-native-elements';
 import Communications from 'react-native-communications';
 import * as OpenAnything from 'react-native-openanything';
@@ -80,22 +81,13 @@ class Contact extends Component{
             </View>
             </TouchableOpacity>
             </View>
-           
-            <View style={styles.greyBig_Container}>
-            <TouchableOpacity onPress={() => OpenAnything.Call('+48692095473')}>
-            <Text style={aaa.nameText}> Marcelina Ziarno </Text>
-            <Text style={aaa.numberText}> +48 692 095 473 </Text>
-            <View style={aaa.photoContainer}>
-                <Image
-                source={require('../assets/images/Marcka.jpg')}
-                style={{width: 60, height: 60, borderRadius:35} }/> 
-            </View>
-            </TouchableOpacity>
-            </View>
+
           </View>
-           <NavigationBtn/>
-                
-          
+
+            <View style={{top: 90}}>
+            <NavigationBtn/>
+            </View>
+
             </View>
             
 
