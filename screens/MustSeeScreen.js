@@ -14,20 +14,11 @@ import MapScreen from './Map';
 
 
 
+// const styles = require('../styles.js')
 const items = ['Museums', 'Galleries', 'Monuments'];
 
 class MustSee extends Component {
-  static navigationOptions = {
-    title: 'MustSee',
-    headerStyle: {
-      backgroundColor: '#1D3557'
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    }
-  }
-
+ 
   // constructor(props) {
   //   super(props);
   //   this.state = { checked: false };
@@ -98,104 +89,102 @@ class MustSee extends Component {
   }
 }
  
-
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#fff',
     width: '100%',
-    height:250,
-    top: 10,
-  },
-placesContainer:{
-  backgroundColor: '#fff',
-  width: '90%',
-  height: 70,
-  position: 'relative',
-  marginLeft: '5%',
-  marginRight: '5%',
-  borderRadius: 5,
-  justifyContent: 'center',
-  ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        shadowOffset: { height: 3 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
-      },
-      android: {
-      elevation: 5
-      },
-    }),
-},
-seeOnMapContainer:{
-  backgroundColor: '#fff',
-  width: '40%',
-  height: 70,
-  position: 'absolute',
-  marginRight: '5%',
-  marginTop: 5,
-  borderRadius: 5,
-  left: '5%',
-  justifyContent: 'flex-end',
-  ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        shadowOffset: { height: 3 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 5
-      },
-    }),
-},
-seeListContainer:{
-  backgroundColor: '#fff',
-  width: '40%',
-  height: 70,
-  position: 'absolute',
-  marginLeft: '5%',
-  marginTop: 5,
-  borderRadius: 5,
-  justifyContent: 'flex-end',
-  right: '5%',
+     height:250,
+     top: 10,
+   },
+ placesContainer:{
+   backgroundColor: '#fff',
+   width: '90%',
+   height: 70,
+   position: 'relative',
+   marginLeft: '5%',
+   marginRight: '5%',
+   borderRadius: 5,
+   justifyContent: 'center',
+   ...Platform.select({
+       ios: {
+         shadowColor: '#707070',
+         shadowOffset: { height: 3 },
+         shadowOpacity: 1,
+         shadowRadius: 3,
+       },
+       android: {
+       elevation: 5
+       },
+     }),
+ },
+ seeOnMapContainer:{
+   backgroundColor: '#fff',
+   width: '40%',
+   height: 70,
+   position: 'absolute',
+   marginRight: '5%',
+   marginTop: 5,
+   borderRadius: 5,
+   left: '5%',
+   justifyContent: 'flex-end',
+   ...Platform.select({
+       ios: {
+         shadowColor: '#707070',
+         shadowOffset: { height: 3 },
+         shadowOpacity: 1,
+         shadowRadius: 3,
+       },
+       android: {
+         elevation: 5
+       },
+     }),
+ },
+ seeListContainer:{
+   backgroundColor: '#fff',
+   width: '40%',
+   height: 70,
+   position: 'absolute',
+   marginLeft: '5%',
+   marginTop: 5,
+   borderRadius: 5,
+   justifyContent: 'flex-end',
+   right: '5%',
 
-  ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        shadowOffset: { height: 3 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 5
-      },
-    }),
+   ...Platform.select({
+       ios: {
+         shadowColor: '#707070',
+         shadowOffset: { height: 3 },
+         shadowOpacity: 1,
+         shadowRadius: 3,
+       },
+       android: {
+         elevation: 5
+       },
+     }),
   
-},
-text:{
-  fontSize: 20,
-  color: '#4A4A4A',
-  fontWeight: 'bold',
-  textAlignVertical: 'center',
-  marginLeft: 15,
+ },
+ text:{
+   fontSize: 20,
+   color: '#4A4A4A',
+   fontWeight: 'bold',
+   textAlignVertical: 'center',
+   marginLeft: 15,
  
-},
-text2:{
-  fontSize: 17,
-  color: '#4A4A4A',
-  textAlign: 'center',
-  marginBottom: 5,
-},
-icon:{
-  position: 'relative',
-  alignItems: 'center'
-}
+ },
+ text2:{
+   fontSize: 17,
+   color: '#4A4A4A',
+   textAlign: 'center',
+   marginBottom: 5,
+ },
+ icon:{
+   position: 'relative',
+   alignItems: 'center'
+ }
 
 
-});
+ });
 
 
 export default MustSee;

@@ -1,47 +1,58 @@
 import React, {Component} from 'react'
-import { View, Text, StyleSheet, Button, TouchableOpacity, Icon} from 'react-native';
-import { StackNavigator} from 'react-navigation';
+import {StackNavigator, TabNavigator, DrawerNavigator} from 'react-navigation';
 import MustSeeScreen from './MustSeeScreen';
 import TimetableScreen from './TimetableScreen';
 import Contact from './Contact';
 import MapScreen from './Map';
+import * as firebase from 'firebase';
+import ApiKeys from '../ApiKeys'
+import * as os from 'os';
+import {
+    Platform,
+    StyleSheet,
+    Text,
+    View,
+    ScrollView,
+    Button,
+    TouchableHighlight,
+    Modal,
+    TextInput,
+    ImageBackground
+} from 'react-native';
+import { freemem } from 'os';
+
+require("firebase/database");
 
 class HomeScreen extends Component {
-    static navigationOptions = {
-            title: 'Hi! IGSM 2019',   
-            headerStyle: {
-              backgroundColor: '#1D3557',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-            
-            
-      } 
+    constructor(){
+        super();
+        this.state = {
+            message: ' '
 
-    render(){
-        return(
+        };
+    }
+    componentDidMount(){
+        const rootRef = firebase.database().ref();
+       // const rootRef = firebase.database().ref().child('igsm-88697');
+        const messRef = rootRef.child('message');
+        messRef.on('value', snap => {
+            this.setState({
+                message: snap.val()
+            });
+        });
+    }
+
+    render(){         
+            return (
+          
             <View>
-
-                <Text> Hello </Text>    
-               {/* <Button onPress={()=>this.props.navigation.navigate('MustSeeScreen') }title='mustsee'/> */}
-            </View>
-        )
+                 {/* // <NavigationBtn/> */}
+                <Text> {this.state.message} </Text>
+              
+                </View>
+            )
+          
     }
 }
 
-
-const AppNavigator = StackNavigator({
-    HomeScreen: {screen: HomeScreen},
-    MustSeeScreen: {screen: MustSeeScreen},
-    TimetableScreen: {screen: TimetableScreen},
-    Contact: {screen: Contact},
-    Map: {screen: Map}    
-          
-}
-
-)
-
-export default AppNavigator;
 export default HomeScreen;

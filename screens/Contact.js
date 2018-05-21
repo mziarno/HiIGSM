@@ -8,22 +8,16 @@ import { View,
         TouchableOpacity, 
         Platform, 
         StatusBar} from 'react-native';
-//import Communications from 'react-native-communications';
+        import {Icon} from 'react-native-elements';
+import Communications from 'react-native-communications';
 import * as OpenAnything from 'react-native-openanything';
 
 
 
 class Contact extends Component{
-    static navigationOptions = {
-        title: 'Contact With Organizators',       
-            headerStyle: {
-              backgroundColor: '#1D3557',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            } 
-      } 
+   
+
+
       render(){
         return(
             <ScrollView>
