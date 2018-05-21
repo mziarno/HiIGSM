@@ -7,11 +7,13 @@ import { View,
         ScrollView, 
         TouchableOpacity, 
         Platform, 
-        StatusBar} from 'react-native';
-        import {Icon} from 'react-native-elements';
+        StatusBar,
+        AppRegistry} from 'react-native';
+import {Icon, Overlay} from 'react-native-elements';
 import Communications from 'react-native-communications';
 import * as OpenAnything from 'react-native-openanything';
-
+import styles from '../components/styles';
+import NavigationBtn from '../components/NavigationBtn';
 
 
 class Contact extends Component{
@@ -19,136 +21,95 @@ class Contact extends Component{
 
 
       render(){
-        return(
-            <ScrollView>
-            <View style={styles.container}>
-            
+        return(           
+            <View >
+                <View>
+                  
             <StatusBar barStyle="light-content"/>
-            <View style={styles.emailContainer}>
+            <View style={styles.greyMedium_Container}>
             <TouchableOpacity onPress={() => OpenAnything.Email('igsm2019@geoida.org')}>
-                <Text style={styles.emailText}> E-mail: igsm2019@geoida.org </Text>
+                <Text style={aaa.emailText}> E-mail: igsm2019@geoida.org </Text>
             </TouchableOpacity>       
             </View>
 
-            <View style={styles.peopleContainer}>
+            <View style={styles.greyBig_Container}>
             <TouchableOpacity onPress={() => OpenAnything.Call('+48692095473')}>
-            <Text style={styles.nameText}> Marcelina Ziarno </Text>
-            <Text style={styles.numberText}> +48 692 095 473 </Text>
-            <View style={styles.photoContainer}>
+            <Text style={aaa.nameText}> Marcelina Ziarno </Text>
+            <Text style={aaa.numberText}> +48 692 095 473 </Text>
+            <View style={aaa.photoContainer}>
                 <Image
                 source={require('../assets/images/Marcka.jpg')}
-                style={{width: 70, height: 70, borderRadius:35} }/> 
+                style={{width: 60, height: 60, borderRadius:35} }/>
             </View>
             </TouchableOpacity>
             </View>
             
            
-            <View style={styles.peopleContainer}>
+            <View style={styles.greyBig_Container}>
             <TouchableOpacity onPress={() => OpenAnything.Call('+48514893673')}>
-            <Text style={styles.nameText}> Monika Kwiatkowska </Text>
-            <Text style={styles.numberText}> +48 514 893 673 </Text>
-            <View style={styles.photoContainer}>
+            <Text style={aaa.nameText}> Monika Kwiatkowska </Text>
+            <Text style={aaa.numberText}> +48 514 893 673 </Text>
+            <View style={aaa.photoContainer}>
                 <Image
                 source={require('../assets/images/Monix.jpg')}
-                style={{width: 70, height: 70, borderRadius:35} }/> 
+                style={{width: 60, height: 60, borderRadius:35} }/> 
             </View>
             </TouchableOpacity>
             </View>
           
-            <View style={styles.peopleContainer}>
+            <View style={styles.greyBig_Container}>
             <TouchableOpacity onPress={() => OpenAnything.Call('+48606289240')}>
-            <Text style={styles.nameText}> Alicja Konkol </Text>
-            <Text style={styles.numberText}> +48 606 289 240 </Text>
-            <View style={styles.photoContainer}>
+            <Text style={aaa.nameText}> Alicja Konkol </Text>
+            <Text style={aaa.numberText}> +48 606 289 240 </Text>
+            <View style={aaa.photoContainer}>
                 <Image
                 source={require('../assets/images/Ala.jpg')}
-                style={{width: 70, height: 70, borderRadius:35} }/> 
+                style={{width: 60, height: 60, borderRadius:35} }/> 
             </View>
             </TouchableOpacity>
             </View>
             
-            <View style={styles.peopleContainer}>
+            <View style={styles.greyBig_Container}>
             <TouchableOpacity onPress={() => OpenAnything.Call('+48512139562')}>
-            <Text style={styles.nameText}> Asia Szymczak </Text>
-            <Text style={styles.numberText}> +48 512 139 562 </Text>
-            <View style={styles.photoContainer}>
+            <Text style={aaa.nameText}> Asia Szymczak </Text>
+            <Text style={aaa.numberText}> +48 512 139 562 </Text>
+            <View style={aaa.photoContainer}>
                 <Image
                 source={require('../assets/images/Asia.png')}
-                style={{width: 70, height: 70, borderRadius:35} }/> 
+                style={{width: 60, height: 60, borderRadius:35} }/>
             </View>
             </TouchableOpacity>
             </View>
            
-            <View style={styles.peopleContainer}>
+            <View style={styles.greyBig_Container}>
             <TouchableOpacity onPress={() => OpenAnything.Call('+48692095473')}>
-            <Text style={styles.nameText}> Marcelina Ziarno </Text>
-            <Text style={styles.numberText}> +48 692 095 473 </Text>
-            <View style={styles.photoContainer}>
+            <Text style={aaa.nameText}> Marcelina Ziarno </Text>
+            <Text style={aaa.numberText}> +48 692 095 473 </Text>
+            <View style={aaa.photoContainer}>
                 <Image
                 source={require('../assets/images/Marcka.jpg')}
-                style={{width: 70, height: 70, borderRadius:35} }/> 
+                style={{width: 60, height: 60, borderRadius:35} }/> 
             </View>
             </TouchableOpacity>
             </View>
-            
+          </View>
+           <NavigationBtn/>
+                
+          
             </View>
-            </ScrollView>
+            
+
+            
             
 
         )
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      //backgroundColor: '#fff',
-      alignItems: 'center',
-      width: '100%',
-    },
-    emailContainer:{
-        backgroundColor: '#ECECEC',
-        width: '90%',
-		height: 50,
-        position: 'relative',
-        marginLeft: '5%',
-        marginRight: '5%',
-        marginBottom: 20,
-        borderRadius: 5,
-        ...Platform.select({
-            ios: {
-              shadowColor: '#707070',
-              shadowOffset: { height: 3 },
-              shadowOpacity: 1,
-              shadowRadius: 3,
-            },
-            android: {
-              elevation: 15
-            },
-          }),
-        marginTop:10
-    },
-    peopleContainer:{        
-        width: '90%',
-		height: 80,
-        position: 'relative',
-        marginLeft: '5%',
-        marginRight: '5%',
-        margin: 3,
-        borderRadius: 5,
-        ...Platform.select({
-            ios: {
-              shadowColor: '#707070',
-              shadowOffset: { height: 3 },
-              shadowOpacity: 1,
-              shadowRadius: 3,
-            },
-            android: {
-              elevation: 15
-            },
-          }),
-        backgroundColor: '#ECECEC',
-    },
+
+
+const aaa = StyleSheet.create({
+    
     emailText:{
         fontSize: 18,
 		color: '#457B9D',

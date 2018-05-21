@@ -20,6 +20,8 @@ import {
     ImageBackground
 } from 'react-native';
 import { freemem } from 'os';
+import NavigationBtn from '../components/NavigationBtn';
+import styles from '../components/styles';
 
 require("firebase/database");
 
@@ -45,14 +47,31 @@ class HomeScreen extends Component {
     render(){         
             return (
           
-            <View>
-                 {/* // <NavigationBtn/> */}
-                <Text> {this.state.message} </Text>
+            <View style={styles.background}>
+            
               
+              <View style={styles.notificationContainer}>
+              <View style={styles.notification}>
+                 {/* // <NavigationBtn/> */}
+                <Text style={styles.text}> Notifications </Text>
+              </View>
+
+              <Text style={styles.notificationsText}> {this.state.message} </Text>
+                  </View>
+
+                <View style={styles.dayContainer}>
+                 {/* // <NavigationBtn/> */}
+                <Text style={styles.text}> Wednesday </Text>
+              </View>
+
+
+
                 </View>
             )
           
     }
 }
+
+
 
 export default HomeScreen;

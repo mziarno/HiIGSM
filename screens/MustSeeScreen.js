@@ -11,7 +11,8 @@ import {View,
         } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import MapScreen from './Map';
-
+import styles from '../components/styles';
+import NavigationBtn from '../components/NavigationBtn';
 
 
 // const styles = require('../styles.js')
@@ -40,7 +41,7 @@ class MustSee extends Component {
   
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.background}>
       <StatusBar barStyle="light-content"/>
       <View>
         <FlatList
@@ -51,7 +52,7 @@ class MustSee extends Component {
               title={item}
               onPress={() => this.checkItem(item)}
               checked={this.state.checked.includes(item)}
-              containerStyle={styles.placesContainer}
+              containerStyle={styles.whiteBigContainer}
               textStyle={styles.text}
               checkedColor='#4A4A4A'
               uncheckedColor='#4A4A4A'
@@ -61,8 +62,8 @@ class MustSee extends Component {
           </View>
   
       <View>
-      <View style={styles.seeOnMapContainer}>
-      <TouchableOpacity  onPress={()=>this.props.navigation.navigate('MapScreen') }title='map'>
+      <View style={styles.white_Left_Container}>
+      <TouchableOpacity  onPress={()=>this.props.navigation.navigate('MapScreen') }>
       <View style={styles.icon}>
         <Image source={require('../assets/icons/map.png')} style={{width: 37, height: 37 }}/> 
       </View>
@@ -70,7 +71,7 @@ class MustSee extends Component {
       </TouchableOpacity>
       </View>
 
-      <View style={styles.seeListContainer}>
+      <View style={styles.white_Right_Container}>
       <TouchableOpacity>
       <View style={styles.icon}>
         <Image source={require('../assets/icons/list.png')} style={{width: 37, height: 37}}/> 
@@ -80,7 +81,7 @@ class MustSee extends Component {
       </View>
       
       </View>
-      
+      <NavigationBtn/>  
         
     </View>
    
@@ -89,102 +90,102 @@ class MustSee extends Component {
   }
 }
  
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    width: '100%',
-     height:250,
-     top: 10,
-   },
- placesContainer:{
-   backgroundColor: '#fff',
-   width: '90%',
-   height: 70,
-   position: 'relative',
-   marginLeft: '5%',
-   marginRight: '5%',
-   borderRadius: 5,
-   justifyContent: 'center',
-   ...Platform.select({
-       ios: {
-         shadowColor: '#707070',
-         shadowOffset: { height: 3 },
-         shadowOpacity: 1,
-         shadowRadius: 3,
-       },
-       android: {
-       elevation: 5
-       },
-     }),
- },
- seeOnMapContainer:{
-   backgroundColor: '#fff',
-   width: '40%',
-   height: 70,
-   position: 'absolute',
-   marginRight: '5%',
-   marginTop: 5,
-   borderRadius: 5,
-   left: '5%',
-   justifyContent: 'flex-end',
-   ...Platform.select({
-       ios: {
-         shadowColor: '#707070',
-         shadowOffset: { height: 3 },
-         shadowOpacity: 1,
-         shadowRadius: 3,
-       },
-       android: {
-         elevation: 5
-       },
-     }),
- },
- seeListContainer:{
-   backgroundColor: '#fff',
-   width: '40%',
-   height: 70,
-   position: 'absolute',
-   marginLeft: '5%',
-   marginTop: 5,
-   borderRadius: 5,
-   justifyContent: 'flex-end',
-   right: '5%',
+//const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     width: '100%',
+//      height:250,
+//      top: 10,
+//    },
+//  placesContainer:{
+//    backgroundColor: '#fff',
+//    width: '90%',
+//    height: 70,
+//    position: 'relative',
+//    marginLeft: '5%',
+//    marginRight: '5%',
+//    borderRadius: 5,
+//    justifyContent: 'center',
+//    ...Platform.select({
+//        ios: {
+//          shadowColor: '#707070',
+//          shadowOffset: { height: 3 },
+//          shadowOpacity: 1,
+//          shadowRadius: 3,
+//        },
+//        android: {
+//        elevation: 5
+//        },
+//      }),
+//  },
+//  seeOnMapContainer:{
+//    backgroundColor: '#fff',
+//    width: '40%',
+//    height: 70,
+//    position: 'absolute',
+//    marginRight: '5%',
+//    marginTop: 5,
+//    borderRadius: 5,
+//    left: '5%',
+//    justifyContent: 'flex-end',
+//    ...Platform.select({
+//        ios: {
+//          shadowColor: '#707070',
+//          shadowOffset: { height: 3 },
+//          shadowOpacity: 1,
+//          shadowRadius: 3,
+//        },
+//        android: {
+//          elevation: 5
+//        },
+//      }),
+//  },
+//  seeListContainer:{
+//    backgroundColor: '#fff',
+//    width: '40%',
+//    height: 70,
+//    position: 'absolute',
+//    marginLeft: '5%',
+//    marginTop: 5,
+//    borderRadius: 5,
+//    justifyContent: 'flex-end',
+//    right: '5%',
 
-   ...Platform.select({
-       ios: {
-         shadowColor: '#707070',
-         shadowOffset: { height: 3 },
-         shadowOpacity: 1,
-         shadowRadius: 3,
-       },
-       android: {
-         elevation: 5
-       },
-     }),
+//    ...Platform.select({
+//        ios: {
+//          shadowColor: '#707070',
+//          shadowOffset: { height: 3 },
+//          shadowOpacity: 1,
+//          shadowRadius: 3,
+//        },
+//        android: {
+//          elevation: 5
+//        },
+//      }),
   
- },
- text:{
-   fontSize: 20,
-   color: '#4A4A4A',
-   fontWeight: 'bold',
-   textAlignVertical: 'center',
-   marginLeft: 15,
+//  },
+//  text:{
+//    fontSize: 20,
+//    color: '#4A4A4A',
+//    fontWeight: 'bold',
+//    textAlignVertical: 'center',
+//    marginLeft: 15,
  
- },
- text2:{
-   fontSize: 17,
-   color: '#4A4A4A',
-   textAlign: 'center',
-   marginBottom: 5,
- },
- icon:{
-   position: 'relative',
-   alignItems: 'center'
- }
+//  },
+//  text2:{
+//    fontSize: 17,
+//    color: '#4A4A4A',
+//    textAlign: 'center',
+//    marginBottom: 5,
+//  },
+//  icon:{
+//    position: 'relative',
+//    alignItems: 'center'
+//  }
 
 
- });
+//  });
 
 
 export default MustSee;
