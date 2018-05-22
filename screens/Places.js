@@ -16,23 +16,15 @@ import NavigationBtn from '../components/NavigationBtn';
 const places = ['National Museum', 'Polin']
 
 class Places extends Component{
-    // constructor(){
-    //     super();
+ 
 
-    //     this.state={
-    //         style: true
-    //     }
-    // }
-    // changeColor(){
-    //     this.setState({color_black: !this.state.color_black})
-    // }
     render(){
-        // let bgColor = this.state.color_black ? "black" : "white"
+       
         return(
             <View style={styles.background}>
-            {/* <TouchableOpacity> */}
+            
             <View style={styles.whiteMedium_Container}>
-            {/* <TouchableOpacity style={{backgroundColor: bgColor}} onClick={this.changeColor.bind(this)}> */}
+           
             <FlatList
                 data={places}
                 // extraData={this.state}
@@ -40,9 +32,9 @@ class Places extends Component{
                 <Text> {item} </Text>
                 )}
                 />
-            {/* </TouchableOpacity> */}
+        
             </View>
-            {/* </TouchableOpacity>> */}
+        
             </View>
 
 

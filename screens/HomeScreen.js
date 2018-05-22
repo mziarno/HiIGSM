@@ -31,7 +31,7 @@ class HomeScreen extends Component {
         super();
         this.state = {
             message: ' ',
-            weekDays: []
+            weekDays: {}
         };
     }
     componentDidMount() {
@@ -41,22 +41,21 @@ class HomeScreen extends Component {
 
         weekDaysRef.once('value', snap => {
             let newStateWeekDays = [];
-            snap.forEach(child => {                 // 1
-                let newEvents = {}
+            snap.forEach(child => {     //child - dzien tyg
                 let events = child.val();
-                for (let event in events) {         // 2
-
-                    // newStateWeekDays.push({
-                    //     [weekDay]: {
-                    //         title: items[item].title,
-                    //         user: items[item].user
-                    //     }
-                    // });
-                }
                 let weekDay = child.key
+                let newEvent = {}
+                Object.keys(events).map((key) => {
+                    let event = events[key]
+                    newEvent[key] = event
+                })
 
+                let lastState = this.state.weekDays
+
+                lastState[weekDay] = newEvent
+                let newState = lastState
                 this.setState({
-                    weekDays: this.state.weekDays.concat(weekDay)
+                    weekDays: newState
                 })
             })
         })
@@ -77,11 +76,7 @@ class HomeScreen extends Component {
 
         return (
             <View style={styles.background}>
-
-
-
                 <View style={{ top: 450 }}>
-
                     <View style={nav_style.HomeBtn}>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
                             <Image
@@ -108,40 +103,53 @@ class HomeScreen extends Component {
                             />
                         </TouchableOpacity>
                     </View>
-
-
-                    <View style={styles.notificationContainer}>
-                        <View style={styles.notification}>
-
-
-                            <Text style={styles.text}> Notifications </Text>
-                        </View>
-
-                        <Text style={styles.notificationsText}> {this.state.message} </Text>
-                    </View>
-                    <View>
-
-                        <View style={styles.firstContainer}>
-                            <View style={styles.day}>
-                                <Text style={styles.text}> Wednesday (23th May) </Text>
-                            </View>
-                            <Text style={styles.eventText}> BREAKFAST </Text>
-                            <Text style={styles.timeText}> 8:00 - 9:30 AM </Text>
-                            <Text style={styles.placeText}> Hostel Patchwork Canteen </Text>
-                        </View>
-                        <View style={styles.greyMedium_Container}>
-                            <Text style={styles.eventText}> LECTURES </Text>
-                            <Text style={styles.timeText}> 10:00 AM </Text>
-                            <Text style={styles.placeText}> CZIiTT PW 4.05 </Text>
-                        </View>
-                        <View style={styles.greyMedium_Container}>
-                            <Text style={styles.eventText}> COFFEE BREAK </Text>
-                            <Text style={styles.timeText}> 12:30 AM </Text>
-                            <Text style={styles.placeText}> CZIiTT PW 4.05 </Text>
-                        </View>
-                    </View>
                 </View>
 
+                <View style={styles.notificationContainer}>
+                    <View style={styles.notification}>             
+                        <Text style={styles.text}> Notifications </Text>
+                    </View>
+                    <Text style={styles.notificationsText}> {this.state.message} </Text>
+                </View>
+
+                <View>
+                    {Object.keys(this.state.weekDays).map((dayNameKey) => {
+                        let dayEvents = this.state.weekDays[dayNameKey]
+                        return (
+                            <View style={styles.firstContainer}> 
+                                <View style={styles.day}>
+                                    <Text style={styles.text}> {dayNameKey} </Text>
+                                </View>
+
+                                {Object.keys(dayEvents).map((eventName) => {
+                                    let eventData = dayEvents[eventName]
+                                    return (
+                                        <TouchableOpacity>
+                                        <View style={styles.timetable_Container}>
+                                            <Text style={styles.eventText}> {eventName} </Text>
+                                            <Text  style={styles.timeText}> {eventData.startTime} - {eventData.endTime} </Text>
+                                            <Text style={styles.placeText}> {eventData.place} </Text>
+                                        </View>
+                                        </TouchableOpacity>
+                                    )
+                                })}
+
+                            </View>
+
+                        )
+                    })}
+
+                </View>
+                {/* <View style={styles.greyMedium_Container}>
+                    <Text style={styles.eventText}> LECTURES </Text>
+                    <Text style={styles.timeText}> 10:00 AM </Text>
+                    <Text style={styles.placeText}> CZIiTT PW 4.05 </Text>
+                </View>
+                <View style={styles.greyMedium_Container}>
+                    <Text style={styles.eventText}> COFFEE BREAK </Text>
+                    <Text style={styles.timeText}> 12:30 AM </Text>
+                    <Text style={styles.placeText}> CZIiTT PW 4.05 </Text>
+                </View> */}
             </View>
         )
 

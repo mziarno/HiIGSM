@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         width: '100%',
-         //height:250,
        },
   whiteBigContainer:{ 
        backgroundColor: '#fff',
@@ -104,7 +103,6 @@ const styles = StyleSheet.create({
       position: 'relative',
       marginLeft: '5%',
       marginRight: '5%',
-      //marginBottom: 20,
       borderRadius: 5,
       ...Platform.select({
           ios: {
@@ -199,62 +197,63 @@ const styles = StyleSheet.create({
     backgroundColor: '#1D3557',
     width: '100%',
     height: 40,
+    // marginBottom:
     //position: 'relative',
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
+    borderRadius: 5,
+    // borderTopRightRadius: 5,
     //top: -10,
     justifyContent: 'center'
-    },
+},
 
 firstContainer:{
-   backgroundColor: '#ECECEC', 
+   //backgroundColor: '#fff', 
    width: '90%',
-   height: 90,
+   //height: 90,
    //position: 'absolute',
    marginLeft: '5%',
    marginRight: '5%',
-   borderRadius: 5,
-   marginBottom: 15,
+   //borderRadius: 5,
+   //marginBottom: 15,
    top:10,
    //justifyContent: 'center',
    ...Platform.select({
-       ios: {
+      ios: {
          shadowColor: '#707070',
          shadowOffset: { height: 3 },
          shadowOpacity: 1,
          shadowRadius: 3,
        },
-       android: {
+    android: {
        elevation: 5
        },
      }),
     },
-
     eventText: {
       fontSize: 17,
       color: '#4A4A4A',
       fontWeight: 'bold',
       textAlignVertical: 'center',
       marginLeft: 10,
-      marginTop: 5,
+      top: 15,
       
   },
-  
   timeText:{
-    position: 'absolute',
+    fontSize: 12,
     color: '#4A4A4A',
-    right: 10,
-    marginTop:5,
-    top: 45
-},
+    right: 30,
+    top: 10,
+    position: 'absolute' 
 
+  },
   placeText:{
-  position: 'absolute',
-  color: '#4A4A4A',
-  right: 10,
-  marginTop:5,
-  top: 60
-},
+    fontSize: 12,
+    color: '#4A4A4A',
+    right: 30,
+    position: 'absolute',
+    top: 25
+  },
+
+
 text:{
     fontSize: 17,
     color: '#fff',
@@ -262,7 +261,7 @@ text:{
     textAlign: 'center',
     textAlignVertical: 'center',
 },
-    notificationsText:{
+notificationsText:{
         fontSize: 17,
         color: '#4A4A4A',
         textAlign: 'center',
@@ -270,6 +269,28 @@ text:{
         top: 15
     
     },
+
+  timetable_Container:{
+      backgroundColor: '#ECECEC',
+      width: '100%',
+      height: 50,
+      position: 'relative',
+     
+      marginBottom: 5,
+      borderRadius: 5,
+      // ...Platform.select({
+      //     ios: {
+      //       shadowColor: '#707070',
+      //       shadowOffset: { height: 3 },
+      //       shadowOpacity: 1,
+      //       shadowRadius: 3,
+      //     },
+      //     android: {
+      //       elevation: 5
+      //     },
+      //   }),
+      // margin:3
+  },
 
   })
 
