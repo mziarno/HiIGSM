@@ -78,9 +78,9 @@ const styles = StyleSheet.create({
          }),
       
      },
-  textGrey:{
+  text1:{
        fontSize: 20,
-       color: '#4A4A4A',
+       color: '#1D3557',
        fontWeight: 'bold',
        textAlignVertical: 'center',
        marginLeft: 15,

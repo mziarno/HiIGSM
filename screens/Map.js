@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { View, Text, StyleSheet, Button, Image, ScrollView, TouchableOpacity, 
   Platform, StatusBar,AppRegistry,Dimensions} from 'react-native';
 import MapView from 'react-native-maps';
+import {Icon} from 'react-native-elements';
 
 import nav_style from '../components/nav_style';
 
@@ -74,36 +75,42 @@ class Map extends Component {
           </MapView.Marker>
         </MapView>
   
-        <View style={{bottom: -190}}>
+        <View style={{bottom: -235, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'stretch'}}>
             
             <View style={nav_style.HomeBtn}>
-              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Home')}>
-                  <Image
-                  source={require('../assets/icons/home.png')}
-                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
-                  title='Home'
-                  />
-                  </TouchableOpacity>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
+                <Icon 
+                    name='home' 
+                    type='octicon'
+                    color='#1D3557'
+                    size={36}/>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Home</Text>
+                </TouchableOpacity>
             </View>
 
-            <View style={nav_style.MustSeeBtn}>
-              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Map')}>
-                  <Image
-                  source={require('../assets/icons/map.png')}
-                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
-                  />
-                  </TouchableOpacity>
-              </View>
-            <View style={nav_style.TimeTable}>
-              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Timetable')}>
-                  <Image
-                  source={require('../assets/icons/calendar.png')}
-                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
-                  />
-              </TouchableOpacity>
+            <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Map')} >
+                <Icon 
+                    name='marker' 
+                    type='foundation'
+                    color='pink'
+                    size={36}/>
+                <Text style={{fontSize: 10, color: 'pink', textAlign: 'center'}}>Map</Text>
+                </TouchableOpacity>
             </View>
-        </View>
-
+            
+            <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Timetable')}>
+                <Icon 
+                    name='calendar'
+                    type='octicon' 
+                    color='#1D3557'
+                    size={36}/>
+                <Text style={{fontSize: 10, textAlign: 'center'}}>Timetable</Text>
+                </TouchableOpacity>
+            </View>
+        
+            </View>
       </View>
     );
   }
