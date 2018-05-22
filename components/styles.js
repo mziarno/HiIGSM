@@ -236,32 +236,25 @@ firstContainer:{
       fontWeight: 'bold',
       textAlignVertical: 'center',
       marginLeft: 10,
-      marginTop: 5,
+      top: 15,
       
   },
-  
   timeText:{
-    position: 'absolute',
+    fontSize: 12,
     color: '#4A4A4A',
-    right: 10,
-    marginTop:5,
-    top: 45
-},
+    right: 30,
+    top: 10,
+    position: 'absolute' 
 
-timeText:{
-    
-    color: '#4A4A4A',
-    right: 10,
-    marginTop:5,
-    top: 45
-},
+  },
   placeText:{
-  position: 'absolute',
-  color: '#4A4A4A',
-  right: 10,
-  marginTop:5,
-  top: 60
-},
+    fontSize: 12,
+    color: '#4A4A4A',
+    right: 30,
+    position: 'absolute',
+    top: 25
+  },
+  
 text:{
     fontSize: 17,
     color: '#fff',

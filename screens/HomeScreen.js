@@ -106,13 +106,13 @@ class HomeScreen extends Component {
                 </View>
                 <View style={styles.greyMedium_Container}>
                 <Text style={styles.eventText}> LECTURES </Text>
-                <Text style={styles.timeText2}> 10:00 AM </Text>
-                <Text style={styles.placeText2}> CZIiTT PW 4.05 </Text>
+                <Text style={styles.timeText}> 10:00 AM </Text>
+                <Text style={styles.placeText}> CZIiTT PW 4.05 </Text>
                 </View>
                 <View style={styles.greyMedium_Container}>
                 <Text style={styles.eventText}> COFFEE BREAK </Text>
-                <Text style={styles.timeText2}> 12:30 AM </Text>
-                <Text style={styles.placeText2}> CZIiTT PW 4.05 </Text>
+                <Text style={styles.timeText}> 12:30 AM </Text>
+                <Text style={styles.placeText}> CZIiTT PW 4.05 </Text>
                 </View>
               </View> 
                 </View>
