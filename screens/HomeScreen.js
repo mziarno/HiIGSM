@@ -45,7 +45,7 @@ class HomeScreen extends Component {
 
     }
 
-    render(){         
+    render(){     
 
             return (
           
@@ -54,19 +54,34 @@ class HomeScreen extends Component {
               
               <View style={styles.notificationContainer}>
               <View style={styles.notification}>
-                 {/* // <NavigationBtn/> */}
+               
                  
-                <Text style={styles.text}> Notifications </Text>
-              </View>
+            <Text style={styles.text}> Notifications </Text>
+            </View>
 
-              <Text style={styles.notificationsText}> {this.state.message} </Text>
-                  </View>
+            <Text style={styles.notificationsText}> {this.state.message} </Text>
+            </View>
+            <View>
 
-                <View style={styles.dayContainer}>
-                 {/* // <NavigationBtn/> */}
-                <Text style={styles.text}> Wednesday </Text>
-              </View>
-
+                <View style={styles.firstContainer}>
+                <View style={styles.day}>
+                <Text style={styles.text}> Wednesday (23th May) </Text>
+                </View>
+                <Text style={styles.eventText}> BREAKFAST </Text>
+                <Text style={styles.timeText}> 8:00 - 9:30 AM </Text>
+                <Text style={styles.placeText}> Hostel Patchwork Canteen </Text>
+                </View>
+                <View style={styles.greyMedium_Container}>
+                <Text style={styles.eventText}> LECTURES </Text>
+                <Text style={styles.timeText}> 10:00 AM </Text>
+                <Text style={styles.placeText}> CZIiTT PW 4.05 </Text>
+                </View>
+                <View style={styles.greyMedium_Container}>
+                <Text style={styles.eventText}> COFFEE BREAK </Text>
+                <Text style={styles.timeText}> 12:30 AM </Text>
+                <Text style={styles.placeText}> CZIiTT PW 4.05 </Text>
+                </View>
+              </View> 
                 </View>
             )
           

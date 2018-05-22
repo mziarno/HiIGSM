@@ -53,7 +53,7 @@ class MustSee extends Component {
               onPress={() => this.checkItem(item)}
               checked={this.state.checked.includes(item)}
               containerStyle={styles.whiteBigContainer}
-              textStyle={styles.text}
+              textStyle={styles.textGrey}
               checkedColor='#4A4A4A'
               uncheckedColor='#4A4A4A'
             />
