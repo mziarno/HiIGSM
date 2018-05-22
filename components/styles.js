@@ -3,6 +3,8 @@ import {StyleSheet, Platform} from 'react-native';
 
 
 const styles = StyleSheet.create({
+
+
    
   background: {
         flex: 1,
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
          }),
       
      },
-  text:{
+  textGrey:{
        fontSize: 20,
        color: '#4A4A4A',
        fontWeight: 'bold',
@@ -102,7 +104,7 @@ const styles = StyleSheet.create({
       position: 'relative',
       marginLeft: '5%',
       marginRight: '5%',
-      marginBottom: 20,
+      //marginBottom: 20,
       borderRadius: 5,
       ...Platform.select({
           ios: {
@@ -112,10 +114,10 @@ const styles = StyleSheet.create({
             shadowRadius: 3,
           },
           android: {
-            elevation: 15
+            elevation: 5
           },
         }),
-      marginTop:10
+      margin:3
   },
   whiteMedium_Container:{
     backgroundColor: '#fff',
@@ -161,7 +163,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#ECECEC',
   },
   notification:{
-    backgroundColor: 'pink',
+   backgroundColor: 'pink',
    width: '100%',
    height: 40,
    position: 'relative',
@@ -177,7 +179,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     marginLeft: '5%',
     marginRight: '5%',
-    marginBottom: 20,
+    marginBottom: 15,
     borderRadius: 5,
     ...Platform.select({
         ios: {
@@ -193,17 +195,28 @@ const styles = StyleSheet.create({
     marginTop:10
 
  },
-dayContainer:{
+ day:{
     backgroundColor: '#1D3557',
+    width: '100%',
+    height: 40,
+    //position: 'relative',
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+    //top: -10,
+    justifyContent: 'center'
+    },
+
+firstContainer:{
+   backgroundColor: '#ECECEC', 
    width: '90%',
-   height: 40,
-   position: 'relative',
+   height: 90,
+   //position: 'absolute',
    marginLeft: '5%',
    marginRight: '5%',
-   borderTopLeftRadius: 5,
-   borderTopRightRadius: 5,
-   top:10.,
-   justifyContent: 'center',
+   borderRadius: 5,
+   marginBottom: 15,
+   top:10,
+   //justifyContent: 'center',
    ...Platform.select({
        ios: {
          shadowColor: '#707070',
@@ -216,13 +229,46 @@ dayContainer:{
        },
      }),
     },
-    text:{
-        fontSize: 17,
-        color: '#fff',
-        fontWeight: 'bold',
-        textAlign: 'center',
-        textAlignVertical: 'center',
-    },
+
+    eventText: {
+      fontSize: 17,
+      color: '#4A4A4A',
+      fontWeight: 'bold',
+      textAlignVertical: 'center',
+      marginLeft: 10,
+      marginTop: 5,
+      
+  },
+  
+  timeText:{
+    position: 'absolute',
+    color: '#4A4A4A',
+    right: 10,
+    marginTop:5,
+    top: 45
+},
+
+timeText:{
+    
+    color: '#4A4A4A',
+    right: 10,
+    marginTop:5,
+    top: 45
+},
+  placeText:{
+  position: 'absolute',
+  color: '#4A4A4A',
+  right: 10,
+  marginTop:5,
+  top: 60
+},
+text:{
+    fontSize: 17,
+    color: '#fff',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    textAlignVertical: 'center',
+},
     notificationsText:{
         fontSize: 17,
         color: '#4A4A4A',
