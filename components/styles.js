@@ -160,7 +160,78 @@ const styles = StyleSheet.create({
         }),
       backgroundColor: '#ECECEC',
   },
+  notification:{
+    backgroundColor: 'pink',
+   width: '100%',
+   height: 40,
+   position: 'relative',
+   borderTopLeftRadius: 5,
+   borderTopRightRadius: 5,
+   justifyContent: 'center'
+
+ },
+ notificationContainer:{
+    backgroundColor: '#ECECEC',
+    width: '90%',
+    height: 120,
+    position: 'relative',
+    marginLeft: '5%',
+    marginRight: '5%',
+    marginBottom: 20,
+    borderRadius: 5,
+    ...Platform.select({
+        ios: {
+          shadowColor: '#707070',
+          shadowOffset: { height: 3 },
+          shadowOpacity: 1,
+          shadowRadius: 3,
+        },
+        android: {
+          elevation: 5
+        },
+      }),
+    marginTop:10
+
+ },
+dayContainer:{
+    backgroundColor: '#1D3557',
+   width: '90%',
+   height: 40,
+   position: 'relative',
+   marginLeft: '5%',
+   marginRight: '5%',
+   borderTopLeftRadius: 5,
+   borderTopRightRadius: 5,
+   top:10.,
+   justifyContent: 'center',
+   ...Platform.select({
+       ios: {
+         shadowColor: '#707070',
+         shadowOffset: { height: 3 },
+         shadowOpacity: 1,
+         shadowRadius: 3,
+       },
+       android: {
+       elevation: 5
+       },
+     }),
+    },
+    text:{
+        fontSize: 17,
+        color: '#fff',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        textAlignVertical: 'center',
+    },
+    notificationsText:{
+        fontSize: 17,
+        color: '#4A4A4A',
+        textAlign: 'center',
+        textAlignVertical: 'center',
+        top: 15
     
+    },
+
   })
 
 

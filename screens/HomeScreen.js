@@ -1,16 +1,52 @@
 import React, {Component} from 'react'
-import { View, Text, StyleSheet, Button, TouchableOpacity, Icon, StatusBar, Dimensions, Image} from 'react-native';
 import {StackNavigator, TabNavigator, DrawerNavigator} from 'react-navigation';
 import * as firebase from 'firebase';
 import nav_style from '../components/nav_style';
+import ApiKeys from '../ApiKeys'
+import * as os from 'os';
+import {
+    Platform,
+    StyleSheet,
+    Text,
+    View,
+    ScrollView,
+    Button,
+    TouchableHighlight,
+    Modal,
+    TextInput,
+    Dimensions,
+    Image,
+    Icon,
+    ImageBackground
+} from 'react-native';
+import { freemem } from 'os';
+import NavigationBtn from '../components/NavigationBtn';
+import styles from '../components/styles';
 
 require("firebase/database");
 
 class HomeScreen extends Component {
-   
-    render(){      
+    constructor(){
+        super();
+        this.state = { 
+            message: ' '
+        };
+    }
+    componentDidMount(){
+        const rootRef = firebase.database().ref();
+        const messRef = rootRef.child('message');
+     
 
-      
+        messRef.on('value', snap => {
+            this.setState({
+                message: snap.val()
+            });
+        });
+
+    }
+
+    render(){
+
             return (
           
             <View>
@@ -45,7 +81,27 @@ class HomeScreen extends Component {
                         </TouchableOpacity>
                     </View>
                     </View>
+            <View style={styles.background}>
+            
+              
+              <View style={styles.notificationContainer}>
+              <View style={styles.notification}>
+                 {/* // <NavigationBtn/> */}
+                 
+                <Text style={styles.text}> Notifications </Text>
+              </View>
+
+              <Text style={styles.notificationsText}> {this.state.message} </Text>
+                  </View>
+
+                <View style={styles.dayContainer}>
+                 {/* // <NavigationBtn/> */}
+                <Text style={styles.text}> Wednesday </Text>
+              </View>
+
+                </View>
             </View>
+                
             )
           
     }
