@@ -22,6 +22,7 @@
   "dependencies": {
     "@firebase/database": "^0.3.1",
     "@firebase/firestore": "^0.5.2",
+    "@mdi/font": "^2.3.54",
     "expo": "^26.0.0",
     "firebase": "^4.13.1",
     "firebase-init": "^1.3.2",
