@@ -13,6 +13,7 @@ import { CheckBox } from 'react-native-elements';
 import MapScreen from './Map';
 import styles from '../components/styles';
 import NavigationBtn from '../components/NavigationBtn';
+import Places from './Places';
 
 
 // const styles = require('../styles.js')
@@ -72,7 +73,7 @@ class MustSee extends Component {
       </View>
 
       <View style={styles.white_Right_Container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=>this.props.navigation.navigate('Places')}>
       <View style={styles.icon}>
         <Image source={require('../assets/icons/list.png')} style={{width: 37, height: 37}}/> 
       </View>

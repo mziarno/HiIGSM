@@ -8,6 +8,7 @@ import MustSeeScreen from '../screens/MustSeeScreen';
 import TimetableScreen from '../screens/TimetableScreen';
 import Contact from '../screens/Contact';
 import MapScreen from '../screens/Map';
+import Places from '../screens/Places';
 
 // DrawerNavigatior Screen
 const DrawerNav = DrawerNavigator({
@@ -98,6 +99,10 @@ const StackNav = StackNavigator({
         navigationOptions: {
             title: 'Map'
         }},
+    Places: {screen:Places,
+    navigationOptions:{
+        title: 'Must See'
+    }}
 },{
     navigationOptions: ({navigation}) => ({
          headerStyle: {

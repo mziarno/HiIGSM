@@ -17,7 +17,7 @@ class Map extends Component {
               longitudeDelta: 0.1
             }}>            
           </MapView>
-  <NavigationBtn/>
+          <NavigationBtn/>
         </View>
         );
     }
