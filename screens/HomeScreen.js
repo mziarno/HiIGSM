@@ -30,21 +30,23 @@ class HomeScreen extends Component {
         super();
         this.state = {
             message: ' '
-
         };
     }
     componentDidMount(){
         const rootRef = firebase.database().ref();
-       // const rootRef = firebase.database().ref().child('igsm-88697');
         const messRef = rootRef.child('message');
+     
+
         messRef.on('value', snap => {
             this.setState({
                 message: snap.val()
             });
         });
+
     }
 
     render(){         
+
             return (
           
             <View style={styles.background}>
@@ -53,6 +55,7 @@ class HomeScreen extends Component {
               <View style={styles.notificationContainer}>
               <View style={styles.notification}>
                  {/* // <NavigationBtn/> */}
+                 
                 <Text style={styles.text}> Notifications </Text>
               </View>
 
@@ -64,14 +67,10 @@ class HomeScreen extends Component {
                 <Text style={styles.text}> Wednesday </Text>
               </View>
 
-
-
                 </View>
             )
           
     }
 }
-
-
 
 export default HomeScreen;
