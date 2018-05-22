@@ -4,12 +4,7 @@ import ApiKeys from './ApiKeys';
 import * as firebase from 'firebase';
 import { YellowBox } from 'react-native';
 
-YellowBox.ignoreWarnings([
-  'Warning: componentWillMount is deprecated',
-  'Warning: componentWillReceiveProps is deprecated',
-  'Warning: componentWillUpdate is deprecated',
-  'Module RCTImageLoader requires',
-]);
+console.disableYellowBox = true;
 
 import StackNav, { Drawer } from './config/router';
 
