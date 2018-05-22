@@ -70,7 +70,7 @@ class Contact extends Component{
                     </TouchableOpacity>
                 </View>
 
-        <View style={{top: 90, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
+        <View style={{top: 113, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
             
             <View style={nav_style.HomeBtn}>
             <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
@@ -91,7 +91,7 @@ class Contact extends Component{
                     type='foundation'
                     color='#1D3557'
                     size={36}/>
-                <Text style={{fontSize: 10, textAlign: 'center'}}>Map</Text>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Map</Text>
                 </TouchableOpacity>
             </View>
             
@@ -102,7 +102,7 @@ class Contact extends Component{
                     type='octicon' 
                     color='#1D3557'
                     size={36}/>
-                <Text style={{fontSize: 10, textAlign: 'center'}}>Timetable</Text>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Timetable</Text>
                 </TouchableOpacity>
             </View>
         

@@ -27,7 +27,7 @@ class Timetable extends Component {
      </TouchableOpacity>
 
 
-     <View style={{top: 25, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
+     <View style={{top: 415, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
             
             <View style={nav_style.HomeBtn}>
             <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
@@ -48,7 +48,7 @@ class Timetable extends Component {
                     type='foundation'
                     color='#1D3557'
                     size={36}/>
-                <Text style={{fontSize: 10, textAlign: 'center'}}>Map</Text>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Map</Text>
                 </TouchableOpacity>
             </View>
             
@@ -86,22 +86,23 @@ const textStyle = StyleSheet.create({
 
 const buttonStyle = StyleSheet.create({
  containerStyle: {
-   height: 50,
+    backgroundColor: '#ECECEC',
+    height: 45,
    width: '90%',
    //borderWidth: 1,
    //borderRadius: 2,
-   borderColor: '#ddd',
    borderBottomWidth: 0,
-   borderRadius: 7, 
+   borderRadius: 5, 
    shadowColor: '#000',
-   shadowOffset: { width: 3, height: 3 },
+   shadowOffset: { height: 3 },
    shadowOpacity: 0.1, //from 0 to 1
-   shadowRadius: 7,
-   elevation: 4,
+   shadowRadius: 3,
+   alignItems: 'center',
+   elevation: 5,
    marginLeft: 5,
    marginRight: 5,
    marginTop: 10,
-   marginBottom: 5,
+   marginBottom: 10,
    alignSelf: 'center',
  }
 }) 

@@ -6,6 +6,8 @@ import{
     Platform,
     TouchableOpacity,
 }from 'react-native'
+import {Icon} from 'react-native-elements';
+import nav_style from '../components/nav_style';
 
 class DayScreen extends Component {
 
@@ -34,6 +36,44 @@ class DayScreen extends Component {
                         
                     
                 </TouchableOpacity> 
+
+            <View style={{top: 340, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
+            
+            <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
+                <Icon 
+                    name='home' 
+                    type='octicon'
+                    color='#1D3557'
+                    size={36}/>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}} >Home</Text>
+                </TouchableOpacity>
+            </View>
+            
+
+            <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Map')} >
+                <Icon 
+                    name='marker' 
+                    type='foundation'
+                    color='#1D3557'
+                    size={36}/>
+                <Text style={{fontSize: 10, textAlign: 'center'}}>Map</Text>
+                </TouchableOpacity>
+            </View>
+            
+            <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Timetable')}>
+                <Icon 
+                    name='calendar'
+                    type='octicon' 
+                    color='pink'
+                    size={36}/>
+                <Text style={{fontSize: 10, color: 'pink', textAlign: 'center'}}>Timetable</Text>
+                </TouchableOpacity>
+            </View>
+        
+            </View>
             </View>
 
             
@@ -95,7 +135,7 @@ const styles = StyleSheet.create({
       height: 60,
       width: '90%',
       //borderWidth: 1,
-      borderColor: '#ddd',
+      backgroundColor: '#ECECEC',
       borderBottomWidth: 0,
       borderRadius: 5, 
 

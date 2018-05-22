@@ -4,6 +4,7 @@ import {
   Image, FlatList, StatusBar
 } from 'react-native';
 import { CheckBox } from 'react-native-elements';
+import {Icon} from 'react-native-elements';
 
 import styles from '../components/styles';
 import nav_style from '../components/nav_style';
@@ -62,7 +63,8 @@ class MustSee extends Component {
           <View style={styles.white_Left_Container}>
             <TouchableOpacity onPress={()=>this.props.navigation.navigate('Map')}>
               <Icon 
-                  name='map' 
+                  name='marker' 
+                  type='foundation' 
                   color='#1D3557'
                   size={35}/>
             <Text style={styles.text2}> Show On Map </Text>
@@ -81,16 +83,16 @@ class MustSee extends Component {
         </View>
         
         
-        <View style={{top: 230, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
+        <View style={{top: 240, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
             
             <View style={nav_style.HomeBtn}>
             <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
                 <Icon 
                     name='home' 
                     type='octicon'
-                    color='pink'
+                    color='#1D3557'
                     size={36}/>
-                <Text style={{fontSize: 10, color:'pink', textAlign: 'center'}} >Home</Text>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}} >Home</Text>
                 </TouchableOpacity>
             </View>
             
@@ -102,7 +104,7 @@ class MustSee extends Component {
                     type='foundation'
                     color='#1D3557'
                     size={36}/>
-                <Text style={{fontSize: 10, textAlign: 'center'}}>Map</Text>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Map</Text>
                 </TouchableOpacity>
             </View>
             
@@ -113,7 +115,7 @@ class MustSee extends Component {
                     type='octicon' 
                     color='#1D3557'
                     size={36}/>
-                <Text style={{fontSize: 10, textAlign: 'center'}}>Timetable</Text>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Timetable</Text>
                 </TouchableOpacity>
             </View>
         
