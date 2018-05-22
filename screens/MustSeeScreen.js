@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, ScrollView, Platform, TouchableOpacity, 
         Image, FlatList, StatusBar} from 'react-native';
 import {CheckBox} from 'react-native-elements';
+import {Icon} from 'react-native-elements';
 
 import styles from '../components/styles';
 import nav_style from '../components/nav_style';
@@ -58,20 +59,22 @@ class MustSee extends Component {
     
         <View>
           <View style={styles.white_Left_Container}>
-            <TouchableOpacity>
-            <View style={styles.icon}>
-              <Image source={require('../assets/icons/map.png')} style={{width: 37, height: 37 }}/> 
-            </View>
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate('Map')}>
+              <Icon 
+                  name='map' 
+                  color='#1D3557'
+                  size={35}/>
             <Text style={styles.text2}> Show On Map </Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.white_Right_Container}>
-            <TouchableOpacity onPress={()=>this.props.navigation.navigate('Places')}>
-            <View style={styles.icon}>
-              <Image source={require('../assets/icons/list.png')} style={{width: 30, height: 30}}/> 
-            </View>
-            <Text style={styles.text2}> Show List </Text>
+            <TouchableOpacity >
+              <Icon 
+                name='list' 
+                color='#1D3557'
+                size={40}/>
+              <Text style={styles.text2}> Show List </Text>
             </TouchableOpacity>
           </View>
         </View>

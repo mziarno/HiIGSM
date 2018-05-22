@@ -86,14 +86,16 @@ const styles = StyleSheet.create({
      
      },
   text2:{
-       fontSize: 17,
+       fontSize: 14,
        color: '#4A4A4A',
        textAlign: 'center',
        marginBottom: 5,
      },
   icon:{
        position: 'relative',
-       alignItems: 'center'
+       alignItems: 'center',
+       justifyContent: 'center'
+
      },
   greyMedium_Container:{
       backgroundColor: '#ECECEC',

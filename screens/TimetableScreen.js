@@ -81,7 +81,7 @@ class Timetable extends Component {
      <View style={{top: 20}}>
             
             <View style={nav_style.HomeBtn}>
-              <TouchableOpacity onPress={()=>this.propsnavigation.navigate('Home')}>
+              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Home')}>
                   <Image
                   source={require('../assets/icons/home.png')}
                   style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}

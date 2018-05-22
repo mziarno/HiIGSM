@@ -5,12 +5,6 @@ import MapView from 'react-native-maps';
 
 import nav_style from '../components/nav_style';
 
-
-const LATITUDE = 52.232222;
-const LONGITUDE = 21.008333;
-const LATITUDE_DELTA = 0.07;
-const LONGITUDE_DELTA = 0.07;
-
 class Map extends Component {
 
   render() {
@@ -31,7 +25,52 @@ class Map extends Component {
             longitudeDelta: 0.0421}}>
           <MapView.Marker
             coordinate={{latitude: 52.220521, longitude: 21.010488}}
-            title="Politechnika Warszawska">
+            title="Warsaw University Of Technology">
+            <Image 
+            source={require('../assets/icons/marker.png')} 
+            style={{width: 20, height: 30} }/>
+          </MapView.Marker>
+          <MapView.Marker
+            coordinate={{latitude: 52.232353, longitude: 20.981048}}
+            title="The Warsaw Rising Museum">
+            <Image 
+            source={require('../assets/icons/marker.png')} 
+            style={{width: 20, height: 30} }/>
+          </MapView.Marker>
+          <MapView.Marker
+            coordinate={{latitude: 52.248072, longitude: 21.015224}}
+            title="The Royal Castle">
+            <Image 
+            source={require('../assets/icons/marker.png')} 
+            style={{width: 20, height: 30} }/>
+          </MapView.Marker>
+          <MapView.Marker
+            coordinate={{latitude: 52.226727, longitude: 21.014944}}
+            title="Graphic Art and Poster Gallery">
+            <Image 
+            source={require('../assets/icons/marker.png')} 
+            style={{width: 20, height: 30} }/>
+          </MapView.Marker>
+          <MapView.Marker
+            coordinate={{latitude: 52.234260, longitude: 21.023884}}
+            title="Foksal Gallery">
+            <Image 
+            source={require('../assets/icons/marker.png')} 
+            style={{width: 20, height: 30} }/>
+          </MapView.Marker>
+          <MapView.Marker
+            coordinate={{latitude: 52.238173, longitude: 21.017990}}
+            title="Nicolaus Copernicus Monument">
+            <Image 
+            source={require('../assets/icons/marker.png')} 
+            style={{width: 20, height: 30} }/>
+          </MapView.Marker>
+          <MapView.Marker
+            coordinate={{latitude: 52.247259, longitude: 21.013367}}
+            title="Sigismund's Column">
+            <Image 
+            source={require('../assets/icons/marker.png')} 
+            style={{width: 20, height: 30} }/>
           </MapView.Marker>
         </MapView>
   
@@ -69,8 +108,6 @@ class Map extends Component {
     );
   }
 }
- 
-  
 
 const styles = StyleSheet.create({
   container: {
