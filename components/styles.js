@@ -8,8 +8,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         width: '100%',
-         height:250,
-         //top: 10,
+         //height:250,
        },
   whiteBigContainer:{ 
        backgroundColor: '#fff',
@@ -118,6 +117,28 @@ const styles = StyleSheet.create({
         }),
       marginTop:10
   },
+  whiteMedium_Container:{
+    backgroundColor: '#fff',
+    width: '90%',
+    height: 50,
+    position: 'relative',
+    marginLeft: '5%',
+    marginRight: '5%',
+    marginBottom: 20,
+    borderRadius: 5,
+    ...Platform.select({
+        ios: {
+          shadowColor: '#707070',
+          shadowOffset: { height: 3 },
+          shadowOpacity: 1,
+          shadowRadius: 3,
+        },
+        android: {
+          elevation: 15
+        },
+      }),
+    marginTop:10
+},
   greyBig_Container:{        
       width: '90%',
       height: 70,
