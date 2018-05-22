@@ -15,6 +15,7 @@ import {
     Modal,
     TextInput,
     Dimensions,
+    TouchableOpacity,
     Image,
     Icon,
     ImageBackground
@@ -48,10 +49,10 @@ class HomeScreen extends Component {
     render(){
 
             return (
-          
-            <View>
+                <View style={styles.background}>
+            
                   
-            <Text> HI IGSM </Text>
+            
             <View style={{top: 450}}>
             
                     <View style={nav_style.HomeBtn}>
@@ -81,8 +82,8 @@ class HomeScreen extends Component {
                         </TouchableOpacity>
                     </View>
                     </View>
-            <View style={styles.background}>
             
+                    <View>
               
               <View style={styles.notificationContainer}>
               <View style={styles.notification}>
