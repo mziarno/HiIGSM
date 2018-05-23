@@ -108,7 +108,7 @@ const StackNav = StackNavigator({
         }},
     Activity: {screen: Activity,
         navigationOptions: {
-            title: '  '
+            title: ' '
         }},
     Places: {screen:Places,
     navigationOptions:{
