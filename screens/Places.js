@@ -27,7 +27,6 @@ class Places extends Component{
            
             <FlatList
                 data={places}
-                // extraData={this.state}
                 renderItem={({ item }) => (
                 <Text> {item} </Text>
                 )}

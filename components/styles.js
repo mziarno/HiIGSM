@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         width: '100%',
        },
+       
   whiteBigContainer:{ 
        backgroundColor: '#fff',
        width: '90%',
@@ -163,38 +164,39 @@ const styles = StyleSheet.create({
       backgroundColor: '#ECECEC',
   },
   notification:{
-   backgroundColor: 'pink',
-   width: '100%',
-   height: 40,
-   position: 'relative',
-   borderTopLeftRadius: 5,
-   borderTopRightRadius: 5,
-   justifyContent: 'center'
-
- },
- notificationContainer:{
-    backgroundColor: '#ECECEC',
-    width: '90%',
-    height: 120,
+    backgroundColor: 'pink',
+    width: '100%',
+    height: 40,
     position: 'relative',
-    marginLeft: '5%',
-    marginRight: '5%',
-    marginBottom: 15,
-    borderRadius: 5,
-    ...Platform.select({
-        ios: {
-          shadowColor: '#707070',
-          shadowOffset: { height: 3 },
-          shadowOpacity: 1,
-          shadowRadius: 3,
-        },
-        android: {
-          elevation: 5
-        },
-      }),
-    marginTop:10
-
- },
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+    justifyContent: 'center'
+ 
+  },
+  notificationContainer:{
+     backgroundColor: '#ECECEC',
+     width: '90%',
+     height: 120,
+     position: 'relative',
+     marginLeft: '5%',
+     marginRight: '5%',
+     marginBottom: 15,
+     borderRadius: 5,
+     ...Platform.select({
+         ios: {
+           shadowColor: '#707070',
+           shadowOffset: { height: 3 },
+           shadowOpacity: 1,
+           shadowRadius: 3,
+         },
+         android: {
+           elevation: 5
+         },
+       }),
+     marginTop:10
+ 
+  },
+  
  day:{
     backgroundColor: '#1D3557',
     width: '100%',
@@ -208,13 +210,13 @@ const styles = StyleSheet.create({
 },
 
 firstContainer:{
-   //backgroundColor: '#fff', 
+   backgroundColor: 'transparent', 
    width: '90%',
    //height: 90,
    //position: 'absolute',
    marginLeft: '5%',
    marginRight: '5%',
-   //borderRadius: 5,
+   borderRadius: 5,
    //marginBottom: 15,
    top:10,
    //justifyContent: 'center',

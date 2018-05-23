@@ -39,6 +39,8 @@
     "react-native-overlay": "^0.5.0",
     "react-native-router-flux": "^4.0.0-beta.31",
     "react-native-vector-icons": "^4.6.0",
-    "react-navigation": "^1.5.11"
+    "react-native-viewpager": "^0.2.13",
+    "react-navigation": "^1.5.11",
+    "rn-viewpager": "^1.2.9"
   }
 }
