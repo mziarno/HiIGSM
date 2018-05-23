@@ -72,7 +72,7 @@ class MustSee extends Component {
           </View>
 
           <View style={styles.white_Right_Container}>
-            <TouchableOpacity >
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate('Places')}>
               <Icon 
                 name='list' 
                 color='#1D3557'
@@ -83,7 +83,7 @@ class MustSee extends Component {
         </View>
         
         
-        <View style={{top: 240, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
+        <View style={{top: 225, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
             
             <View style={nav_style.HomeBtn}>
             <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
