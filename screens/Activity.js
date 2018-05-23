@@ -13,12 +13,19 @@ import{
     
     import Desc from './Desc';
     import {Icon} from 'react-native-elements';
+    
+import nav_style from '../components/nav_style';
+import Dialog from 'react-native-simple-dialogs';
 
 class Activity extends Component {
-
-
-
     
+  
+
+    openDialog(show){
+      this.thisState({showDialog: show})
+    };
+
+
     render(){
         return(
             
@@ -37,7 +44,7 @@ class Activity extends Component {
               </View>
           </View>
 
-          <View >
+          <View style={{justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
                   <TouchableOpacity 
                   onPress={() => 
                   this.props.navigation.navigate('Map')} 
@@ -55,7 +62,7 @@ class Activity extends Component {
                   <TouchableOpacity 
                   style={styles.containerStyle4}
                   onPress={() => 
-                  this.props.navigation.navigate('Desc')}>    
+                  this.openDialog(true)}>    
                           <Icon 
                           name='map'
                           type='font-awesome'
@@ -65,10 +72,11 @@ class Activity extends Component {
                           //position='center'
                           />
                           <Text style={styles.textStyleSmall5}>Building plan</Text>
+                        
                   </TouchableOpacity>
           </View>
 
-          <View>
+          <View style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around'}} >
               <TouchableOpacity 
               onPress={() => 
               this.props.navigation.navigate('Desc')} 
@@ -88,6 +96,43 @@ class Activity extends Component {
                   <Text style={styles.textStyleSmall4}>Alicja Konkol</Text>
           </TouchableOpacity>
       </View>
+      <View style={{top: 145, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
+            
+            <View style={nav_style.HomeBtn}>
+                <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
+                    <Icon 
+                        name='home' 
+                        type='octicon'
+                        color='#1D3557'
+                        size={36}/>
+                    <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}} >Home</Text>
+                </TouchableOpacity>
+            </View>
+
+            <View style={nav_style.HomeBtn}>
+                <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Map')} >
+                    <Icon 
+                        name='marker' 
+                        type='foundation'
+                        color='#1D3557'
+                        size={36}/>
+                    <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Map</Text>
+                </TouchableOpacity>
+            </View>
+            
+            <View style={nav_style.HomeBtn}>
+                <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Timetable')}>
+                    <Icon 
+                        name='calendar'
+                        type='octicon' 
+                        color='#1D3557'
+                        size={36}/>
+                    <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Timetable</Text>
+                </TouchableOpacity>
+            </View>
+
+            
+        </View>
       </View>
 
         )
@@ -165,7 +210,7 @@ textStyleSmall: {
 containerStyle: {
   backgroundColor: '#fff',
   height: 60,
-  width: '98%',
+  width: '100%',
   borderRadius: 1, 
 
   ...Platform.select({
@@ -183,14 +228,10 @@ containerStyle: {
 containerStyle2: {
 
   backgroundColor: '#fff',
-  top: 70,
-  left: 3,
-  right: 3,
+  top: 5,
   height: 60,
-  width: '98%',
+  width: '94%',
   borderRadius: 5,
-  position:'absolute', 
-
   ...Platform.select({
     ios: {
       shadowColor: '#707070',
@@ -206,13 +247,13 @@ containerStyle2: {
   containerStyle3: {
  
     backgroundColor: '#fff',
-    width: '48%',
+    width: '45%',
     height: 60,
-    position: 'absolute',
+    alignItems: 'center',
     marginTop: 5,
     borderRadius: 5,
     left: 3,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     ...Platform.select({
         ios: {
           shadowColor: '#707070',
@@ -229,12 +270,11 @@ containerStyle2: {
 
     containerStyle4: {
         backgroundColor: '#fff',
-        width: '48%',
+        width: '45%',
         height: 60,
-        position: 'absolute',
         marginTop: 5,
         borderRadius: 5,
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         right: 3,
       
         ...Platform.select({
@@ -253,11 +293,9 @@ containerStyle2: {
 
   containerStyle5: {
     backgroundColor: '#fff',
-    top: 135,
-    right: 3,
-    left: 3,
+    top: 70,
     height: 60,
-    width: '98%',
+    width: '94%',
     borderColor: '#ddd',
     borderBottomWidth: 0,
     borderRadius: 5, 

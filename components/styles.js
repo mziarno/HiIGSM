@@ -280,27 +280,24 @@ notificationsText:{
 
   timetable_Container:{
       backgroundColor: '#ECECEC',
-      width: '100%',
+      width: '98%',
       height: 50,
       position: 'relative',
      
       marginBottom: 5,
       borderRadius: 5,
-      // ...Platform.select({
-      //     ios: {
-      //       shadowColor: '#707070',
-      //       shadowOffset: { height: 3 },
-      //       shadowOpacity: 1,
-      //       shadowRadius: 3,
-      //     },
-      //     android: {
-      //       elevation: 5
-      //     },
-      //   }),
-      // margin:3
-  },
-  scroll:{
-    height:200
+      ...Platform.select({
+          ios: {
+            shadowColor: '#707070',
+            shadowOffset: { height: 3 },
+            shadowOpacity: 1,
+            shadowRadius: 3,
+          },
+          android: {
+            elevation: 5
+          },
+        }),
+      margin:3
   }
 
   })
