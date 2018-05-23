@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Pla
 
 import nav_style from '../components/nav_style';
 import DayScreen from './DayScreen';
+import {Icon} from 'react-native-elements';
+
 class Timetable extends Component { 
 
   render() {
@@ -25,35 +27,43 @@ class Timetable extends Component {
      </TouchableOpacity>
 
 
-     <View style={{top: 20}}>
+     <View style={{top: 415, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
             
             <View style={nav_style.HomeBtn}>
-              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Home')}>
-                  <Image
-                  source={require('../assets/icons/home.png')}
-                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
-                  title='Home'
-                  />
-                  </TouchableOpacity>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
+                <Icon 
+                    name='home' 
+                    type='octicon'
+                    color='#1D3557'
+                    size={36}/>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}} >Home</Text>
+                </TouchableOpacity>
             </View>
+            
 
-            <View style={nav_style.MustSeeBtn}>
-              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Map')}>
-                  <Image
-                  source={require('../assets/icons/map.png')}
-                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
-                  />
-                  </TouchableOpacity>
-              </View>
-            <View style={nav_style.TimeTable}>
-              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Timetable')}>
-                  <Image
-                  source={require('../assets/icons/calendar.png')}
-                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
-                  />
-                  </TouchableOpacity>
+            <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Map')} >
+                <Icon 
+                    name='marker' 
+                    type='foundation'
+                    color='#1D3557'
+                    size={36}/>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Map</Text>
+                </TouchableOpacity>
             </View>
-        </View>
+            
+            <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Timetable')}>
+                <Icon 
+                    name='calendar'
+                    type='octicon' 
+                    color='pink'
+                    size={36}/>
+                <Text style={{fontSize: 10, color: 'pink', textAlign: 'center'}}>Timetable</Text>
+                </TouchableOpacity>
+            </View>
+        
+            </View>
  </View>
  )
 }
@@ -76,22 +86,23 @@ const textStyle = StyleSheet.create({
 
 const buttonStyle = StyleSheet.create({
  containerStyle: {
-   height: 50,
+    backgroundColor: '#ECECEC',
+    height: 45,
    width: '90%',
    //borderWidth: 1,
    //borderRadius: 2,
-   borderColor: '#ddd',
    borderBottomWidth: 0,
-   borderRadius: 7, 
+   borderRadius: 5, 
    shadowColor: '#000',
-   shadowOffset: { width: 3, height: 3 },
+   shadowOffset: { height: 3 },
    shadowOpacity: 0.1, //from 0 to 1
-   shadowRadius: 7,
-   elevation: 4,
+   shadowRadius: 3,
+   alignItems: 'center',
+   elevation: 5,
    marginLeft: 5,
    marginRight: 5,
    marginTop: 10,
-   marginBottom: 5,
+   marginBottom: 10,
    alignSelf: 'center',
  }
 }) 

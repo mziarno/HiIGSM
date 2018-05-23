@@ -12,10 +12,11 @@ const styles = StyleSheet.create({
         width: '100%',
        },
   whiteBigContainer:{ 
-       backgroundColor: '#fff',
+       backgroundColor: '#ECECEC',
        width: '90%',
        height: 70,
        position: 'relative',
+       marginTop: 10,
        marginLeft: '5%',
        marginRight: '5%',
        borderRadius: 5,
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
          }),
      },
   white_Left_Container:{
-       backgroundColor: '#fff',
+       backgroundColor: '#ECECEC',
        width: '40%',
        height: 70,
        position: 'absolute',
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
          }),
      },
   white_Right_Container:{
-       backgroundColor: '#fff',
+       backgroundColor: '#ECECEC',
        width: '40%',
        height: 70,
        position: 'absolute',
@@ -78,9 +79,9 @@ const styles = StyleSheet.create({
          }),
       
      },
-  textGrey:{
-       fontSize: 20,
-       color: '#4A4A4A',
+  text1:{
+       fontSize: 16,
+       color: '#1D3557',
        fontWeight: 'bold',
        textAlignVertical: 'center',
        marginLeft: 15,
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
       width: '90%',
       height: 50,
       position: 'relative',
+      marginTop: 10,
       marginLeft: '5%',
       marginRight: '5%',
       borderRadius: 5,
