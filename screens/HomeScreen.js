@@ -111,7 +111,6 @@ class HomeScreen extends Component {
                     </View>
                     <Text style={styles.notificationsText}> {this.state.message} </Text>
                 </View>
-
                 <View>
                     {Object.keys(this.state.weekDays).map((dayNameKey) => {
                         let dayEvents = this.state.weekDays[dayNameKey]
@@ -139,7 +138,7 @@ class HomeScreen extends Component {
                         )
                     })}
 
-                </View>
+            </View>   
                 {/* <View style={styles.greyMedium_Container}>
                     <Text style={styles.eventText}> LECTURES </Text>
                     <Text style={styles.timeText}> 10:00 AM </Text>
