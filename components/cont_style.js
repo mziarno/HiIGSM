@@ -8,7 +8,7 @@ const cont_style = StyleSheet.create({
 		fontWeight: 'bold',
         textAlign: 'center',
         textAlignVertical: 'center',
-        marginTop: 12,
+        //marginTop: 12,
       
     },
     nameText: {

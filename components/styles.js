@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
       marginTop: 10,
       marginLeft: '5%',
       marginRight: '5%',
+      justifyContent: 'center',
       borderRadius: 5,
       ...Platform.select({
           ios: {
@@ -128,8 +129,10 @@ const styles = StyleSheet.create({
     position: 'relative',
     marginLeft: '5%',
     marginRight: '5%',
-    marginBottom: 20,
+    //marginBottom: 20,
+    margin:5,
     borderRadius: 5,
+    justifyContent: 'center',
     ...Platform.select({
         ios: {
           shadowColor: '#707070',
@@ -138,7 +141,7 @@ const styles = StyleSheet.create({
           shadowRadius: 3,
         },
         android: {
-          elevation: 15
+          elevation: 5
         },
       }),
     marginTop:10
@@ -183,6 +186,7 @@ const styles = StyleSheet.create({
     marginRight: '5%',
     marginBottom: 15,
     borderRadius: 5,
+   
     ...Platform.select({
         ios: {
           shadowColor: '#707070',
@@ -295,6 +299,9 @@ notificationsText:{
       //   }),
       // margin:3
   },
+  scroll:{
+    height:200
+  }
 
   })
 
