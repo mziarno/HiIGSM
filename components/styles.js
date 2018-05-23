@@ -216,6 +216,7 @@ const styles = StyleSheet.create({
 firstContainer:{
    //backgroundColor: '#fff', 
    width: '90%',
+   flex: 1,
    //height: 90,
    //position: 'absolute',
    marginLeft: '5%',
@@ -301,7 +302,10 @@ notificationsText:{
   },
   scroll:{
     height:200
-  }
+  },
+pager: {
+
+}
 
   })
 

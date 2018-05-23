@@ -23,7 +23,7 @@ import {
 import { freemem } from 'os';
 import NavigationBtn from '../components/NavigationBtn';
 import styles from '../components/styles';
-import {Icon} from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 
 
 require("firebase/database");
@@ -33,7 +33,8 @@ class HomeScreen extends Component {
         super();
         this.state = {
             message: ' ',
-            weekDays: {}
+            weekDays: {},
+            iterator: 1
         };
     }
     componentDidMount() {
@@ -77,97 +78,113 @@ class HomeScreen extends Component {
     render() {
         let screenWidth = Dimensions.get('window').width;
         let screenHeight = Dimensions.get('window').height;
+        var pageViews = [];
+
+        let days = 5;
+        pageViews.push(<Text>{days}</Text>);
+
+        for (let i = 0; i <= days; i++) {
+            pageViews.push(
+                    <Text> {this.state.weekDays[i]} </Text>
+            );
+        }
+
+            // (Object.keys(this.state.weekDays).map((dayNameKey) => {
+            //     let dayEvents = this.state.weekDays[dayNameKey];
+            //     pageViews.push(<Text style={{ backgroundColor: 'pink' }}> BBB </Text>)
+            //     // return (
+
+            //     //     // <View style={{flex: 1}} >
+            //     //     // {/* {this.setState({
+            //     //     //     iterator: this.state.iterator + 1
+            //     //     // })} */}
+
+
+            //     //     // <View>
+            //     //         <Text> BBB </Text>
+            //     //     // </View>
+
+
+            //     //     // </View>
+            //     // )
+            // }))
+
             return (
                 <View >
-            
-            <View style={{top: 480, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
-            
-            <View style={nav_style.HomeBtn}>
-                <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
-                    <Icon 
-                        name='home' 
-                        type='octicon'
-                        color='pink'
-                        size={36}/>
-                    <Text style={{fontSize: 10, color:'pink', textAlign: 'center'}} >Home</Text>
-                </TouchableOpacity>
-            </View>
 
-            <View style={nav_style.HomeBtn}>
-                <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Map')} >
-                    <Icon 
-                        name='marker' 
-                        type='foundation'
-                        color='#1D3557'
-                        size={36}/>
-                    <Text style={{fontSize: 10, textAlign: 'center'}}>Map</Text>
-                </TouchableOpacity>
-            </View>
-            
-            <View style={nav_style.HomeBtn}>
-                <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Timetable')}>
-                    <Icon 
-                        name='calendar'
-                        type='octicon' 
-                        color='#1D3557'
-                        size={36}/>
-                    <Text style={{fontSize: 10, textAlign: 'center'}}>Timetable</Text>
-                </TouchableOpacity>
-            </View>
+                    <View style={{ top: 480, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center', }}>
 
-            
-        </View>
-            
-      
+                        <View style={nav_style.HomeBtn}>
+                            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Home')}>
+                                <Icon
+                                    name='home'
+                                    type='octicon'
+                                    color='pink'
+                                    size={36} />
+                                <Text style={{ fontSize: 10, color: 'pink', textAlign: 'center' }} >Home</Text>
+                            </TouchableOpacity>
+                        </View>
 
-                <View style={styles.notificationContainer}>
-                    <View style={styles.notification}>             
-                        <Text style={styles.text}> Notifications </Text>
+                        <View style={nav_style.HomeBtn}>
+                            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Map')} >
+                                <Icon
+                                    name='marker'
+                                    type='foundation'
+                                    color='#1D3557'
+                                    size={36} />
+                                <Text style={{ fontSize: 10, textAlign: 'center' }}>Map</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={nav_style.HomeBtn}>
+                            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Timetable')}>
+                                <Icon
+                                    name='calendar'
+                                    type='octicon'
+                                    color='#1D3557'
+                                    size={36} />
+                                <Text style={{ fontSize: 10, textAlign: 'center' }}>Timetable</Text>
+                            </TouchableOpacity>
+                        </View>
+
+
                     </View>
-                    <Text style={styles.notificationsText}> {this.state.message} </Text>
-                </View>
-               
-                <ScrollView >
-                {/* <ViewPagerAndroid> */}
-                <View >
-                    {Object.keys(this.state.weekDays).map((dayNameKey) => {
-                        let dayEvents = this.state.weekDays[dayNameKey]
-                        return (
-                            
-                            
-                            <View style={styles.firstContainer}> 
-                                <View style={styles.day}>
-                                    <Text style={styles.text}> {dayNameKey} </Text>
-                            </View>
-                            
-                                {Object.keys(dayEvents).map((eventName) => {
-                                    let eventData = dayEvents[eventName]
-                                    return (
-                                        
-                                        <TouchableOpacity  onPress={() => 
-                                            this.props.navigation.navigate('Activity')}>
-                                        <View style={styles.timetable_Container}>
-                                            <Text style={styles.eventText}> {eventName} </Text>
-                                            {/* <Text  style={styles.timeText}> {eventData.startTime} - {eventData.endTime} </Text>
-                                            <Text style={styles.placeText}> {eventData.place} </Text> */}
-                                        </View>
-                                        </TouchableOpacity>
-                                        
-                                    )
-                                })}
-                                
-                            </View>
-                            
 
-                        )
-                    })}
 
-            </View>  
-            {/* </ViewPagerAndroid> */}
-            </ScrollView> 
-           
-            
-                {/* <View style={styles.greyMedium_Container}>
+
+                    <View style={styles.notificationContainer}>
+                        <View style={styles.notification}>
+                            <Text style={styles.text}> Notifications </Text>
+                        </View>
+                        <Text style={styles.notificationsText}> {this.state.message} </Text>
+                    </View>
+
+                    {/* <ScrollView > */}
+                    <View
+                        style={styles.notificationContainer}>
+                        <ViewPagerAndroid
+                            style={{ flex: 1 }}
+                            initialPage={0}>
+
+                            <View>
+                                <Text> AAAAAAAAAAAAAAAA </Text>
+                            </View>
+                            <View >
+                                <Text> AAAAAAAAAAAAAAAA </Text>
+                            </View>
+
+                            {pageViews}
+
+
+
+
+                        </ViewPagerAndroid>
+                    </View>
+                    {pageViews}
+                    {/* </ScrollView>  */}
+
+
+                    {/* <View style={styles.greyMedium_Container}>
                     <Text style={styles.eventText}> LECTURES </Text>
                     <Text style={styles.timeText}> 10:00 AM </Text>
                     <Text style={styles.placeText}> CZIiTT PW 4.05 </Text>
@@ -179,14 +196,14 @@ class HomeScreen extends Component {
                 </View> */}
 
 
-     
 
 
 
-            </View>
-        )
 
+                </View>
+            )
+
+        }
     }
-}
 
-export default HomeScreen;
+    export default HomeScreen;
