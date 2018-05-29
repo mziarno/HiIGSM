@@ -9,6 +9,9 @@ import TimetableScreen from '../screens/TimetableScreen';
 import Contact from '../screens/Contact';
 import MapScreen from '../screens/Map';
 import Places from '../screens/Places';
+import Desc from '../screens/Desc';
+import Activity from '../screens/Activity';
+import DayScreen from '../screens/DayScreen';
 
 // DrawerNavigatior Screen
 const DrawerNav = DrawerNavigator({
@@ -99,10 +102,22 @@ const StackNav = StackNavigator({
         navigationOptions: {
             title: 'Map'
         }},
+    DayScreen: {screen: DayScreen,
+        navigationOptions: {
+            title: 'Day'
+        }},
+    Activity: {screen: Activity,
+        navigationOptions: {
+            title: ' '
+        }},
     Places: {screen:Places,
     navigationOptions:{
         title: 'Must See'
-    }}
+    }},
+    Desc: {screen: Desc,
+        navigationOptions: {
+            title: 'Description'
+        }},
 },{
     navigationOptions: ({navigation}) => ({
          headerStyle: 

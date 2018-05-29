@@ -1,7 +1,10 @@
-import React, {Component} from 'react';
-import {View, Text, StyleSheet, ScrollView, Platform, TouchableOpacity, 
-        Image, FlatList, StatusBar} from 'react-native';
-import {CheckBox} from 'react-native-elements';
+import React, { Component } from 'react';
+import {
+  View, Text, StyleSheet, ScrollView, Platform, TouchableOpacity,
+  Image, FlatList, StatusBar
+} from 'react-native';
+import { CheckBox } from 'react-native-elements';
+import {Icon} from 'react-native-elements';
 
 import styles from '../components/styles';
 import nav_style from '../components/nav_style';
@@ -13,7 +16,7 @@ import Places from './Places';
 const items = ['Museums', 'Galleries', 'Monuments'];
 
 class MustSee extends Component {
- 
+
   // constructor(props) {
   //   super(props);
   //   this.state = { checked: false };
@@ -32,12 +35,12 @@ class MustSee extends Component {
       this.setState({ checked: checked.filter(a => a !== item) });
     }
   };
-  
+
   render() {
     return (
       <View style={styles.background}>
-        <StatusBar barStyle="light-content"/>
-        
+        <StatusBar barStyle="light-content" />
+
         <View>
           <FlatList
             data={items}
@@ -48,64 +51,75 @@ class MustSee extends Component {
                 onPress={() => this.checkItem(item)}
                 checked={this.state.checked.includes(item)}
                 containerStyle={styles.whiteBigContainer}
-                textStyle={styles.text}
+                textStyle={styles.text1}
                 checkedColor='#4A4A4A'
                 uncheckedColor='#4A4A4A'
               />
             )}
-            />
+          />
         </View>
-    
+
         <View>
           <View style={styles.white_Left_Container}>
-            <TouchableOpacity>
-            <View style={styles.icon}>
-              <Image source={require('../assets/icons/map.png')} style={{width: 37, height: 37 }}/> 
-            </View>
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate('Map')}>
+              <Icon 
+                  name='marker' 
+                  type='foundation' 
+                  color='#1D3557'
+                  size={35}/>
             <Text style={styles.text2}> Show On Map </Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.white_Right_Container}>
             <TouchableOpacity onPress={()=>this.props.navigation.navigate('Places')}>
-            <View style={styles.icon}>
-              <Image source={require('../assets/icons/list.png')} style={{width: 30, height: 30}}/> 
-            </View>
-            <Text style={styles.text2}> Show List </Text>
+              <Icon 
+                name='list' 
+                color='#1D3557'
+                size={40}/>
+              <Text style={styles.text2}> Show List </Text>
             </TouchableOpacity>
           </View>
         </View>
         
         
-        <View style={{top: 220}}>
+        <View style={{top: 225, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
             
             <View style={nav_style.HomeBtn}>
-              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Home')}>
-                  <Image
-                  source={require('../assets/icons/home.png')}
-                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
-                  title='Home'
-                  />
-                  </TouchableOpacity>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
+                <Icon 
+                    name='home' 
+                    type='octicon'
+                    color='#1D3557'
+                    size={36}/>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}} >Home</Text>
+                </TouchableOpacity>
             </View>
+            
 
-            <View style={nav_style.MustSeeBtn}>
-              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Map')}>
-                  <Image
-                  source={require('../assets/icons/map.png')}
-                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
-                  />
-                  </TouchableOpacity>
-              </View>
-            <View style={nav_style.TimeTable}>
-              <TouchableOpacity onPress={()=>this.props.navigation.navigate('Timetable')}>
-                  <Image
-                  source={require('../assets/icons/calendar.png')}
-                  style={{width: 40, height: 40, justifyContent: 'center', alignItems: 'center'}}
-                  />
-                  </TouchableOpacity>
+            <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Map')} >
+                <Icon 
+                    name='marker' 
+                    type='foundation'
+                    color='#1D3557'
+                    size={36}/>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Map</Text>
+                </TouchableOpacity>
             </View>
-          </View>
+            
+            <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Timetable')}>
+                <Icon 
+                    name='calendar'
+                    type='octicon' 
+                    color='#1D3557'
+                    size={36}/>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Timetable</Text>
+                </TouchableOpacity>
+            </View>
+        
+            </View>
         
       </View>
     )

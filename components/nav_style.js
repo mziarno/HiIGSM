@@ -7,14 +7,12 @@ const nav_style = StyleSheet.create({
     },
     
     HomeBtn: {
-      width: 69,
-      height: 69,
+      width: 70,
+      height: 70,
       borderRadius: 150/2,
-      backgroundColor: 'white',
+      backgroundColor: '#ffffff',
       alignItems: 'center',
       justifyContent: 'center',
-      position: 'absolute',
-      left: Dimensions.get('window').width*0.1,
       overflow: 'visible',
       ...Platform.select({
         ios: {
@@ -36,8 +34,6 @@ const nav_style = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
     position: 'absolute',
-    left: Dimensions.get('window').width*0.4,
-    justifyContent: 'center',
     overflow: 'visible',
     ...Platform.select({
       ios: {
@@ -59,7 +55,6 @@ const nav_style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
-    left: Dimensions.get('window').width*0.7,
     overflow: 'visible',
     ...Platform.select({
       ios: {

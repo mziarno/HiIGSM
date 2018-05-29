@@ -4,11 +4,11 @@ const cont_style = StyleSheet.create({
     
     emailText:{
         fontSize: 18,
-		color: '#457B9D',
+		color: '#1D3557',
 		fontWeight: 'bold',
         textAlign: 'center',
         textAlignVertical: 'center',
-        marginTop: 12,
+        //marginTop: 12,
       
     },
     nameText: {
