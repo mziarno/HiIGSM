@@ -45,9 +45,11 @@ class HomeScreen extends Component {
         weekDaysRef.once('value', snap => {
             let newStateWeekDays = [];
             snap.forEach(child => {     //child - dzien tyg
+                console.error(snap);
+
                 let events = child.val();
-                let weekDay = child.key
-                let newEvent = {}
+                let weekDay = child.key;
+                let newEvent = {};
                 Object.keys(events).map((key) => {
                     let event = events[key]
                     newEvent[key] = event
@@ -61,6 +63,7 @@ class HomeScreen extends Component {
                     weekDays: newState
                 })
             })
+            
         })
 
 
@@ -76,18 +79,29 @@ class HomeScreen extends Component {
     }
 
     render() {
+        if (this.state.weekDays === 0) {
+            return null;
+        }
+
         let screenWidth = Dimensions.get('window').width;
         let screenHeight = Dimensions.get('window').height;
         var pageViews = [];
 
-        let days = 5;
+        let days = 6;
         pageViews.push(<Text>{days}</Text>);
 
         for (let i = 0; i <= days; i++) {
             pageViews.push(
-                    <Text> {this.state.weekDays[i]} </Text>
+                // <Text> {this.state.weekDays.Monday.val()} </Text>
             );
         }
+
+        let weekDays = this.state.weekDays;
+        let keys = Object.keys(weekDays);
+        Object.keys(weekDays).forEach(function(dayNameKey) {
+            console.error(weekDays);
+        })
+
 
             // (Object.keys(this.state.weekDays).map((dayNameKey) => {
             //     let dayEvents = this.state.weekDays[dayNameKey];
@@ -181,6 +195,7 @@ class HomeScreen extends Component {
                         </ViewPagerAndroid>
                     </View>
                     {pageViews}
+                    {/* {this.state.weekDays.Monday} */}
                     {/* </ScrollView>  */}
 
 
@@ -204,6 +219,6 @@ class HomeScreen extends Component {
             )
 
         }
-    }
+}
 
     export default HomeScreen;
