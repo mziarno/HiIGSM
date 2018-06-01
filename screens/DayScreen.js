@@ -5,6 +5,7 @@ import{
     StyleSheet,
     Platform,
     TouchableOpacity,
+    ScrollView
 }from 'react-native'
 import {Icon} from 'react-native-elements';
 import nav_style from '../components/nav_style';
@@ -53,8 +54,10 @@ class DayScreen extends Component {
     render(){
         return(
             <View>
+                <View style={{height:'83%'}}>
 
                  <View >
+                 <ScrollView>
                     {Object.keys(this.state.weekDays).map((dayNameKey) => {
                         let dayEvents = this.state.weekDays[dayNameKey]
                         return (
@@ -84,11 +87,12 @@ class DayScreen extends Component {
 
                         )
                     })}
-
+</ScrollView>
+            </View>  
             </View>  
                 
 
-            <View style={{top: 340, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
+            <View style={{top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
             
             <View style={nav_style.HomeBtn}>
             <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>

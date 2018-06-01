@@ -47,6 +47,7 @@ class Timetable extends Component {
     return (
 
     <View>
+        <View style={{height:'83%'}}>
         
              <View style={{top:30}} >
                     {Object.keys(this.state.weekDays).map((dayNameKey) => {
@@ -63,11 +64,12 @@ class Timetable extends Component {
                 
 
             </View>  
+            </View>  
         
 
 
      <View>
-     <View style={{top: 90, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
+     <View style={{top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
             
             <View style={nav_style.HomeBtn}>
             <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
