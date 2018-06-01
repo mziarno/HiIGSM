@@ -7,6 +7,9 @@ import{
     TouchableOpacity
 }    from 'react-native';
 
+import {Icon} from 'react-native-elements';
+import nav_style from '../components/nav_style';
+
 export default class Desc extends React.Component {
    
 
@@ -17,7 +20,7 @@ export default class Desc extends React.Component {
                 <TouchableOpacity disabled={true}
                     style={styles.containerStyle}>                
                     <Text  style={styles.textStyle}> Presentation abstract </Text>
-                <Text  style={styles.abstractStyle}> Praca ma na celu zbadanie i 
+                <Text  style={styles.abstractStyle}>Praca ma na celu zbadanie i 
                     przetestowanie w jakich operacjach na danych 
                     przestrzennych możliwe jest przyspieszenie analiz 
                     poprzez wykorzystanie zrównoleglania obliczeń 
@@ -31,6 +34,44 @@ export default class Desc extends React.Component {
                     do jakiego typu problemów obliczeniowych najlepiej 
                     wykorzystywać procesory graficzne.</Text>
                 </TouchableOpacity> 
+                
+                <View style={{top: 40, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
+            
+            <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
+                <Icon 
+                    name='home' 
+                    type='octicon'
+                    color='#1D3557'
+                    size={36}/>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}} >Home</Text>
+                </TouchableOpacity>
+            </View>
+            
+
+            <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Map')} >
+                <Icon 
+                    name='marker' 
+                    type='foundation'
+                    color='#1D3557'
+                    size={36}/>
+                <Text style={{fontSize: 10, color: '#1D3557', textAlign: 'center'}}>Map</Text>
+                </TouchableOpacity>
+            </View>
+            
+            <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Timetable')}>
+                <Icon 
+                    name='calendar'
+                    type='octicon' 
+                    color='#1D3557'
+                    size={36}/>
+                <Text style={{fontSize: 10, color: '#1D3557', textAlign: 'center'}}>Timetable</Text>
+                </TouchableOpacity>
+            </View>
+        
+            </View>
             </View>
         )
     }
@@ -69,7 +110,7 @@ const styles = StyleSheet.create({
     },
 
     containerStyle: {
-        height: '90%',
+        height: '80%',
         width: '90%',
         borderWidth: 1,
         borderColor: '#ddd',
