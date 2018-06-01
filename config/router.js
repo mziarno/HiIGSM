@@ -39,8 +39,16 @@ const DrawerNav = DrawerNavigator({
     {screen: Contact,
         navigationOptions: {
             title: 'Contact With Organizators'
-        }} 
-});
+        }} ,
+
+    DayScreen: 
+        {screen: DayScreen,
+            navigationOptions: {
+                title: 'day'
+            }}
+
+}
+);
 
 // TabNavigator Screen
 // const Tabs = TabNavigator(

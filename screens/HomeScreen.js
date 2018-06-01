@@ -79,6 +79,8 @@ class HomeScreen extends Component {
         let screenHeight = Dimensions.get('window').height;
             return (
                 <View >
+                    <View style={{height:'83%'}} >
+
             
                 <View style={styles.notificationContainer}>
                     <View style={styles.notification}>             
@@ -123,10 +125,11 @@ class HomeScreen extends Component {
                     })}
 
             </View>  
+            </View>
             {/* </ViewPagerAndroid> */}
             
 
-            <View style={{top: 120, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
+            <View style={{top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
             
             <View style={nav_style.HomeBtn}>
                 <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
