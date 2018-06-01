@@ -38,9 +38,9 @@ class MustSee extends Component {
 
   render() {
     return (
-      <View style={styles.background}>
+      <View>
         <StatusBar barStyle="light-content" />
-
+      <View style={{height:'83%'}}>
         <View>
           <FlatList
             data={items}
@@ -58,7 +58,7 @@ class MustSee extends Component {
             )}
           />
         </View>
-
+            
         <View>
           <View style={styles.white_Left_Container}>
             <TouchableOpacity onPress={()=>this.props.navigation.navigate('Map')}>
@@ -82,8 +82,8 @@ class MustSee extends Component {
           </View>
         </View>
         
-        
-        <View style={{top: 225, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
+        </View>
+        <View style={{top:'5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
             
             <View style={nav_style.HomeBtn}>
             <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>

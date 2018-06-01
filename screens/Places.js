@@ -8,12 +8,12 @@ import {View,
         Image, 
         FlatList,
         StatusBar,
-        Icon
         } from 'react-native';
 import MapScreen from './Map';
 import styles from '../components/styles';
 import NavigationBtn from '../components/NavigationBtn';
 import nav_style from '../components/nav_style';
+import {Icon} from 'react-native-elements';
 
 
 const places = ['National Museum', 'Museum of the History of Polish Jews', 'Zachęta – National Gallery of Art', 'Foksal Gallery', 'Sisigmunt\'s Column']
@@ -24,9 +24,9 @@ class Places extends Component{
     render(){
        
         return(
-            <View style={styles.background}>
+            <View>
             
-            
+            <View style={{height:'83%'}}>
             <FlatList
                 data={places}
                 renderItem={({ item }) => (
@@ -36,8 +36,9 @@ class Places extends Component{
                 </View>
                 )}
                 />
-        
-        {/* <View style={{top: 230, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
+        </View>
+
+        <View style={{top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
             
             <View style={nav_style.HomeBtn}>
             <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
@@ -73,7 +74,7 @@ class Places extends Component{
                 </TouchableOpacity>
             </View>
         
-            </View> */}
+            </View>
 
 
         

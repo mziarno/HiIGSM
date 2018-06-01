@@ -18,7 +18,8 @@ import {
     TouchableOpacity,
     Image,
     ImageBackground,
-    ViewPagerAndroid
+    ViewPagerAndroid,
+    StatusBar
 } from 'react-native';
 import { freemem } from 'os';
 import NavigationBtn from '../components/NavigationBtn';
@@ -39,7 +40,7 @@ class HomeScreen extends Component {
     componentDidMount() {
         const rootRef = firebase.database().ref();
         const messRef = rootRef.child('message');
-        const weekDaysRef = rootRef.child('weekDays');
+        const weekDaysRef = rootRef.child('weekDays').orderByChild('id');
 
         weekDaysRef.once('value', snap => {
             let newStateWeekDays = [];
@@ -79,6 +80,8 @@ class HomeScreen extends Component {
         let screenHeight = Dimensions.get('window').height;
             return (
                 <View >
+                <StatusBar barStyle="light-content" />
+                <View style={{height:'83%'}}>
             
                 <View style={styles.notificationContainer}>
                     <View style={styles.notification}>             
@@ -89,7 +92,11 @@ class HomeScreen extends Component {
                
                 
                 {/* <ViewPagerAndroid> */}
-                <View >
+                {/* <View style={styles.timetable_background}> */}
+                           
+                <View  style={{height:'70%'}}>
+                <ScrollView>
+                
                     {Object.keys(this.state.weekDays).map((dayNameKey) => {
                         let dayEvents = this.state.weekDays[dayNameKey]
                         return (
@@ -99,7 +106,7 @@ class HomeScreen extends Component {
                                 <View style={styles.day}>
                                     <Text style={styles.text}> {dayNameKey} </Text>
                             </View>
-                            
+                           
                                 {Object.keys(dayEvents).map((eventName) => {
                                     let eventData = dayEvents[eventName]
                                     return (
@@ -115,18 +122,21 @@ class HomeScreen extends Component {
                                         
                                     )
                                 })}
-                                
+                               
                             </View>
                             
 
                         )
                     })}
-
+            </ScrollView>
             </View>  
+            </View>
+                                
+            
             {/* </ViewPagerAndroid> */}
             
 
-            <View style={{top: 120, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
+            <View style={{top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
             
             <View style={nav_style.HomeBtn}>
                 <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>

@@ -14,6 +14,7 @@ class Contact extends Component{
     render(){
         return(           
             <View>
+                 <View style={{height:'83%'}}>
                 <StatusBar barStyle="light-content"/>
                 <View style={styles.greyMedium_Container}>
                     <TouchableOpacity onPress={() => OpenAnything.Email('igsm2019@geoida.org')}>
@@ -69,8 +70,8 @@ class Contact extends Component{
                         </View>
                     </TouchableOpacity>
                 </View>
-
-        <View style={{top: 113, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
+    </View>
+        <View style={{top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
             
             <View style={nav_style.HomeBtn}>
             <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
