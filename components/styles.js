@@ -218,6 +218,7 @@ notificationContainer:{
 firstContainer:{
    backgroundColor: 'transparent', 
    width: '90%',
+   flex: 1,
    //height: 90,
    //position: 'absolute',
    marginLeft: '5%',
@@ -309,9 +310,12 @@ notificationsText:{
         }),
      // margin:3
   },
-  timetable_background:{
-    backgroundColor: 'transparent'
-  }
+  scroll:{
+    height:200
+  },
+pager: {
+
+}
 
   })
 
