@@ -14,6 +14,19 @@ import Places from './Places';
 
 // const styles = require('../styles.js')
 const items = ['Museums', 'Galleries', 'Monuments'];
+const places = [{
+  title: "Polin ",
+  type: "Museum",
+  coordinate: {latitude: 52.220521, longitude: 21.010488}
+},
+{
+  title: "aaa ",
+  type: "Gallery",
+  coordinate: {latitude: 52.220521, longitude: 21.010488}
+}];
+
+//const type = places.filter(x => x.type === 'museum');
+
 
 class MustSee extends Component {
 

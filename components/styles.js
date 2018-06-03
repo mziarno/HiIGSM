@@ -281,6 +281,14 @@ notificationsText:{
     
     },
 
+    textDay:{
+      fontSize: 17,
+      color: '#4A4A4A',
+      textAlign: 'center',
+      marginBottom: 5,
+      fontWeight: 'bold'
+    },
+
   timetable_Container:{
       backgroundColor: '#ECECEC',
       width: '100%',
