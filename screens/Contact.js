@@ -134,7 +134,6 @@ const s = StyleSheet.create({
         textAlignVertical: 'center',
         marginLeft: 10,
         top: 5,
-        //position: 'absolute',
     },
     numberText:{
         fontSize: 12,
