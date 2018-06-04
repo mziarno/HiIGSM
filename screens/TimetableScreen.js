@@ -4,30 +4,73 @@ import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Pla
 import nav_style from '../components/nav_style';
 import DayScreen from './DayScreen';
 import {Icon} from 'react-native-elements';
+import * as firebase from 'firebase';
+import ApiKeys from '../ApiKeys'
+import styles from '../components/styles';
 
 class Timetable extends Component { 
 
+    constructor() {
+        super();
+        this.state = {
+            weekDays: {}
+        };
+    }
+
+    componentDidMount() {
+        const rootRef = firebase.database().ref();
+        const weekDaysRef = rootRef.child('weekDays').orderByChild('id');
+
+        weekDaysRef.once('value', snap => {
+            let newStateWeekDays = [];
+            snap.forEach(child => {     //child - dzien tyg
+                let events = child.val();
+                let weekDay = child.key
+                let newEvent = {}
+                Object.keys(events).map((key) => {
+                    let event = events[key]
+                    newEvent[key] = event
+                })
+
+                let lastState = this.state.weekDays
+
+                lastState[weekDay] = newEvent
+                let newState = lastState
+                this.setState({
+                    weekDays: newState
+                })
+            })
+        })
+    }
+
   render() {
     return (
+
+    <View>
+         <StatusBar barStyle="light-content" />
+        <View style={{height:'83%'}}>
+        
+             <View>
+                    {Object.keys(this.state.weekDays).map((dayNameKey) => {
+                        return (
+                            <TouchableOpacity onPress={() => 
+                                this.props.navigation.navigate('DayScreen')} >
+                            <View style={styles.greyMedium_Container} > 
+                                    <Text style={styles.textDay}> {dayNameKey} </Text>
+                            </View>
+                            </TouchableOpacity>
+                        )
+                    })
+                }
+                
+
+            </View>  
+            </View>  
+        
+
+
      <View>
-  
-     <TouchableOpacity 
-      onPress={() => 
-      this.props.navigation.navigate('DayScreen')} 
-         style={buttonStyle.containerStyle}> 
-             {/* // height: 50, 
-             // width: 300, 
-             // marginTop: 50, 
-             // alignItems: 'center', 
-             // alignSelf: 'center', 
-             // backgroundColor: 'blue', 
-             // borderRadius: 10   */}
-             
-         <Text style={textStyle.titleText}> Monday</Text>
-     </TouchableOpacity>
-
-
-     <View style={{top: 415, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
+     <View style={{top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
             
             <View style={nav_style.HomeBtn}>
             <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
@@ -63,11 +106,12 @@ class Timetable extends Component {
                 </TouchableOpacity>
             </View>
         
-            </View>
+        </View>
+ </View>
  </View>
  )
-}
-}
+}}
+
 
 
 const textStyle = StyleSheet.create({

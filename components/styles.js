@@ -4,13 +4,12 @@ import {StyleSheet, Platform} from 'react-native';
 
 const styles = StyleSheet.create({
 
-
-   
   background: {
         flex: 1,
         backgroundColor: '#fff',
         width: '100%',
        },
+       
   whiteBigContainer:{ 
        backgroundColor: '#ECECEC',
        width: '90%',
@@ -129,7 +128,6 @@ const styles = StyleSheet.create({
     position: 'relative',
     marginLeft: '5%',
     marginRight: '5%',
-    //marginBottom: 20,
     margin:5,
     borderRadius: 5,
     justifyContent: 'center',
@@ -167,63 +165,59 @@ const styles = StyleSheet.create({
         }),
       backgroundColor: '#ECECEC',
   },
-  notification:{
-   backgroundColor: 'pink',
-   width: '100%',
-   height: 40,
-   position: 'relative',
-   borderTopLeftRadius: 5,
-   borderTopRightRadius: 5,
-   justifyContent: 'center'
 
- },
- notificationContainer:{
-    backgroundColor: '#ECECEC',
-    width: '90%',
-    height: 120,
-    position: 'relative',
-    marginLeft: '5%',
-    marginRight: '5%',
-    marginBottom: 15,
-    borderRadius: 5,
-   
-    ...Platform.select({
-        ios: {
-          shadowColor: '#707070',
-          shadowOffset: { height: 3 },
-          shadowOpacity: 1,
-          shadowRadius: 3,
-        },
-        android: {
-          elevation: 5
-        },
-      }),
-    marginTop:10
+notification:{
+  backgroundColor: '#cc0033',//'#E63946', //'#990033',
+  width: '100%',
+  height: 40,
+  position: 'relative',
+  borderTopLeftRadius: 5,
+  borderTopRightRadius: 5,
+  justifyContent: 'center'
 
- },
+},
+notificationContainer:{
+  backgroundColor: '#ECECEC',
+  width: '90%',
+  height: 120,
+  position: 'relative',
+  marginLeft: '5%',
+  marginRight: '5%',
+  marginBottom: 7,
+  borderRadius: 5,
+ 
+  ...Platform.select({
+      ios: {
+        shadowColor: '#707070',
+        shadowOffset: { height: 3 },
+        shadowOpacity: 1,
+        shadowRadius: 3,
+      },
+      android: {
+        elevation: 5
+      },
+    }),
+  marginTop:10
+
+},
  day:{
     backgroundColor: '#1D3557',
-    width: '100%',
+    width: '90%',
     height: 40,
-    // marginBottom:
-    //position: 'relative',
+    marginLeft: '5%',
+  marginRight: '5%',
     borderRadius: 5,
-    // borderTopRightRadius: 5,
-    //top: -10,
     justifyContent: 'center'
 },
 
 firstContainer:{
-   //backgroundColor: '#fff', 
+   backgroundColor: 'transparent', 
    width: '90%',
-   //height: 90,
-   //position: 'absolute',
+   flex: 1,
    marginLeft: '5%',
    marginRight: '5%',
-   //borderRadius: 5,
-   //marginBottom: 15,
+   borderRadius: 5,
    top:10,
-   //justifyContent: 'center',
    ...Platform.select({
       ios: {
          shadowColor: '#707070',
@@ -278,9 +272,17 @@ notificationsText:{
     
     },
 
+    textDay:{
+      fontSize: 17,
+      color: '#4A4A4A',
+      textAlign: 'center',
+      marginBottom: 5,
+      fontWeight: 'bold'
+    },
+
   timetable_Container:{
       backgroundColor: '#ECECEC',
-      width: '98%',
+      width: '100%',
       height: 50,
       position: 'relative',
      
@@ -297,8 +299,23 @@ notificationsText:{
             elevation: 5
           },
         }),
-      margin:3
-  }
+     // margin:3
+  },
+  timetable_background:{
+    backgroundColor: 'transparent',
+    width: '100%',
+    height: '82%',
+    position: 'relative',
+   
+    marginBottom: 7,
+    borderRadius: 5,
+  },
+  scroll:{
+    height:200
+  },
+pager: {
+
+}
 
   })
 
