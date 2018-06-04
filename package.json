@@ -38,6 +38,7 @@
     "react-native-navbar": "^2.1.0",
     "react-native-openanything": "0.0.3",
     "react-native-overlay": "^0.5.0",
+    "react-native-popup-dialog": "^0.11.46",
     "react-native-router-flux": "^4.0.0-beta.31",
     "react-native-simple-dialogs": "^0.3.1",
     "react-native-vector-icons": "^4.6.0",
