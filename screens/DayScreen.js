@@ -55,6 +55,27 @@ class DayScreen extends Component {
         const { navigation } = this.props
         // const DayScreen = (this.props)
         const events = navigation.getParam('events', 'BRAK DANYCH :(');
+
+        let timee = " - "
+        let placee = ''
+
+        {
+            Object.keys(events).map((eventName) => {
+                if (eventName == 'startTime') {
+                    timee = events[eventName] + timee
+                }
+                else if (eventName == 'endTime') {
+                    timee = timee + events[eventName]
+                }
+                else if (eventName == 'place') {
+                    placee = events[eventName]
+                }
+            })
+        }
+
+        const time = timee
+        const place = placee
+
         return (
             <View>
                 <View style={{ height: '83%' }}>
@@ -64,31 +85,27 @@ class DayScreen extends Component {
                             {/* {Object.keys(events).map((dayNameKey) => {
                         // let dayEvents = weekDays[dayNameKey]
                         return ( */}
-
-
-                            <View style={styles.firstContainer}>
-
-
-                                {Object.keys(events).map((eventName) => {
-                                    // let eventData = dayEvents[eventName]
-                                    return (
+                            {
+                                Object.keys(events).map((eventName) => {
+                                   // <View style={styles.firstContainer}>
 
                                         <TouchableOpacity onPress={() =>
-                                            this.props.navigation.navigate('Activity', {activity: events[eventName]})}>
+                                            this.props.navigation.navigate('Activity', { activity: events[eventName] })}>
                                             <View style={styles.timetable_Container}>
                                                 <Text style={styles.eventText}> {eventName} </Text>
-                                                {/* <Text  style={styles.timeText}> {eventData.startTime} - {eventData.endTime} </Text>
-                                                <Text style={styles.placeText}> {eventData.place} </Text> */}
+                                                <Text style={styles.timeText}>{time}</Text>
+                                                <Text style={styles.placeText}>{place}</Text>
                                             </View>
                                         </TouchableOpacity>
 
+
+                                        }
+
+                            //</View>
                                     )
-                                })}
+                            }
 
-                            </View>
-
-
-</ScrollView>
+                        </ScrollView>
                     </View>
                 </View>
 
