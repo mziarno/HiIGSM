@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Platform, } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, 
+    Button, TouchableOpacity, Image, Platform, ListView} from 'react-native';
 
 import nav_style from '../components/nav_style';
-import DayScreen from './DayScreen';
+//import DayScreen from './DayScreen';
 import {Icon} from 'react-native-elements';
 import * as firebase from 'firebase';
 import ApiKeys from '../ApiKeys'
 import styles from '../components/styles';
+
+const DayScreen = require('./DayScreen');
 
 class Timetable extends Component { 
 
@@ -17,33 +20,80 @@ class Timetable extends Component {
         };
     }
 
-    componentDidMount() {
-        const rootRef = firebase.database().ref();
-        const weekDaysRef = rootRef.child('weekDays').orderByChild('id');
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             weekDays: {},
+//             dataSource:new ListView.DataSource({
+//             rowHasChanged: (row1, row2) =>  row1 !== row2,
+//             })
+//         };
+//         this.itemRef = this.getRef.child('items');
+//     }
 
-        weekDaysRef.once('value', snap => {
-            let newStateWeekDays = [];
-            snap.forEach(child => {     //child - dzien tyg
-                let events = child.val();
-                let weekDay = child.key
-                let newEvent = {}
-                Object.keys(events).map((key) => {
-                    let event = events[key]
-                    newEvent[key] = event
-                })
+//     getRef() {
+//         return firebase.database().ref();
+//     }
 
-                let lastState = this.state.weekDays
+//     listenForItems(itemsRef){
+//         itemsRef.on('value', (snap) => {
 
-                lastState[weekDay] = newEvent
-                let newState = lastState
-                this.setState({
-                    weekDays: newState
-                })
-            })
-        })
-    }
+//             // get children as an array
+//             var items = [];
+//             snap.forEach((child) => {
+//                 let events = child.val();
+//                 let weekDay = child.key;
+//                 let newEvent = {};
+//               items.push({
+//                 french: child.val().french,
+//                 english: child.val().english,
+//                 _key: child.key
+//               });
+//             });
+    
+//     this.setState({
+//         dataSource: this.state.dataSource.cloneWithRows(items)
+//       });
+
+//     });
+//   }
+
+//   componentDidMount(){
+//       this.listenForItems(this.itemsRef);
+//   }
+
+
+    // componentDidMount() {
+    //     const rootRef = firebase.database().ref();
+    //     const weekDaysRef = rootRef.child('weekDays').orderByChild('id');
+
+    //     weekDaysRef.once('value', snap => {
+    //         let newStateWeekDays = [];
+    //         snap.forEach(child => {     
+    //             let events = child.val();
+    //             let weekDay = child.key
+    //             let newEvent = {}
+    //             Object.keys(events).map((key) => {
+    //                 let event = events[key]
+    //                 newEvent[key] = event
+    //             })
+
+    //             let lastState = this.state.weekDays
+
+    //             lastState[weekDay] = newEvent
+    //             let newState = lastState
+    //             this.setState({
+    //                 weekDays: newState
+    //             })
+    //         })
+    //     })
+    // }
 
   render() {
+      const {navigation} = this.props;
+
+      const weekDays = navigation.getParam('weekDays', 'BRAK DANYCH :(');
+
     return (
 
     <View>
@@ -51,10 +101,10 @@ class Timetable extends Component {
         <View style={{height:'83%'}}>
         
              <View>
-                    {Object.keys(this.state.weekDays).map((dayNameKey) => {
+                    {Object.keys(weekDays).map((dayNameKey) => {
                         return (
                             <TouchableOpacity onPress={() => 
-                                this.props.navigation.navigate('DayScreen')} >
+                                this.props.navigation.navigate('DayScreen', {events: weekDays[dayNameKey]})} >
                             <View style={styles.greyMedium_Container} > 
                                     <Text style={styles.textDay}> {dayNameKey} </Text>
                             </View>
@@ -68,6 +118,7 @@ class Timetable extends Component {
             </View>  
         
 
+    
 
      <View>
      <View style={{top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
@@ -110,7 +161,17 @@ class Timetable extends Component {
  </View>
  </View>
  )
-}}
+}
+_renderItem(item) {
+    const {navigate} = this.props.navigation;
+    return(
+        <ListItem item={item} onPress={() =>
+            navigate('DayScreen')}  />
+    );
+}
+
+}
+
 
 
 

@@ -87,7 +87,8 @@ class HomeScreen extends Component {
         }
 
         let screenWidth = Dimensions.get('window').width;
-        let screenHeight = Dimensions.get('window').height;      var pageViews = [];
+        let screenHeight = Dimensions.get('window').height;
+        var pageViews = [];
 
         let weekDays = this.state.weekDays;
         let i = 0;
@@ -128,99 +129,103 @@ class HomeScreen extends Component {
 
                 eventsArray.push(
                     // ===== Event card =====
-                    
-                    <View style={styles.greyMedium_Container }>
-                        <Text style={styles.eventText}>{eventNameKey}</Text> 
-                        {eventInfosArray}
-                    </View>
-                    
+                    <TouchableOpacity>
+                        <View style={styles.greyMedium_Container}>
+                            <Text style={styles.eventText}>{eventNameKey}</Text>
+                            {eventInfosArray}
+                        </View>
+                    </TouchableOpacity>
+
                 );
             })
 
             pageViews.push(
                 // ===== Day page =====
                 <View>
-                     
+
                     <View style={styles.day}>
                         <Text style={styles.text}>{dayNameKey}</Text>
                     </View>
-                    <ScrollView style={{pagingEnabled: true}}>
-                    {eventsArray}
-                    </ScrollView>  
+
+                    <View style={{ height: '90%' }}>
+                        <ScrollView style={{ pagingEnabled: true, showsVerticalScrollIndicator: false, endFillColor: '#cc0033', }}>
+                            {eventsArray}
+                        </ScrollView>
+                    </View>
                 </View>
             )
 
 
             i += 1;
-        })     
+        })
         var pageCount = pageViews.length;
 
         return (
             <View >
-              <StatusBar barStyle="light-content" />                 
-              <View style={{height:'83%'}}>
- 
 
-                <View style={styles.notificationContainer}>
-                    <View style={styles.notification}>
-                        <Text style={styles.text}> Notifications </Text>
+                <View style={{ height: '83%' }}>
+
+
+                    <View style={styles.notificationContainer}>
+                        <View style={styles.notification}>
+                            <Text style={styles.text}> Notifications </Text>
+                        </View>
+                        <Text style={styles.notificationsText}> {this.state.message} </Text>
                     </View>
-                    <Text style={styles.notificationsText}> {this.state.message} </Text>
+
+                    <View>
+
+                        {/* WeekDays pages renderer */}
+                        <IndicatorViewPager
+                            key={pageCount}
+                            style={styles.timetable_background}
+                            indicator={this._renderDotIndicator()}>
+
+                            {pageViews}
+
+
+                        </IndicatorViewPager>
+
+                    </View>
                 </View>
 
-                <View>
+                <View style={{ top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center', }}>
 
-                    {/* WeekDays pages renderer */}
-                    <IndicatorViewPager
-                        key={pageCount}
-                        style={styles.timetable_background}
-                        indicator={this._renderDotIndicator()}>
+                    <View style={nav_style.HomeBtn}>
+                        <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Home')}>
+                            <Icon
+                                name='home'
+                                type='octicon'
+                                color='#cc0033'
+                                size={36} />
+                            <Text style={{ fontSize: 10, color: '#cc0033', textAlign: 'center' }} >Home</Text>
+                        </TouchableOpacity>
+                    </View>
 
-                        {pageViews}
+                    <View style={nav_style.HomeBtn}>
+                        <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Map')} >
+                            <Icon
+                                name='marker'
+                                type='foundation'
+                                color='#1D3557'
+                                size={36} />
+                            <Text style={{ fontSize: 10, textAlign: 'center' }}>Map</Text>
+                        </TouchableOpacity>
+                    </View>
 
-
-                    </IndicatorViewPager>
-                    
+                    <View style={nav_style.HomeBtn}>
+                        <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Timetable', { weekDays: this.state.weekDays })}>
+                            <Icon
+                                name='calendar'
+                                type='octicon'
+                                color='#1D3557'
+                                size={36} />
+                            <Text style={{ fontSize: 10, textAlign: 'center' }}>Timetable</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
-
-        <View style={{ top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center', }}>
-
-        <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Home')}>
-                <Icon
-                    name='home'
-                    type='octicon'
-                    color='#cc0033'
-                    size={36} />
-                <Text style={{ fontSize: 10, color: '#cc0033', textAlign: 'center' }} >Home</Text>
-            </TouchableOpacity>
-        </View>
-
-        <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Map')} >
-                <Icon
-                    name='marker'
-                    type='foundation'
-                    color='#1D3557'
-                    size={36} />
-                <Text style={{ fontSize: 10, textAlign: 'center' }}>Map</Text>
-            </TouchableOpacity>
-        </View>
-
-        <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Timetable')}>
-                <Icon
-                    name='calendar'
-                    type='octicon'
-                    color='#1D3557'
-                    size={36} />
-                <Text style={{ fontSize: 10, textAlign: 'center' }}>Timetable</Text>
-            </TouchableOpacity>
-        </View>
-        </View>
-        </View>
-    )
+        )
 
     }
     _renderDotIndicator() {
