@@ -227,10 +227,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlignVertical: 'center',
     marginLeft: 10,
-    top: 15,
+   // top: 5,
 
   },
-  timeText: {
+timeText: {
     fontSize: 12,
     color: '#4A4A4A',
     right: 30,
@@ -238,6 +238,7 @@ const styles = StyleSheet.create({
     position: 'absolute'
 
   },
+  
   placeText: {
     fontSize: 12,
     color: '#4A4A4A',

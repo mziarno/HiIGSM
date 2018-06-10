@@ -98,13 +98,34 @@ class HomeScreen extends Component {
                 singleEvent = events[eventNameKey];
                 eventInfosArray = [];
 
+                let time = " - "
+                let place= ''
+
                 Object.keys(singleEvent).map(function (eventInfoKey, index) {
                     // ===== Event info display =====
                     // ===== TODO: Ifs for styling diffrent info types =====
-                    eventInfosArray.push(
-                        <Text>{eventInfoKey} {singleEvent[eventInfoKey]}</Text>
-                    );
+        
+                    
+                    if (eventInfoKey == 'startTime'  ){
+                        time = singleEvent[eventInfoKey] + time
+                    }
+                    else if (eventInfoKey == 'endTime'){
+                        time = time + singleEvent[eventInfoKey]
+                    }
+                    else if (eventInfoKey == 'place'){
+                        place = singleEvent[eventInfoKey]
+                    }
+
+                
+                   
                 })
+                eventInfosArray.push(
+                    <Text style={styles.timeText}>{time}</Text>,
+                    <Text style={styles.placeText}>{place}</Text>
+        
+                    
+                );
+
                 eventsArray.push(
                     // ===== Event card =====
                     
