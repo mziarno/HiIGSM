@@ -100,9 +100,9 @@ class Timetable extends Component {
                 <Icon 
                     name='calendar'
                     type='octicon' 
-                    color='pink'
+                    color='#cc0033'
                     size={36}/>
-                <Text style={{fontSize: 10, color: 'pink', textAlign: 'center'}}>Timetable</Text>
+                <Text style={{fontSize: 10, color: '#cc0033', textAlign: 'center'}}>Timetable</Text>
                 </TouchableOpacity>
             </View>
         

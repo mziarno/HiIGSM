@@ -113,7 +113,7 @@ class DayScreen extends Component {
                     type='foundation'
                     color='#1D3557'
                     size={36}/>
-                <Text style={{fontSize: 10, textAlign: 'center'}}>Map</Text>
+                <Text style={{fontSize: 10, color: '#1D3557', textAlign: 'center'}}>Map</Text>
                 </TouchableOpacity>
             </View>
             
@@ -122,9 +122,9 @@ class DayScreen extends Component {
                 <Icon 
                     name='calendar'
                     type='octicon' 
-                    color='pink'
+                    color='#cc0033'
                     size={36}/>
-                <Text style={{fontSize: 10, color: 'pink', textAlign: 'center'}}>Timetable</Text>
+                <Text style={{fontSize: 10, color: '#cc0033', textAlign: 'center'}}>Timetable</Text>
                 </TouchableOpacity>
             </View>
         
