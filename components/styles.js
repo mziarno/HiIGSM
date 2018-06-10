@@ -4,8 +4,6 @@ import {StyleSheet, Platform} from 'react-native';
 
 const styles = StyleSheet.create({
 
-
-   
   background: {
         flex: 1,
         backgroundColor: '#fff',
@@ -130,7 +128,6 @@ const styles = StyleSheet.create({
     position: 'relative',
     marginLeft: '5%',
     marginRight: '5%',
-    //marginBottom: 20,
     margin:5,
     borderRadius: 5,
     justifyContent: 'center',
@@ -170,7 +167,7 @@ const styles = StyleSheet.create({
   },
 
 notification:{
-  backgroundColor: 'pink',
+  backgroundColor: '#cc0033',//'#E63946', //'#990033',
   width: '100%',
   height: 40,
   position: 'relative',
@@ -205,13 +202,11 @@ notificationContainer:{
 },
  day:{
     backgroundColor: '#1D3557',
-    width: '100%',
+    width: '90%',
     height: 40,
-    // marginBottom:
-    //position: 'relative',
+    marginLeft: '5%',
+  marginRight: '5%',
     borderRadius: 5,
-    // borderTopRightRadius: 5,
-    //top: -10,
     justifyContent: 'center'
 },
 
@@ -219,14 +214,10 @@ firstContainer:{
    backgroundColor: 'transparent', 
    width: '90%',
    flex: 1,
-   //height: 90,
-   //position: 'absolute',
    marginLeft: '5%',
    marginRight: '5%',
    borderRadius: 5,
-   //marginBottom: 15,
    top:10,
-   //justifyContent: 'center',
    ...Platform.select({
       ios: {
          shadowColor: '#707070',
@@ -309,6 +300,15 @@ notificationsText:{
           },
         }),
      // margin:3
+  },
+  timetable_background:{
+    backgroundColor: 'transparent',
+    width: '100%',
+    height: '82%',
+    position: 'relative',
+   
+    marginBottom: 7,
+    borderRadius: 5,
   },
   scroll:{
     height:200

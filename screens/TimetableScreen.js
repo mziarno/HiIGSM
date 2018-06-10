@@ -47,9 +47,10 @@ class Timetable extends Component {
     return (
 
     <View>
+         <StatusBar barStyle="light-content" />
         <View style={{height:'83%'}}>
         
-             <View style={{top:30}} >
+             <View>
                     {Object.keys(this.state.weekDays).map((dayNameKey) => {
                         return (
                             <TouchableOpacity onPress={() => 
