@@ -15,45 +15,51 @@ import Desc from './Desc';
 import { Icon } from 'react-native-elements';
 
 import nav_style from '../components/nav_style';
-import PopupDialog from 'react-native-popup-dialog';
+import PopupDialog, {SlideAnimation, ScaleAnimation, DialogTitle} from 'react-native-popup-dialog';
+
+const slideAnimation = new SlideAnimation({ slideFrom: 'bottom' });
+const scaleAnimation = new ScaleAnimation(2);
 
 class Activity extends Component {
+
 
 
   render() {
     return (
 
       <View>
-        
-        
-          <Image
-            source={require('../assets/images/patch.jpg')}
-            style={{ width: '100%', height: 150 }}
-          />
+        <View style={{ height: '83%' }}>
+          <View>
+            <Image
+              source={require('../assets/images/patch.jpg')}
+              style={{ width: '100%', height: 150 }} />
 
-
-          <View style={{backgroundColor: '#fff',
-    height: 60,
-    width: '100%',
-    borderRadius: 1}}>
-            <Text style={styles.textStyle}>CZIiTT PW Floor, Room 4.05</Text>
-            <Text style={styles.textStyleSmall}>4 Rektorska Street</Text>
+            <View
+              style={styles.containerStyle}>
+              <Text style={styles.textStyle}>CZIiTT PW Floor, Room 4.05</Text>
+              <Text style={styles.textStyleSmall}>4 Rektorska Street</Text>
+            </View>
           </View>
-        
-
 
           <View style={{ justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center' }}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Map')}>
+            <TouchableOpacity
+              onPress={() =>
+                this.props.navigation.navigate('Map')}
+              style={styles.containerStyle3}
+            >
               <Icon
                 size={26}
                 name='location'
                 type='octicon'
-                color='#1D3557'/>
-              <Text style={styles.textStyleSmall5}> Check on map</Text>
+                color='#1D3557'
+              />
+              <Text style={styles.textStyleSmall5}>Check on map</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => { this.popupDialog.show() }}>
+              style={styles.containerStyle4}
+              onPress={() =>
+                this.popupDialog.show()}>
               <Icon
                 name='map'
                 type='font-awesome'
@@ -67,12 +73,11 @@ class Activity extends Component {
             </TouchableOpacity>
           </View>
 
-
-
           <View style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around' }} >
             <TouchableOpacity
               onPress={() =>
-                this.props.navigation.navigate('Desc')}>
+                this.props.navigation.navigate('Desc')}
+              style={styles.containerStyle2}>
               <Text style={styles.textStyleSmall2}>11:00 - 11:15 AM</Text>
               <Text style={styles.textStyleSmall3}>"Presentation #1"</Text>
               <Text style={styles.textStyleSmall4}>Marcelina Ziarno</Text>
@@ -81,63 +86,75 @@ class Activity extends Component {
 
             <TouchableOpacity
               onPress={() =>
-                this.props.navigation.navigate('Desc')}>
-              <Text style={styles.textStyleSmall2}>11:15 - 11:30 AM</Text>
+                this.props.navigation.navigate('Desc')}
+              style={styles.containerStyle5}>
+              <Text style={styles.textStyleSmall2}>11:15 - 11:30 AM </Text>
               <Text style={styles.textStyleSmall3}>"Presentation #2"</Text>
               <Text style={styles.textStyleSmall4}>Alicja Konkol</Text>
             </TouchableOpacity>
           </View>
+        </View>
 
 
-          <View style={{ top: 145, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center', }}>
 
-            <View style={nav_style.HomeBtn}>
-              <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Home')}>
-                <Icon
-                  name='home'
-                  type='octicon'
-                  color='#1D3557'
-                  size={36} />
-                <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }} >Home</Text>
-              </TouchableOpacity>
-            </View>
+        <View style={{ top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center', }}>
 
-            <View style={nav_style.HomeBtn}>
-              <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Map')} >
-                <Icon
-                  name='marker'
-                  type='foundation'
-                  color='#1D3557'
-                  size={36} />
-                <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }}>Map</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View style={nav_style.HomeBtn}>
-              <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Timetable')}>
-                <Icon
-                  name='calendar'
-                  type='octicon'
-                  color='#1D3557'
-                  size={36} />
-                <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }}>Timetable</Text>
-              </TouchableOpacity>
-            </View>
-            
-
+          <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Home')}>
+              <Icon
+                name='home'
+                type='octicon'
+                color='#1D3557'
+                size={36} />
+              <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }} >Home</Text>
+            </TouchableOpacity>
           </View>
 
-          <PopupDialog ref={(popupDialog) => { this.popupDialog = popupDialog; }} height={300}>
-          <View>
-            <Image source={require('../assets/images/floor4.png')}/>
+          <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Map')} >
+              <Icon
+                name='marker'
+                type='foundation'
+                color='#1D3557'
+                size={36} />
+              <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }}>Map</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={nav_style.HomeBtn}>
+            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Timetable')}>
+              <Icon
+                name='calendar'
+                type='octicon'
+                color='#1D3557'
+                size={36} />
+              <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }}>Timetable</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        
+        <PopupDialog 
+          ref={(popupDialog) => { this.popupDialog = popupDialog; }} 
+          dialogTitle={<DialogTitle title="Floor IV"/>}
+          containerStyle={{ elevation: 10 }} 
+          dialogAnimation={slideAnimation} 
+          height={0.7}>
+          <View style={{alignItems: 'center'}}>
+            <Image 
+              source={require('../assets/images/poziom4.jpg')}  
+              style={{resizeMethod: 'resize', resizeMode: 'contain', height: '93%'}} />
           </View>
         </PopupDialog>
-        </View>
-      
+
+      </View>
 
     )
   }
 }
+
+
+
 
 const styles = StyleSheet.create({
   viewStyle: {
@@ -212,17 +229,7 @@ const styles = StyleSheet.create({
     height: 60,
     width: '100%',
     borderRadius: 1,
-
-    ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        shadowOpacity: 1, //from 0 to 1
-        shadowRadius: 2,
-      },
-      android: {
-        elevation: 5
-      },
-    }),
+    elevation: 3,
   },
 
   containerStyle2: {
@@ -232,16 +239,7 @@ const styles = StyleSheet.create({
     height: 60,
     width: '94%',
     borderRadius: 5,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        shadowOpacity: 1, //from 0 to 1
-        shadowRadius: 2,
-      },
-      android: {
-        elevation: 5
-      },
-    }),
+    elevation: 3,
   },
 
   containerStyle3: {
@@ -254,18 +252,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     left: 3,
     justifyContent: 'center',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        shadowOffset: { height: 3 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 5
-      },
-    }),
-
+    elevation: 3,
   },
 
   containerStyle4: {
@@ -276,19 +263,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     justifyContent: 'center',
     right: 3,
-
-    ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        shadowOffset: { height: 3 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 5
-      },
-    }),
-
+    elevation: 3,
   },
 
   containerStyle5: {
@@ -299,25 +274,8 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     borderBottomWidth: 0,
     borderRadius: 5,
-
-    ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        //shadowOffset: { height: 3 },
-        shadowOpacity: 1, //from 0 to 1
-        shadowRadius: 2,
-      },
-      android: {
-        elevation: 5
-      },
-    }),
-
-    // marginLeft: '5%',
-    // marginRight: '5%',
-    // marginTop: 5,
-    // marginBottom: 5,
-    // justifyContent: 'flex-end',
-    position: 'absolute'
+    position: 'absolute',
+    elevation: 3,
   },
 })
 

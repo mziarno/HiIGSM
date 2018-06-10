@@ -13,7 +13,7 @@ const cont_style = StyleSheet.create({
     },
     nameText: {
         fontSize: 17,
-        color: '#4A4A4A',
+        color: '#1D3557',
         fontWeight: 'bold',
         textAlignVertical: 'center',
         marginLeft: 10,

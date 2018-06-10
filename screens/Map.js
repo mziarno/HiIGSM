@@ -75,7 +75,7 @@ class Map extends Component {
           </MapView.Marker>
         </MapView>
   
-        <View style={{bottom: -235, justifyContent: 'space-around', flexDirection: 'row', alignItems: 'stretch'}}>
+        <View style={{top: '60.25%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'stretch'}}>
             
             <View style={nav_style.HomeBtn}>
             <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
@@ -93,9 +93,9 @@ class Map extends Component {
                 <Icon 
                     name='marker' 
                     type='foundation'
-                    color='pink'
+                    color='#cc0033'
                     size={36}/>
-                <Text style={{fontSize: 10, color: 'pink', textAlign: 'center'}}>Map</Text>
+                <Text style={{fontSize: 10, color: '#cc0033', textAlign: 'center'}}>Map</Text>
                 </TouchableOpacity>
             </View>
             
@@ -106,7 +106,7 @@ class Map extends Component {
                     type='octicon' 
                     color='#1D3557'
                     size={36}/>
-                <Text style={{fontSize: 10, textAlign: 'center'}}>Timetable</Text>
+                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Timetable</Text>
                 </TouchableOpacity>
             </View>
         
