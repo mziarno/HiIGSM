@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Platform, Icon } from 'react-native';
 import ApiKeys from './ApiKeys';
 import * as firebase from 'firebase';
@@ -8,7 +8,7 @@ console.disableYellowBox = true;
 
 import StackNav, { Drawer } from './config/router';
 
- class App extends Component{
+class App extends Component {
 
   // componentWillMount(){
   //       /* Create reference to messages in Firebase Database */
@@ -26,11 +26,11 @@ import StackNav, { Drawer } from './config/router';
   //       this.inputEl.value = ''; // <- clear the input
   //     }
 
-   render() {
-      //ApiKeys.database().ref('message').push("sprawdza")
+  render() {
+    //ApiKeys.database().ref('message').push("sprawdza")
     // this.addMessage.bind(this)
-       return <StackNav/>;
-   }
- }
+    return <StackNav />;
+  }
+}
 
 export default App;

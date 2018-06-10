@@ -87,7 +87,8 @@ class HomeScreen extends Component {
         }
 
         let screenWidth = Dimensions.get('window').width;
-        let screenHeight = Dimensions.get('window').height;      var pageViews = [];
+        let screenHeight = Dimensions.get('window').height;      
+        var pageViews = [];
 
         let weekDays = this.state.weekDays;
         let i = 0;
@@ -102,16 +103,17 @@ class HomeScreen extends Component {
                     // ===== Event info display =====
                     // ===== TODO: Ifs for styling diffrent info types =====
                     eventInfosArray.push(
-                        <Text>{eventInfoKey} {singleEvent[eventInfoKey]}</Text>
+                        <Text> {singleEvent[eventInfoKey]}</Text>
                     );
                 })
                 eventsArray.push(
                     // ===== Event card =====
-                    
+                    <TouchableOpacity>
                     <View style={styles.greyMedium_Container }>
                         <Text style={styles.eventText}>{eventNameKey}</Text> 
                         {eventInfosArray}
                     </View>
+                    </TouchableOpacity>
                     
                 );
             })
@@ -123,9 +125,12 @@ class HomeScreen extends Component {
                     <View style={styles.day}>
                         <Text style={styles.text}>{dayNameKey}</Text>
                     </View>
-                    <ScrollView style={{pagingEnabled: true}}>
+                    
+                    <View style= {{height: '90%'}}>
+                    <ScrollView style={{pagingEnabled: true, showsVerticalScrollIndicator: false, endFillColor:'#cc0033',  }}>
                     {eventsArray}
-                    </ScrollView>  
+                    </ScrollView> 
+                    </View> 
                 </View>
             )
 
@@ -136,7 +141,7 @@ class HomeScreen extends Component {
 
         return (
             <View >
-              <StatusBar barStyle="light-content" />                 
+              <StatusBar title="Street French" />                
               <View style={{height:'83%'}}>
  
 
@@ -188,7 +193,7 @@ class HomeScreen extends Component {
         </View>
 
         <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Timetable')}>
+            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Timetable', {weekDays: this.state.weekDays})}>
                 <Icon
                     name='calendar'
                     type='octicon'
