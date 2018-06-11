@@ -105,7 +105,6 @@ class HomeScreen extends Component {
                 Object.keys(singleEvent).map(function (eventInfoKey, index) {
                     // ===== Event info display =====
                     // ===== TODO: Ifs for styling diffrent info types =====
-        
                     
                     if (eventInfoKey == 'startTime'  ){
                         time = singleEvent[eventInfoKey] + time

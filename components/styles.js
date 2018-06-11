@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlignVertical: 'center',
     marginLeft: 10,
-   // top: 5,
+    //top: 5,
 
   },
 timeText: {
