@@ -46,53 +46,103 @@ class DayScreen extends Component {
     //             })
     //         })
     //     })
-
-
-
     // }
 
     render() {
         const { navigation } = this.props
         // const DayScreen = (this.props)
         const events = navigation.getParam('events', 'BRAK DANYCH :(');
+        var pageViews = [];
+    
+        let timee = " - "
+        let placee = ''
+      
+        let placeDetails = ''
+        let eventsArray = [];
+
+        Object.keys(events).map((eventName, index) => {
+            singleEvent = events[eventName];
+            eventInfosArray = [];
+            timee = " - "
+            placee = ''
+            //console.error("halo")
+            
+            Object.keys(singleEvent).map(function (eventInfoKey, index) {
+            
+                if (eventInfoKey == 'startTime') {
+                timee = singleEvent[eventInfoKey] + timee
+                }
+                else if (eventInfoKey== 'endTime') {
+                    timee = timee + singleEvent[eventInfoKey]
+                }
+                else if (eventInfoKey == 'place') {
+                    placee = singleEvent[eventInfoKey]
+                }
+            })
+
+            eventInfosArray.push(
+                <Text style={styles.timeText}>{timee}</Text>,
+                <Text style={styles.placeText}>{placee}</Text>,            
+            );
+
+
+            eventsArray.push(
+                // ===== Event card =====
+                <TouchableOpacity onPress={() =>
+                    this.props.navigation.navigate('Activity', { activity: events[eventName] })}>
+                    <View style={styles.greyMedium_Container}>
+                        <Text style={styles.eventText}>{eventName}</Text>
+                        {eventInfosArray}
+                    </View>
+                </TouchableOpacity>
+
+            );     
+        
+
+        // pageViews.push(
+        //     // ===== Day page =====
+        //     <View>
+
+        //         <View style={{ height: '90%' }}>
+        //                 {eventsArray}
+                   
+        //         </View>
+        //     </View>
+        // )
+
+    })
+         const time = timee
+         const place = placee
+
         return (
             <View>
                 <View style={{ height: '83%' }}>
+                    <ScrollView>
+                        <View>
+                            {eventsArray}
 
-                    <View >
-                        <ScrollView>
-                            {/* {Object.keys(events).map((dayNameKey) => {
+                        </View>
+
+                        {/* {/* {Object.keys(events).map((dayNameKey) => {
                         // let dayEvents = weekDays[dayNameKey]
                         return ( */}
+                        {/* {Object.keys(events).map((eventName) => {
+                            return (
+                                //<View style={styles.firstContainer}>
+                                <TouchableOpacity onPress={() =>
+                                    this.props.navigation.navigate('Activity', { activity: events[eventName] })}>
+                                    <View style={styles.timetable_Container}>
+                                        <Text style={styles.eventText}> {eventName} </Text>
+                    
+                                    </View>
+                                </TouchableOpacity>
+                            )
+                        }
 
-
-                            <View style={styles.firstContainer}>
-
-
-                                {Object.keys(events).map((eventName) => {
-                                    // let eventData = dayEvents[eventName]
-                                    return (
-
-                                        <TouchableOpacity onPress={() =>
-                                            this.props.navigation.navigate('Activity', {activity: events[eventName]})}>
-                                            <View style={styles.timetable_Container}>
-                                                <Text style={styles.eventText}> {eventName} </Text>
-                                                {/* <Text  style={styles.timeText}> {eventData.startTime} - {eventData.endTime} </Text>
-                                                <Text style={styles.placeText}> {eventData.place} </Text> */}
-                                            </View>
-                                        </TouchableOpacity>
-
-                                    )
-                                })}
-
-                            </View>
-
-
-</ScrollView>
-                    </View>
+                            
+                        )}  */}
+                    </ScrollView>
                 </View>
-
-
                 <View style={{ top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center' }}>
 
                     <View style={nav_style.HomeBtn}>

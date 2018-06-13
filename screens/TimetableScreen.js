@@ -91,7 +91,6 @@ class Timetable extends Component {
 
   render() {
       const {navigation} = this.props;
-
       const weekDays = navigation.getParam('weekDays', 'BRAK DANYCH :(');
 
     return (

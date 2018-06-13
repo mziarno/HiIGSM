@@ -15,16 +15,74 @@ import Desc from './Desc';
 import { Icon } from 'react-native-elements';
 
 import nav_style from '../components/nav_style';
-import PopupDialog, {SlideAnimation, ScaleAnimation, DialogTitle} from 'react-native-popup-dialog';
+import PopupDialog, { SlideAnimation, ScaleAnimation, DialogTitle } from 'react-native-popup-dialog';
 
 const slideAnimation = new SlideAnimation({ slideFrom: 'bottom' });
 const scaleAnimation = new ScaleAnimation(2);
 
 class Activity extends Component {
 
-
-
   render() {
+
+    const { navigation } = this.props
+    const eventDetails = navigation.getParam('activity', 'BRAK DANYCH :(');
+    console.log(eventDetails)
+
+    let address = ''
+    let placeDetails = ''
+    let eventDesc = ''
+
+    let eventsDetailArray = [];
+
+    Object.keys(eventDetails).map((eventDetailKey, index) => {
+      eventDetailValue = eventDetails[eventDetailKey];
+      eventDetailArray = [];
+
+      if (eventDetailKey == 'address') {
+        // console.error(eventDetailValue)
+        address = eventDetailValue
+      }
+      else if (eventDetailKey == 'placeDetails') {
+        placeDetails = eventDetailValue
+      }
+      else if (eventDetailKey == 'activityDetails') {
+        eventDesc = eventDetailValue
+      }
+
+
+      // eventInfosArray.push(
+      //   <Text style={styles.timeText}>{address}</Text>,
+      //   <Text style={styles.placeText}>{placeDetails}</Text>
+
+      // );
+      // eventsDetailArray.push(
+      //   // ===== Event card =====
+      //   <TouchableOpacity>
+      //     <View style={styles.greyMedium_Container}>
+      //       <Text style={styles.eventText}>{eventDetailKey}</Text>
+      //       {eventInfosArray}
+      //     </View>
+      //   </TouchableOpacity>
+
+      // );
+
+      // pageViews.push(
+      //     // ===== Day page =====
+      //     <View>
+
+      //         <View style={{ height: '90%' }}>
+      //                 {eventsDetailArray}
+
+      //         </View>
+      //     </View>
+      // )
+    })
+    const adr = address
+    const placeDet = placeDetails
+    const eventDsc = eventDesc
+
+
+
     return (
 
       <View>
@@ -36,11 +94,15 @@ class Activity extends Component {
 
             <View
               style={styles.containerStyle}>
-              <Text style={styles.textStyle}>CZIiTT PW Floor, Room 4.05</Text>
-              <Text style={styles.textStyleSmall}>4 Rektorska Street</Text>
+              <Text style={styles.textStyle}>{placeDet}</Text>
+              <Text style={styles.textStyleSmall}>{adr}</Text>
             </View>
           </View>
 
+  
+
+
+          {/* SHOW ON MAP AND BUILDING PLAN */}
           <View style={{ justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center' }}>
             <TouchableOpacity
               onPress={() =>
@@ -73,30 +135,31 @@ class Activity extends Component {
             </TouchableOpacity>
           </View>
 
+
+          {/* ACTIVITY DETAILS */}
           <View style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around' }} >
             <TouchableOpacity
-              onPress={() =>
-                this.props.navigation.navigate('Desc')}
+              // onPress={() =>
+              //   this.props.navigation.navigate('Desc')}
               style={styles.containerStyle2}>
-              <Text style={styles.textStyleSmall2}>11:00 - 11:15 AM</Text>
-              <Text style={styles.textStyleSmall3}>"Presentation #1"</Text>
-              <Text style={styles.textStyleSmall4}>Marcelina Ziarno</Text>
+              <Text style={styles.textDesc}>{eventDsc}</Text>
+              {/* <Text style={styles.textStyleSmall3}>"Presentation #1"</Text>
+              <Text style={styles.textStyleSmall4}>Marcelina Ziarno</Text> */}
             </TouchableOpacity>
 
-
-            <TouchableOpacity
+            {/* <TouchableOpacity
               onPress={() =>
                 this.props.navigation.navigate('Desc')}
               style={styles.containerStyle5}>
               <Text style={styles.textStyleSmall2}>11:15 - 11:30 AM </Text>
               <Text style={styles.textStyleSmall3}>"Presentation #2"</Text>
               <Text style={styles.textStyleSmall4}>Alicja Konkol</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </View>
 
 
-
+        {/* NAVIGATION BUTTONS */}
         <View style={{ top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center', }}>
 
           <View style={nav_style.HomeBtn}>
@@ -133,17 +196,17 @@ class Activity extends Component {
           </View>
         </View>
 
-        
-        <PopupDialog 
-          ref={(popupDialog) => { this.popupDialog = popupDialog; }} 
-          dialogTitle={<DialogTitle title="Floor IV"/>}
-          containerStyle={{ elevation: 10 }} 
-          dialogAnimation={slideAnimation} 
+
+        <PopupDialog
+          ref={(popupDialog) => { this.popupDialog = popupDialog; }}
+          dialogTitle={<DialogTitle title="Floor IV" />}
+          containerStyle={{ elevation: 10 }}
+          dialogAnimation={slideAnimation}
           height={0.7}>
-          <View style={{alignItems: 'center'}}>
-            <Image 
-              source={require('../assets/images/poziom4.jpg')}  
-              style={{resizeMethod: 'resize', resizeMode: 'contain', height: '93%'}} />
+          <View style={{ alignItems: 'center' }}>
+            <Image
+              source={require('../assets/images/poziom4.jpg')}
+              style={{ resizeMethod: 'resize', resizeMode: 'contain', height: '93%' }} />
           </View>
         </PopupDialog>
 
@@ -164,14 +227,33 @@ const styles = StyleSheet.create({
   textStyle: {
     top: '15%',
     left: 20,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#4a4a4a',
     textAlign: 'left',
     flex: 1,
     flexDirection: 'row',
     position: 'absolute',
+  },
 
+  textDesc2:{
+    fontSize: 17,
+      color: '#4A4A4A',
+      fontWeight: 'bold',
+      textAlignVertical: 'center',
+      marginLeft: 10
+},
+
+  textDesc: {
+    top: '40%',
+    //left: 20,
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#4a4a4a',
+    textAlign: 'center',
+  //   flex: 1,
+  //  flexDirection: 'row',
+  //   position: 'absolute', 
 
   },
 
