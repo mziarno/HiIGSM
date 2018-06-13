@@ -17,7 +17,7 @@ import nav_style from '../components/nav_style';
 import { Icon } from 'react-native-elements';
 
 
-const places = ['National Museum', 'Museum of the History of Polish Jews', 'Zachęta – National Gallery of Art', 'Foksal Gallery', 'Sisigmunt\'s Column']
+const places = ['National Museum', 'Museum of the History of Polish Jews', 'Zachęta – National Gallery of Art', 'Foksal Gallery']
 
 class Places extends Component {
 

@@ -116,7 +116,6 @@ class HomeScreen extends Component {
                     else if (eventInfoKey == 'place'){
                         place = singleEvent[eventInfoKey]
                     }
-
                 
                    
                 })

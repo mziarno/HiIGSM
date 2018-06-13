@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, Platform, TouchableOpacity,
-  Image, FlatList, StatusBar
+  Image, FlatList, StatusBar, ListView
 } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import { Icon } from 'react-native-elements';
@@ -10,34 +10,56 @@ import styles from '../components/styles';
 import nav_style from '../components/nav_style';
 import NavigationBtn from '../components/NavigationBtn';
 import Places from './Places';
+import * as firebase from 'firebase';
+import ApiKeys from '../ApiKeys';
+
+require("firebase/database");
 
 
-// const styles = require('../styles.js')
-const items = ['Museums', 'Galleries', 'Monuments'];
-const places = [{
-  title: "Polin ",
-  type: "Museum",
-  coordinate: { latitude: 52.220521, longitude: 21.010488 }
-},
-{
-  title: "aaa ",
-  type: "Gallery",
-  coordinate: { latitude: 52.220521, longitude: 21.010488 }
-}];
 
 //const type = places.filter(x => x.type === 'museum');
-
+// const aaa = [];
+// const typeSet = new Set;
 
 class MustSee extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { checked: false };
-  // }
+  constructor() {
+    super();
+    this.state = {
+      mustSee: {},
+      checked: []
+    };
+  }
+  componentDidMount() {
+    // Firebase connection part
+    const rootRef = firebase.database().ref();
+    const mustSeeRef = rootRef.child('mustSee');
 
-  state = {
-    checked: [],
-  };
+
+    mustSeeRef.once('value', snap => {
+      //let newStateMustSee = [];
+      snap.forEach(child => {
+        let attributes = child.val();
+        let places = child.key;
+        let newAttribute = {};
+        Object.keys(attributes).map((attributeKey) => {
+          let attribute = attributes[attributeKey];
+
+          newAttribute[attributeKey] = attribute;
+        })
+
+        let lastState = this.state.mustSee
+        lastState[places] = newAttribute
+        let newState = lastState
+        this.setState({
+          mustSee: newState
+        })
+      })
+    })
+}
+
+
+ 
 
   checkItem = item => {
     const { checked } = this.state;
@@ -50,16 +72,61 @@ class MustSee extends Component {
   };
 
   render() {
+
+    if (this.state.mustSee === 0) {
+      return null;
+    }
+
+    // let screenWidth = Dimensions.get('window').width;
+    // let screenHeight = Dimensions.get('window').height;
+    // var pageViews = [];
+    const typeSet = new Set;
+
+    let mustSee = this.state.mustSee;
+    const aaa = [];
+    //let i = 0;
+    Object.keys(mustSee).map(function (placeKey, index) {
+      let attributes = mustSee[placeKey];
+      let attributesArray = [];
+      let mustSeeType = ' '
+      Object.keys(attributes).map(function (attributeNameKey, index) {
+        //singleEvent = events[eventNameKey];
+
+        if (attributeNameKey == 'type') {
+          mustSeeType = attributes[attributeNameKey]
+
+          typeSet.add(
+            mustSeeType
+          );
+
+         
+          console.log(mustSeeType)
+        } 
+      })
+      typeSet.forEach((element, index, array) => {
+        aaa.push(element)
+      })
+      
+
+      // console.warn(typeSet.size())
+
+    })
+
+    const bbb = aaa.filter((x, i, a) => a.indexOf(x) == i)
+
+
+
     return (
       <View>
         <StatusBar barStyle="light-content" />
         <View style={{ height: '83%' }}>
           <View>
+            {/* <Text>{typeSet}</Text> */}
             <FlatList
-              data={items}
+              data={bbb}
               extraData={this.state}
               renderItem={({ item }) => (
-                <CheckBox
+                <CheckBox 
                   title={item}
                   onPress={() => this.checkItem(item)}
                   checked={this.state.checked.includes(item)}
