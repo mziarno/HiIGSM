@@ -31,6 +31,8 @@ import { Icon } from 'react-native-elements';
 require("firebase/database");
 
 class HomeScreen extends Component {
+
+    
     constructor() {
         super();
         this.state = {
@@ -49,10 +51,10 @@ class HomeScreen extends Component {
         weekDaysRef.once('value', snap => {
             let newStateWeekDays = [];
             snap.forEach(child => {
-                let events = child.val();
-                let weekDay = child.key;
+                let events = child.val(); //aktywnosci
+                let weekDay = child.key; 
                 let newEvent = {};
-                Object.keys(events).map((eventKey) => {
+                Object.keys(events).map((eventKey) => { //biore klucze eventu czyli nazwę czyli nazw eventów czyli breakfast i wrzucam do tabli
                     let event = events[eventKey];
                     let newInfos = {};
                     if (typeof event === "object") { //Sometimes event is type of number and other strange things - probably problem with data
@@ -82,6 +84,7 @@ class HomeScreen extends Component {
     }
 
     render() {
+
         if (this.state.weekDays === 0) {
             return null;
         }
@@ -100,12 +103,13 @@ class HomeScreen extends Component {
                 eventInfosArray = [];
 
                 let time = " - "
-                let place= ''
-
+                let place = ''
+                let placeDetails =''
+            
                 Object.keys(singleEvent).map(function (eventInfoKey, index) {
                     // ===== Event info display =====
-                    // ===== TODO: Ifs for styling diffrent info types =====
-                    
+                    // =====Ifs for styling diffrent info types =====
+                        
                     if (eventInfoKey == 'startTime'  ){
                         time = singleEvent[eventInfoKey] + time
                     }
@@ -115,9 +119,7 @@ class HomeScreen extends Component {
                     else if (eventInfoKey == 'place'){
                         place = singleEvent[eventInfoKey]
                     }
-
-                
-                   
+                                   
                 })
                 eventInfosArray.push(
                     <Text style={styles.timeText}>{time}</Text>,

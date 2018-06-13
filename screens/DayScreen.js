@@ -53,10 +53,11 @@ class DayScreen extends Component {
         // const DayScreen = (this.props)
         const events = navigation.getParam('events', 'BRAK DANYCH :(');
         var pageViews = [];
-        
-
+    
         let timee = " - "
         let placee = ''
+      
+        let placeDetails = ''
         let eventsArray = [];
 
         Object.keys(events).map((eventName, index) => {
@@ -78,10 +79,13 @@ class DayScreen extends Component {
                     placee = singleEvent[eventInfoKey]
                 }
             })
+
             eventInfosArray.push(
                 <Text style={styles.timeText}>{timee}</Text>,
-                <Text style={styles.placeText}>{placee}</Text>
+                <Text style={styles.placeText}>{placee}</Text>,            
             );
+
+
             eventsArray.push(
                 // ===== Event card =====
                 <TouchableOpacity onPress={() =>
@@ -95,16 +99,17 @@ class DayScreen extends Component {
             );     
         
 
-        pageViews.push(
-            // ===== Day page =====
-            <View>
+        // pageViews.push(
+        //     // ===== Day page =====
+        //     <View>
 
-                <View style={{ height: '90%' }}>
-                        {eventsArray}
+        //         <View style={{ height: '90%' }}>
+        //                 {eventsArray}
                    
-                </View>
-            </View>
-        )
+        //         </View>
+        //     </View>
+        // )
+
     })
          const time = timee
          const place = placee
@@ -113,18 +118,14 @@ class DayScreen extends Component {
             <View>
                 <View style={{ height: '83%' }}>
                     <ScrollView>
-
                         <View>
-
-                            {pageViews}
+                            {eventsArray}
 
                         </View>
 
                         {/* {/* {Object.keys(events).map((dayNameKey) => {
                         // let dayEvents = weekDays[dayNameKey]
                         return ( */}
-
-
                         {/* {Object.keys(events).map((eventName) => {
                             return (
                                 //<View style={styles.firstContainer}>
@@ -142,8 +143,6 @@ class DayScreen extends Component {
                         )}  */}
                     </ScrollView>
                 </View>
-
-
                 <View style={{ top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center' }}>
 
                     <View style={nav_style.HomeBtn}>
