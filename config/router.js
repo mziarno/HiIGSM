@@ -45,7 +45,8 @@ const DrawerNav = DrawerNavigator({
         {screen: DayScreen,
             navigationOptions: {
                 title: 'Sunday'
-            }}
+            }
+        }
 
 }
 );
