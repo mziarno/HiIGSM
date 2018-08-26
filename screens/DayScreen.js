@@ -2,70 +2,28 @@ import React, { Component } from 'react'
 import {
     View,
     Text,
-    StyleSheet,
-    Platform,
     TouchableOpacity,
     ScrollView
 } from 'react-native'
 import { Icon } from 'react-native-elements';
 import nav_style from '../components/nav_style';
-import * as firebase from 'firebase';
-import ApiKeys from '../ApiKeys'
 import styles from '../components/styles';
 
 class DayScreen extends Component {
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //         message: ' ',
-    //         weekDays: {}
-    //     };
-    // }
-
-    // componentDidMount() {
-    //     const rootRef = firebase.database().ref();
-    //     const weekDaysRef = rootRef.child('weekDays');
-
-    //     weekDaysRef.once('value', snap => {
-    //         let newStateWeekDays = [];
-    //         snap.forEach(child => {     //child - dzien tyg
-    //             let events = child.val();
-    //             let weekDay = child.key
-    //             let newEvent = {}
-    //             Object.keys(events).map((key) => {
-    //                 let event = events[key]
-    //                 newEvent[key] = event
-    //             })
-
-    //             let lastState = this.state.weekDays
-
-    //             lastState[weekDay] = newEvent
-    //             let newState = lastState
-    //             this.setState({
-    //                 weekDays: newState
-    //             })
-    //         })
-    //     })
-    // }
 
     render() {
         const { navigation } = this.props
-        // const DayScreen = (this.props)
-        const events = navigation.getParam('events', 'BRAK DANYCH :(');
-        var pageViews = [];
+        const events = navigation.getParam('events', 'BRAK DANYCH :('); 
     
         let timee = " - "
         let placee = ''
-      
-        let placeDetails = ''
         let eventsArray = [];
 
         Object.keys(events).map((eventName, index) => {
             singleEvent = events[eventName];
             eventInfosArray = [];
             timee = " - "
-            placee = ''
-            //console.error("halo")
+            placee = ''  
             
             Object.keys(singleEvent).map(function (eventInfoKey, index) {
             
@@ -84,8 +42,6 @@ class DayScreen extends Component {
                 <Text style={styles.timeText}>{timee}</Text>,
                 <Text style={styles.placeText}>{placee}</Text>,            
             );
-
-
             eventsArray.push(
                 // ===== Event card =====
                 <TouchableOpacity onPress={() =>
@@ -95,21 +51,7 @@ class DayScreen extends Component {
                         {eventInfosArray}
                     </View>
                 </TouchableOpacity>
-
-            );     
-        
-
-        // pageViews.push(
-        //     // ===== Day page =====
-        //     <View>
-
-        //         <View style={{ height: '90%' }}>
-        //                 {eventsArray}
-                   
-        //         </View>
-        //     </View>
-        // )
-
+            );              
     })
          const time = timee
          const place = placee
@@ -120,27 +62,7 @@ class DayScreen extends Component {
                     <ScrollView>
                         <View>
                             {eventsArray}
-
                         </View>
-
-                        {/* {/* {Object.keys(events).map((dayNameKey) => {
-                        // let dayEvents = weekDays[dayNameKey]
-                        return ( */}
-                        {/* {Object.keys(events).map((eventName) => {
-                            return (
-                                //<View style={styles.firstContainer}>
-                                <TouchableOpacity onPress={() =>
-                                    this.props.navigation.navigate('Activity', { activity: events[eventName] })}>
-                                    <View style={styles.timetable_Container}>
-                                        <Text style={styles.eventText}> {eventName} </Text>
-                    
-                                    </View>
-                                </TouchableOpacity>
-                            )
-                        }
-
-                            
-                        )}  */}
                     </ScrollView>
                 </View>
                 <View style={{ top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center' }}>
@@ -155,7 +77,6 @@ class DayScreen extends Component {
                             <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }} >Home</Text>
                         </TouchableOpacity>
                     </View>
-
 
                     <View style={nav_style.HomeBtn}>
                         <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Map')} >
@@ -187,5 +108,4 @@ class DayScreen extends Component {
     }
 };
 
-//module.export = MondayScreen;
 export default DayScreen;

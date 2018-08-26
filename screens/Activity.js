@@ -4,16 +4,9 @@ import {
   Text,
   StyleSheet,
   Image,
-  TextInput,
-  Platform,
   TouchableOpacity,
-  Button
-}
-  from 'react-native';
-
-import Desc from './Desc';
+}from 'react-native';
 import { Icon } from 'react-native-elements';
-
 import nav_style from '../components/nav_style';
 import PopupDialog, { SlideAnimation, ScaleAnimation, DialogTitle } from 'react-native-popup-dialog';
 
@@ -48,34 +41,6 @@ class Activity extends Component {
       else if (eventDetailKey == 'activityDetails') {
         eventDesc = eventDetailValue
       }
-
-
-      // eventInfosArray.push(
-      //   <Text style={styles.timeText}>{address}</Text>,
-      //   <Text style={styles.placeText}>{placeDetails}</Text>
-
-      // );
-      // eventsDetailArray.push(
-      //   // ===== Event card =====
-      //   <TouchableOpacity>
-      //     <View style={styles.greyMedium_Container}>
-      //       <Text style={styles.eventText}>{eventDetailKey}</Text>
-      //       {eventInfosArray}
-      //     </View>
-      //   </TouchableOpacity>
-
-      // );
-
-      // pageViews.push(
-      //     // ===== Day page =====
-      //     <View>
-
-      //         <View style={{ height: '90%' }}>
-      //                 {eventsDetailArray}
-
-      //         </View>
-      //     </View>
-      // )
     })
     const adr = address
     const placeDet = placeDetails
@@ -98,9 +63,6 @@ class Activity extends Component {
               <Text style={styles.textStyleSmall}>{adr}</Text>
             </View>
           </View>
-
-  
-
 
           {/* SHOW ON MAP AND BUILDING PLAN */}
           <View style={{ justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center' }}>
@@ -127,8 +89,6 @@ class Activity extends Component {
                 type='font-awesome'
                 color='#1D3557'
                 fontSize='20'
-              //marginBottom='10'
-              //position='center'
               />
               <Text style={styles.textStyleSmall5}>Building plan</Text>
 
@@ -139,22 +99,9 @@ class Activity extends Component {
           {/* ACTIVITY DETAILS */}
           <View style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around' }} >
             <TouchableOpacity
-              // onPress={() =>
-              //   this.props.navigation.navigate('Desc')}
               style={styles.containerStyle2}>
               <Text style={styles.textDesc}>{eventDsc}</Text>
-              {/* <Text style={styles.textStyleSmall3}>"Presentation #1"</Text>
-              <Text style={styles.textStyleSmall4}>Marcelina Ziarno</Text> */}
             </TouchableOpacity>
-
-            {/* <TouchableOpacity
-              onPress={() =>
-                this.props.navigation.navigate('Desc')}
-              style={styles.containerStyle5}>
-              <Text style={styles.textStyleSmall2}>11:15 - 11:30 AM </Text>
-              <Text style={styles.textStyleSmall3}>"Presentation #2"</Text>
-              <Text style={styles.textStyleSmall4}>Alicja Konkol</Text>
-            </TouchableOpacity> */}
           </View>
         </View>
 
@@ -215,10 +162,6 @@ class Activity extends Component {
     )
   }
 }
-
-
-
-
 const styles = StyleSheet.create({
   viewStyle: {
     backgroundColor: 'red'
@@ -246,15 +189,10 @@ const styles = StyleSheet.create({
 
   textDesc: {
     top: '40%',
-    //left: 20,
     fontSize: 14,
     fontWeight: 'bold',
     color: '#4a4a4a',
     textAlign: 'center',
-  //   flex: 1,
-  //  flexDirection: 'row',
-  //   position: 'absolute', 
-
   },
 
   textStyleSmall: {
@@ -297,7 +235,6 @@ const styles = StyleSheet.create({
 
   textStyleSmall5: {
     top: '65%',
-    //left:'30%',
     fontSize: 13,
     color: '#4a4a4a',
     flex: 1,

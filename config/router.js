@@ -137,17 +137,17 @@ const StackNav = StackNavigator({
              fontWeight: 'bold'
              },
             headerRight: (
-                 <Icon name='phone' 
-                 color='#ffffff' 
-                 containerStyle={{marginRight:15}}
-                 onPress={() => navigation.navigate('Contact') }title='contact'/>
+                <Icon name='phone' 
+                color='#ffffff' 
+                containerStyle={{marginRight:15}}
+                onPress={() => navigation.navigate('Contact') }title='contact'/>
                 
              ),
-            headerLeft: <Icon 
-             name='menu' 
-             color='#ffffff'
-             containerStyle={{marginLeft:15}}
-             onPress={() => navigation.navigate('DrawerToggle')}/>
+                headerLeft: <Icon 
+                name='menu' 
+                color='#ffffff'
+                containerStyle={{marginLeft:15}}
+                onPress={() => navigation.navigate('DrawerToggle')}/>
          })
         })
 

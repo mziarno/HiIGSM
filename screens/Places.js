@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import {
     View,
     Text,
-    StyleSheet,
-    ScrollView,
-    Platform,
     TouchableOpacity,
-    Image,
     FlatList,
     StatusBar,
 } from 'react-native';
@@ -20,13 +16,10 @@ import { Icon } from 'react-native-elements';
 const places = ['National Museum', 'Museum of the History of Polish Jews', 'Zachęta – National Gallery of Art', 'Foksal Gallery']
 
 class Places extends Component {
-
-
     render() {
-
         return (
             <View>
-
+                <StatusBar barStyle="light-content" />
                 <View style={{ height: '83%' }}>
                     <FlatList
                         data={places}

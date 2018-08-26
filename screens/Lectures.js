@@ -13,8 +13,6 @@ class Lectures extends Component {
       },
     };
 
-    
-  
     render() {
       return (
         <View>

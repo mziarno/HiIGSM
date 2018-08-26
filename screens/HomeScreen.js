@@ -3,36 +3,18 @@ import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation'
 import { PagerTabIndicator, IndicatorViewPager, PagerTitleIndicator, PagerDotIndicator } from 'rn-viewpager';
 import * as firebase from 'firebase';
 import nav_style from '../components/nav_style';
-import ApiKeys from '../ApiKeys'
-import * as os from 'os';
 import {
-    Platform,
-    StyleSheet,
     Text,
     View,
     ScrollView,
-    Button,
-    TouchableHighlight,
-    Modal,
-    TextInput,
-    Dimensions,
     TouchableOpacity,
-    Image,
-    ImageBackground,
-    ViewPagerAndroid,
     StatusBar
 } from 'react-native';
-import { freemem } from 'os';
-import NavigationBtn from '../components/NavigationBtn';
 import styles from '../components/styles';
 import { Icon } from 'react-native-elements';
 
-
 require("firebase/database");
-
-class HomeScreen extends Component {
-
-    
+class HomeScreen extends Component {   
     constructor() {
         super();
         this.state = {
@@ -46,12 +28,11 @@ class HomeScreen extends Component {
         const rootRef = firebase.database().ref();
         const messRef = rootRef.child('message');
         const weekDaysRef = rootRef.child('weekDays').orderByChild('id');
-
         // ====== Week plan structure parser ======
         weekDaysRef.once('value', snap => {
-            let newStateWeekDays = [];
+           // let newStateWeekDays = [];
             snap.forEach(child => {
-                let events = child.val(); //aktywnosci
+                let events = child.val();
                 let weekDay = child.key; 
                 let newEvent = {};
                 Object.keys(events).map((eventKey) => { //biore klucze eventu czyli nazwę czyli nazw eventów czyli breakfast i wrzucam do tabli
@@ -78,19 +59,12 @@ class HomeScreen extends Component {
                 message: snap.val()
             });
         });
-
-
-
     }
-
     render() {
 
         if (this.state.weekDays === 0) {
             return null;
         }
-
-        let screenWidth = Dimensions.get('window').width;
-        let screenHeight = Dimensions.get('window').height;
         var pageViews = [];
 
         let weekDays = this.state.weekDays;
@@ -104,12 +78,9 @@ class HomeScreen extends Component {
 
                 let time = " - "
                 let place = ''
-                let placeDetails =''
             
                 Object.keys(singleEvent).map(function (eventInfoKey, index) {
-                    // ===== Event info display =====
-                    // =====Ifs for styling diffrent info types =====
-                        
+                    // ===== Event info display =====                        
                     if (eventInfoKey == 'startTime'  ){
                         time = singleEvent[eventInfoKey] + time
                     }
@@ -118,16 +89,11 @@ class HomeScreen extends Component {
                     }
                     else if (eventInfoKey == 'place'){
                         place = singleEvent[eventInfoKey]
-                    }
-                
-                   
-                                   
+                    }                   
                 })
                 eventInfosArray.push(
                     <Text style={styles.timeText}>{time}</Text>,
-                    <Text style={styles.placeText}>{place}</Text>
-        
-                    
+                    <Text style={styles.placeText}>{place}</Text>                    
                 );
 
                 eventsArray.push(
@@ -138,18 +104,14 @@ class HomeScreen extends Component {
                             {eventInfosArray}
                         </View>
                     </TouchableOpacity>
-
                 );
             })
-
             pageViews.push(
                 // ===== Day page =====
                 <View>
-
                     <View style={styles.day}>
                         <Text style={styles.text}>{dayNameKey}</Text>
                     </View>
-
                     <View style={{ height: '90%' }}>
                         <ScrollView style={{ pagingEnabled: true, showsVerticalScrollIndicator: false, endFillColor: '#cc0033', }}>
                             {eventsArray}
@@ -157,25 +119,19 @@ class HomeScreen extends Component {
                     </View>
                 </View>
             )
-
-
             i += 1;
         })
         var pageCount = pageViews.length;
-
         return (
             <View >
-
+                <StatusBar barStyle="light-content" />
                 <View style={{ height: '83%' }}>
-
-
                     <View style={styles.notificationContainer}>
                         <View style={styles.notification}>
                             <Text style={styles.text}> Notifications </Text>
                         </View>
                         <Text style={styles.notificationsText}> {this.state.message} </Text>
                     </View>
-
                     <View>
 
                         {/* WeekDays pages renderer */}
@@ -183,15 +139,11 @@ class HomeScreen extends Component {
                             key={pageCount}
                             style={styles.timetable_background}
                             indicator={this._renderDotIndicator()}>
-
                             {pageViews}
-
-
                         </IndicatorViewPager>
 
                     </View>
                 </View>
-
                 <View style={{ top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center', }}>
 
                     <View style={nav_style.HomeBtn}>
@@ -229,7 +181,6 @@ class HomeScreen extends Component {
                 </View>
             </View>
         )
-
     }
     _renderDotIndicator() {
         return <PagerDotIndicator pageCount={7} />;

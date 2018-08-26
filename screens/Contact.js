@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet, Button, Image, ScrollView, TouchableOpacity, Platform, StatusBar,
-        AppRegistry, Dimensions} from 'react-native';
-import {Icon, Overlay} from 'react-native-elements';
-import Communications from 'react-native-communications';
+import { View, Text, StyleSheet, Image, TouchableOpacity, StatusBar} from 'react-native';
+import {Icon,} from 'react-native-elements';
 import * as OpenAnything from 'react-native-openanything';
 
 import styles from '../components/styles';
@@ -33,8 +31,7 @@ class Contact extends Component{
                         </View>
                     </TouchableOpacity>
                 </View>
-                
-            
+           
                 <View style={styles.greyBig_Container}>
                     <TouchableOpacity onPress={() => OpenAnything.Call('+48514893673')}>
                         <Text style={cont_styles.nameText}> Monika Kwiatkowska </Text>
@@ -82,8 +79,7 @@ class Contact extends Component{
                     size={36}/>
                 <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}} >Home</Text>
                 </TouchableOpacity>
-            </View>
-            
+            </View>            
 
             <View style={nav_style.HomeBtn}>
             <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Map')} >
@@ -105,10 +101,8 @@ class Contact extends Component{
                     size={36}/>
                 <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Timetable</Text>
                 </TouchableOpacity>
+            </View>       
             </View>
-        
-            </View>
-
             </View>
         )
     }
@@ -116,16 +110,14 @@ class Contact extends Component{
 
 
 
-const s = StyleSheet.create({
-    
+const s = StyleSheet.create({  
     emailText:{
         fontSize: 18,
 		color: '#457B9D',
 		fontWeight: 'bold',
         textAlign: 'center',
         textAlignVertical: 'center',
-        marginTop: 12,
-      
+        marginTop: 12,    
     },
     nameText: {
         fontSize: 17,

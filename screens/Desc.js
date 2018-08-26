@@ -9,7 +9,6 @@ import {
 
 import { Icon } from 'react-native-elements';
 import nav_style from '../components/nav_style';
-
 export default class Desc extends React.Component {
 
 
@@ -75,8 +74,7 @@ export default class Desc extends React.Component {
 
                 </View>
             </View>
-        )
-    }
+        )}
 }
 
 const styles = StyleSheet.create({
@@ -86,11 +84,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#4a4a4a',
         textAlign: 'center'
-        //justifyContent: 'center',
-        //flex: 1,
-        //alignItems: 'center',
-        //textAlignVertical: 'center',
-
     },
 
     abstractStyle: {
@@ -101,11 +94,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginLeft: 10,
         marginRight: 10,
-        //justifyContent: 'center',
-        //flex: 1,
-        //alignItems: 'center',
-        //textAlignVertical: 'center',
-
     },
 
     containerStyle: {
