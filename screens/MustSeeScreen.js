@@ -64,7 +64,7 @@ class MustSee extends Component {
   
     Object.keys(mustSee).map(function (placeKey, index) {
       let attributes = mustSee[placeKey];
-      let attributesArray = [];
+      //let attributesArray = [];
       let mustSeeType = ' '
       Object.keys(attributes).map(function (attributeNameKey, index) {
 

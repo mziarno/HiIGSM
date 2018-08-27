@@ -6,13 +6,14 @@ import {
     ScrollView
 } from 'react-native'
 import { Icon } from 'react-native-elements';
+import * as firebase from 'firebase';
 import nav_style from '../components/nav_style';
 import styles from '../components/styles';
 
 class DayScreen extends Component {
 
     render() {
-        const { navigation } = this.props
+        const {navigation} = this.props;
         const events = navigation.getParam('events', 'BRAK DANYCH :('); 
     
         let timee = " - "
@@ -44,14 +45,14 @@ class DayScreen extends Component {
             );
             eventsArray.push(
                 // ===== Event card =====
-                <TouchableOpacity onPress={() =>
-                    this.props.navigation.navigate('Activity', { activity: events[eventName] })}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { activity: events[eventName] })}>
                     <View style={styles.greyMedium_Container}>
                         <Text style={styles.eventText}>{eventName}</Text>
                         {eventInfosArray}
                     </View>
                 </TouchableOpacity>
-            );              
+            ); 
+
     })
          const time = timee
          const place = placee

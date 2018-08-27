@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, StatusBar, TouchableOpacity} from 'react-native';
 import nav_style from '../components/nav_style';
-//import DayScreen from './DayScreen';
 import {Icon} from 'react-native-elements';
 import * as firebase from 'firebase';
 import styles from '../components/styles';
@@ -9,12 +8,14 @@ import styles from '../components/styles';
 require("firebase/database");
 
 const DayScreen = require('./DayScreen');
+
 class Timetable extends Component { 
 
     constructor() {
         super();
         this.state = {
-            weekDays: {}
+            weekDays: {},
+            iterator: 1
         };
     }
 
@@ -22,41 +23,46 @@ class Timetable extends Component {
         // Firebase connection part
         const rootRef = firebase.database().ref();
         const weekDaysRef = rootRef.child('weekDays').orderByChild('id');
-      
+        
         // ====== Week plan structure parser ======
         weekDaysRef.once('value', snap => {
-            // let newStateWeekDays = [];
+        
             snap.forEach(child => {
                 let events = child.val();
                 let weekDay = child.key; 
                 let newEvent = {};
                 Object.keys(events).map((eventKey) => { 
-                    let newEvent = events[eventKey];
+                    let event = events[eventKey];
                     let newInfos = {};
+                   
                     if (typeof event === "object") { 
                         Object.keys(event).map((eventInfoKey) => {
                             newInfos[eventInfoKey] = event[eventInfoKey];
                         })
-                        newEvent[eventKey] = event;
-                    }
+                        newEvent[eventKey] = event;    
+                        }
                 })
                 let lastState = this.state.weekDays
                 lastState[weekDay] = newEvent
                 let newState = lastState
                 this.setState({
-                    weekDays: newState
+                    weekDays: newState  
                 })
+                
             })
+            
         })
     }
   render() {
-   
+    const { navigate } = this.props.navigation;
+
     if (this.state.weekDays === 0) {
         return null;
     }
-    let weekDays = this.state.weekDays;
+    
+    let weekDays = this.state.weekDays; 
     Object.keys(weekDays).map(function (dayNameKey, index) {
-        let events = weekDays[dayNameKey];
+       // let events = weekDays[dayNameKey];    
     })
 
     return (
@@ -65,11 +71,9 @@ class Timetable extends Component {
         <View style={{height:'83%'}}>
         
              <View>
-                    {Object.keys(weekDays).map((dayNameKey) => {
+             {Object.keys(weekDays).map((dayNameKey) => {
                         return (
-                            <TouchableOpacity onPress={() => 
-                                this.props.navigation.navigate('DayScreen', {events: weekDays[dayNameKey]})}>
-                                
+                            <TouchableOpacity onPress={() => navigate('DayScreen', {events: weekDays[dayNameKey]})} >
                             <View style={styles.greyMedium_Container} > 
                                     <Text style={styles.textDay}> {dayNameKey} </Text>
                             </View>
@@ -77,7 +81,6 @@ class Timetable extends Component {
                         )
                     })
                 }
-
             </View>  
             </View>   
 
@@ -122,7 +125,7 @@ class Timetable extends Component {
  )
 }
 _renderItem(item) {
-    const {navigate} = this.props.navigation;
+    //const {navigate} = this.props.navigation;
     return(
         <ListItem item={item} onPress={() =>
             navigate('DayScreen')}  />
@@ -153,13 +156,11 @@ const buttonStyle = StyleSheet.create({
     backgroundColor: '#ECECEC',
     height: 45,
    width: '90%',
-   //borderWidth: 1,
-   //borderRadius: 2,
    borderBottomWidth: 0,
    borderRadius: 5, 
    shadowColor: '#000',
    shadowOffset: { height: 3 },
-   shadowOpacity: 0.1, //from 0 to 1
+   shadowOpacity: 0.1,
    shadowRadius: 3,
    alignItems: 'center',
    elevation: 5,

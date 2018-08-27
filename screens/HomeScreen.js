@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { StackNavigator, TabNavigator, DrawerNavigator } from 'react-navigation';
-import { PagerTabIndicator, IndicatorViewPager, PagerTitleIndicator, PagerDotIndicator } from 'rn-viewpager';
+import {IndicatorViewPager, PagerDotIndicator } from 'rn-viewpager';
 import * as firebase from 'firebase';
 import nav_style from '../components/nav_style';
 import {
@@ -30,7 +29,7 @@ class HomeScreen extends Component {
         const weekDaysRef = rootRef.child('weekDays').orderByChild('id');
         // ====== Week plan structure parser ======
         weekDaysRef.once('value', snap => {
-           // let newStateWeekDays = [];
+            let newStateWeekDays = [];
             snap.forEach(child => {
                 let events = child.val();
                 let weekDay = child.key; 
@@ -38,6 +37,7 @@ class HomeScreen extends Component {
                 Object.keys(events).map((eventKey) => { //biore klucze eventu czyli nazwę czyli nazw eventów czyli breakfast i wrzucam do tabli
                     let event = events[eventKey];
                     let newInfos = {};
+                    
                     if (typeof event === "object") { //Sometimes event is type of number and other strange things - probably problem with data
                         Object.keys(event).map((eventInfoKey) => {
                             newInfos[eventInfoKey] = event[eventInfoKey];
@@ -61,6 +61,7 @@ class HomeScreen extends Component {
         });
     }
     render() {
+        const {navigate} = this.props.navigation;
 
         if (this.state.weekDays === 0) {
             return null;
@@ -68,14 +69,16 @@ class HomeScreen extends Component {
         var pageViews = [];
 
         let weekDays = this.state.weekDays;
+       console.log(weekDays) 
         let i = 0;
         Object.keys(weekDays).map(function (dayNameKey, index) {
             let events = weekDays[dayNameKey];
             let eventsArray = [];
+            //console.log(events)
             Object.keys(events).map(function (eventNameKey, index) {
                 singleEvent = events[eventNameKey];
                 eventInfosArray = [];
-
+           
                 let time = " - "
                 let place = ''
             
@@ -95,15 +98,16 @@ class HomeScreen extends Component {
                     <Text style={styles.timeText}>{time}</Text>,
                     <Text style={styles.placeText}>{place}</Text>                    
                 );
-
+                
                 eventsArray.push(
+                    
                     // ===== Event card =====
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigate('Activity', {activity: events[eventNameKey]})}>
                         <View style={styles.greyMedium_Container}>
                             <Text style={styles.eventText}>{eventNameKey}</Text>
                             {eventInfosArray}
                         </View>
-                    </TouchableOpacity>
+                    </TouchableOpacity> 
                 );
             })
             pageViews.push(
@@ -158,7 +162,7 @@ class HomeScreen extends Component {
                     </View>
 
                     <View style={nav_style.HomeBtn}>
-                        <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Map')} >
+                        <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => navigate('Map')} >
                             <Icon
                                 name='marker'
                                 type='foundation'
