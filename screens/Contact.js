@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, StatusBar} from 'react-native';
-import {Icon,} from 'react-native-elements';
 import * as OpenAnything from 'react-native-openanything';
-
 import styles from '../components/styles';
-import nav_style from '../components/nav_style';
 import cont_styles from '../components/cont_style';
 
-class Contact extends Component{
+import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
+
+class Contact extends React.Component{
    
     render(){
         return(           
             <View>
-                 <View style={{height:'83%'}}>
+                <View style={{height:'90%'}}>
                 <StatusBar barStyle="light-content"/>
                 <View style={styles.greyMedium_Container}>
                     <TouchableOpacity onPress={() => OpenAnything.Email('igsm2019@geoida.org')}>
@@ -67,82 +66,24 @@ class Contact extends Component{
                         </View>
                     </TouchableOpacity>
                 </View>
-    </View>
-        <View style={{top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center',}}>
-            
-            <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
-                <Icon 
-                    name='home' 
-                    type='octicon'
-                    color='#1D3557'
-                    size={36}/>
-                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}} >Home</Text>
-                </TouchableOpacity>
-            </View>            
-
-            <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Map')} >
-                <Icon 
-                    name='marker' 
-                    type='foundation'
-                    color='#1D3557'
-                    size={36}/>
-                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Map</Text>
-                </TouchableOpacity>
-            </View>
-            
-            <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Timetable')}>
-                <Icon 
-                    name='calendar'
-                    type='octicon' 
-                    color='#1D3557'
-                    size={36}/>
-                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Timetable</Text>
-                </TouchableOpacity>
-            </View>       
-            </View>
+        </View>
+        <View style={{top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>       
+            <HomeButton 
+            color='#1D3557'
+            onPress={() => this.props.navigation.navigate('Home')}
+            />
+            <MapButton 
+            color='#1D3557'
+            onPress={() => this.props.navigation.navigate('Map')}
+            />
+            <TimetableButton 
+            color='#1D3557'
+            onPress={() => this.props.navigation.navigate('Timetable')}
+            />
+        </View>  
             </View>
         )
     }
 }
-
-
-
-const s = StyleSheet.create({  
-    emailText:{
-        fontSize: 18,
-		color: '#457B9D',
-		fontWeight: 'bold',
-        textAlign: 'center',
-        textAlignVertical: 'center',
-        marginTop: 12,    
-    },
-    nameText: {
-        fontSize: 17,
-        color: '#4A4A4A',
-        fontWeight: 'bold',
-        textAlignVertical: 'center',
-        marginLeft: 10,
-        top: 5,
-    },
-    numberText:{
-        fontSize: 12,
-        color: '#4A4A4A',
-        textAlignVertical: 'center',
-        marginLeft: 10,
-        marginBottom:50,
-        marginTop: 5,
-    },
-   
-    photoContainer:{
-            position: 'absolute',
-            right: 30,
-            marginTop:5,
-    },
-   
-
-});
 
 export default Contact;

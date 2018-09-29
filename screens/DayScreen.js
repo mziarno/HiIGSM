@@ -3,12 +3,12 @@ import {
     View,
     Text,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
+    StatusBar
 } from 'react-native'
-import { Icon } from 'react-native-elements';
 import * as firebase from 'firebase';
-import nav_style from '../components/nav_style';
 import styles from '../components/styles';
+import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
 
 class DayScreen extends Component {
 
@@ -59,48 +59,27 @@ class DayScreen extends Component {
 
         return (
             <View>
-                <View style={{ height: '83%' }}>
+                <StatusBar barStyle="light-content" />
+                <View style={{ height: '90%' }}>
                     <ScrollView>
                         <View>
                             {eventsArray}
                         </View>
                     </ScrollView>
                 </View>
-                <View style={{ top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center' }}>
-
-                    <View style={nav_style.HomeBtn}>
-                        <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Home')}>
-                            <Icon
-                                name='home'
-                                type='octicon'
-                                color='#1D3557'
-                                size={36} />
-                            <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }} >Home</Text>
-                        </TouchableOpacity>
-                    </View>
-
-                    <View style={nav_style.HomeBtn}>
-                        <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Map')} >
-                            <Icon
-                                name='marker'
-                                type='foundation'
-                                color='#1D3557'
-                                size={36} />
-                            <Text style={{ fontSize: 10, textAlign: 'center' }}>Map</Text>
-                        </TouchableOpacity>
-                    </View>
-
-                    <View style={nav_style.HomeBtn}>
-                        <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Timetable')}>
-                            <Icon
-                                name='calendar'
-                                type='octicon'
-                                color='#1D3557'
-                                size={36} />
-                            <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }}>Timetable</Text>
-                        </TouchableOpacity>
-                    </View>
-
+                <View style={{top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>       
+                    <HomeButton 
+                    color='#1D3557'
+                    onPress={() => this.props.navigation.navigate('Home')}
+                    />
+                    <MapButton 
+                    color='#1D3557'
+                    onPress={() => this.props.navigation.navigate('Map')}
+                    />
+                    <TimetableButton 
+                    color='#1D3557'
+                    onPress={() => this.props.navigation.navigate('Timetable')}
+                    />
                 </View>
             </View>
 

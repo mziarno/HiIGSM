@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet, Button, Image, ScrollView, TouchableOpacity, 
-  Platform, StatusBar,AppRegistry,Dimensions} from 'react-native';
+import { View, Text, StyleSheet, Image,  TouchableOpacity,} from 'react-native';
 import MapView from 'react-native-maps';
 import {Icon} from 'react-native-elements';
-
-import nav_style from '../components/nav_style';
+import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
 
 class Map extends Component {
 
@@ -75,42 +73,20 @@ class Map extends Component {
           </MapView.Marker>
         </MapView>
   
-        <View style={{top: '60.25%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'stretch'}}>
-            
-            <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
-                <Icon 
-                    name='home' 
-                    type='octicon'
+        <View style={{top: '56.5%', justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>       
+                    <HomeButton 
                     color='#1D3557'
-                    size={36}/>
-                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Home</Text>
-                </TouchableOpacity>
-            </View>
-
-            <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Map')} >
-                <Icon 
-                    name='marker' 
-                    type='foundation'
+                    onPress={() => this.props.navigation.navigate('Home')}
+                    />
+                    <MapButton 
                     color='#cc0033'
-                    size={36}/>
-                <Text style={{fontSize: 10, color: '#cc0033', textAlign: 'center'}}>Map</Text>
-                </TouchableOpacity>
-            </View>
-            
-            <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Timetable')}>
-                <Icon 
-                    name='calendar'
-                    type='octicon' 
+                    onPress={() => this.props.navigation.navigate('Map')}
+                    />
+                    <TimetableButton 
                     color='#1D3557'
-                    size={36}/>
-                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Timetable</Text>
-                </TouchableOpacity>
-            </View>
-        
-            </View>
+                    onPress={() => this.props.navigation.navigate('Timetable')}
+                    />
+                </View>
       </View>
     );
   }

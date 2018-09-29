@@ -7,25 +7,28 @@ import {
   TouchableOpacity,
 }from 'react-native';
 import { Icon } from 'react-native-elements';
-import nav_style from '../components/nav_style';
+import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
 import PopupDialog, { SlideAnimation, ScaleAnimation, DialogTitle } from 'react-native-popup-dialog';
 
 const slideAnimation = new SlideAnimation({ slideFrom: 'bottom' });
 const scaleAnimation = new ScaleAnimation(2);
 
 class Activity extends Component {
+  navigationOptions= ()=> {
+    title: ' '
+}
 
   render() {
 
     const { navigation } = this.props
     const eventDetails = navigation.getParam('activity', 'BRAK DANYCH :(');
-    console.log(eventDetails)
+    //console.log(eventDetails)
 
     let address = ''
     let placeDetails = ''
     let eventDesc = ''
 
-    let eventsDetailArray = [];
+    //let eventsDetailArray = [];
 
     Object.keys(eventDetails).map((eventDetailKey, index) => {
       eventDetailValue = eventDetails[eventDetailKey];
@@ -46,17 +49,13 @@ class Activity extends Component {
     const placeDet = placeDetails
     const eventDsc = eventDesc
 
-
-
     return (
-
       <View>
-        <View style={{ height: '83%' }}>
+        <View style={{ height: '90%' }}>
           <View>
             <Image
               source={require('../assets/images/patch.jpg')}
               style={{ width: '100%', height: 150 }} />
-
             <View
               style={styles.containerStyle}>
               <Text style={styles.textStyle}>{placeDet}</Text>
@@ -69,8 +68,7 @@ class Activity extends Component {
             <TouchableOpacity
               onPress={() =>
                 this.props.navigation.navigate('Map')}
-              style={styles.containerStyle3}
-            >
+              style={styles.containerStyle3}>
               <Icon
                 size={26}
                 name='location'
@@ -97,7 +95,7 @@ class Activity extends Component {
 
 
           {/* ACTIVITY DETAILS */}
-          <View style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around' }} >
+        <View style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around' }} >
             <TouchableOpacity
               style={styles.containerStyle2}>
               <Text style={styles.textDesc}>{eventDsc}</Text>
@@ -106,44 +104,23 @@ class Activity extends Component {
         </View>
 
 
-        {/* NAVIGATION BUTTONS */}
-        <View style={{ top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center', }}>
+          <View style={{top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>       
+                    <HomeButton 
+                    color='#1D3557'
+                    onPress={() => this.props.navigation.navigate('Home')}
+                    />
+                    <MapButton 
+                    color='#1D3557'
+                    onPress={() => this.props.navigation.navigate('Map')}
+                    />
+                    <TimetableButton 
+                    color='#1D3557'
+                    onPress={() => this.props.navigation.navigate('Timetable')}
+                    />
+          </View>  
+     
 
-          <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Home')}>
-              <Icon
-                name='home'
-                type='octicon'
-                color='#1D3557'
-                size={36} />
-              <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }} >Home</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Map')} >
-              <Icon
-                name='marker'
-                type='foundation'
-                color='#1D3557'
-                size={36} />
-              <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }}>Map</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Timetable')}>
-              <Icon
-                name='calendar'
-                type='octicon'
-                color='#1D3557'
-                size={36} />
-              <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }}>Timetable</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-
+     
         <PopupDialog
           ref={(popupDialog) => { this.popupDialog = popupDialog; }}
           dialogTitle={<DialogTitle title="Floor IV" />}

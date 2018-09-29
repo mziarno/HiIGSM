@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, StatusBar, TouchableOpacity} from 'react-native';
-import nav_style from '../components/nav_style';
-import {Icon} from 'react-native-elements';
 import * as firebase from 'firebase';
 import styles from '../components/styles';
+import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
 
 require("firebase/database");
 
 const DayScreen = require('./DayScreen');
-
 class Timetable extends Component { 
 
     constructor() {
@@ -18,7 +16,6 @@ class Timetable extends Component {
             iterator: 1
         };
     }
-
     componentDidMount() {
         // Firebase connection part
         const rootRef = firebase.database().ref();
@@ -68,12 +65,13 @@ class Timetable extends Component {
     return (
     <View>
         <StatusBar barStyle="light-content" />
-        <View style={{height:'83%'}}>
+        <View style={{height:'90%'}}>
         
              <View>
              {Object.keys(weekDays).map((dayNameKey) => {
+                
                         return (
-                            <TouchableOpacity onPress={() => navigate('DayScreen', {events: weekDays[dayNameKey]})} >
+                            <TouchableOpacity onPress={() => navigate('DayScreen',  {events: weekDays[dayNameKey]}) } >
                             <View style={styles.greyMedium_Container} > 
                                     <Text style={styles.textDay}> {dayNameKey} </Text>
                             </View>
@@ -84,43 +82,21 @@ class Timetable extends Component {
             </View>  
             </View>   
 
-     <View>
-     <View style={{top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center'}}>
-            
-            <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Home')}>
-                <Icon 
-                    name='home' 
-                    type='octicon'
-                    color='#1D3557'
-                    size={36}/>
-                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}} >Home</Text>
-                </TouchableOpacity>
-            </View>
-            
-            <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Map')} >
-                <Icon 
-                    name='marker' 
-                    type='foundation'
-                    color='#1D3557'
-                    size={36}/>
-                <Text style={{fontSize: 10, color:'#1D3557', textAlign: 'center'}}>Map</Text>
-                </TouchableOpacity>
-            </View>
-            
-            <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{alignItems: 'center'}} onPress={()=>this.props.navigation.navigate('Timetable')}>
-                <Icon 
-                    name='calendar'
-                    type='octicon' 
-                    color='#cc0033'
-                    size={36}/>
-                <Text style={{fontSize: 10, color: '#cc0033', textAlign: 'center'}}>Timetable</Text>
-                </TouchableOpacity>
-            </View>       
+     
+        <View style={{top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>       
+            <HomeButton 
+            color='#1D3557'
+            onPress={() => this.props.navigation.navigate('Home')}
+            />
+            <MapButton 
+            color='#1D3557'
+            onPress={() => this.props.navigation.navigate('Map')}
+            />
+            <TimetableButton 
+            color='#cc0033'
+            onPress={() => this.props.navigation.navigate('Timetable')}
+            />
         </View>
- </View>
  </View>
  )
 }
@@ -133,9 +109,6 @@ _renderItem(item) {
 }
 
 }
-
-
-
 
 const textStyle = StyleSheet.create({
  titleText: {

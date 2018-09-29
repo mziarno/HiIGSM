@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import {
   View, Text, TouchableOpacity,FlatList, StatusBar} from 'react-native';
-import { CheckBox } from 'react-native-elements';
-import { Icon } from 'react-native-elements';
+import { CheckBox, Icon } from 'react-native-elements';
 import styles from '../components/styles';
-import nav_style from '../components/nav_style';
 import * as firebase from 'firebase';
+import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
 
-require("firebase/database");
-class MustSee extends Component {
+require("firebase/database"); class MustSee extends Component {
 
   constructor() {
     super();
@@ -31,7 +29,6 @@ class MustSee extends Component {
 
           newAttribute[attributeKey] = attribute;
         })
-
         let lastState = this.state.mustSee
         lastState[places] = newAttribute
         let newState = lastState
@@ -58,7 +55,6 @@ class MustSee extends Component {
       return null;
     }
     const typeSet = new Set;
-
     let mustSee = this.state.mustSee;
     const aaa = [];
   
@@ -70,7 +66,6 @@ class MustSee extends Component {
 
         if (attributeNameKey == 'type') {
           mustSeeType = attributes[attributeNameKey]
-
           typeSet.add(
             mustSeeType
           );   
@@ -87,7 +82,7 @@ class MustSee extends Component {
     return (
       <View>
         <StatusBar barStyle="light-content" />
-        <View style={{ height: '83%' }}>
+        <View style={{ height: '90%' }}>
           <View>
             <FlatList
               data={bbb}
@@ -130,42 +125,20 @@ class MustSee extends Component {
           </View>
 
         </View>
-        <View style={{ top: '5%', justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center', }}>
-
-          <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Home')}>
-              <Icon
-                name='home'
-                type='octicon'
-                color='#1D3557'
-                size={36} />
-              <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }} >Home</Text>
-            </TouchableOpacity>
+        <View style={{top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>       
+            <HomeButton 
+            color='#1D3557'
+            onPress={() => this.props.navigation.navigate('Home')}
+            />
+            <MapButton 
+            color='#1D3557'
+            onPress={() => this.props.navigation.navigate('Map')}
+            />
+            <TimetableButton 
+            color='#1D3557'
+            onPress={() => this.props.navigation.navigate('Timetable')}
+            />
           </View>
-
-          <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Map')} >
-              <Icon
-                name='marker'
-                type='foundation'
-                color='#1D3557'
-                size={36} />
-              <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }}>Map</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={nav_style.HomeBtn}>
-            <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Timetable')}>
-              <Icon
-                name='calendar'
-                type='octicon'
-                color='#1D3557'
-                size={36} />
-              <Text style={{ fontSize: 10, color: '#1D3557', textAlign: 'center' }}>Timetable</Text>
-            </TouchableOpacity>
-          </View>
-
-        </View>
 
       </View>
     )

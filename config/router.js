@@ -1,7 +1,8 @@
 import React, {Component, AppRegistry} from 'react';
 import {Image, Button, Text} from 'react-native';
-import {TabNavigator, StackNavigator, TabBarBottom, DrawerNavigator} from 'react-navigation';
+import {TabNavigator, StackNavigator,  DrawerNavigator, DrawerItems} from 'react-navigation';
 import {Icon} from 'react-native-elements';
+import {Container, Content, Header, Body } from 'native-base';
 
 import HomeScreen from '../screens/HomeScreen';
 import MustSeeScreen from '../screens/MustSeeScreen';
@@ -13,87 +14,88 @@ import Desc from '../screens/Desc';
 import Activity from '../screens/Activity';
 import DayScreen from '../screens/DayScreen';
 
+
+
 // DrawerNavigatior Screen
 const DrawerNav = DrawerNavigator({
+    //StackNav: {screen: StackNav},
     Home: {screen: HomeScreen,
         navigationOptions: {
-            title: 'Hi! IGSM 2019'
+            drawerLabel: 'Hi! IGSM 2019',
+            drawerIcon: <Icon 
+                name='home' 
+                type='octicon'/>
         }},
     
     MustSee: {
         screen: MustSeeScreen,
         navigationOptions: {
-            title: 'Must See'
+            drawerLabel: 'Must See',
+            drawerIcon: <Icon 
+                />
+           
         }},
     Timetable: {
         screen: TimetableScreen,
         navigationOptions: {
-            title: 'Timetable'
+            drawerLabel: 'Timetable',
+            drawerIcon: <Icon 
+                name='calendar'
+                type='octicon'/>
         }},
     Map: {
         screen: MapScreen,
         navigationOptions: {
-            title: 'Map'
+            drawerLabel: 'Map',
+            drawerIcon: <Icon 
+                name='marker' 
+                type='foundation'/>
         }},
     Contact: 
     {screen: Contact,
         navigationOptions: {
-            title: 'Contact With Organizators'
+            drawerLabel: 'Contact With Organizators',
+            drawerIcon: <Icon name='phone' />
+            
         }} ,
+   
+    // DayScreen: {screen: DayScreen        
+    //     }
 
-    DayScreen: 
-        {screen: DayScreen,
-            navigationOptions: {
-                title: 'Sunday'
-            }
-        }
-
+},{
+    // drawerWidth: Dimensions.get('window').width / 2.0,
+    //contentComponent: CustomDrawerComponent,
+    contentOptions: {
+        activeTintColor: '#cc0033',
+              
+    //     iconContainerStyle: {
+    //     opacity: 1
+    // }
+  }
 }
 );
-
-// TabNavigator Screen
-// const Tabs = TabNavigator(
-//     {
-//     Home: {screen: HomeScreen,
-//         navigationOptions: {
-//             title: 'Home Tab',
-//             tabBarIcon: 
-//             <Icon name='home' color='#ffffff'/>
-//         }
-//     },
-//     MustSee: {screen: MustSeeScreen,
-//         navigationOptions: {
-//             tabBarIcon: 
-//             <Icon name='map' color='#ffffff'/>
-//         }
-//     },
-//     Timetable: {screen: TimetableScreen,
-//         navigationOptions: {
-//             tabBarIcon: 
-//             <Icon name='view-list' color='#ffffff'/>
-//         }
-//     }
-//     },
-//     {
-//         tabBarPosition: 'bottom',
-//         tabBarComponent: TabBarBottom,
-//         swipeEnabled: true,
-//         tabBarOptions: {
-//         activeTintColor: 'white',
-//         style: {
-//             backgroundColor: '#1D3557',
-//         }
-//         }
-//     }
-// );
-
+// const CustomDrawerComponent =(props) =>(
+//     <Container>
+//         <Header style={{height:200}}>
+//             <Body>
+//             <Image
+//                 style={{height:300, width: 200}}
+//                 source={require('../assets/images/logo.jpg')}/> 
+//             </Body>
+//         </Header>
+//         <Content>
+//             <DrawerItems {...props}/>
+//         </Content>
+//     </Container>
+// )
 
 // StackNavigation Screen
 const StackNav = StackNavigator({
-    DrawerNav: {screen: DrawerNav},
+   
+    DrawerNav: {screen: DrawerNav},            
     HomeScreen: {screen: HomeScreen,
         navigationOptions: {
-            title: 'Hi! IGSM 2019'
+            header: 'Hi! IGSM 2019'
         }},
     MustSeeScreen: {screen: MustSeeScreen,
         navigationOptions: {
@@ -111,14 +113,8 @@ const StackNav = StackNavigator({
         navigationOptions: {
             title: 'Map'
         }},
-    DayScreen: {screen: DayScreen,
-        navigationOptions: {
-            title: 'Day'
-        }},
-    Activity: {screen: Activity,
-        navigationOptions: {
-            title: ' '
-        }},
+    DayScreen: {screen: DayScreen},
+    Activity: {screen: Activity},
     Places: {screen:Places,
     navigationOptions:{
         title: 'Must See'
@@ -149,6 +145,7 @@ const StackNav = StackNavigator({
                 containerStyle={{marginLeft:15}}
                 onPress={() => navigation.navigate('DrawerToggle')}/>
          })
-        })
+        });          
+
 
 export default StackNav
