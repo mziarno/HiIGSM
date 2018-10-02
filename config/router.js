@@ -2,7 +2,6 @@ import React, {Component, AppRegistry} from 'react';
 import {Image, Button, Text} from 'react-native';
 import {TabNavigator, StackNavigator,  DrawerNavigator, DrawerItems} from 'react-navigation';
 import {Icon} from 'react-native-elements';
-import {Container, Content, Header, Body } from 'native-base';
 
 import HomeScreen from '../screens/HomeScreen';
 import MustSeeScreen from '../screens/MustSeeScreen';
@@ -22,6 +21,7 @@ const DrawerNav = DrawerNavigator({
     Home: {screen: HomeScreen,
         navigationOptions: {
             drawerLabel: 'Hi! IGSM 2019',
+            title: 'Hi!IGSM!',
             drawerIcon: <Icon 
                 name='home' 
                 type='octicon'/>
@@ -31,6 +31,7 @@ const DrawerNav = DrawerNavigator({
         screen: MustSeeScreen,
         navigationOptions: {
             drawerLabel: 'Must See',
+            title:'Must See',
             drawerIcon: <Icon 
                 />
            
@@ -39,6 +40,7 @@ const DrawerNav = DrawerNavigator({
         screen: TimetableScreen,
         navigationOptions: {
             drawerLabel: 'Timetable',
+            title: 'Timetable',
             drawerIcon: <Icon 
                 name='calendar'
                 type='octicon'/>
@@ -47,6 +49,7 @@ const DrawerNav = DrawerNavigator({
         screen: MapScreen,
         navigationOptions: {
             drawerLabel: 'Map',
+            title: 'Map',
             drawerIcon: <Icon 
                 name='marker' 
                 type='foundation'/>
@@ -55,22 +58,25 @@ const DrawerNav = DrawerNavigator({
     {screen: Contact,
         navigationOptions: {
             drawerLabel: 'Contact With Organizators',
+            title: 'Contact',
             drawerIcon: <Icon name='phone' />
             
         }} ,
-   
-    // DayScreen: {screen: DayScreen        
-    //     }
-
+    DayScreen: {screen: DayScreen,
+        navigationOptions: {
+            drawerLabel: () => null,              
+        }},
+    Activity: {screen: Activity,
+        navigationOptions: {
+            drawerLabel: () => null,              
+        }},
+    Places: {screen:Places,
+        navigationOptions: {
+            drawerLabel: () => null,              
+        }},
 },{
-    // drawerWidth: Dimensions.get('window').width / 2.0,
-    //contentComponent: CustomDrawerComponent,
     contentOptions: {
         activeTintColor: '#cc0033',
-              
-    //     iconContainerStyle: {
-    //     opacity: 1
-    // }
   }
 }
 );
@@ -93,36 +99,37 @@ const DrawerNav = DrawerNavigator({
 const StackNav = StackNavigator({
    
     DrawerNav: {screen: DrawerNav},            
-    HomeScreen: {screen: HomeScreen,
-        navigationOptions: {
-            header: 'Hi! IGSM 2019'
-        }},
-    MustSeeScreen: {screen: MustSeeScreen,
-        navigationOptions: {
-            title: 'Must See'
-        }},
-    TimetableScreen: {screen: TimetableScreen,
-        navigationOptions: {
-            title: 'Timetable'
-        }},
-    ContactScreen: {screen: Contact,
-        navigationOptions: {
-            title: 'Contact'
-        }},
-    MapScreen: {screen: MapScreen,
-        navigationOptions: {
-            title: 'Map'
-        }},
-    DayScreen: {screen: DayScreen},
-    Activity: {screen: Activity},
-    Places: {screen:Places,
-    navigationOptions:{
-        title: 'Must See'
-    }},
-    Desc: {screen: Desc,
-        navigationOptions: {
-            title: 'Description'
-        }},
+    // HomeScreen: {screen: HomeScreen,
+    //     navigationOptions: {
+    //         header: 'Hi! IGSM 2019'
+    //     }},
+    // MustSeeScreen: {screen: MustSeeScreen,
+    //     navigationOptions: {
+    //         title: 'Must See'
+    //     }},
+    // TimetableScreen: {screen: TimetableScreen,
+    //     navigationOptions: {
+    //         title: 'Timetable'
+    //     }},
+    // ContactScreen: {screen: Contact,
+    //     navigationOptions: {
+    //         title: 'Contact'
+    //     }},
+    // MapScreen: {screen: MapScreen,
+    //     navigationOptions: {
+    //         title: 'Map'
+    //     }},
+    // DayScreen: {screen: DayScreen},
+    // Activity: {screen: Activity},
+    
+    // Places: {screen:Places,
+    // navigationOptions:{
+    //     title: 'Must See'
+    // }},
+    // Desc: {screen: Desc,
+    //     navigationOptions: {
+    //         title: 'Description'
+    //     }},
 },{
     navigationOptions: ({navigation}) => ({
          headerStyle: 

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { View, Text, StyleSheet, Image,  TouchableOpacity,} from 'react-native';
 import MapView from 'react-native-maps';
-import {Icon} from 'react-native-elements';
 import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
 
 class Map extends Component {

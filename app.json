@@ -1,6 +1,15 @@
 {
   "expo": {
     "sdkVersion": "26.0.0",
-    "slug": "HiIGSM"
+    "slug": "HiIGSM",
+    "icon": "./assets/images/logo.png",
+    "splash": {
+      "image": "./assets/images/logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "name": "Hi!IGSM",
+    "version": "0.1.0",
+    "description": ""
   }
 }
