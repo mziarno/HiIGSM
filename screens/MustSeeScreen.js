@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import {
-  View, Text, TouchableOpacity,FlatList, StatusBar} from 'react-native';
+  View, Text, TouchableOpacity, FlatList, StatusBar} from 'react-native';
 import { CheckBox, Icon } from 'react-native-elements';
 import styles from '../components/styles';
 import * as firebase from 'firebase';
 import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
+import text_style from '../components/text_style'
+import colors from '../components/colors'
 
-require("firebase/database"); class MustSee extends Component {
+require("firebase/database");
+class MustSee extends Component {
 
   constructor() {
     super();
@@ -56,7 +59,7 @@ require("firebase/database"); class MustSee extends Component {
     }
     const typeSet = new Set;
     let mustSee = this.state.mustSee;
-    const aaa = [];
+    const placesType = [];
   
     Object.keys(mustSee).map(function (placeKey, index) {
       let attributes = mustSee[placeKey];
@@ -69,15 +72,15 @@ require("firebase/database"); class MustSee extends Component {
           typeSet.add(
             mustSeeType
           );   
-         console.log(mustSeeType)
+         //console.log(mustSeeType)
         } 
       })
       typeSet.forEach((element, index, array) => {
-        aaa.push(element)
+        placesType.push(element)
       })
     })
 
-    const bbb = aaa.filter((x, i, a) => a.indexOf(x) == i)
+    const list = placesType.filter((x, i, a) => a.indexOf(x) == i)
 
     return (
       <View>
@@ -85,7 +88,7 @@ require("firebase/database"); class MustSee extends Component {
         <View style={{ height: '90%' }}>
           <View>
             <FlatList
-              data={bbb}
+              data={list}
               extraData={this.state}
               renderItem={({ item }) => (
                 <CheckBox 
@@ -93,7 +96,7 @@ require("firebase/database"); class MustSee extends Component {
                   onPress={() => this.checkItem(item)}
                   checked={this.state.checked.includes(item)}
                   containerStyle={styles.whiteBigContainer}
-                  textStyle={styles.text1}
+                  textStyle={text_style.text1}
                   checkedColor='#4A4A4A'
                   uncheckedColor='#4A4A4A'
                 />
@@ -109,7 +112,7 @@ require("firebase/database"); class MustSee extends Component {
                   type='foundation'
                   color='#1D3557'
                   size={35} />
-                <Text style={styles.text2}> Show On Map </Text>
+                <Text style={text_style.text2}> Show On Map </Text>
               </TouchableOpacity>
             </View>
 
@@ -119,22 +122,22 @@ require("firebase/database"); class MustSee extends Component {
                   name='list'
                   color='#1D3557'
                   size={40} />
-                <Text style={styles.text2}> Show List </Text>
+                <Text style={text_style.text2}> Show List </Text>
               </TouchableOpacity>
             </View>
           </View>
 
         </View>
-        <View style={{top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>       
-            <HomeButton 
+        <View style={{top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>
+            <HomeButton
             color='#1D3557'
             onPress={() => this.props.navigation.navigate('Home')}
             />
-            <MapButton 
+            <MapButton
             color='#1D3557'
             onPress={() => this.props.navigation.navigate('Map')}
             />
-            <TimetableButton 
+            <TimetableButton
             color='#1D3557'
             onPress={() => this.props.navigation.navigate('Timetable')}
             />

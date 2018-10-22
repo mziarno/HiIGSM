@@ -6,23 +6,23 @@ import {
     ScrollView,
     StatusBar
 } from 'react-native'
-import * as firebase from 'firebase';
 import styles from '../components/styles';
 import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
+import text_style from '../components/text_style';
 
 class DayScreen extends Component {
 
     render() {
         const {navigation} = this.props;
-        const events = navigation.getParam('events', 'BRAK DANYCH :('); 
+        const events = navigation.getParam('events', 'BRAK DANYCH :(');
     
         let timee = " - "
         let placee = ''
         let eventsArray = [];
 
         Object.keys(events).map((eventName, index) => {
-            singleEvent = events[eventName];
-            eventInfosArray = [];
+            var singleEvent = events[eventName];
+            var eventInfosArray = [];
             timee = " - "
             placee = ''  
             
@@ -40,14 +40,14 @@ class DayScreen extends Component {
             })
 
             eventInfosArray.push(
-                <Text style={styles.timeText}>{timee}</Text>,
-                <Text style={styles.placeText}>{placee}</Text>,            
+                <Text style={text_style.timeText}>{timee}</Text>,
+                <Text style={text_style.placeText}>{placee}</Text>,
             );
             eventsArray.push(
                 // ===== Event card =====
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { activity: events[eventName] })}>
                     <View style={styles.greyMedium_Container}>
-                        <Text style={styles.eventText}>{eventName}</Text>
+                        <Text style={text_style.eventText}>{eventName}</Text>
                         {eventInfosArray}
                     </View>
                 </TouchableOpacity>
@@ -67,16 +67,16 @@ class DayScreen extends Component {
                         </View>
                     </ScrollView>
                 </View>
-                <View style={{top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>       
-                    <HomeButton 
+                <View style={{top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>
+                    <HomeButton
                     color='#1D3557'
                     onPress={() => this.props.navigation.navigate('Home')}
                     />
-                    <MapButton 
+                    <MapButton
                     color='#1D3557'
                     onPress={() => this.props.navigation.navigate('Map')}
                     />
-                    <TimetableButton 
+                    <TimetableButton
                     color='#1D3557'
                     onPress={() => this.props.navigation.navigate('Timetable')}
                     />

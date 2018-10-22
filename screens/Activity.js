@@ -14,9 +14,6 @@ const slideAnimation = new SlideAnimation({ slideFrom: 'bottom' });
 const scaleAnimation = new ScaleAnimation(2);
 
 class Activity extends Component {
-  navigationOptions= ()=> {
-    title: ' '
-}
 
   render() {
 
@@ -31,8 +28,8 @@ class Activity extends Component {
     //let eventsDetailArray = [];
 
     Object.keys(eventDetails).map((eventDetailKey, index) => {
-      eventDetailValue = eventDetails[eventDetailKey];
-      eventDetailArray = [];
+      let eventDetailValue = eventDetails[eventDetailKey];
+      let eventDetailArray = [];
 
       if (eventDetailKey == 'address') {
         // console.error(eventDetailValue)
@@ -104,20 +101,20 @@ class Activity extends Component {
         </View>
 
 
-          <View style={{top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>       
-                    <HomeButton 
+          <View style={{top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>
+                    <HomeButton
                     color='#1D3557'
                     onPress={() => this.props.navigation.navigate('Home')}
                     />
-                    <MapButton 
+                    <MapButton
                     color='#1D3557'
                     onPress={() => this.props.navigation.navigate('Map')}
                     />
-                    <TimetableButton 
+                    <TimetableButton
                     color='#1D3557'
                     onPress={() => this.props.navigation.navigate('Timetable')}
                     />
-          </View>  
+          </View>
      
 
      

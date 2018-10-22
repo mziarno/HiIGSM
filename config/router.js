@@ -1,8 +1,8 @@
 import React, {Component, AppRegistry} from 'react';
 import {Image, Button, Text} from 'react-native';
-import {TabNavigator, StackNavigator,  DrawerNavigator, DrawerItems} from 'react-navigation';
+import {TabNavigator, StackNavigator,  DrawerNavigator} from 'react-navigation';
 import {Icon} from 'react-native-elements';
-
+import colors from '../components/colors'
 import HomeScreen from '../screens/HomeScreen';
 import MustSeeScreen from '../screens/MustSeeScreen';
 import TimetableScreen from '../screens/TimetableScreen';
@@ -12,6 +12,7 @@ import Places from '../screens/Places';
 import Desc from '../screens/Desc';
 import Activity from '../screens/Activity';
 import DayScreen from '../screens/DayScreen';
+import NotificationsScreen from '../screens/NotificationsScreen';
 
 
 
@@ -62,6 +63,11 @@ const DrawerNav = DrawerNavigator({
             drawerIcon: <Icon name='phone' />
             
         }} ,
+    Notification:
+        {screen: NotificationsScreen,
+            navigationOptions: {
+                drawerLabel: () => null,
+            }},
     DayScreen: {screen: DayScreen,
         navigationOptions: {
             drawerLabel: () => null,              
@@ -76,7 +82,7 @@ const DrawerNav = DrawerNavigator({
         }},
 },{
     contentOptions: {
-        activeTintColor: '#cc0033',
+        activeTintColor: colors.red,
   }
 }
 );
@@ -99,49 +105,18 @@ const DrawerNav = DrawerNavigator({
 const StackNav = StackNavigator({
    
     DrawerNav: {screen: DrawerNav},            
-    // HomeScreen: {screen: HomeScreen,
-    //     navigationOptions: {
-    //         header: 'Hi! IGSM 2019'
-    //     }},
-    // MustSeeScreen: {screen: MustSeeScreen,
-    //     navigationOptions: {
-    //         title: 'Must See'
-    //     }},
-    // TimetableScreen: {screen: TimetableScreen,
-    //     navigationOptions: {
-    //         title: 'Timetable'
-    //     }},
-    // ContactScreen: {screen: Contact,
-    //     navigationOptions: {
-    //         title: 'Contact'
-    //     }},
-    // MapScreen: {screen: MapScreen,
-    //     navigationOptions: {
-    //         title: 'Map'
-    //     }},
-    // DayScreen: {screen: DayScreen},
-    // Activity: {screen: Activity},
-    
-    // Places: {screen:Places,
-    // navigationOptions:{
-    //     title: 'Must See'
-    // }},
-    // Desc: {screen: Desc,
-    //     navigationOptions: {
-    //         title: 'Description'
-    //     }},
 },{
     navigationOptions: ({navigation}) => ({
          headerStyle: 
-            {backgroundColor: '#1D3557'},
-             headerTintColor: '#fff',
-             margain: '20',
+            {backgroundColor: colors.blue},
+             headerTintColor: colors.white,
+             margin: '20',
              headerTitleStyle: {
              fontWeight: 'bold'
              },
             headerRight: (
                 <Icon name='phone' 
-                color='#ffffff' 
+                color='#ffffff'
                 containerStyle={{marginRight:15}}
                 onPress={() => navigation.navigate('Contact') }title='contact'/>
                 

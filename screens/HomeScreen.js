@@ -9,19 +9,24 @@ import {
     StatusBar,
 } from 'react-native';
 import styles from '../components/styles';
+import text_style from '../components/text_style'
+import colors from '../components/colors'
 import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
 
 require("firebase/database");
-class HomeScreen extends Component {   
+class HomeScreen extends Component {
     constructor() {
         super();
         this.state = {
             message: ' ',
             weekDays: {},
-            iterator: 1
+            iterator: 1,
+           // time: ''
         };
     }
     componentDidMount() {
+      //  this.Clock = setInterval( () => this.GetTime(), 1000 );
+
         // Firebase connection part
         const rootRef = firebase.database().ref();
         const messRef = rootRef.child('message');
@@ -73,10 +78,11 @@ class HomeScreen extends Component {
         Object.keys(weekDays).map(function (dayNameKey, index) {
             let events = weekDays[dayNameKey];
             let eventsArray = [];
+            //console.log(events)
            
             Object.keys(events).map(function (eventNameKey, index) {
-                singleEvent = events[eventNameKey];
-                eventInfosArray = [];
+                var singleEvent = events[eventNameKey];
+                var eventInfosArray = [];
            
                 let time = " - "
                 let place = ''
@@ -94,14 +100,14 @@ class HomeScreen extends Component {
                     }                   
                 })
                 eventInfosArray.push(
-                    <Text style={styles.timeText}>{time}</Text>,
-                    <Text style={styles.placeText}>{place}</Text>                    
+                    <Text style={text_style.timeText}>{time}</Text>,
+                    <Text style={text_style.placeText}>{place}</Text>
                 );
                 eventsArray.push(                  
                     // ===== Event card =====
                     <TouchableOpacity onPress={() => navigate('Activity', {activity: events[eventNameKey]})}>
-                        <View style={styles.greyMedium_Container}>
-                            <Text style={styles.eventText}>{eventNameKey}</Text>
+                        <View style={styles.whiteMedium_Container}>
+                            <Text style={text_style.eventText}>{eventNameKey}</Text>
                             {eventInfosArray}
                         </View>
                     </TouchableOpacity> 
@@ -111,7 +117,7 @@ class HomeScreen extends Component {
                 // ===== Day page =====
                 <View>
                     <View style={styles.day}>
-                        <Text style={styles.text}>{dayNameKey}</Text>
+                        <Text style={text_style.text}>{dayNameKey}</Text>
                     </View>
                     <View style={{ height: '80%' }}>
                         <ScrollView >
@@ -127,12 +133,14 @@ class HomeScreen extends Component {
             <View >
                 <StatusBar barStyle="light-content" />
                     <View style={{ height: '90%' }}>
-                    <View style={styles.notificationContainer}>
-                        <View style={styles.notification}>
-                            <Text style={styles.text}> Notifications </Text>
+                    <TouchableOpacity onPress = {() => navigate('Notification')}>
+                        <View style={styles.notificationContainer}>
+                            <View style={styles.notification}>
+                                <Text style={text_style.text}> Notifications </Text>
+                            </View>
+                            <Text style={text_style.notificationsText}> {this.state.message} </Text>
                         </View>
-                        <Text style={styles.notificationsText}> {this.state.message} </Text>
-                    </View>
+                    </TouchableOpacity>
                     <View>
                         {/* WeekDays pages renderer */}
                         <IndicatorViewPager
@@ -143,16 +151,16 @@ class HomeScreen extends Component {
                         </IndicatorViewPager>
                     </View>
                 </View>
-                <View style={{ top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>       
-                        <HomeButton 
+                <View style={{ top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>
+                        <HomeButton
                         color='#cc0033'
                         onPress={() => navigate('Home')}
                         />
-                        <MapButton 
+                        <MapButton
                         color='#1D3557'
                         onPress={() => navigate('Map')}
                         />
-                        <TimetableButton 
+                        <TimetableButton
                         color='#1D3557'
                         onPress={() => navigate('Timetable')}
                         />
