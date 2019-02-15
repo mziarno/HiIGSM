@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image,  TouchableOpacity,} from 'react-native';
 import MapView from 'react-native-maps';
 import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
 
-class Map extends Component {
+class MapScreen extends Component {
 
   render() {
     return (
@@ -109,4 +109,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Map;
+export default MapScreen;

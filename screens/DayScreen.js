@@ -45,7 +45,7 @@ class DayScreen extends Component {
             );
             eventsArray.push(
                 // ===== Event card =====
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('Activity', { activity: events[eventName] })}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('ActivityScreen', { activity: events[eventName] })}>
                     <View style={styles.greyMedium_Container}>
                         <Text style={text_style.eventText}>{eventName}</Text>
                         {eventInfosArray}

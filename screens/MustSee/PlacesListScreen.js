@@ -5,11 +5,11 @@ import {
     FlatList,
     StatusBar,
 } from 'react-native';
-import styles from '../components/styles';
-import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
-import text_style from '../components/text_style'
+import styles from '../../components/styles';
+import HomeButton, {MapButton, TimetableButton} from '../../components/NavigationButton';
+import text_style from '../../components/text_style'
 
-const places = ['National Museum', 'Museum of the History of Polish Jews', 'Zachęta – National Gallery of Art', 'Foksal Gallery']
+const placesListScreen = ['National Museum', 'Museum of the History of Polish Jews', 'Zachęta – National Gallery of Art', 'Foksal Gallery']
 
 class Places extends Component {
     render() {
@@ -18,7 +18,7 @@ class Places extends Component {
                 <StatusBar barStyle="light-content" />
                 <View style={{ height: '90%' }}>
                     <FlatList
-                        data={places}
+                        data={placesListScreen}
                         renderItem={({ item }) => (
                             <View style={styles.greyMedium_Container}>
                                 <Text style={text_style.text1}> {item} </Text>

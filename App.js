@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import {Permissions, Notifications} from 'expo';
-import { StyleSheet, Text, View, StatusBar, Button, TouchableOpacity, Image, Platform, Icon } from 'react-native';
-import ApiKeys from './ApiKeys';
+import React, {Component} from 'react';
+import {Icon} from 'react-native';
+import firebaseConfig from './firebaseConfig';
 import * as firebase from 'firebase';
-import { YellowBox } from 'react-native';
+import AppNavigator from "./config/router";
 
 console.disableYellowBox = true;
 
-import StackNav from './config/router';
-
 class App extends Component {
+    constructor(props) {
+        super(props);
+        firebase.initializeApp(firebaseConfig);
+    }
 
-
-  render() {
-    return <StackNav/>;
-  }
+    render() {
+        return <AppNavigator/>;
+    }
 }
 
 export default App;

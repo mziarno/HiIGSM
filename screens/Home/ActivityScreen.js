@@ -7,13 +7,13 @@ import {
   TouchableOpacity,
 }from 'react-native';
 import { Icon } from 'react-native-elements';
-import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
+import HomeButton, {MapButton, TimetableButton} from '../../components/NavigationButton';
 import PopupDialog, { SlideAnimation, ScaleAnimation, DialogTitle } from 'react-native-popup-dialog';
 
 const slideAnimation = new SlideAnimation({ slideFrom: 'bottom' });
 const scaleAnimation = new ScaleAnimation(2);
 
-class Activity extends Component {
+class ActivityScreen extends Component {
 
   render() {
 
@@ -51,7 +51,7 @@ class Activity extends Component {
         <View style={{ height: '90%' }}>
           <View>
             <Image
-              source={require('../assets/images/patch.jpg')}
+              source={require('../../assets/images/patch.jpg')}
               style={{ width: '100%', height: 150 }} />
             <View
               style={styles.containerStyle}>
@@ -126,7 +126,7 @@ class Activity extends Component {
           height={0.7}>
           <View style={{ alignItems: 'center' }}>
             <Image
-              source={require('../assets/images/poziom4.jpg')}
+              source={require('../../assets/images/poziom4.jpg')}
               style={{ resizeMethod: 'resize', resizeMode: 'contain', height: '93%' }} />
           </View>
         </PopupDialog>
@@ -273,4 +273,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default Activity;
+export default ActivityScreen;

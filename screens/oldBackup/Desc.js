@@ -6,7 +6,7 @@ import {
     Platform,
     TouchableOpacity
 } from 'react-native';
-import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
+import HomeButton, {MapButton, TimetableButton} from '../../components/NavigationButton';
 export default class Desc extends React.Component {
 
 

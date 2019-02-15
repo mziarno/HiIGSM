@@ -6,7 +6,7 @@ import cont_styles from '../components/cont_style';
 
 import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
 
-class Contact extends React.Component{
+class ContactScreen extends React.Component{
    
     render(){
         return(           
@@ -86,4 +86,4 @@ class Contact extends React.Component{
     }
 }
 
-export default Contact;
+export default ContactScreen;

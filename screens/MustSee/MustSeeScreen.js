@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import {
   View, Text, TouchableOpacity, FlatList, StatusBar} from 'react-native';
 import { CheckBox, Icon } from 'react-native-elements';
-import styles from '../components/styles';
-import * as firebase from 'firebase';
-import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
-import text_style from '../components/text_style'
-import colors from '../components/colors'
+import styles from '../../components/styles';
+import * as firebase from '../../firebase';
+import HomeButton, {MapButton, TimetableButton} from '../../components/NavigationButton';
+import text_style from '../../components/text_style'
+import colors from '../../components/colors'
 
 require("firebase/database");
 class MustSee extends Component {
