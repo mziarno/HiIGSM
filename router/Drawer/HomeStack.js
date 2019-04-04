@@ -1,23 +1,28 @@
 import {createStackNavigator} from "react-navigation";
 import HomeScreen from "../../screens/Home/HomeScreen";
 import ActivityScreen from "../../screens/Home/ActivityScreen";
+import React from "react";
+import {headerNavigationOptions} from "../routerTools";
+
+/*
+* Stack which makes it possible to attach additional screens available only from HomeScreen
+* */
 
 const HomeStack = createStackNavigator({
     Home: {
         screen: HomeScreen,
-        defaultNavigationOptions: {
-            title: 'Hi!IGSM!2',
-            // headerMode: 'none',
+        navigationOptions: {
+            title: 'Hi IGSM!',
         }
     },
     Activity: {
         screen: ActivityScreen,
-        defaultNavigationOptions: {
-            drawerLabel: () => null,
+        navigationOptions: {
+            title: 'Hi!IGSM!2',
         }
     },
 }, {
-    headerMode: 'none',
+    defaultNavigationOptions: headerNavigationOptions
 });
 
 export default HomeStack

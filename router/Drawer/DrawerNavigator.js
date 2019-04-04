@@ -14,11 +14,10 @@ import HomeStack from "./HomeStack";
 
 /*
 * Core of navigation.
-* Contains
+* Contains single screens or stacks for elements with multiple screens.
 * */
 
 const DrawerNavigator = createDrawerNavigator({
-        //StackNav: {screen: StackNav},
         Home: {
             screen: HomeStack,
             navigationOptions: {
@@ -98,6 +97,7 @@ const DrawerNavigator = createDrawerNavigator({
         contentOptions: {
             activeTintColor: colors.red,
         },
+
     }
 );
 
