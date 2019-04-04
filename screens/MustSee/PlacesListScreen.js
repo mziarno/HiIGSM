@@ -1,12 +1,6 @@
-import React, { Component } from 'react';
-import {
-    View,
-    Text,
-    FlatList,
-    StatusBar,
-} from 'react-native';
+import React, {Component} from 'react';
+import {FlatList, StatusBar, Text, View,} from 'react-native';
 import styles from '../../components/styles';
-import HomeButton, {MapButton, TimetableButton} from '../../components/NavigationButton';
 import text_style from '../../components/text_style'
 
 const placesListScreen = ['National Museum', 'Museum of the History of Polish Jews', 'Zachęta – National Gallery of Art', 'Foksal Gallery']
@@ -15,29 +9,15 @@ class Places extends Component {
     render() {
         return (
             <View>
-                <StatusBar barStyle="light-content" />
-                <View style={{ height: '90%' }}>
+                <StatusBar barStyle="light-content"/>
+                <View style={{height: '90%'}}>
                     <FlatList
                         data={placesListScreen}
-                        renderItem={({ item }) => (
+                        renderItem={({item}) => (
                             <View style={styles.greyMedium_Container}>
                                 <Text style={text_style.text1}> {item} </Text>
                             </View>
                         )}
-                    />
-                </View>
-                <View style={{top: 5, justifyContent: 'space-around', flexDirection: 'row', flex:1, alignItems: 'center' }}>
-                    <HomeButton
-                    color='#1D3557'
-                    onPress={() => this.props.navigation.navigate('Home')}
-                    />
-                    <MapButton
-                    color='#1D3557'
-                    onPress={() => this.props.navigation.navigate('Map')}
-                    />
-                    <TimetableButton
-                    color='#1D3557'
-                    onPress={() => this.props.navigation.navigate('Timetable')}
                     />
                 </View>
             </View>

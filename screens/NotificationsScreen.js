@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import { Text, View, StatusBar, TouchableOpacity} from 'react-native';
+import {StatusBar, Text, TouchableOpacity, View} from 'react-native';
 import * as firebase from 'firebase';
 import styles from '../components/styles';
-import HomeButton, {MapButton, TimetableButton} from '../components/NavigationButton';
 import text_style from '../components/text_style'
-import { Permissions, Notifications } from 'expo';
+
 require("firebase/database");
 
 
@@ -102,23 +101,8 @@ class Notification extends Component {
                                 </TouchableOpacity>
                             )
                         })
-                       }
+                        }
                     </View>
-                </View>
-
-                <View style={{top: 5,justifyContent: 'space-around',flexDirection: 'row',flex: 1,alignItems: 'center'}}>
-                    <HomeButton
-                        color='#1D3557'
-                        onPress={() => navigate('Home')}
-                    />
-                    <MapButton
-                        color='#1D3557'
-                        onPress={() => navigate('Map')}
-                    />
-                    <TimetableButton
-                        color='#cc0033'
-                        onPress={() => navigate('Timetable')}
-                    />
                 </View>
             </View>
         )

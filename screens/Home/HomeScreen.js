@@ -4,7 +4,6 @@ import * as firebase from 'firebase';
 import {ScrollView, StatusBar, Text, TouchableOpacity, View,} from 'react-native';
 import styles from '../../components/styles';
 import text_style from '../../components/text_style'
-import HomeButton, {MapButton, TimetableButton} from '../../components/NavigationButton';
 
 require("firebase/database");
 
@@ -144,26 +143,6 @@ class HomeScreen extends Component {
                             {pageViews}
                         </IndicatorViewPager>
                     </View>
-                </View>
-                <View style={{
-                    top: 5,
-                    justifyContent: 'space-around',
-                    flexDirection: 'row',
-                    flex: 1,
-                    alignItems: 'center'
-                }}>
-                    <HomeButton
-                        color='#cc0033'
-                        onPress={() => navigate('Home')}
-                    />
-                    <MapButton
-                        color='#1D3557'
-                        onPress={() => navigate('Map')}
-                    />
-                    <TimetableButton
-                        color='#1D3557'
-                        onPress={() => navigate('Timetable')}
-                    />
                 </View>
             </View>
         )

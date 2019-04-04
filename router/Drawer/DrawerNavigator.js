@@ -1,11 +1,9 @@
 import {createDrawerNavigator} from "react-navigation";
 import {Icon} from "react-native-elements";
 import MustSeeScreen from "../../screens/MustSee/MustSeeScreen";
-import TimetableScreen from "../../screens/TimetableScreen";
 import MapScreen from "../../screens/MapScreen";
 import ContactScreen from "../../screens/ContactScreen";
 import NotificationsScreen from "../../screens/NotificationsScreen";
-import DayScreen from "../../screens/DayScreen";
 import ActivityScreen from "../../screens/Home/ActivityScreen";
 import Places from "../../screens/MustSee/PlacesListScreen";
 import colors from "../../components/colors";
@@ -31,21 +29,11 @@ const DrawerNavigator = createDrawerNavigator({
         MustSee: {
             screen: MustSeeScreen,
             navigationOptions: {
-                drawerLabel: 'Must See',
+                drawerLabel: 'Must See (nie działa)',
                 title: 'Must See',
                 drawerIcon: <Icon
                 />
 
-            }
-        },
-        Timetable: {
-            screen: TimetableScreen,
-            navigationOptions: {
-                drawerLabel: 'Timetable',
-                title: 'Timetable',
-                drawerIcon: <Icon
-                    name='calendar'
-                    type='octicon'/>
             }
         },
         Map: {
@@ -75,12 +63,6 @@ const DrawerNavigator = createDrawerNavigator({
                     drawerLabel: () => null,
                 }
             },
-        DayScreen: {
-            screen: DayScreen,
-            navigationOptions: {
-                drawerLabel: () => null,
-            }
-        },
         Activity: {
             screen: ActivityScreen,
             navigationOptions: {
