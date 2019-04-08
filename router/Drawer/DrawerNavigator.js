@@ -2,13 +2,13 @@ import {createDrawerNavigator} from "react-navigation";
 import {Icon} from "react-native-elements";
 import MustSeeScreen from "../../screens/MustSee/MustSeeScreen";
 import MapScreen from "../../screens/MapScreen";
-import ContactScreen from "../../screens/ContactScreen";
 import NotificationsScreen from "../../screens/NotificationsScreen";
 import ActivityScreen from "../../screens/Home/ActivityScreen";
 import Places from "../../screens/MustSee/PlacesListScreen";
 import colors from "../../components/colors";
 import React from "react";
 import HomeStack from "./HomeStack";
+import ContactStack from "./ContactStack";
 
 /*
 * Core of navigation.
@@ -20,12 +20,20 @@ const DrawerNavigator = createDrawerNavigator({
             screen: HomeStack,
             navigationOptions: {
                 drawerLabel: 'Hi! IGSM 2019',
-                title: 'Hi!IGSM!',
-                drawerIcon: <Icon
-                    name='home'
-                    type='octicon'/>
+                drawerIcon: <Icon name='home' type='octicon'/>
             }
         },
+    Contact:
+        {
+            screen: ContactStack,
+            navigationOptions: {
+                drawerLabel: 'Contact With organizers',
+                drawerIcon: <Icon name='phone'/>
+            }
+        },
+
+        //Dotąd jest legitnie
+    
         MustSee: {
             screen: MustSeeScreen,
             navigationOptions: {
@@ -46,16 +54,7 @@ const DrawerNavigator = createDrawerNavigator({
                     type='foundation'/>
             }
         },
-        Contact:
-            {
-                screen: ContactScreen,
-                navigationOptions: {
-                    drawerLabel: 'Contact With Organizators',
-                    title: 'Contact',
-                    drawerIcon: <Icon name='phone'/>
 
-                }
-            },
         Notification:
             {
                 screen: NotificationsScreen,
@@ -79,7 +78,6 @@ const DrawerNavigator = createDrawerNavigator({
         contentOptions: {
             activeTintColor: colors.red,
         },
-
     }
 );
 
