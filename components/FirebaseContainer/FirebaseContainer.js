@@ -5,8 +5,8 @@ require("firebase/database");
 
 export class FirebaseContainer extends Container {
     state = {
-        count: 0,
         weekDaysArray: [],
+        message: ""
     };
 
     constructor() {
@@ -17,16 +17,18 @@ export class FirebaseContainer extends Container {
 
     //============================================
     connectToFirebase = () => {
-        const weekDaysReference = firebase.database().ref('weekDaysNew');
-        weekDaysReference.on('value', snap => {
+        firebase.database().ref('weekDaysNew').on('value', snap => {
                 this.setState({
                     weekDaysArray: snap.val()
                 })
             }
         );
-    };
 
-    increment = () => {
-        this.setState({count: this.state.count + 1});
+        firebase.database().ref('message').on('value', snap => {
+                this.setState({
+                    message: snap.val()
+                })
+            }
+        );
     };
 }
