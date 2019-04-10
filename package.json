@@ -46,6 +46,7 @@
     "react-native-viewpager": "^0.2.13",
     "react-navigation": "^3.6.1",
     "rn-viewpager": "^1.2.9",
-    "simple-dialog": "^0.5.1"
+    "simple-dialog": "^0.5.1",
+    "unstated": "^2.1.1"
   }
 }
