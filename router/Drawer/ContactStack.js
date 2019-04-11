@@ -4,7 +4,7 @@ import {headerNavigationOptions} from "../routerTools";
 import ContactScreen from "../../screens/ContactScreen";
 
 /*
-* Stack which makes it possible to attach additional screens available only from HomeScreen
+* Stack which makes it possible to attach additional screens available only from ContactScreen
 * */
 
 const HomeStack = createStackNavigator({

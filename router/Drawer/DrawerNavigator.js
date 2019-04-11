@@ -1,7 +1,6 @@
 import {createDrawerNavigator} from "react-navigation";
 import {Icon} from "react-native-elements";
 import MustSeeScreen from "../../screens/MustSee/MustSeeScreen";
-import MapScreen from "../../screens/MapScreen";
 import NotificationsScreen from "../../screens/NotificationsScreen";
 import ActivityScreen from "../../screens/Home/ActivityScreen";
 import Places from "../../screens/MustSee/PlacesListScreen";
@@ -9,6 +8,7 @@ import colors from "../../components/colors";
 import React from "react";
 import HomeStack from "./HomeStack";
 import ContactStack from "./ContactStack";
+import MapStack from "./MapStack";
 
 /*
 * Core of navigation.
@@ -23,17 +23,24 @@ const DrawerNavigator = createDrawerNavigator({
                 drawerIcon: <Icon name='home' type='octicon'/>
             }
         },
-    Contact:
-        {
-            screen: ContactStack,
+        Contact:
+            {
+                screen: ContactStack,
+                navigationOptions: {
+                    drawerLabel: 'Contact With organizers',
+                    drawerIcon: <Icon name='phone'/>
+                }
+            },
+        Map: {
+            screen: MapStack,
             navigationOptions: {
-                drawerLabel: 'Contact With organizers',
-                drawerIcon: <Icon name='phone'/>
+                drawerLabel: 'IGSM map',
+                drawerIcon: <Icon name='marker' type='foundation'/>
             }
         },
 
         //Dotąd jest legitnie
-    
+
         MustSee: {
             screen: MustSeeScreen,
             navigationOptions: {
@@ -44,17 +51,6 @@ const DrawerNavigator = createDrawerNavigator({
 
             }
         },
-        Map: {
-            screen: MapScreen,
-            navigationOptions: {
-                drawerLabel: 'Map',
-                title: 'Map',
-                drawerIcon: <Icon
-                    name='marker'
-                    type='foundation'/>
-            }
-        },
-
         Notification:
             {
                 screen: NotificationsScreen,
