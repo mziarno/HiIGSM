@@ -8,7 +8,7 @@ import MapScreen from "../../screens/MapScreen";
 * */
 
 const MapStack = createStackNavigator({
-    Home: {
+    Map: {
         screen: MapScreen,
         navigationOptions: {
             title: 'IGSM map',

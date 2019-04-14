@@ -7,8 +7,8 @@ import ContactScreen from "../../screens/ContactScreen";
 * Stack which makes it possible to attach additional screens available only from ContactScreen
 * */
 
-const HomeStack = createStackNavigator({
-    Home: {
+const ContactStack = createStackNavigator({
+    Contact: {
         screen: ContactScreen,
         navigationOptions: {
             title: 'Contact organizers',
@@ -18,4 +18,4 @@ const HomeStack = createStackNavigator({
     defaultNavigationOptions: headerNavigationOptions
 });
 
-export default HomeStack
+export default ContactStack
