@@ -10,6 +10,10 @@
     },
     "name": "Hi!IGSM",
     "version": "0.1.0",
-    "description": ""
+    "description": "",
+    "platforms": [
+      "android",
+      "ios"
+    ]
   }
 }
