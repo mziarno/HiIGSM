@@ -1,7 +1,6 @@
 import {createDrawerNavigator} from "react-navigation";
 import {Icon} from "react-native-elements";
 import MustSeeScreen from "../../screens/MustSee/MustSeeScreen";
-import NotificationsScreen from "../../screens/NotificationsScreen";
 import ActivityScreen from "../../screens/Home/ActivityScreen";
 import Places from "../../screens/MustSee/PlacesListScreen";
 import colors from "../../components/colors";
@@ -9,6 +8,8 @@ import React from "react";
 import HomeStack from "./HomeStack";
 import ContactStack from "./ContactStack";
 import MapStack from "./MapStack";
+import NotificationsStack from "./NotificationsStack";
+
 
 /*
 * Core of navigation.
@@ -38,6 +39,13 @@ const DrawerNavigator = createDrawerNavigator({
                 drawerIcon: <Icon name='marker' type='foundation'/>
             }
         },
+        Notifications: {
+            screen: NotificationsStack,
+            navigationOptions: {
+                drawerLabel: 'Notifications',
+                //TODO: drawerIcon
+            }
+        },
 
         //Dotąd jest legitnie
 
@@ -51,13 +59,6 @@ const DrawerNavigator = createDrawerNavigator({
 
             }
         },
-        Notification:
-            {
-                screen: NotificationsScreen,
-                navigationOptions: {
-                    drawerLabel: () => null,
-                }
-            },
         Activity: {
             screen: ActivityScreen,
             navigationOptions: {

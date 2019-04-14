@@ -9,7 +9,7 @@ const MainNotification = props => (
     <Subscribe to={[FirebaseContainer]}>
         {firebase => {
             return (
-                <TouchableOpacity onPress={() => props.navigation.navigate('Notification')}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('Notifications')}>
                     <View style={styles.notificationContainer}>
                         <View style={styles.notification}>
                             <Text style={text_style.text}> Notifications </Text>

@@ -6,7 +6,8 @@ require("firebase/database");
 export class FirebaseContainer extends Container {
     state = {
         weekDaysArray: [],
-        message: ""
+        message: "",
+        notificationsArray: []
     };
 
     constructor() {
@@ -30,5 +31,13 @@ export class FirebaseContainer extends Container {
                 })
             }
         );
+
+        firebase.database().ref('notifications').on('value', snap =>{
+            this.setState({
+                notificationsArray: snap.val()
+            })
+        })
+
     };
+
 }
