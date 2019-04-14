@@ -1,8 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {StatusBar, View} from 'react-native';
 import AllNotifications from '../components/Notifications/AllNotifications';
-
-
 
 const NotificationsScreen = props => {
     return (
@@ -16,8 +14,3 @@ const NotificationsScreen = props => {
 };
 
 export default NotificationsScreen;
-
-
-
-
-

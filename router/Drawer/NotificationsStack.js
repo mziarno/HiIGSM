@@ -8,7 +8,7 @@ import NotificationsScreen from "../../screens/NotificationsScreen";
 * */
 
 const NotificationsStack = createStackNavigator({
-    Home: {
+    Notifications: {
         screen: NotificationsScreen,
         navigationOptions: {
             title: 'Notifications',

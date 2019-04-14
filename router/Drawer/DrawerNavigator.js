@@ -39,16 +39,15 @@ const DrawerNavigator = createDrawerNavigator({
                 drawerIcon: <Icon name='marker' type='foundation'/>
             }
         },
-
-
-        //Dotąd jest legitnie
-
         Notifications: {
             screen: NotificationsStack,
             navigationOptions: {
-                drawerLabel: () => null,
+                drawerLabel: 'Notifications',
+                //TODO: drawerIcon
             }
         },
+
+        //Dotąd jest legitnie
 
         MustSee: {
             screen: MustSeeScreen,

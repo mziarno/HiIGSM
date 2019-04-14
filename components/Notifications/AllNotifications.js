@@ -1,20 +1,27 @@
 import {Subscribe} from "unstated";
 import {FirebaseContainer} from "../FirebaseContainer/FirebaseContainer";
-import {View} from "react-native";
+import {Text, View} from "react-native";
 import React from "react";
-import {prepareNotifications} from './notificationsParsing'
+import styles from "../styles";
+import text_style from "../text_style";
 
-const AllNotifications =  props => (
+const AllNotifications = props => (
     <Subscribe to={[FirebaseContainer]}>
         {firebase => {
-            const notificationsArray = prepareNotifications(firebase.state.notificationsArray, props.navigation);
-            return(
+            return (
                 <View>
-                    {notificationsArray}
+                    {firebase.state.notificationsArray.map((notification) => (
+                            <View key={notification.content}>
+                                <View style={styles.whiteMedium_Container}>
+                                    <Text style={text_style.notificationsText}>{notification.content}</Text>
+                                </View>
+                            </View>
+                        )
+                    )}
                 </View>
             )
         }}
     </Subscribe>
-)
+);
 
 export default AllNotifications
