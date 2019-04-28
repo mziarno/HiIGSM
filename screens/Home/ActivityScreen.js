@@ -85,6 +85,7 @@ class ActivityScreen extends Component {
                     {/* ACTIVITY DETAILS */}
                     <View style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around'}}>
                         <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('Abstract')}
                             style={styles.containerStyle2}>
                             <Text style={styles.textDesc}>{eventDsc}</Text>
                         </TouchableOpacity>
