@@ -132,11 +132,9 @@ const styles = StyleSheet.create({
   },
   whiteMedium_Container: {
     backgroundColor: colors.white,
-    width: '90%',
+    width: '98%',
     height: 50,
     position: 'relative',
-    marginLeft: '5%',
-    marginRight: '5%',
     marginTop: 5,
     marginBottom: 3,
     borderRadius: 5,
@@ -190,10 +188,8 @@ const styles = StyleSheet.create({
   },
   day: {
     backgroundColor: colors.blue,
-    width: '90%',
+    width: '100%',
     height: 40,
-    marginLeft: '5%',
-    marginRight: '5%',
     borderRadius: 5,
     justifyContent: 'center'
   },
