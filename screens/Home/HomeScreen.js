@@ -7,14 +7,21 @@ const HomeScreen = props => {
     return (
         <View>
             <StatusBar barStyle="light-content"/>
-            <View style={{height: '90%'}}>
+            <View style={style.view}>
                 <MainNotification navigation={props.navigation}/>
-                <View>
-                    <TimetablePager navigation={props.navigation}/>
-                </View>
+                <TimetablePager navigation={props.navigation}/>
             </View>
         </View>
     )
+};
+
+const style = {
+    view:{
+        height: '97%',
+        marginLeft: '5%',
+        marginRight: '5%',
+        marginTop: '3%'
+    }
 };
 
 export default HomeScreen;

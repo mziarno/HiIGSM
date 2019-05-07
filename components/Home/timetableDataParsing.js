@@ -1,7 +1,6 @@
-import {ScrollView, Text, TouchableOpacity, View} from "react-native";
-import styles from "../styles";
-import text_style from "../text_style";
+import {Platform, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import React from "react";
+import colors from "../colors";
 
 const prepareClickableActivities = (weekDay, navigation) => {
     const eventsArray = [];
@@ -10,10 +9,10 @@ const prepareClickableActivities = (weekDay, navigation) => {
             // ===== Event card =====
             <TouchableOpacity key={activity.name}
                               onPress={() => navigation.navigate('Activity', {activity: activity})}>
-                <View style={styles.whiteMedium_Container}>
-                    <Text style={text_style.eventText}>{activity.name}</Text>
-                    <Text style={text_style.timeText} key={activity.startTime}>{activity.startTime}</Text>
-                    <Text style={text_style.placeText} key={activity.place}>{activity.place}</Text>
+                <View style={style.event}>
+                    <Text style={style.eventText}>{activity.name}</Text>
+                    <Text style={style.timeText} key={activity.startTime}>{activity.startTime}</Text>
+                    <Text style={style.placeText} key={activity.place}>{activity.place}</Text>
                 </View>
             </TouchableOpacity>
         );
@@ -28,10 +27,10 @@ export const prepareTimetablePager = (weekDaysArray, navigation) => {
 
         pageViewsArray.push(
             <View key={weekDay.dayName}>
-                <View style={styles.day}>
-                    <Text style={text_style.text}>{weekDay.dayName}</Text>
+                <View style={style.heading}>
+                    <Text style={style.textHeading}>{weekDay.dayName}</Text>
                 </View>
-                <View style={{height: '80%'}}>
+                <View style={{height: '100%'}}>
                     <ScrollView>
                         {activitiesArray}
                     </ScrollView>
@@ -40,4 +39,58 @@ export const prepareTimetablePager = (weekDaysArray, navigation) => {
         )
     });
     return pageViewsArray;
+};
+
+const style = {
+    heading: {
+        backgroundColor: colors.blueMedium,
+        width: '100%',
+        height: 40,
+        borderRadius: 5,
+        justifyContent: 'center'
+    },
+    event: {
+        backgroundColor: colors.white,
+        width: '99%',
+        height: 50,
+        marginLeft: '0.5%',
+        marginRight: '0.5%',
+        marginTop: 2,
+        marginBottom: 1,
+        position: 'relative',
+        borderRadius: 5,
+        justifyContent: 'center',
+        shadowColor: colors.shadow,
+        shadowOffset: { width: 3, height: 3 },
+        shadowOpacity: 1,
+        shadowRadius: 5,
+        elevation: 2,
+    },
+    textHeading: {
+        fontSize: 17,
+        color: colors.white,
+        fontWeight: 'bold',
+        textAlign: 'center'
+    },
+    eventText: {
+        fontSize: 17,
+        color: colors.blueMedium,
+        fontWeight: 'bold',
+        textAlignVertical: 'center',
+        marginLeft: 10
+    },
+    timeText: {
+        fontSize: 12,
+        color: colors.grey,
+        right: 10,
+        top: 10,
+        position: 'absolute'
+    },
+    placeText: {
+        fontSize: 12,
+        color: colors.grey,
+        right: 10,
+        position: 'absolute',
+        bottom: 10,
+    },
 };
