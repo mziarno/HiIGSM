@@ -4,6 +4,7 @@ import * as firebase from 'firebase';
 import {createAppContainer} from 'react-navigation';
 import RootNavigator from "./router/RootNavigator";
 import {Provider} from "unstated";
+import {registerForPushNotificationsAsync} from "./config/registerForPushNotifications";
 
 console.disableYellowBox = true;
 // console.ignoredYellowBox = [
@@ -16,6 +17,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         firebase.initializeApp(firebaseConfig);
+        registerForPushNotificationsAsync();
     }
 
     render() {
