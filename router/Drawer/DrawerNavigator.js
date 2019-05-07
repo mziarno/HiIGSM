@@ -9,6 +9,7 @@ import HomeStack from "./HomeStack";
 import ContactStack from "./ContactStack";
 import MapStack from "./MapStack";
 import NotificationsStack from "./NotificationsStack";
+import AbstractsStack from "./AbstractsStack";
 
 
 /*
@@ -43,11 +44,19 @@ const DrawerNavigator = createDrawerNavigator({
             screen: NotificationsStack,
             navigationOptions: {
                 drawerLabel: 'Notifications',
-                //TODO: drawerIcon
+                drawerIcon: <Icon name='bell' type='octicon'/>
             }
         },
 
         //Dotąd jest legitnie
+
+        Abstracts: {
+            screen: AbstractsStack,
+            navigationOptions: {
+                drawerLabel: 'Abstracts',
+                drawerIcon: <Icon name='file' type='octicon'/>
+            }
+        },
 
         MustSee: {
             screen: MustSeeScreen,
