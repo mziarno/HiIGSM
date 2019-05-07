@@ -23,7 +23,9 @@ const MainNotification = props => (
 const style = {
     touchable: {
         height: '25%',
-        marginBottom: '3%'
+        marginBottom: '3%',
+        marginLeft: '5%',
+        marginRight: '5%'
     },
     container: {
         position: 'relative',
@@ -38,7 +40,7 @@ const style = {
         elevation: 2,
     },
     heading: {
-        backgroundColor: colors.greenLight,
+        backgroundColor: colors.mintLigth,
         width: '100%',
         height: 40,
         borderTopLeftRadius: 5,

@@ -3,7 +3,7 @@ import {Icon} from "react-native-elements";
 import React from "react";
 
 export const headerNavigationOptions = ({navigation}) => ({
-    headerStyle: {backgroundColor: colors.blueMedium},
+    headerStyle: {backgroundColor: colors.mintDark},
     headerTintColor: colors.white,
     margin: '20',
     headerTitleStyle: {fontWeight: 'bold'},
