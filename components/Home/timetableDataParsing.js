@@ -19,6 +19,7 @@ const prepareClickableActivities = (weekDay, navigation) => {
         );
     });
     return eventsArray;
+
 };
 
 export const prepareTimetablePager = (weekDaysArray, navigation) => {

@@ -47,6 +47,7 @@
     "react-navigation": "^3.6.1",
     "rn-viewpager": "^1.2.9",
     "simple-dialog": "^0.5.1",
-    "unstated": "^2.1.1"
+    "unstated": "^2.1.1",
+    "react-native-google-maps-directions": "latest"
   }
 }
