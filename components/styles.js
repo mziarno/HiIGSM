@@ -153,6 +153,7 @@ const styles = StyleSheet.create({
   },
 
 
+
   notification: {
     backgroundColor: colors.red,
     width: '100%',

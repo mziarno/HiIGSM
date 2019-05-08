@@ -12,14 +12,9 @@ text: {
         textAlign: 'center',
         textAlignVertical: 'center',
 },
-notificationsText: {
-    fontSize: 17,
-        color: colors.grey,
-        textAlign: 'center',
-        textAlignVertical: 'center',
-        top: 15
 
-},
+
+
 
 textDay: {
     fontSize: 17,
