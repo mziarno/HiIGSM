@@ -44,18 +44,20 @@ export const prepareTimetablePager = (weekDaysArray, navigation) => {
 
 const style = {
     heading: {
-        backgroundColor: colors.blueMedium,
-        width: '100%',
+        marginLeft: '5%',
+        marginRight: '5%',
+        backgroundColor: colors.mintDark,
+        width: '90%',
         height: 40,
         borderRadius: 5,
         justifyContent: 'center'
     },
     event: {
         backgroundColor: colors.white,
-        width: '99%',
+        width: '90%',
         height: 50,
-        marginLeft: '0.5%',
-        marginRight: '0.5%',
+        marginLeft: '5%',
+        marginRight: '5%',
         marginTop: 2,
         marginBottom: 1,
         position: 'relative',
@@ -75,7 +77,7 @@ const style = {
     },
     eventText: {
         fontSize: 17,
-        color: colors.blueMedium,
+        color: colors.grey,
         fontWeight: 'bold',
         textAlignVertical: 'center',
         marginLeft: 10

@@ -31,10 +31,10 @@ const style = StyleSheet.create({
         height: '75%',
         position: 'relative'},
     dot:{
-        backgroundColor: colors.blueMedium
+        backgroundColor: colors.mintLigth
     },
     dotSelect:{
-        backgroundColor: colors.greenLight
+        backgroundColor: colors.mintDark
     }
 });
 

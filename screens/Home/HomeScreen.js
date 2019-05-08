@@ -18,8 +18,6 @@ const HomeScreen = props => {
 const style = {
     view:{
         height: '97%',
-        marginLeft: '5%',
-        marginRight: '5%',
         marginTop: '3%'
     }
 };
