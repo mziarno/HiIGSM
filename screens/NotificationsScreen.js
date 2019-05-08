@@ -6,8 +6,8 @@ const NotificationsScreen = props => {
     return (
         <View>
             <StatusBar barStyle="light-content"/>
-            <View style={{height: '95%'}}>
-                <AllNotifications navigation={ props.navigation}/>
+            <View>
+                <AllNotifications navigation={props.navigation}/>
             </View>
         </View>
     )

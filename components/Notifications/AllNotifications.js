@@ -8,22 +8,19 @@ const AllNotifications = props => (
     <Subscribe to={[FirebaseContainer]}>
         {firebase => {
             return (
-
-                <View style={{height:'100%'}}>
-                    <ScrollView>
+                <ScrollView>
                     {firebase.state.notificationsArray.map((notification) => (
-                            <View>
-                                <View style={styles.singleNotification}>
-                                    <View style = {styles.lineStyle} />
-                                    <Text key={notification.content} style={styles.notificationsText}>{notification.content}</Text>
-                                    <Text key={notification.date} style={styles.notificationsDate}>{notification.date}</Text>
-                                </View>
+                            <View style={styles.singleNotification}>
+
+                                <View style={styles.lineStyle}/>
+                                <Text key={notification.content}
+                                      style={styles.notificationsText}>{notification.content}</Text>
+                                <Text key={notification.date}
+                                      style={styles.notificationsDate}>{notification.date}</Text>
                             </View>
                         )
                     )}
-                    </ScrollView>
-                </View>
-
+                </ScrollView>
             )
         }}
     </Subscribe>
@@ -36,25 +33,28 @@ const styles = StyleSheet.create({
             backgroundColor: colors.white,
             width: '90%',
             marginLeft: '5%',
+            marginTop: '3%',
+            marginBottom: '3%',
             // height: 60,
-            position: 'relative',
-            // marginTop: '3%',
+            // height: 300,
+            // position: 'relative',
+            paddingTop: '3%',
+            paddingBottom: '3%',
             borderRadius: 5,
             shadowColor: colors.shadow,
-            shadowOffset: { width: 3, height: 3 },
+            shadowOffset: {width: 3, height: 3},
             shadowOpacity: 1,
             shadowRadius: 5,
             elevation: 2,
         },
 
-        lineStyle:{
+        lineStyle: {
             borderWidth: 1,
             borderColor: colors.mintLigth,
             marginTop: '2%',
             borderRadius: 5,
             width: '90%',
             marginLeft: '5%',
-
         },
         notificationsText: {
             fontSize: 15,
@@ -66,12 +66,13 @@ const styles = StyleSheet.create({
         },
         notificationsDate: {
             fontSize: 10,
-            marginRight: '5%',
+            marginRight: '3%',
+            marginBottom: '3%',
             color: colors.grey,
             textAlign: 'right',
             // textAlignVertical: 'center',
-            bottom: 5
+            top: 20
         },
 
-}
+    }
 );
