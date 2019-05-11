@@ -3,11 +3,11 @@ import React from "react";
 import styles from "./ActivityStyles";
 import BuildingPlan from "./BuildingPlan";
 import MapsDirections from "./MapsDirections"
+import colors from "../colors";
 
 const ActivityDetails = props => {
     const {navigation} = props
     const activityDetails = navigation.getParam('activity', 'Brak danych');
-
     console.log(activityDetails);
 
     let image =  '';
@@ -21,28 +21,29 @@ const ActivityDetails = props => {
         <View>
             <Image
                 source={image}
-                style={{width: '100%', height: 150}}/>
+                style={{width: '100%', height: 180}}/>
             {/*<Text key ={activityDetails.name}> {activityDetails.name}</Text>*/}
-            {/*<Text key={activityDetails.startTime} >{activityDetails.startTime}</Text>*/}
-            {/*<Text key={ activityDetails.endTime}> { activityDetails.endTime} </Text>*/}
 
-            {/* Place & Adress*/}
-            <View style={styles.containerStyle}>
+            {/* Place & Address*/}
+            <View style={styles.PlaceAddress}>
                 <Text key={activityDetails.placeDetails}
-                      style={styles.textStyle}> {activityDetails.placeDetails} </Text>
-                <Text key={activityDetails.address} style={styles.textStyleSmall}> {activityDetails.address} </Text>
+                      style={styles.placeTextStyle}> {activityDetails.placeDetails} </Text>
+                <Text key={activityDetails.address}
+                      style={styles.addressText}> {activityDetails.address} </Text>
+                <Text key={activityDetails}
+                      style={styles.timeText}>{activityDetails.startTime} - {activityDetails.endTime}</Text>
             </View>
 
             {/* Check on Map & Map Directions buttons*/}
-            <View style={{justifyContent: 'space-around', flexDirection: 'row', alignItems: 'center', marginTop: '3%'}}>
+            <View style={styles.button}>
                 <MapsDirections DestinationLatitude={activityDetails.latitude} DestinationLongitude={activityDetails.longitude}/>
-                <BuildingPlan/>
+                {/*<BuildingPlan/>*/}
             </View>
 
             {/*/Activities' Details*/}
-            <View style={styles.containerStyle2}>
+            <View style={styles.activitiesDetails}>
                 <Text key={activityDetails.activityDetails}
-                      style={styles.textDesc}> {activityDetails.activityDetails} </Text>
+                      style={styles.detailsText}> {activityDetails.activityDetails} </Text>
             </View>
         </View>
     )

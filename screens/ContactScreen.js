@@ -11,13 +11,13 @@ class ContactScreen extends React.Component {
             <View>
                 <View style={{height: '90%'}}>
                     <StatusBar barStyle="light-content"/>
-                    <View style={styles.whiteMedium_Container}>
+                    <View style={styles.mailContainer}>
                         <TouchableOpacity onPress={() => OpenAnything.Email('igsm2019@geoida.org')}>
                             <Text style={cont_styles.emailText}> E-mail: igsm2019@geoida.org </Text>
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.greyBigContainer}>
+                    <View style={styles.singleContact}>
                         <TouchableOpacity onPress={() => OpenAnything.Call('+48692095473')}>
                             <Text style={cont_styles.nameText}> Marcelina Ziarno </Text>
                             <Text style={cont_styles.numberText}> +48 692 095 473 </Text>
@@ -29,7 +29,7 @@ class ContactScreen extends React.Component {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.greyBigContainer}>
+                    <View style={styles.singleContact}>
                         <TouchableOpacity onPress={() => OpenAnything.Call('+48514893673')}>
                             <Text style={cont_styles.nameText}> Monika Kwiatkowska </Text>
                             <Text style={cont_styles.numberText}> +48 514 893 673 </Text>
@@ -41,7 +41,7 @@ class ContactScreen extends React.Component {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.greyBigContainer}>
+                    <View style={styles.singleContact}>
                         <TouchableOpacity onPress={() => OpenAnything.Call('+48606289240')}>
                             <Text style={cont_styles.nameText}> Alicja Konkol </Text>
                             <Text style={cont_styles.numberText}> +48 606 289 240 </Text>
@@ -53,7 +53,7 @@ class ContactScreen extends React.Component {
                         </TouchableOpacity>
                     </View>
 
-                    <View style={styles.greyBigContainer}>
+                    <View style={styles.singleContact}>
                         <TouchableOpacity onPress={() => OpenAnything.Call('+48512139562')}>
                             <Text style={cont_styles.nameText}> Asia Szymczak </Text>
                             <Text style={cont_styles.numberText}> +48 512 139 562 </Text>

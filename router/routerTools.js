@@ -12,6 +12,7 @@ export const headerNavigationOptions = ({navigation}) => ({
         <Icon name='phone'
               color={colors.white}
               containerStyle={{marginRight: 15}}
+              underlayColor={colors.mintDark}
               onPress={() => navigation.navigate('Contact')} title='contact'/>
     ,
     headerLeft:
@@ -19,5 +20,6 @@ export const headerNavigationOptions = ({navigation}) => ({
             name='menu'
             color={colors.white}
             containerStyle={{marginLeft: 15}}
+            underlayColor={colors.mintDark}
             onPress={() => navigation.openDrawer()}/>
 });
