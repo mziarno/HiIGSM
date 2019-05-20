@@ -1,9 +1,9 @@
-import {View, Modal, StyleSheet, Text, TouchableHighlight} from 'react-native';
+import {View, Modal, StyleSheet, Text, TouchableOpacity, ScrollView} from 'react-native';
 import React, { Component } from 'react';
 import {Button} from "react-native-elements/src/index";
 import colors from '../colors'
 
-class Abstract extends Component {
+class Poster extends Component {
     state = {
         modalVisible: false,
     };
@@ -16,40 +16,31 @@ class Abstract extends Component {
     render() {
         return (
             <View style={{alignItems: 'center'}}>
-                <Modal animationType = {"fade"} transparent = {true}
+                <Modal animationType = {"slide"}
                        visible = {this.state.modalVisible}
+                       transparent={false}
                        onRequestClose = {() => { console.log("Modal has been closed.") } }>
-                    <View style = {styles.modal}>
-                        <Text style={styles.titleText}>Tytuł Abstraktu</Text>
-                        <Text style={styles.subtitleText}>Imię i nazwisko</Text>
-                        <Text style={styles.subtitleText}>Uczelnia</Text>
-                        <Text style={styles.abstractText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                            laborum.</Text>
+                    <ScrollView style={styles.modal} scrollEnabled={true}>
+                        <Text style={styles.titleText}>{this.props.title}</Text>
+                        <Text style={styles.subtitleText}>{this.props.author}</Text>
+                        <Text style={styles.subtitleText}>{this.props.uni}</Text>
+                        <Text style={styles.abstractText}>{this.props.abstract}</Text>
                         <Text style={styles.lineStyle}> </Text>
                         <Button
-                            title="Hide plan"
+                            title="Hide Abstract"
                             buttonStyle={styles.buttonHide}
                             titleStyle={styles.textButton}
                             onPress = {() => this.toggleModal(!this.state.modalVisible)} />
-                    </View>
+                    </ScrollView>
                     {/*</BlurView>*/}
                 </Modal>
-                <TouchableHighlight
-                    onPress={() => {
-                        this.setModalVisible(true);
-                    }}>
-                    <Text>Show Modal</Text>
-                </TouchableHighlight>
-            {/*    <Button*/}
-            {/*    onPress = {() => {this.toggleModal(true)}}*/}
-            {/*    title='Show Abstract'*/}
-            {/*    buttonStyle={styles.buttonShow}*/}
-            {/*    titleStyle={styles.textButton}*/}
-            {/*/>*/}
+                <TouchableOpacity onPress={() => {this.setModalVisible(true)}}>
+                    <View>
+                        <Text style={styles.titleTextList}>{this.props.title}</Text>
+                        <Text style={styles.subtitleText}>{this.props.author}</Text>
+                        <Text style={styles.subtitleText}>{this.props.uni}</Text>
+                    </View>
+                </TouchableOpacity>
             </View>
         )
     }
@@ -61,7 +52,8 @@ const styles = StyleSheet.create ({
         alignItems: 'center',
         backgroundColor: colors.white,
         padding: 10,
-        borderRadius: 5
+        borderRadius: 5,
+        height: '80%'
     },
     buttonHide: {
         backgroundColor: colors.mintLight,
@@ -89,6 +81,13 @@ const styles = StyleSheet.create ({
         textAlign: 'center',
         marginBottom: '3%'
     },
+    titleTextList: {
+        fontSize: 16,
+        color: colors.mintDark,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginBottom: '3%',
+    },
     abstractText: {
         fontSize: 14,
         color: colors.grey,
@@ -101,4 +100,4 @@ const styles = StyleSheet.create ({
     }
 });
 
-export default Abstract
+export default Poster

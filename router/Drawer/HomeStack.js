@@ -25,7 +25,7 @@ const HomeStack = createStackNavigator({
     Abstract: {
        screen: AbstractScreen,
         navigationOptions: {
-            title: 'Abstract',
+            title: 'Poster',
         }
     }
 }, {
