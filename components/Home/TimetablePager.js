@@ -31,7 +31,7 @@ const style = StyleSheet.create({
         height: '75%',
         position: 'relative'},
     dot:{
-        backgroundColor: colors.mintLigth
+        backgroundColor: colors.mintLight
     },
     dotSelect:{
         backgroundColor: colors.mintDark

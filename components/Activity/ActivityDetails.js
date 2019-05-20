@@ -5,7 +5,7 @@ import BuildingPlan from "./BuildingPlan";
 import MapsDirections from "./MapsDirections"
 
 const ActivityDetails = props => {
-    const {navigation} = props
+    const {navigation} = props;
     const activityDetails = navigation.getParam('activity', 'Brak danych');
 
     console.log(activityDetails);

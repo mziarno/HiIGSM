@@ -8,7 +8,9 @@ export class FirebaseContainer extends Container {
     state = {
         weekDaysArray: [],
         message: "",
-        notificationsArray: []
+        notificationsArray: [],
+        presentationsArray: [],
+        postersArray: []
     };
 
     constructor() {
@@ -54,6 +56,20 @@ export class FirebaseContainer extends Container {
                 notificationsArray: snap.val()
             });
             SecureStore.setItemAsync('notificationsArray', JSON.stringify(snap.val()));
+        });
+
+        firebase.database().ref('posters').on('value', snap => {
+            this.setState({
+                postersArray: snap.val()
+            });
+            SecureStore.setItemAsync('postersArray', JSON.stringify(snap.val()));
+        });
+
+        firebase.database().ref('presentations').on('value', snap => {
+            this.setState({
+                presentationsArray: snap.val()
+            });
+            SecureStore.setItemAsync('presentationsArray', JSON.stringify(snap.val()));
         })
     };
 }
