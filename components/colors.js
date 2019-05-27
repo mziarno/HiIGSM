@@ -5,8 +5,8 @@ const colors = {
     blue: '#1D3557',
     red: '#cc0033',
 
-    mintDark: '#00ad9f',
-    mintLigth: '#97CFD6',
+    mintDark: '#1D3447',
+    mintLight: '#97CFD6',
     shadow: '#bababa',
     //97CFD6
     //1D3447

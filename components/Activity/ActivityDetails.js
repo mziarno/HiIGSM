@@ -6,7 +6,7 @@ import MapsDirections from "./MapsDirections"
 import colors from "../colors";
 
 const ActivityDetails = props => {
-    const {navigation} = props
+    const {navigation} = props;
     const activityDetails = navigation.getParam('activity', 'Brak danych');
     console.log(activityDetails);
 
