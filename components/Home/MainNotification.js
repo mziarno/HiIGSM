@@ -22,7 +22,7 @@ const MainNotification = props => (
 );
 const style = {
     touchable: {
-        height: '25%',
+        // height: '25%',
         marginBottom: '3%',
         marginLeft: '5%',
         marginRight: '5%'
@@ -30,11 +30,11 @@ const style = {
     container: {
         position: 'relative',
         width: '100%',
-        height: '100%',
+        // height: '100%',
         backgroundColor: colors.white,
         borderRadius: 5,
         shadowColor: colors.shadow,
-        shadowOffset: { width: 3, height: 3 },
+        shadowOffset: {width: 3, height: 3},
         shadowOpacity: 1,
         shadowRadius: 5,
         elevation: 2,

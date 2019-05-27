@@ -13,7 +13,7 @@ const TimetablePager = props => (
             return (
                 <IndicatorViewPager
                     style={style.timetable}
-                    indicator={<PagerDotIndicator 
+                    indicator={<PagerDotIndicator
                         dotStyle={style.dot}
                         selectedDotStyle={style.dotSelect}
                         pageCount={pageViewsArray.length}/>}>
@@ -25,15 +25,17 @@ const TimetablePager = props => (
 );
 
 const style = StyleSheet.create({
-    timetable:{
+    timetable: {
         backgroundColor: 'transparent',
         width: '100%',
-        height: '75%',
-        position: 'relative'},
-    dot:{
+        // height: '80%',
+        flex: 1,
+        position: 'relative'
+    },
+    dot: {
         backgroundColor: colors.mintLight
     },
-    dotSelect:{
+    dotSelect: {
         backgroundColor: colors.mintDark
     }
 });
