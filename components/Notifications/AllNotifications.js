@@ -10,7 +10,7 @@ const AllNotifications = props => (
             return (
                 <ScrollView>
                     {firebase.state.notificationsArray.map((notification) => (
-                            <View style={styles.singleNotification}>
+                            <View style={styles.singleNotification} key={notification.date}>
 
                                 <View style={styles.lineStyle}/>
                                 <Text key={notification.content}
