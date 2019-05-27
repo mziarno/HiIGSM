@@ -25,7 +25,7 @@ class BuildingPlan extends Component {
                         <Image
                             source={require('../../assets/images/poziom4.jpg')}
                             style={{resizeMethod: 'resize', resizeMode: 'contain', height: '93%'}}/>
-                        <Button title="Hide plan" onPress = {() => this.toggleModal(!this.state.modalVisible)} />
+                        <Button title="Hide plan" type="outline" onPress = {() => this.toggleModal(!this.state.modalVisible)} />
                     </View>
                     {/*</BlurView>*/}
                 </Modal>

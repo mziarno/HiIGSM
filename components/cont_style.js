@@ -1,4 +1,4 @@
-import {StyleSheet, Platform} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const cont_style = StyleSheet.create({
     
@@ -28,7 +28,7 @@ const cont_style = StyleSheet.create({
     photoContainer:{
             position: 'absolute',
             right: 30,
-            marginTop:5,
+            // marginTop:5,
     },
 });
 

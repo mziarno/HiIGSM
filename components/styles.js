@@ -1,36 +1,25 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 import colors from './colors'
 
 
 const styles = StyleSheet.create({
 
-  background: {
-    flex: 1,
+  singleContact: {
     backgroundColor: colors.white,
-    width: '100%',
+    width: '90%',
+    height: 70,
+    position: 'relative',
+    marginLeft: '5%',
+    marginRight: '5%',
+    padding: 5,
+    marginBottom: 3,
+    borderRadius: 5,
+    shadowColor: colors.shadow,
+    shadowOffset: {width: 3, height: 3},
+    shadowOpacity: 1,
+    shadowRadius: 5,
+    elevation: 2,
   },
-    greyBigContainer: {
-      backgroundColor: colors.white,
-      width: '90%',
-      height: 70,
-      position: 'relative',
-      marginLeft: '5%',
-      marginRight: '5%',
-      marginTop: 5,
-      marginBottom: 3,
-      borderRadius: 5,
-      ...Platform.select({
-        ios: {
-          shadowColor: '#707070',
-          shadowOffset: { height: 3 },
-          shadowOpacity: 1,
-          shadowRadius: 3,
-        },
-        android: {
-          elevation: 3
-        },
-      }),
-    },
   whiteBigContainer: {
     backgroundColor: colors.white,
     width: '90%',
@@ -40,19 +29,13 @@ const styles = StyleSheet.create({
     marginBottom: 3,
     marginLeft: '5%',
     marginRight: '5%',
-    borderRadius: 5,
     justifyContent: 'center',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        shadowOffset: { height: 3 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 3
-      },
-    }),
+    borderRadius: 1,
+    shadowColor: colors.shadow,
+    shadowOffset: {width: 3, height: 3},
+    shadowOpacity: 1,
+    shadowRadius: 5,
+    elevation: 2,
   },
   white_Left_Container: {
     backgroundColor: colors.white,
@@ -61,20 +44,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     marginRight: '5%',
     marginTop: 5,
-    borderRadius: 5,
     left: '5%',
     justifyContent: 'flex-end',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        shadowOffset: { height: 3 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 3
-      },
-    }),
+    borderRadius: 1,
+    shadowColor: colors.shadow,
+    shadowOffset: {width: 3, height: 3},
+    shadowOpacity: 1,
+    shadowRadius: 5,
+    elevation: 2,
   },
   white_Right_Container: {
     backgroundColor: colors.white,
@@ -83,29 +60,17 @@ const styles = StyleSheet.create({
     position: 'absolute',
     marginLeft: '5%',
     marginTop: 5,
-    borderRadius: 5,
     justifyContent: 'flex-end',
     right: '5%',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        shadowOffset: { height: 3 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 3
-      },
-    }),
+    borderRadius: 1,
+    shadowColor: colors.shadow,
+    shadowOffset: {width: 3, height: 3},
+    shadowOpacity: 1,
+    shadowRadius: 5,
+    elevation: 2,
 
   },
 
-  // icon: {
-  //   position: 'relative',
-  //   alignItems: 'center',
-  //   justifyContent: 'center'
-  //
-  // },
   greyMedium_Container: {
     backgroundColor: colors.white,
     width: '90%',
@@ -113,131 +78,36 @@ const styles = StyleSheet.create({
     position: 'relative',
     marginTop: 5,
     marginBottom: 3,
-    marginLeft: '5%',
-    marginRight: '5%',
+    padding:'5%',
+    // marginLeft: '5%',
+    // marginRight: '5%',
     justifyContent: 'center',
     borderRadius: 5,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        shadowOffset: { height: 3 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 3
-      },
-    }),
+    shadowColor: colors.shadow,
+    shadowOffset: {width: 3, height: 3},
+    shadowOpacity: 1,
+    shadowRadius: 5,
+    elevation: 2,
     margin: 3
   },
-  whiteMedium_Container: {
+  mailContainer: {
     backgroundColor: colors.white,
-    width: '98%',
+    width: '90%',
+    marginLeft:'5%',
     height: 50,
     position: 'relative',
     marginTop: 5,
     marginBottom: 3,
-    borderRadius: 5,
     justifyContent: 'center',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        shadowOffset: { height: 3 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 5
-      },
-    }),
-  },
-
-
-
-  notification: {
-    backgroundColor: colors.red,
-    width: '100%',
-    height: 40,
-    position: 'relative',
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
-    justifyContent: 'center'
-
-  },
-  notificationContainer: {
-    backgroundColor: colors.white,
-    width: '90%',
-    height: 120,
-    position: 'relative',
-    marginLeft: '5%',
-    marginRight: '5%',
-    marginBottom: 7,
     borderRadius: 5,
-    ...Platform.select({
-      ios: {
-        shadowColor: '#707070',
-        shadowOffset: { height: 3 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 3
-      },
-    }),
-    marginTop: 10
-
+    shadowColor: colors.shadow,
+    shadowOffset: {width: 3, height: 3},
+    shadowOpacity: 1,
+    shadowRadius: 5,
+    elevation: 2,
   },
-  day: {
-    backgroundColor: colors.blue,
-    width: '100%',
-    height: 40,
-    borderRadius: 5,
-    justifyContent: 'center'
-  },
-  firstContainer: {
-    backgroundColor: 'transparent',
-    width: '100%',
-    flex: 1,
-    marginLeft: '0%',
-    marginRight: '0%',
-  },
-
-  // timetable_Container: {
-  //   backgroundColor: colors.white,
-  //   width: '90%',
-  //   marginTop: 5,
-  //   marginBottom: 3,
-  //   height: 50,
-  //   position: 'relative',
-  //   marginLeft: '5%',
-  //   marginRight: '5%',
-  //   borderRadius: 5,
-  //   ...Platform.select({
-  //     ios: {
-  //       shadowColor: '#707070',
-  //       shadowOffset: { height: 3 },
-  //       shadowOpacity: 1,
-  //       shadowRadius: 3,
-  //     },
-  //     android: {
-  //       elevation: 3
-  //     },
-  //   }),
-  // },
-  timetable_background: {
-    backgroundColor: 'transparent',
-    width: '100%',
-    height: '82%',
-    position: 'relative',
-
-    marginBottom: 7,
-    borderRadius: 5,
-  },
-  scroll: {
-    height: 200
-  },
-
 })
+
 
 
 export default styles;

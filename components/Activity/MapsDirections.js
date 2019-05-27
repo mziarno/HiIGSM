@@ -63,13 +63,11 @@ export default class MapsDirections extends Component {
                         size: 26,
                         name: 'location',
                         type: 'octicon',
-                        color: colors.blue,
+                        color: colors.mintLigth,
                     }}
                     title="Get Directions"
-                    // title=
-                    rounded='true'
-                    type="outline"
-                    size = {45}
+                    type="clear"
+                    titleStyle={{ color: colors.mintDark, fontSize: 17 }}
                 />
             </View>
         );
