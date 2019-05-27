@@ -1,5 +1,5 @@
-import {View, Modal, StyleSheet, Text, TouchableOpacity, ScrollView} from 'react-native';
-import React, { Component } from 'react';
+import {Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, {Component} from 'react';
 import {Button} from "react-native-elements/src/index";
 import colors from '../colors'
 
@@ -7,19 +7,24 @@ class Poster extends Component {
     state = {
         modalVisible: false,
     };
+
     toggleModal(visible) {
-        this.setState({ modalVisible: visible });
+        this.setState({modalVisible: visible});
     }
+
     setModalVisible(visible) {
         this.setState({modalVisible: visible});
     }
+
     render() {
         return (
             <View style={{alignItems: 'center'}}>
-                <Modal animationType = {"slide"}
-                       visible = {this.state.modalVisible}
+                <Modal animationType={"slide"}
+                       visible={this.state.modalVisible}
                        transparent={false}
-                       onRequestClose = {() => { console.log("Modal has been closed.") } }>
+                       onRequestClose={() => {
+                           console.log("Modal has been closed.")
+                       }}>
                     <ScrollView style={styles.modal} scrollEnabled={true}>
                         <Text style={styles.titleText}>{this.props.title}</Text>
                         <Text style={styles.subtitleText}>{this.props.author}</Text>
@@ -30,11 +35,13 @@ class Poster extends Component {
                             title="Hide Abstract"
                             buttonStyle={styles.buttonHide}
                             titleStyle={styles.textButton}
-                            onPress = {() => this.toggleModal(!this.state.modalVisible)} />
+                            onPress={() => this.toggleModal(!this.state.modalVisible)}/>
                     </ScrollView>
                     {/*</BlurView>*/}
                 </Modal>
-                <TouchableOpacity onPress={() => {this.setModalVisible(true)}}>
+                <TouchableOpacity onPress={() => {
+                    this.setModalVisible(true)
+                }}>
                     <View>
                         <Text style={styles.titleTextList}>{this.props.title}</Text>
                         <Text style={styles.subtitleText}>{this.props.author}</Text>
@@ -46,10 +53,10 @@ class Poster extends Component {
     }
 }
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
     modal: {
         flex: 1,
-        alignItems: 'center',
+        // alignItems: 'center',
         backgroundColor: colors.white,
         padding: 10,
         borderRadius: 5,
