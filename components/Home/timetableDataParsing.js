@@ -1,4 +1,4 @@
-import {Platform, ScrollView, Text, TouchableOpacity, View} from "react-native";
+import {ScrollView, Text, TouchableOpacity, View} from "react-native";
 import React from "react";
 import colors from "../colors";
 
@@ -7,7 +7,7 @@ const prepareClickableActivities = (weekDay, navigation) => {
     weekDay['Activities'].map((activity) => {
         eventsArray.push(
             // ===== Event card =====
-            <TouchableOpacity key={activity.name}
+            <TouchableOpacity key={activity.name} activeOpacity={0.8}
                               onPress={() => navigation.navigate('Activity', {activity: activity})}>
                 <View style={style.event}>
                     <Text style={style.eventText}>{activity.name}</Text>
@@ -18,7 +18,6 @@ const prepareClickableActivities = (weekDay, navigation) => {
         );
     });
     return eventsArray;
-
 };
 
 export const prepareTimetablePager = (weekDaysArray, navigation) => {
@@ -31,7 +30,7 @@ export const prepareTimetablePager = (weekDaysArray, navigation) => {
                 <View style={style.heading}>
                     <Text style={style.textHeading}>{weekDay.dayName}</Text>
                 </View>
-                <View style={{height: '100%'}}>
+                <View style={{height: '80%'}}>
                     <ScrollView>
                         {activitiesArray}
                     </ScrollView>
@@ -43,6 +42,7 @@ export const prepareTimetablePager = (weekDaysArray, navigation) => {
 };
 
 const style = {
+
     heading: {
         marginLeft: '5%',
         marginRight: '5%',

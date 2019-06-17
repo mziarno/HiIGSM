@@ -19,7 +19,7 @@ const HomeStack = createStackNavigator({
     Activity: {
         screen: ActivityScreen,
         navigationOptions: {
-            title: 'Hi!IGSM!2',
+            title: 'Hi!IGSM!',
         }
     },
     Abstract: {

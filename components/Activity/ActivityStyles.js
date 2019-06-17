@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 import colors from '../../components/colors';
 
 
@@ -73,10 +73,10 @@ const styles = StyleSheet.create({
         width: '90%',
         borderRadius: 5,
         shadowColor: colors.shadow,
-        shadowOffset: { width: 3, height: 3 },
+        shadowOffset: { width: 1, height: 1 },
         shadowOpacity: 1,
-        shadowRadius: 5,
-        elevation: 2,
+        shadowRadius: 3,
+        elevation: 1,
         marginLeft: '5%',
         alignItems: 'center'
     },

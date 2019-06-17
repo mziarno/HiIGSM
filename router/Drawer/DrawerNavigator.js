@@ -1,8 +1,6 @@
 import {createDrawerNavigator} from "react-navigation";
 import {Icon} from "react-native-elements";
-import MustSeeScreen from "../../screens/MustSee/MustSeeScreen";
 import ActivityScreen from "../../screens/Home/ActivityScreen";
-import Places from "../../screens/MustSee/PlacesListScreen";
 import colors from "../../components/colors";
 import React from "react";
 import HomeStack from "./HomeStack";
@@ -58,31 +56,17 @@ const DrawerNavigator = createDrawerNavigator({
             }
         },
 
-        MustSee: {
-            screen: MustSeeScreen,
-            navigationOptions: {
-                drawerLabel: 'Must See (nie działa)',
-                title: 'Must See',
-                drawerIcon: <Icon
-                />
 
-            }
-        },
         Activity: {
             screen: ActivityScreen,
             navigationOptions: {
                 drawerLabel: () => null,
             }
         },
-        Places: {
-            screen: Places,
-            navigationOptions: {
-                drawerLabel: () => null,
-            }
-        },
+
     }, {
         contentOptions: {
-            activeTintColor: colors.red,
+            activeTintColor: colors.mintLight,
         },
     }
 );
