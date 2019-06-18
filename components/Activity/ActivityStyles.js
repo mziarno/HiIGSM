@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 import colors from '../../components/colors';
 
 
@@ -20,11 +20,11 @@ const styles = StyleSheet.create({
 
     detailsText: {
         // top: '40%',
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: 'bold',
         color: colors.grey,
         textAlign: 'center',
-        padding: 10
+        padding: 15
     },
 
     addressText: {
@@ -48,11 +48,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         borderRadius: 2,
         marginTop: '3%',
-        width: '90%',
         borderWidth:1.5,
         marginLeft:'5%',
+        marginRight: '5%',
         borderStyle:'solid', //'dotted',
-        borderColor:colors.mintLigth,
+        borderColor:colors.mintDark,
     },
 
     PlaceAddress: {
@@ -71,12 +71,6 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         top: '5%',
         width: '90%',
-        borderRadius: 5,
-        shadowColor: colors.shadow,
-        shadowOffset: { width: 3, height: 3 },
-        shadowOpacity: 1,
-        shadowRadius: 5,
-        elevation: 2,
         marginLeft: '5%',
         alignItems: 'center'
     },
