@@ -11,9 +11,19 @@
     "name": "Hi!IGSM",
     "version": "0.1.0",
     "description": "",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "platforms": [
       "android",
       "ios"
-    ]
+    ],
+
+    "ios": {
+      "bundleIdentifier": "com.igsm.hiigsm"
+    },
+    "android": {
+      "package": "com.igsm.hiigsm"
+    }
   }
 }
