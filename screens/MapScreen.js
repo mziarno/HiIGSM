@@ -23,42 +23,42 @@ class MapScreen extends Component {
                     }}>
                     <MapView.Marker
                         coordinate={{latitude: 52.220521, longitude: 21.010488}}
-                        title="Warsaw University Of Technology">
+                        title="WUT Main Building">
                         <Image
                             source={require('../assets/icons/marker.png')}
                             style={{width: 20, height: 30}}/>
                     </MapView.Marker>
                     <MapView.Marker
                         coordinate={{latitude: 52.232353, longitude: 20.981048}}
-                        title="The Warsaw Rising Museum">
+                        title="Warsaw Rising Museum">
                         <Image
                             source={require('../assets/icons/marker.png')}
                             style={{width: 20, height: 30}}/>
                     </MapView.Marker>
                     <MapView.Marker
-                        coordinate={{latitude: 52.248072, longitude: 21.015224}}
-                        title="The Royal Castle">
+                        coordinate={{latitude: 52.232794, longitude: 21.018296}}
+                        title="Patchwork Warsaw Hostel">
                         <Image
                             source={require('../assets/icons/marker.png')}
                             style={{width: 20, height: 30}}/>
                     </MapView.Marker>
                     <MapView.Marker
-                        coordinate={{latitude: 52.226727, longitude: 21.014944}}
-                        title="Graphic Art and Poster Gallery">
+                        coordinate={{latitude: 52.241881,  longitude: 21.028727}}
+                        title="Copernicus Science Centre">
                         <Image
                             source={require('../assets/icons/marker.png')}
                             style={{width: 20, height: 30}}/>
                     </MapView.Marker>
                     <MapView.Marker
-                        coordinate={{latitude: 52.234260, longitude: 21.023884}}
-                        title="Foksal Gallery">
+                        coordinate={{latitude: 52.218905, longitude: 21.009941}}
+                        title="WUT Main Canteen">
                         <Image
                             source={require('../assets/icons/marker.png')}
                             style={{width: 20, height: 30}}/>
                     </MapView.Marker>
                     <MapView.Marker
-                        coordinate={{latitude: 52.238173, longitude: 21.017990}}
-                        title="Nicolaus Copernicus Monument">
+                        coordinate={{latitude: 52.217937, longitude: 21.010257}}
+                        title="CZIiTT">
                         <Image
                             source={require('../assets/icons/marker.png')}
                             style={{width: 20, height: 30}}/>
