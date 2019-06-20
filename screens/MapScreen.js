@@ -26,16 +26,17 @@ class MapScreen extends Component {
                     error: null,
                 });
             },
-            (error) => this.setState({ error: error.message }),
-            { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+            (error) => this.setState({latitude: 52.232794, longitude: 21.018296, error: error.message}),
+            {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
         );
     }
 
     render() {
         return (
             <View style={styles.container}>
+                {this.state.latitude &&
                 <MapView
-                    customMapStyle={mapStyle}
+                    // customMapStyle={mapStyle}
                     style={styles.map}
                     showsUserLocation={true}
                     showsMyLocationButton={true}
@@ -71,7 +72,7 @@ class MapScreen extends Component {
                         />
                     </MapView.Marker>
                     <MapView.Marker
-                        coordinate={{latitude: 52.241881,  longitude: 21.028727}}
+                        coordinate={{latitude: 52.241881, longitude: 21.028727}}
                         title="Copernicus Science Centre">
                         <Icon
                             name='account-balance'
@@ -115,7 +116,7 @@ class MapScreen extends Component {
                         />
                     </MapView.Marker>
                     <MapView.Marker
-                        coordinate={{latitude: 52.232404, longitude: 21.018069 }}
+                        coordinate={{latitude: 52.232404, longitude: 21.018069}}
                         title="Club Stereo">
                         <Icon
                             name='local-bar'
@@ -249,7 +250,7 @@ class MapScreen extends Component {
                         />
                     </MapView.Marker>
 
-                </MapView>
+                </MapView>}
             </View>
         );
     }
@@ -271,9 +272,7 @@ const styles = StyleSheet.create({
         bottom: 0,
         right: 0,
     },
-    mapStyle:{
-
-    }
+    mapStyle: {}
 });
 
 const mapStyle = [
