@@ -56,7 +56,7 @@ const _renderDotIndicator = (pageCount) => {
 };
 
 const dateChecker = () => {
-    const CONF_START = 18;
+    const CONF_START = 23;
     const today = new Date();
     const dd = today.getDate();
     const dayOfConference = dd - CONF_START;
