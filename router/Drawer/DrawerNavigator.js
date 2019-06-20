@@ -7,7 +7,8 @@ import HomeStack from "./HomeStack";
 import ContactStack from "./ContactStack";
 import MapStack from "./MapStack";
 import NotificationsStack from "./NotificationsStack";
-import AbstractsStack from "./AbstractsStack";
+import PostersStack from "./PostersStack";
+import PresentationStack from "./PresentationStack";
 
 
 /*
@@ -19,7 +20,7 @@ const DrawerNavigator = createDrawerNavigator({
         Home: {
             screen: HomeStack,
             navigationOptions: {
-                drawerLabel: 'Hi! IGSM 2019',
+                drawerLabel: 'Hi IGSM 2019!',
                 drawerIcon: <Icon name='home' type='octicon'/>
             }
         },
@@ -27,7 +28,7 @@ const DrawerNavigator = createDrawerNavigator({
             {
                 screen: ContactStack,
                 navigationOptions: {
-                    drawerLabel: 'Contact With organizers',
+                    drawerLabel: 'Contact with Hosts',
                     drawerIcon: <Icon name='phone'/>
                 }
             },
@@ -35,7 +36,7 @@ const DrawerNavigator = createDrawerNavigator({
             screen: MapStack,
             navigationOptions: {
                 drawerLabel: 'IGSM map',
-                drawerIcon: <Icon name='marker' type='foundation'/>
+                drawerIcon: <Icon name='map'/>
             }
         },
         Notifications: {
@@ -46,12 +47,19 @@ const DrawerNavigator = createDrawerNavigator({
             }
         },
 
+        Presentations: {
+            screen: PresentationStack,
+            navigationOptions: {
+                drawerLabel: 'Presentations',
+                drawerIcon: <Icon name='presentation' type='material-community'/>
+            }
+        },
         //Dotąd jest legitnie
 
-        Abstracts: {
-            screen: AbstractsStack,
+        Posters: {
+            screen: PostersStack,
             navigationOptions: {
-                drawerLabel: 'Abstracts',
+                drawerLabel: 'Posters',
                 drawerIcon: <Icon name='file' type='octicon'/>
             }
         },

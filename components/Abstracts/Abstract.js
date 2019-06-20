@@ -4,7 +4,7 @@ import {Button} from "react-native-elements/src/index";
 import { Icon } from 'react-native-elements'
 import colors from '../colors'
 
-class Poster extends Component {
+class Abstract extends Component {
     state = {
         modalVisible: false,
     };
@@ -151,4 +151,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Poster
+export default Abstract

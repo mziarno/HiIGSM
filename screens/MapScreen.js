@@ -4,6 +4,7 @@ import MapView from 'react-native-maps';
 import colors from "../components/colors";
 import {Icon} from "react-native-elements";
 
+
 class MapScreen extends Component {
 
     constructor(props) {
@@ -32,10 +33,9 @@ class MapScreen extends Component {
 
     render() {
         return (
-
             <View style={styles.container}>
                 <MapView
-                    //customMapStyle={styles.mapStyle}
+                    customMapStyle={mapStyle}
                     style={styles.map}
                     showsUserLocation={true}
                     showsMyLocationButton={true}
@@ -50,7 +50,7 @@ class MapScreen extends Component {
                     }}>
                     <MapView.Marker
                         coordinate={{latitude: 52.220521, longitude: 21.010488}}
-                        title="WUT Main Building">
+                        title="Main building of WUT">
                         <Icon
                             name='school'
                             raised={true}
@@ -105,7 +105,7 @@ class MapScreen extends Component {
                     </MapView.Marker>
                     <MapView.Marker
                         coordinate={{latitude: 52.221455, longitude: 21.007233}}
-                        title="WUT Physics Building">
+                        title="Building of Faculty of Physics WUT">
                         <Icon
                             name='local-bar'
                             raised={true}
@@ -275,5 +275,88 @@ const styles = StyleSheet.create({
 
     }
 });
+
+const mapStyle = [
+    {
+        "featureType": "administrative.land_parcel",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.government",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.medical",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#e8f4cc"
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    }
+];
 
 export default MapScreen;

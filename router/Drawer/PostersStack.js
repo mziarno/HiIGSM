@@ -1,21 +1,21 @@
 import {createStackNavigator} from "react-navigation";
 import React from "react";
 import {headerNavigationOptions} from "../routerTools";
-import AbstractsScreen from "../../screens/AbstractsScreen";
+import PostersScreen from "../../screens/PostersScreen";
 
 /*
 * Stack which makes it possible to attach additional screens available only from MapScreen
 * */
 
-const AbstractsStack = createStackNavigator({
-    Abstracts: {
-        screen: AbstractsScreen,
+const PostersStack = createStackNavigator({
+    Posters: {
+        screen: PostersScreen,
         navigationOptions: {
-            title: 'Abstracts',
+            title: 'Posters',
         }
     },
 }, {
     defaultNavigationOptions: headerNavigationOptions
 });
 
-export default AbstractsStack
+export default PostersStack

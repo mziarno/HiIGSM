@@ -1,16 +1,16 @@
 import React from 'react';
 import {StatusBar, View} from 'react-native';
-import AllPosters from "../components/Abstracts/AllPosters";
+import PostersList from "../components/Abstracts/PostersList";
 
-const AbstractsScreen = props => {
+const PostersScreen = props => {
     return (
         <View>
             <StatusBar barStyle="light-content"/>
             <View>
-                <AllPosters navigation={props.navigation}/>
+                <PostersList navigation={props.navigation}/>
             </View>
         </View>
     )
 };
 
-export default AbstractsScreen;
+export default PostersScreen;
