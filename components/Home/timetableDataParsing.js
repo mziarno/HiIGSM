@@ -4,15 +4,15 @@ import colors from "../colors";
 
 const prepareClickableActivities = (weekDay, navigation) => {
     const eventsArray = [];
-    weekDay['Activities'].map((activity) => {
+    weekDay['Activities'].map((activity, index) => {
         eventsArray.push(
             // ===== Event card =====
-            <TouchableOpacity key={activity.name} activeOpacity={0.8}
+            <TouchableOpacity key={activity.name + weekDay.dayName + index} activeOpacity={0.8}
                               onPress={() => navigation.navigate('Activity', {activity: activity})}>
-                <View style={style.event}>
+                <View style={style.event} key={activity.name + weekDay.dayName}>
                     <Text style={style.eventText}>{activity.name}</Text>
-                    <Text style={style.timeText} key={activity.startTime}>{activity.startTime}</Text>
-                    <Text style={style.placeText} key={activity.place}>{activity.place}</Text>
+                    <Text style={style.timeText}>{activity.startTime}</Text>
+                    <Text style={style.placeText}>{activity.place}</Text>
                 </View>
             </TouchableOpacity>
         );
