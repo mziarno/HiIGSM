@@ -1,6 +1,6 @@
 import {Container} from "unstated";
 import * as firebase from "firebase";
-import * as SecureStore from "expo-secure-store";
+import {AsyncStorage} from 'react-native';
 
 require("firebase/database");
 
@@ -15,24 +15,26 @@ export class FirebaseContainer extends Container {
 
     constructor() {
         super();
-        // this.checkFirebaseConnection();
         this.loadLocalDataCopy();
         this.connectToFirebase();
-        // this.storeData;
     }
 
     //============================================
     loadLocalDataCopy = async () => {
-        const weekDaysData = await SecureStore.getItemAsync('weekDaysArray');
-        const messageData = await SecureStore.getItemAsync('message');
-        const notificationsData = await SecureStore.getItemAsync('notificationsArray');
+            const weekDaysData = await AsyncStorage.getItem('weekDaysArray');
+            const messageData = await AsyncStorage.getItem('message');
+            const notificationsData = await AsyncStorage.getItem('notificationsArray');
+            const presentationsData = await AsyncStorage.getItem('presentationsArray');
+            const postersData = await AsyncStorage.getItem('postersArray');
 
-        if(weekDaysData)
-            this.setState({
-                weekDaysArray: JSON.parse(weekDaysData),
-                message: JSON.parse(messageData),
-                notificationsArray: JSON.parse(notificationsData),
-            });
+            if(weekDaysData)
+                this.setState({
+                    weekDaysArray: JSON.parse(weekDaysData),
+                    message: JSON.parse(messageData),
+                    notificationsArray: JSON.parse(notificationsData),
+                    presentationsArray: JSON.parse(presentationsData),
+                    postersArray: JSON.parse(postersData),
+                });
     };
 
     connectToFirebase = () => {
@@ -40,7 +42,7 @@ export class FirebaseContainer extends Container {
                 this.setState({
                     weekDaysArray: snap.val()
                 });
-                SecureStore.setItemAsync('weekDaysArray', JSON.stringify(snap.val()));
+            AsyncStorage.setItem('weekDaysArray', JSON.stringify(snap.val()), (e) => {console.log(e)} );
             }
         );
 
@@ -48,7 +50,7 @@ export class FirebaseContainer extends Container {
                 this.setState({
                     message: snap.val()
                 });
-                SecureStore.setItemAsync('message', JSON.stringify(snap.val()));
+            AsyncStorage.setItem('message', JSON.stringify(snap.val()));
             }
         );
 
@@ -56,21 +58,21 @@ export class FirebaseContainer extends Container {
             this.setState({
                 notificationsArray: snap.val()
             });
-            SecureStore.setItemAsync('notificationsArray', JSON.stringify(snap.val()));
+            AsyncStorage.setItem('notificationsArray', JSON.stringify(snap.val()));
         });
 
         firebase.database().ref('posters').on('value', snap => {
             this.setState({
                 postersArray: snap.val()
             });
-            SecureStore.setItemAsync('postersArray', JSON.stringify(snap.val()));
+            AsyncStorage.setItem('postersArray', JSON.stringify(snap.val()));
         });
 
         firebase.database().ref('presentations').on('value', snap => {
             this.setState({
                 presentationsArray: snap.val()
             });
-            SecureStore.setItemAsync('presentationsArray', JSON.stringify(snap.val()));
+            AsyncStorage.setItem('presentationsArray', JSON.stringify(snap.val()));
         })
     };
 }
