@@ -9,13 +9,16 @@ import colors from "../colors";
 const TimetablePager = props => (
     <Subscribe to={[FirebaseContainer]}>
         {firebase => {
+            const actualDate = dateChecker();
+            console.log(actualDate);
             const pageViewsArray = prepareTimetablePager(firebase.state.weekDaysArray, props.navigation);
             return (
                 <View style={{flex: 1}}>
                     <IndicatorViewPager
+                        initialPage={actualDate.dayOfConference}
                         style={style.timetable}
                         // pagerStyle={{backgroundColor: colors.mintLight}}
-                        indicator={_renderDotIndicator(pageViewsArray.length)}
+                        indicator={_renderDotIndicator(7)}
                     >
                         {pageViewsArray}
                     </IndicatorViewPager>
@@ -32,6 +35,21 @@ const _renderDotIndicator = (pageCount) => {
         dotStyle={style.dot}
         selectedDotStyle={style.dotSelect}
         pageCount={pageCount}/>;
+};
+
+const dateChecker = () => {
+    const CONF_START = 18;
+    const today = new Date();
+    const dd = today.getDate();
+    const dayOfConference = dd - CONF_START;
+
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    let ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    const strTime = hours + ':' + "00" + ' ' + ampm;
+    return {dayOfConference: dayOfConference, actualTimeAMPM: strTime};
 };
 
 const style = StyleSheet.create({
