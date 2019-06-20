@@ -23,7 +23,7 @@ const cont_style = StyleSheet.create({
         color: '#4A4A4A',
         textAlignVertical: 'center',
         marginLeft: 10,
-        marginBottom:50,
+        marginBottom: 10,
     },
     photoContainer:{
             position: 'absolute',
