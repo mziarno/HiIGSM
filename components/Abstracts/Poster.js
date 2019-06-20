@@ -18,7 +18,7 @@ class Poster extends Component {
 
     render() {
         return (
-            <View style={{alignItems: 'center'}}>
+            <View>
                 <Modal animationType={"slide"}
                        visible={this.state.modalVisible}
                        transparent={false}
@@ -37,12 +37,12 @@ class Poster extends Component {
                             titleStyle={styles.textButton}
                             onPress={() => this.toggleModal(!this.state.modalVisible)}/>
                     </ScrollView>
-                    {/*</BlurView>*/}
                 </Modal>
                 <TouchableOpacity onPress={() => {
                     this.setModalVisible(true)
                 }}>
-                    <View>
+                    <View style={styles.singleNotification}>
+                        <View style={styles.lineStyle}/>
                         <Text style={styles.titleTextList}>{this.props.title}</Text>
                         <Text style={styles.subtitleText}>{this.props.author}</Text>
                         <Text style={styles.subtitleText}>{this.props.uni}</Text>
@@ -54,6 +54,32 @@ class Poster extends Component {
 }
 
 const styles = StyleSheet.create({
+    lineStyle: {
+        borderWidth: 1,
+        borderColor: colors.mintLigth,
+        marginTop: '2%',
+        borderRadius: 5,
+        width: '90%',
+        marginLeft: '5%',
+    },
+    singleNotification: {
+        backgroundColor: colors.white,
+        width: '90%',
+        marginLeft: '5%',
+        marginTop: '3%',
+        marginBottom: '3%',
+        // height: 60,
+        // height: 300,
+        // position: 'relative',
+        paddingTop: '3%',
+        paddingBottom: '3%',
+        borderRadius: 5,
+        shadowColor: colors.shadow,
+        shadowOffset: {width: 3, height: 3},
+        shadowOpacity: 1,
+        shadowRadius: 5,
+        elevation: 2,
+    },
     modal: {
         flex: 1,
         // alignItems: 'center',
@@ -93,6 +119,10 @@ const styles = StyleSheet.create({
         color: colors.mintDark,
         fontWeight: 'bold',
         textAlign: 'center',
+        borderRadius: 5,
+        marginTop: '3%',
+        marginLeft: '5%',
+        marginRight: '5%',
         marginBottom: '3%',
     },
     abstractText: {
@@ -100,11 +130,6 @@ const styles = StyleSheet.create({
         color: colors.grey,
         textAlign: 'center',
     },
-    lineStyle: {
-        borderBottomWidth: 1,
-        borderBottomColor: colors.red,
-        margin: '3%',
-    }
 });
 
 export default Poster

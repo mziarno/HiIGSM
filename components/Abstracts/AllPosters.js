@@ -10,16 +10,13 @@ const AllPosters = props => (
     <Subscribe to={[FirebaseContainer]}>
         {firebase => {
             return (
-                <View>
+                <ScrollView>
                     {firebase.state.postersArray.map((posters) => (
-
-                        <ScrollView style={styles.container}>
-                            <Poster title={posters.title} author={posters.author} uni={posters.university} abstract={posters.content}/>
-                        </ScrollView>
-
+                        <Poster title={posters.title} author={posters.author} uni={posters.university} abstract={posters.content}/>
                         )
                     )}
-                </View>
+
+                </ScrollView>
             )
         }}
     </Subscribe>
@@ -31,6 +28,21 @@ const styles = StyleSheet.create({
     screen:{
         height: '97%',
         marginTop: '3%'
+    },
+    singleNotification: {
+        backgroundColor: colors.white,
+        width: '90%',
+        marginLeft: '5%',
+        marginTop: '3%',
+        marginBottom: '3%',
+        paddingTop: '3%',
+        paddingBottom: '3%',
+        borderRadius: 5,
+        shadowColor: colors.shadow,
+        shadowOffset: {width: 3, height: 3},
+        shadowOpacity: 1,
+        shadowRadius: 5,
+        elevation: 2,
     },
     container: {
         backgroundColor: colors.white,
