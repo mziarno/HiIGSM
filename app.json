@@ -1,6 +1,6 @@
 {
   "expo": {
-    "sdkVersion": "32.0.0",
+    "sdkVersion": "33.0.0",
     "slug": "HiIGSM",
     "icon": "./assets/images/logo.png",
     "splash": {
@@ -9,7 +9,7 @@
       "backgroundColor": "#ffffff"
     },
     "name": "Hi!IGSM",
-    "version": "0.1.0",
+    "version": "0.1.2",
     "description": "",
     "assetBundlePatterns": [
       "**/*"
@@ -23,7 +23,8 @@
       "bundleIdentifier": "com.igsm.hiigsm"
     },
     "android": {
-      "package": "com.igsm.hiigsm"
+      "package": "com.igsm.hiigsm",
+      "versionCode": 2
     }
   }
 }

@@ -3,7 +3,7 @@ import {Image, StatusBar, Text, TouchableOpacity, View} from 'react-native';
 import * as OpenAnything from 'react-native-openanything';
 import styles from '../components/styles';
 import cont_styles from '../components/cont_style';
-import {WebBrowser} from "expo";
+import * as WebBrowser from 'expo-web-browser';
 
 class ContactScreen extends React.Component {
 

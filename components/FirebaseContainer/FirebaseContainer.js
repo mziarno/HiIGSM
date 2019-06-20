@@ -1,6 +1,6 @@
 import {Container} from "unstated";
 import * as firebase from "firebase";
-import {SecureStore} from 'expo';
+import * as SecureStore from "expo-secure-store";
 
 require("firebase/database");
 
@@ -27,11 +27,12 @@ export class FirebaseContainer extends Container {
         const messageData = await SecureStore.getItemAsync('message');
         const notificationsData = await SecureStore.getItemAsync('notificationsArray');
 
-        this.setState({
-            weekDaysArray: JSON.parse(weekDaysData),
-            message: JSON.parse(messageData),
-            notificationsArray: JSON.parse(notificationsData),
-        });
+        if(weekDaysData)
+            this.setState({
+                weekDaysArray: JSON.parse(weekDaysData),
+                message: JSON.parse(messageData),
+                notificationsArray: JSON.parse(notificationsData),
+            });
     };
 
     connectToFirebase = () => {
