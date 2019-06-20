@@ -8,6 +8,7 @@ const colors = {
     mintDark: '#1D3447',
     mintLight: '#97CFD6',
     shadow: '#bababa',
+    passedEvent: '#bababa',
     //97CFD6
     //1D3447
 };
