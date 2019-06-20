@@ -73,6 +73,13 @@ class ContactScreen extends React.Component {
                             <Text style={cont_styles.emailText}>Join our WhatsApp Group! </Text>
                         </TouchableOpacity>
                     </View>
+
+                    <View style={styles.mailContainer}>
+                        <TouchableOpacity onPress={() => WebBrowser.openBrowserAsync('https://1drv.ms/b/s!AkDtiNeUNXnNnzfsdyckio7cYWGj')}>
+                            <Text style={cont_styles.emailText}>Privacy policy</Text>
+                        </TouchableOpacity>
+                    </View>
+
                 </View>
             </View>
         )
