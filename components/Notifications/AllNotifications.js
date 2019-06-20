@@ -8,7 +8,7 @@ const AllNotifications = props => (
     <Subscribe to={[FirebaseContainer]}>
         {firebase => {
             return (
-                <ScrollView>
+                <ScrollView style={{paddingBottom: 30}}>
                     {
                         firebase.state.notificationsArray.slice(0).reverse().map((notification, index) => (
                             <View style={styles.singleNotification} key={index}>
