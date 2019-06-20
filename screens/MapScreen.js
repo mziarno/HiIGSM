@@ -1,14 +1,41 @@
 import React, {Component} from 'react';
 import {Image, StyleSheet, View,} from 'react-native';
 import MapView from 'react-native-maps';
+import colors from "../components/colors";
+import {Icon} from "react-native-elements";
 
 class MapScreen extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            latitude: null,
+            longitude: null,
+            error: null,
+        };
+    }
+
+    componentDidMount() {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                this.setState({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                    error: null,
+                });
+            },
+            (error) => this.setState({ error: error.message }),
+            { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+        );
+    }
 
     render() {
         return (
 
             <View style={styles.container}>
                 <MapView
+                    //customMapStyle={styles.mapStyle}
                     style={styles.map}
                     showsUserLocation={true}
                     showsMyLocationButton={true}
@@ -16,60 +43,212 @@ class MapScreen extends Component {
                     showsCompass={true}
                     showsPointsOfInterest={false}
                     initialRegion={{
-                        latitude: 52.232222,
-                        longitude: 21.008333,
-                        latitudeDelta: 0.0922,
-                        longitudeDelta: 0.0421
+                        latitude: this.state.latitude,
+                        longitude: this.state.longitude,
+                        latitudeDelta: 0.03,
+                        longitudeDelta: 0.02
                     }}>
                     <MapView.Marker
                         coordinate={{latitude: 52.220521, longitude: 21.010488}}
                         title="WUT Main Building">
-                        <Image
-                            source={require('../assets/icons/marker.png')}
-                            style={{width: 20, height: 30}}/>
+                        <Icon
+                            name='school'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
                     </MapView.Marker>
                     <MapView.Marker
                         coordinate={{latitude: 52.232353, longitude: 20.981048}}
                         title="Warsaw Rising Museum">
-                        <Image
-                            source={require('../assets/icons/marker.png')}
-                            style={{width: 20, height: 30}}/>
-                    </MapView.Marker>
-                    <MapView.Marker
-                        coordinate={{latitude: 52.232794, longitude: 21.018296}}
-                        title="Patchwork Warsaw Hostel">
-                        <Image
-                            source={require('../assets/icons/marker.png')}
-                            style={{width: 20, height: 30}}/>
+                        <Icon
+                            name='account-balance'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
                     </MapView.Marker>
                     <MapView.Marker
                         coordinate={{latitude: 52.241881,  longitude: 21.028727}}
                         title="Copernicus Science Centre">
-                        <Image
-                            source={require('../assets/icons/marker.png')}
-                            style={{width: 20, height: 30}}/>
+                        <Icon
+                            name='account-balance'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
                     </MapView.Marker>
                     <MapView.Marker
                         coordinate={{latitude: 52.218905, longitude: 21.009941}}
                         title="WUT Main Canteen">
-                        <Image
-                            source={require('../assets/icons/marker.png')}
-                            style={{width: 20, height: 30}}/>
+                        <Icon
+                            name='restaurant'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
                     </MapView.Marker>
                     <MapView.Marker
                         coordinate={{latitude: 52.217937, longitude: 21.010257}}
                         title="CZIiTT">
-                        <Image
-                            source={require('../assets/icons/marker.png')}
-                            style={{width: 20, height: 30}}/>
+                        <Icon
+                            name='school'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
                     </MapView.Marker>
                     <MapView.Marker
-                        coordinate={{latitude: 52.247259, longitude: 21.013367}}
-                        title="Sigismund's Column">
-                        <Image
-                            source={require('../assets/icons/marker.png')}
-                            style={{width: 20, height: 30}}/>
+                        coordinate={{latitude: 52.221455, longitude: 21.007233}}
+                        title="WUT Physics Building">
+                        <Icon
+                            name='local-bar'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
                     </MapView.Marker>
+                    <MapView.Marker
+                        coordinate={{latitude: 52.232404, longitude: 21.018069 }}
+                        title="Club Stereo">
+                        <Icon
+                            name='local-bar'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
+                    </MapView.Marker>
+                    <MapView.Marker
+                        coordinate={{latitude: 52.242152, longitude: 21.009646}}
+                        title="Teatro Cubano">
+                        <Icon
+                            name='local-bar'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
+                    </MapView.Marker>
+                    <MapView.Marker
+                        coordinate={{latitude: 52.202950, longitude: 21.001073}}
+                        title='"Mechanik" Club'>
+                        <Icon
+                            name='local-bar'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
+                    </MapView.Marker>
+                    <MapView.Marker
+                        coordinate={{latitude: 52.211594, longitude: 21.010220}}
+                        title='"Stodoła" Club'>
+                        <Icon
+                            name='local-bar'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
+                    </MapView.Marker>
+                    <MapView.Marker
+                        coordinate={{latitude: 51.938917, longitude: 20.912224}}
+                        title='Parking'>
+                        <Icon
+                            name='local-parking'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
+                    </MapView.Marker>
+                    <MapView.Marker
+                        coordinate={{latitude: 51.937335, longitude: 20.913795}}
+                        title='Bread baking'>
+                        <Icon
+                            name='local-dining'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
+                    </MapView.Marker>
+                    <MapView.Marker
+                        coordinate={{latitude: 51.937879, longitude: 20.913646}}
+                        title='Dances \ Flankyball'>
+                        <Icon
+                            name='accessibility'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
+                    </MapView.Marker>
+                    <MapView.Marker
+                        coordinate={{latitude: 51.937935, longitude: 20.912792}}
+                        title='Geo-Olympics II'>
+                        <Icon
+                            name='directions-run'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
+                    </MapView.Marker>
+                    <MapView.Marker
+                        coordinate={{latitude: 51.938194, longitude: 20.914402}}
+                        title='Geo-Olympics I'>
+                        <Icon
+                            name='directions-run'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
+                    </MapView.Marker>
+                    <MapView.Marker
+                        coordinate={{latitude: 51.938267, longitude: 20.913999}}
+                        title='Volleyball'>
+                        <Icon
+                            name='volleyball'
+                            type='material-community'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
+                    </MapView.Marker>
+                    <MapView.Marker
+                        coordinate={{latitude: 51.938495, longitude: 20.913130}}
+                        title='Football'>
+                        <Icon
+                            name='soccer'
+                            type='material-community'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
+                    </MapView.Marker>
+                    <MapView.Marker
+                        coordinate={{latitude: 52.232794, longitude: 21.018296}}
+                        title="Patchwork Warsaw Hostel">
+                        <Icon
+                            name='hotel'
+                            raised={true}
+                            size={15}
+                            color={colors.mintLight}
+                            reverse={true}
+                        />
+                    </MapView.Marker>
+
                 </MapView>
             </View>
         );
@@ -91,6 +270,9 @@ const styles = StyleSheet.create({
         left: 0,
         bottom: 0,
         right: 0,
+    },
+    mapStyle:{
+
     }
 });
 
