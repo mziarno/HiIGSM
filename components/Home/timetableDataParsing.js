@@ -30,10 +30,11 @@ export const prepareTimetablePager = (weekDaysArray, navigation) => {
                 <View style={style.heading}>
                     <Text style={style.textHeading}>{weekDay.dayName}</Text>
                 </View>
-                <View style={{height: '80%'}}>
+                <View style={{height: '85%'}}>
                     <ScrollView>
                         {activitiesArray}
                     </ScrollView>
+                    <View style={style.lineStyle}/>
                 </View>
             </View>
         )
@@ -95,5 +96,13 @@ const style = {
         right: 10,
         position: 'absolute',
         bottom: 10,
+    },
+    lineStyle: {
+        borderWidth: 0.5,
+        borderColor: colors.shadow,
+        // marginTop: '2%',
+        borderRadius: 5,
+        width: '90%',
+        marginLeft: '5%',
     },
 };
