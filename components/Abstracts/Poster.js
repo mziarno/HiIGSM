@@ -1,6 +1,7 @@
 import {Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {Component} from 'react';
 import {Button} from "react-native-elements/src/index";
+import { Icon } from 'react-native-elements'
 import colors from '../colors'
 
 class Poster extends Component {
@@ -22,30 +23,34 @@ class Poster extends Component {
                 <Modal animationType={"slide"}
                        visible={this.state.modalVisible}
                        transparent={false}
-                       onRequestClose={() => {
-                           console.log("Modal has been closed.")
-                       }}>
+                       onRequestClose={() => {this.toggleModal(!this.state.modalVisible)}}>
                     <ScrollView style={styles.modal} scrollEnabled={true}>
+                        <View style={styles.buttonHide}>
+                            <Button type='clear'
+                                    icon={
+                                    <Icon
+                                        name='arrow-left'
+                                        type='material-community'
+                                        size={30}
+                                        color={colors.mintLight}
+                                    />}
+
+                                    onPress={() => this.toggleModal(!this.state.modalVisible)}/>
+                        </View>
                         <Text style={styles.titleText}>{this.props.title}</Text>
                         <Text style={styles.subtitleText}>{this.props.author}</Text>
                         <Text style={styles.subtitleText}>{this.props.uni}</Text>
+                        <View style={styles.lineStyle}/>
                         <Text style={styles.abstractText}>{this.props.abstract}</Text>
-                        <Text style={styles.lineStyle}> </Text>
-                        <Button
-                            title="Hide Abstract"
-                            buttonStyle={styles.buttonHide}
-                            titleStyle={styles.textButton}
-                            onPress={() => this.toggleModal(!this.state.modalVisible)}/>
                     </ScrollView>
                 </Modal>
-                <TouchableOpacity onPress={() => {
-                    this.setModalVisible(true)
-                }}>
+                <TouchableOpacity
+                    onPress={() => {this.setModalVisible(true)}}>
                     <View style={styles.singleNotification}>
                         <View style={styles.lineStyle}/>
                         <Text style={styles.titleTextList}>{this.props.title}</Text>
-                        <Text style={styles.subtitleText}>{this.props.author}</Text>
-                        <Text style={styles.subtitleText}>{this.props.uni}</Text>
+                        <Text style={styles.subtitleTextList}>{this.props.author}</Text>
+                        <Text style={styles.subtitleTextList}>{this.props.uni}</Text>
                     </View>
                 </TouchableOpacity>
             </View>
@@ -89,10 +94,7 @@ const styles = StyleSheet.create({
         height: '80%'
     },
     buttonHide: {
-        backgroundColor: colors.mintLight,
-    },
-    textButton: {
-        color: colors.white,
+        alignItems: 'flex-start'
     },
     buttonShow: {
         backgroundColor: colors.mintLight,
@@ -104,14 +106,18 @@ const styles = StyleSheet.create({
         fontSize: 17,
         color: colors.mintDark,
         fontWeight: 'bold',
-        textAlign: 'center',
+        textAlign: 'left',
+        marginLeft: '5%',
+        marginRight: '5%',
         marginBottom: '3%',
     },
     subtitleText: {
         fontSize: 14,
         color: colors.mintLight,
         fontWeight: 'bold',
-        textAlign: 'center',
+        textAlign: 'left',
+        marginLeft: '5%',
+        marginRight: '5%',
         marginBottom: '3%'
     },
     titleTextList: {
@@ -125,10 +131,23 @@ const styles = StyleSheet.create({
         marginRight: '5%',
         marginBottom: '3%',
     },
+    subtitleTextList: {
+        fontSize: 14,
+        color: colors.mintLight,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginLeft: '5%',
+        marginRight: '5%',
+        marginBottom: '3%'
+    },
     abstractText: {
         fontSize: 14,
         color: colors.grey,
-        textAlign: 'center',
+        textAlign: 'left',
+        marginTop: '3%',
+        marginLeft: '5%',
+        marginRight: '5%',
+        marginBottom: '3%',
     },
 });
 

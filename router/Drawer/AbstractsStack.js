@@ -8,7 +8,7 @@ import AbstractsScreen from "../../screens/AbstractsScreen";
 * */
 
 const AbstractsStack = createStackNavigator({
-    Notifications: {
+    Abstracts: {
         screen: AbstractsScreen,
         navigationOptions: {
             title: 'Abstracts',
