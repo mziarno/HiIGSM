@@ -12,13 +12,13 @@ const HomeStack = createStackNavigator({
     Home: {
         screen: HomeScreen,
         navigationOptions: {
-            title: 'Hi IGSM!',
+            title: 'Hi IGSM 2019!',
         }
     },
     Activity: {
         screen: ActivityScreen,
         navigationOptions: {
-            title: 'Hi!IGSM!',
+            title: 'Activity',
         }
     },
 }, {

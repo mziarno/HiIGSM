@@ -2,16 +2,16 @@ import {Subscribe} from "unstated";
 import {FirebaseContainer} from "../FirebaseContainer/FirebaseContainer";
 import {ScrollView} from "react-native";
 import React from "react";
-import Poster from "./Poster"
+import Abstract from "../Abstracts/Abstract";
 
 
-const AllPosters = props => (
+const PresentationsList = props => (
     <Subscribe to={[FirebaseContainer]}>
         {firebase => {
             return (
                 <ScrollView>
-                    {firebase.state.postersArray.map((posters) => (
-                        <Poster title={posters.title} author={posters.author} uni={posters.university} abstract={posters.content}/>
+                    {firebase.state.presentationsArray.map((presentations) => (
+                            <Abstract title={presentations.title} author={presentations.author} uni={presentations.university} abstract={presentations.content}/>
                         )
                     )}
                 </ScrollView>
@@ -20,5 +20,5 @@ const AllPosters = props => (
     </Subscribe>
 );
 
-export default AllPosters;
+export default PresentationsList;
 

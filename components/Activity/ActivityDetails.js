@@ -15,7 +15,7 @@ const ActivityDetails = props => {
     if (activityDetails.place === "Patchwork Warsaw Hostel")
         image = require('../../assets/images/Places/patch.jpg');
     if (activityDetails.place === "Main Canteen")
-        image = require('../../assets/images/Places/lunch.jpg');
+        image = require('../../assets/images/Places/canteen.jpg');
     if (activityDetails.place === "CZIiTT")
         image = require('../../assets/images/Places/cziitt.jpg');
     if (activityDetails.place === "Club Stereo" || activityDetails.place === "Teatro Cubano" || activityDetails.place ==="Mechanik Club" ||activityDetails.place === "Dekada")
@@ -30,7 +30,7 @@ const ActivityDetails = props => {
         image = require('../../assets/images/Places/geoolympics.jpg');
     if  (activityDetails.name === "Sport Time/Folk Dance")
         image = require('../../assets/images/Places/sporTime_folkDance.jpg');
-    if  (activityDetails.name === "Poster Session")
+    if  (activityDetails.name === "Abstract Session")
         image = require('../../assets/images/Places/poster_session.jpg');
     if  (activityDetails.name === "Presentation Session")
         image = require('../../assets/images/Places/presentation_session.jpg');
