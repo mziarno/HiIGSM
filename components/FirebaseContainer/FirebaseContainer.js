@@ -15,31 +15,26 @@ export class FirebaseContainer extends Container {
 
     constructor() {
         super();
-        // this.checkFirebaseConnection();
         this.loadLocalDataCopy();
         this.connectToFirebase();
-
-        // this.storeData;
     }
 
     //============================================
     loadLocalDataCopy = async () => {
-        try {
             const weekDaysData = await AsyncStorage.getItem('weekDaysArray');
             const messageData = await AsyncStorage.getItem('message');
             const notificationsData = await AsyncStorage.getItem('notificationsArray');
+            const presentationsData = await AsyncStorage.getItem('presentationsArray');
+            const postersData = await AsyncStorage.getItem('postersArray');
 
             if(weekDaysData)
                 this.setState({
                     weekDaysArray: JSON.parse(weekDaysData),
                     message: JSON.parse(messageData),
                     notificationsArray: JSON.parse(notificationsData),
+                    presentationsArray: JSON.parse(presentationsData),
+                    postersArray: JSON.parse(postersData),
                 });
-            console.log("ASSSSSSSSSSSSSSSSSSSSSSSS")
-        } catch (e) {
-            console.log("BBZZZZZZZZZZZZZZZZZZZZZZZ");
-            console.log(e)
-        }
     };
 
     connectToFirebase = () => {

@@ -5,7 +5,7 @@ import colors from "../colors";
 const compareTimeAMPPM = (from, to) => {
     const from2 = new Date(Date.parse("2013/05/29 " + from));
     const to2 = new Date(Date.parse("2013/05/29 " + to));
-    return from2 > to2;
+    return from2 >= to2;
 };
 
 const prepareClickableActivities = (weekDay, navigation, dayNumber, actualDate) => {
