@@ -14,6 +14,7 @@ class MapScreen extends Component {
             latitude: null,
             longitude: null,
             error: null,
+            //cokolwiek: 1
         };
     }
 
@@ -31,9 +32,14 @@ class MapScreen extends Component {
         );
     }
 
+    // componentWillMount() {
+    //     //Hack to ensure the showsMyLocationButton is shown initially. Idea is to force a repaint
+    //     setTimeout(()=>{this.setState({cokolwiek: 0})}, 500);
+    // }
+
     render() {
         return (
-            <View style={styles.container}>
+            <View style={[styles.container]}>
                 {this.state.latitude ?
                     <MapView
                         customMapStyle={mapStyle}
@@ -49,17 +55,7 @@ class MapScreen extends Component {
                             latitudeDelta: 0.03,
                             longitudeDelta: 0.02
                         }}>
-                        <MapView.Marker
-                            coordinate={{latitude: 52.220521, longitude: 21.010488}}
-                            title="Main building of WUT">
-                            <Icon
-                                name='school'
-                                raised={true}
-                                size={15}
-                                color={colors.mintLight}
-                                reverse={true}
-                            />
-                        </MapView.Marker>
+
                         <MapView.Marker
                             coordinate={{latitude: 52.232353, longitude: 20.981048}}
                             title="Warsaw Rising Museum">
@@ -100,7 +96,7 @@ class MapScreen extends Component {
                                 name='school'
                                 raised={true}
                                 size={15}
-                                color={colors.mintLight}
+                                color={colors.mintDark}
                                 reverse={true}
                             />
                         </MapView.Marker>
@@ -123,6 +119,28 @@ class MapScreen extends Component {
                                 raised={true}
                                 size={15}
                                 color={colors.mintLight}
+                                reverse={true}
+                            />
+                        </MapView.Marker>
+                        <MapView.Marker
+                            coordinate={{latitude: 52.232794, longitude: 21.018296}}
+                            title="Patchwork Warsaw Hostel">
+                            <Icon
+                                name='hotel'
+                                raised={true}
+                                size={15}
+                                color={colors.mintDark}
+                                reverse={true}
+                            />
+                        </MapView.Marker>
+                        <MapView.Marker
+                            coordinate={{latitude: 52.220521, longitude: 21.010488}}
+                            title="Main building of WUT">
+                            <Icon
+                                name='school'
+                                raised={true}
+                                size={15}
+                                color={colors.mintDark}
                                 reverse={true}
                             />
                         </MapView.Marker>
@@ -238,17 +256,6 @@ class MapScreen extends Component {
                                 reverse={true}
                             />
                         </MapView.Marker>
-                        <MapView.Marker
-                            coordinate={{latitude: 52.232794, longitude: 21.018296}}
-                            title="Patchwork Warsaw Hostel">
-                            <Icon
-                                name='hotel'
-                                raised={true}
-                                size={15}
-                                color={colors.mintLight}
-                                reverse={true}
-                            />
-                        </MapView.Marker>
 
                     </MapView>
                     :
@@ -274,8 +281,7 @@ const styles = StyleSheet.create({
         left: 0,
         bottom: 0,
         right: 0,
-    },
-    mapStyle: {}
+    }
 });
 
 const mapStyle = [
@@ -288,16 +294,16 @@ const mapStyle = [
         ]
     },
     {
-        "featureType": "poi",
+        "featureType": "landscape.man_made",
+        "elementType": "labels.text",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
     {
         "featureType": "poi",
-        "elementType": "labels.text",
         "stylers": [
             {
                 "visibility": "off"
@@ -343,6 +349,15 @@ const mapStyle = [
     },
     {
         "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
         "elementType": "labels",
         "stylers": [
             {
@@ -351,11 +366,81 @@ const mapStyle = [
         ]
     },
     {
+        "featureType": "road",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
         "featureType": "water",
         "elementType": "labels.text",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     }
