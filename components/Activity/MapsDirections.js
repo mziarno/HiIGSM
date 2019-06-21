@@ -65,7 +65,7 @@ export default class MapsDirections extends Component {
                         size: 26,
                         name: 'location',
                         type: 'octicon',
-                        color: colors.mintLigth,
+                        color: colors.mintDark,
                     }}
                     title="Get Directions"
                     type="clear"
