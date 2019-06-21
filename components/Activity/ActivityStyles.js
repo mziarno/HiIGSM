@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
         borderWidth:1.5,
         marginLeft:'5%',
         marginRight: '5%',
+        paddingBottom: 3,
         borderStyle:'solid', //'dotted',
         borderColor:colors.mintDark,
     },
