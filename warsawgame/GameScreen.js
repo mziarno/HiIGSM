@@ -220,13 +220,11 @@ export default class GameScreen extends Component {
 
         //if answer is good
         const {goodAnswer} = this.state;
-        let answerWithoutSpaces = "";
-        console.log(goodAnswer)
 
+        let answerWithoutSpaces = "";
         if (goodAnswer)
             answerWithoutSpaces = goodAnswer.replace(/\s/g, "");
 
-        console.log(answerWithoutSpaces)
         const isEnabled = this.state.arr_answer.includes(answerWithoutSpaces);
         const U = (props) => <Text style={{ textDecorationLine: "underline" }}>{props.children}</Text>;
         const B = (props) => <Text style={{ fontFamily: "tw-cen-met-bold" }}>{props.children}</Text>;
