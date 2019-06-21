@@ -1,4 +1,4 @@
-import {Image, Text, View} from "react-native";
+import {Image, ScrollView, Text, View} from "react-native";
 import React from "react";
 import styles from "./ActivityStyles";
 import MapsDirections from "./MapsDirections"
@@ -61,31 +61,34 @@ const ActivityDetails = props => {
             </View>
 
             {/* Check on Map & Map Directions buttons*/}
-            <View style={styles.button}>
-                {activityDetails.latitude &&
-                <MapsDirections DestinationLatitude={activityDetails.latitude}
-                                DestinationLongitude={activityDetails.longitude} placeName={activityDetails.place}/>}
-                {activityDetails.latitude2 && (
-                    <>
-                        <View style={{
-                            borderWidth: 1,
-                            borderColor: colors.mintLigth,
-                            marginTop: '2%',
-                            borderRadius: 5,
-                            width: '90%',
-                            marginLeft: '5%'
-                        }}/>
-                        <MapsDirections DestinationLatitude={activityDetails.latitude2}
-                                        DestinationLongitude={activityDetails.longitude2}
-                                        placeName={activityDetails.place2}/>
-                    </>)}
-            </View>
+            <ScrollView>
+                <View style={styles.button}>
+                    {activityDetails.latitude &&
+                    <MapsDirections DestinationLatitude={activityDetails.latitude}
+                                    DestinationLongitude={activityDetails.longitude}
+                                    placeName={activityDetails.place}/>}
+                    {activityDetails.latitude2 && (
+                        <>
+                            <View style={{
+                                borderWidth: 1,
+                                borderColor: colors.mintDark,
+                                marginTop: '2%',
+                                borderRadius: 5,
+                                width: '90%',
+                                marginLeft: '5%'
+                            }}/>
+                            <MapsDirections DestinationLatitude={activityDetails.latitude2}
+                                            DestinationLongitude={activityDetails.longitude2}
+                                            placeName={activityDetails.place2}/>
+                        </>)}
+                </View>
 
-            {/*/Activities' Details*/}
-            <View style={styles.activitiesDetails}>
-                <Text key={activityDetails.activityDetails}
-                      style={styles.detailsText}> {activityDetails.activityDetails} </Text>
-            </View>
+                {/*/Activities' Details*/}
+                <View style={styles.activitiesDetails}>
+                    <Text key={activityDetails.activityDetails}
+                          style={styles.detailsText}> {activityDetails.activityDetails} </Text>
+                </View>
+            </ScrollView>
         </View>
     )
 };
