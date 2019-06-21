@@ -1,8 +1,9 @@
 import getDirections from 'react-native-google-maps-directions'
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 import React, { Component } from 'react';
 import {Button} from "react-native-elements";
 import colors from "../colors";
+import styles from "./ActivityStyles";
 
 
 export default class MapsDirections extends Component {
@@ -57,6 +58,7 @@ export default class MapsDirections extends Component {
     render() {
         return (
             <View >
+                {this.props.placeName && <Text style={styles.detailsText}>{this.props.placeName}</Text>}
                 <Button
                     onPress={this.handleGetDirections}
                     icon={{

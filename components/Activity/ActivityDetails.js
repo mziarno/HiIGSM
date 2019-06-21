@@ -1,7 +1,8 @@
-import {Text, View, Image} from "react-native";
+import {Image, Text, View} from "react-native";
 import React from "react";
 import styles from "./ActivityStyles";
 import MapsDirections from "./MapsDirections"
+import colors from "../colors";
 
 
 const ActivityDetails = props => {
@@ -9,8 +10,8 @@ const ActivityDetails = props => {
     const activityDetails = navigation.getParam('activity', 'Brak danych');
     console.log(activityDetails);
 
-    let image =  require('../../assets/images/Places/warsaw.jpg');
-    if  (activityDetails.place === "Kawęczyn")
+    let image = require('../../assets/images/Places/warsaw.jpg');
+    if (activityDetails.place === "Kawęczyn")
         image = require('../../assets/images/Places/kaweczyn.jpg');
     if (activityDetails.place === "Patchwork Warsaw Hostel")
         image = require('../../assets/images/Places/patch.jpg');
@@ -18,30 +19,28 @@ const ActivityDetails = props => {
         image = require('../../assets/images/Places/canteen.jpg');
     if (activityDetails.place === "CZIiTT")
         image = require('../../assets/images/Places/cziitt.jpg');
-    if (activityDetails.place === "Club Stereo" || activityDetails.place === "Teatro Cubano" || activityDetails.place ==="Mechanik Club" ||activityDetails.place === "Dekada")
+    if (activityDetails.place === "Club Stereo" || activityDetails.place === "Teatro Cubano" || activityDetails.place === "Mechanik Club" || activityDetails.place === "Dekada")
         image = require('../../assets/images/Places/party.jpg');
-    if (activityDetails.place === "Stodoła" )
+    if (activityDetails.place === "Stodoła")
         image = require('../../assets/images/Places/international_evening.jpg');
     if (activityDetails.place === "Building of Faculty of Physics WUT")
-         image = require('../../assets/images/Places/grand_ball.jpg');
-    if  (activityDetails.name === "City Game")
+        image = require('../../assets/images/Places/grand_ball.jpg');
+    if (activityDetails.name === "City Game")
         image = require('../../assets/images/Places/city_game.jpg');
-    if  (activityDetails.name === "Geo - Olympics/Flankyball")
+    if (activityDetails.name === "Geo - Olympics/Flankyball")
         image = require('../../assets/images/Places/geoolympics.jpg');
-    if  (activityDetails.name === "Sport Time/Folk Dance")
+    if (activityDetails.name === "Sport Time/Folk Dance")
         image = require('../../assets/images/Places/sporTime_folkDance.jpg');
-    if  (activityDetails.name === "Abstract Session")
+    if (activityDetails.name === "Abstract Session")
         image = require('../../assets/images/Places/poster_session.jpg');
-    if  (activityDetails.name === "Presentation Session")
+    if (activityDetails.name === "Presentation Session")
         image = require('../../assets/images/Places/presentation_session.jpg');
-    if  (activityDetails.name === "Workshops")
+    if (activityDetails.name === "Workshops")
         image = require('../../assets/images/Places/workshops.jpg');
-    if  (activityDetails.name === "Museum")
+    if (activityDetails.name === "Museum")
         image = require('../../assets/images/Places/museum.jpg');
-    if  (activityDetails.name === "Check-in" || activityDetails.name === "Check-out")
+    if (activityDetails.name === "Check-in" || activityDetails.name === "Check-out")
         image = require('../../assets/images/Places/check-in.jpg');
-
-
 
 
     return (
@@ -64,9 +63,22 @@ const ActivityDetails = props => {
             {/* Check on Map & Map Directions buttons*/}
             <View style={styles.button}>
                 {activityDetails.latitude &&
-                <MapsDirections DestinationLatitude={activityDetails.latitude} DestinationLongitude={activityDetails.longitude}/>}
-                {activityDetails.latitude2 &&
-                <MapsDirections DestinationLatitude={activityDetails.latitude2} DestinationLongitude={activityDetails.longitude2}/>}
+                <MapsDirections DestinationLatitude={activityDetails.latitude}
+                                DestinationLongitude={activityDetails.longitude} placeName={activityDetails.place}/>}
+                {activityDetails.latitude2 && (
+                    <>
+                        <View style={{
+                            borderWidth: 1,
+                            borderColor: colors.mintLigth,
+                            marginTop: '2%',
+                            borderRadius: 5,
+                            width: '90%',
+                            marginLeft: '5%'
+                        }}/>
+                        <MapsDirections DestinationLatitude={activityDetails.latitude2}
+                                        DestinationLongitude={activityDetails.longitude2}
+                                        placeName={activityDetails.place2}/>
+                    </>)}
             </View>
 
             {/*/Activities' Details*/}
