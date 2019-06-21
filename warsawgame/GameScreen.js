@@ -221,7 +221,8 @@ export default class GameScreen extends Component {
         //if answer is good
         const {goodAnswer} = this.state;
         const isEnabled = this.state.arr_answer.includes(goodAnswer || "a")
-
+        const U = (props) => <Text style={{ textDecorationLine: "underline" }}>{props.children}</Text>
+        const B = (props) => <Text style={{ fontFamily: "tw-cen-met-bold" }}>{props.children}</Text>
 
         //do animacji
         var mycolor = this.state.x.interpolate({
@@ -273,7 +274,7 @@ export default class GameScreen extends Component {
 
                                 </View>
                                 <Text style={styles.text}>
-                                    {this.state.howtoget}
+                                    <B>{this.state.howtoget}</B>
                                     {this.state.desc}
                                 </Text>
 
@@ -294,7 +295,7 @@ export default class GameScreen extends Component {
 
                                 {this.state.fontLoaded ? (
                                     <Text style={styles.boldText}>
-                                        Question:{"\n"}
+                                        {"\n"}<U>Question:</U>{"\n"}
                                         {this.state.question}{"\n"}
                                     </Text>
                                 ) : null}

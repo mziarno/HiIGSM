@@ -96,7 +96,7 @@ export default class Scenario extends Component {
                                     6. At least one of the players must have an application running all the time,
                                     because turning the application off will <B>result in the loss of progress</B> made
                                     so far.{"\n"}{"\n"}
-                                    7. The maximum number of participants <B>in one team is 8.</B>{"\n"}{"\n"}
+                                    7. The maximum number of participants <B>in one team is 10.</B>{"\n"}{"\n"}
                                     8. In order to use the application you will need to <B>enable camera and location
                                     service.</B>{"\n"}{"\n"}
                                     9. When it becomes necessary to scan the <B>qr code</B>, the icon that launches it
@@ -118,16 +118,18 @@ export default class Scenario extends Component {
 
                                     Durnig the game beyond the usual tasks you will also have to find <B><U>geocaches
                                     which are
-                                    hidden small boxes containing things necessary to resolve some tasks.</U></B> All
+                                    hidden small boxes containing things necessary to resolve some tasks and also special keys.</U></B> All
                                     the
                                     geocaches that you will have to find, have been created and hidden by the creators
                                     of
                                     today's game.{"\n"}{"\n"}
 
-                                    1. After finding a geocache and seeing what is inside, <B><U>remember to put the
+                                    1. After finding a geocache and scaning QR code, <B><U>remember to put the
                                     geocache
                                     in the same place where you found it.</U></B> {"\n"}{"\n"}
-                                    2. <B><U>Do not take with you a geocache or anything you find inside. So that the
+                                    2.  After finding a key please note number which is place on it or just take a
+                                    photo and <U><B>put it back where you found it.</B></U>{"\n"}{"\n"}
+                                    3. <B><U>Do not take with you key and geocache or anything you find inside. So that the
                                     other
                                     teams can also participate in the game.</U></B>{"\n"}{"\n"}
 

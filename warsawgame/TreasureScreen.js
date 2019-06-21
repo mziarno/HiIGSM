@@ -119,7 +119,7 @@ export default class TreasureScreen extends Component {
 
                         {/* Lokalizacja skarbu */}
                         <MapView.Marker
-                            coordinate={{latitude: 52.248006, longitude: 21.011707}}
+                            coordinate={{latitude: 52.247909, longitude: 21.011956}}
                             title="Treasure chest"
                             description="Find it somewhere here!"
                             //image={require('./../assets/treasure.png')}
@@ -183,7 +183,7 @@ const styles = ({
         alignItems: 'center',
         justifyContent: 'center',
         //marginBottom: 40,
-        top: height * 0.85
+        top: height * 0.78
     },
 
     textButton: {
