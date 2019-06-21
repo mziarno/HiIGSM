@@ -16,12 +16,12 @@ const HomeStack = createStackNavigator({
         navigationOptions: ({navigation}) => ({
             title: 'Hi IGSM 2019!',
             headerLeft:
-        <Icon
-            name='menu'
-            color={colors.white}
-            containerStyle={{marginLeft: 15}}
-            underlayColor={colors.mintDark}
-            onPress={() => navigation.openDrawer()}/>
+                <Icon
+                    name='menu'
+                    color={colors.white}
+                    containerStyle={{marginLeft: 15}}
+                    underlayColor={colors.mintDark}
+                    onPress={() => navigation.openDrawer()}/>
         })
     },
     Activity: {
