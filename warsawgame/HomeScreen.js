@@ -40,11 +40,13 @@ class HomeScreen extends React.Component {
         const {username, password} = this.state;
         const isEnabled =
             username.length > 0 &&
-            (password == "syrenka9102" ||
-                password == "bazyliszek345" ||
-                password == "warssawa654" ||
-                password == "51" ||
-                password == "654123");
+            (password === "syrenka9102" ||
+                password === "bazyliszek345" ||
+                password === "warszawa654" ||
+                password === "vodka" ||
+                password === "geoida" ||
+                password === "mermaid" ||
+                password === "654123");
 
         return (
             <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
