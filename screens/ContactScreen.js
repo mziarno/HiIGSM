@@ -50,7 +50,7 @@ class ContactScreen extends React.Component {
                             <Text style={cont_styles.numberText}> 112 </Text>
                             <View style={cont_styles.photoContainer}>
                                 <Image
-                                    source={require('../assets/images/emergency.jpg')}
+                                    source={require('../assets/images/ambulance-01.jpg')}
                                     style={{width: 60, height: 60, borderRadius: 30}}/>
                             </View>
                         </TouchableOpacity>
