@@ -220,9 +220,16 @@ export default class GameScreen extends Component {
 
         //if answer is good
         const {goodAnswer} = this.state;
-        const isEnabled = this.state.arr_answer.includes(goodAnswer || "a")
-        const U = (props) => <Text style={{ textDecorationLine: "underline" }}>{props.children}</Text>
-        const B = (props) => <Text style={{ fontFamily: "tw-cen-met-bold" }}>{props.children}</Text>
+        let answerWithoutSpaces = "";
+        console.log(goodAnswer)
+
+        if (goodAnswer)
+            answerWithoutSpaces = goodAnswer.replace(/\s/g, "");
+
+        console.log(answerWithoutSpaces)
+        const isEnabled = this.state.arr_answer.includes(answerWithoutSpaces);
+        const U = (props) => <Text style={{ textDecorationLine: "underline" }}>{props.children}</Text>;
+        const B = (props) => <Text style={{ fontFamily: "tw-cen-met-bold" }}>{props.children}</Text>;
 
         //do animacji
         var mycolor = this.state.x.interpolate({
@@ -392,7 +399,7 @@ const styles = ({
         flexDirection: "row",
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 10,
+        // marginTop: 10,
         width: width,
         backgroundColor: '#57A7B3'
     },
