@@ -23,3 +23,17 @@ export const headerNavigationOptions = ({navigation}) => ({
             underlayColor={colors.mintDark}
             onPress={() => navigation.openDrawer()}/>
 });
+
+export const headerNavigationOptionsWithBackButton = ({navigation}) => ({
+    headerStyle: {backgroundColor: colors.mintDark},
+    headerTintColor: colors.white,
+    margin: '20',
+    headerTitleStyle: {fontWeight: 'bold'},
+    title: 'akuku',
+    headerRight:
+        <Icon name='phone'
+              color={colors.white}
+              containerStyle={{marginRight: 15}}
+              underlayColor={colors.mintDark}
+              onPress={() => navigation.navigate('Contact')} title='contact'/>
+});
