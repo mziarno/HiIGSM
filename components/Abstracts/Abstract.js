@@ -24,7 +24,7 @@ class Abstract extends Component {
                        visible={this.state.modalVisible}
                        transparent={false}
                        onRequestClose={() => {this.toggleModal(!this.state.modalVisible)}}>
-                    <ScrollView style={styles.modal} scrollEnabled={true}>
+                    <View style={styles.modal} scrollEnabled={true}>
                         <View style={styles.buttonHide}>
                             <Button type='clear'
                                     icon={
@@ -41,8 +41,10 @@ class Abstract extends Component {
                         <Text style={styles.subtitleText}>{this.props.author}</Text>
                         <Text style={styles.subtitleText}>{this.props.uni}</Text>
                         <View style={styles.lineStyle}/>
-                        <Text style={styles.abstractText}>{this.props.abstract}</Text>
-                    </ScrollView>
+                        <ScrollView>
+                            <Text style={styles.abstractText}>{this.props.abstract}</Text>
+                        </ScrollView>
+                    </View>
                 </Modal>
                 <TouchableOpacity
                     onPress={() => {this.setModalVisible(true)}}>
@@ -61,7 +63,7 @@ class Abstract extends Component {
 const styles = StyleSheet.create({
     lineStyle: {
         borderWidth: 1,
-        borderColor: colors.mintLigth,
+        borderColor: colors.mintDark,
         marginTop: '2%',
         borderRadius: 5,
         width: '90%',
@@ -72,7 +74,7 @@ const styles = StyleSheet.create({
         width: '90%',
         marginLeft: '5%',
         marginTop: '3%',
-        marginBottom: '3%',
+        marginBottom: '5%',
         // height: 60,
         // height: 300,
         // position: 'relative',
@@ -89,9 +91,8 @@ const styles = StyleSheet.create({
         flex: 1,
         // alignItems: 'center',
         backgroundColor: colors.white,
-        padding: 10,
         borderRadius: 5,
-        height: '80%'
+        height: '80%',
     },
     buttonHide: {
         alignItems: 'flex-start'
