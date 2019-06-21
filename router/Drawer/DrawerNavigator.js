@@ -9,6 +9,7 @@ import MapStack from "./MapStack";
 import NotificationsStack from "./NotificationsStack";
 import PostersStack from "./PostersStack";
 import PresentationStack from "./PresentationStack";
+import GameStack from "./GameStack";
 
 
 /*
@@ -54,13 +55,20 @@ const DrawerNavigator = createDrawerNavigator({
                 drawerIcon: <Icon name='presentation' type='material-community'/>
             }
         },
-        //Dotąd jest legitnie
 
         Posters: {
             screen: PostersStack,
             navigationOptions: {
                 drawerLabel: 'Posters',
                 drawerIcon: <Icon name='file' type='octicon'/>
+            }
+        },
+
+        CityGame: {
+            screen: GameStack,
+            navigationOptions: {
+                drawerLabel: 'City Game',
+                drawerIcon: <Icon name='videogame-asset' type='material'/>
             }
         },
 
